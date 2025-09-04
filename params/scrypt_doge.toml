@@ -1,0 +1,11 @@
+[memory]
+tile_bytes   = "auto"   # = 128 * N * r
+banks        = 32       # shared memory banks
+
+[salsa]
+unroll       = "auto"   # 2,4,8,16
+vector_width = "auto"   # 2,4,8 (float4/int4)
+
+[launch]
+grid_x       = "auto"
+threads_y    = "auto"

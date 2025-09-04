@@ -1,0 +1,491 @@
+// scrypt_core.cl.jinja
+//
+// OpenCL implementation of the Scrypt algorithm, designed as a Jinja2 template.
+// This is a scaffold and will require further implementation and debugging.
+
+// --- Jinja2 Templated Parameters ---
+#define SALSA_UNROLL {{ unroll | default(4) }}
+#define VECTOR_WIDTH {{ vector_width | default(4) }}
+
+// Scrypt constants
+__constant const uint SCRYPT_N = 1024;
+__constant const uint SCRYPT_r = 1;
+__constant const uint SCRYPT_p = 1;
+
+// SHA256 constants
+#define SHA256_K00 0x428a2f98U
+#define SHA256_K01 0x71374491U
+#define SHA256_K02 0xb5c0fbcfU
+#define SHA256_K03 0xe9b5dba5U
+#define SHA256_K04 0x3956c25bU
+#define SHA256_K05 0x59f111f1U
+#define SHA256_K06 0x923f82a4U
+#define SHA256_K07 0xab1c5edbU
+#define SHA256_K08 0xd807aa98U
+#define SHA256_K09 0x12835b01U
+#define SHA256_K10 0x243185beU
+#define SHA256_K11 0x550c7dc3U
+#define SHA256_K12 0x72be5d74U
+#define SHA256_K13 0x80deb1fEU
+#define SHA256_K14 0x9bdc06a7U
+#define SHA256_K15 0xc19bf174U
+#define SHA256_K16 0xe49b69c1U
+#define SHA256_K17 0xefbe4786U
+#define SHA256_K18 0x0fc19dc6U
+#define SHA256_K19 0x240ca1ccU
+#define SHA256_K20 0x2de92c6fU
+#define SHA256_K21 0x4a7484aaU
+#define SHA256_K22 0x5cb0a9dcU
+#define SHA256_K23 0x76f988daU
+#define SHA256_K24 0x983e5152U
+#define SHA256_K25 0xa831c66dU
+#define SHA256_K26 0xb00327c8U
+#define SHA256_K27 0xbf597fc7U
+#define SHA256_K28 0xc6e00bf3U
+#define SHA256_K29 0xd5a79147U
+#define SHA256_K30 0x06ca6351U
+#define SHA256_K31 0x14292967U
+#define SHA256_K32 0x27b70a85U
+#define SHA256_K33 0x2e1b2138U
+#define SHA256_K34 0x4d2c6dfcU
+#define SHA256_K35 0x53380d13U
+#define SHA256_K36 0x650a7354U
+#define SHA256_K37 0x766a0abbU
+#define SHA256_K38 0x81c2c92eU
+#define SHA256_K39 0x92722c85U
+#define SHA256_K40 0xa2bfe8a1U
+#define SHA256_K41 0xa81a664bU
+#define SHA256_K42 0xc24b8b70U
+#define SHA256_K43 0xc76c51a3U
+#define SHA256_K44 0xd192e819U
+#define SHA256_K45 0xd6990624U
+#define SHA256_K46 0xf40e3585U
+#define SHA256_K47 0x106aa070U
+#define SHA256_K48 0x19a4c116U
+#define SHA256_K49 0x1e376c08U
+#define SHA256_K50 0x2748774cU
+#define SHA256_K51 0x34b0bcb5U
+#define SHA256_K52 0x391c0cb3U
+#define SHA256_K53 0x4ed8aa4aU
+#define SHA256_K54 0x5b9cca4fU
+#define SHA256_K55 0x682e6ff3U
+#define SHA256_K56 0x748f82eeU
+#define SHA256_K57 0x78a5636fU
+#define SHA256_K58 0x84c87814U
+#define SHA256_K59 0x8cc70208U
+#define SHA256_K60 0x90befffaU
+#define SHA256_K61 0xa4506cebU
+#define SHA256_K62 0xbef9a3f7U
+#define SHA256_K63 0xc67178f2U
+
+// SHA256 context structure
+typedef struct {
+    uint state[8];
+    uint count[2];
+    uchar buffer[64];
+} SHA256_CTX;
+
+// SHA256 helper functions
+inline uint Ch(uint x, uint y, uint z) { return (x & y) ^ (~x & z); }
+inline uint Maj(uint x, uint y, uint z) { return (x & y) ^ (x & z) ^ (y & z); }
+inline uint Sigma0(uint x) { return rotate(x, (uint)30) ^ rotate(x, (uint)19) ^ rotate(x, (uint)10); }
+inline uint Sigma1(uint x) { return rotate(x, (uint)26) ^ rotate(x, (uint)21) ^ rotate(x, (uint)7); }
+inline uint sigma0(uint x) { return rotate(x, (uint)25) ^ rotate(x, (uint)14) ^ rotate(x, (uint)3); }
+inline uint sigma1(uint x) { return rotate(x, (uint)15) ^ rotate(x, (uint)13) ^ rotate(x, (uint)10); }
+
+// Overloaded sha256_transform for __constant memory
+void sha256_transform_constant(uint state[8], __constant const uchar block[64]) {
+    uint a = state[0], b = state[1], c = state[2], d = state[3];
+    uint e = state[4], f = state[5], g = state[6], h = state[7];
+    uint W[64];
+    uint T1, T2;
+
+    for (int i = 0; i < 16; i++) {
+        W[i] = (block[i * 4 + 0] << 24) | (block[i * 4 + 1] << 16) | (block[i * 4 + 2] << 8) | (block[i * 4 + 3]);
+    }
+
+    for (int i = 16; i < 64; i++) {
+        W[i] = sigma1(W[i - 2]) + W[i - 7] + sigma0(W[i - 15]) + W[i - 16];
+    }
+
+    // Main loop
+    #pragma unroll
+    for (int i = 0; i < 64; i++) {
+        uint K;
+        switch (i) {
+            case 0: K = SHA256_K00; break; case 1: K = SHA256_K01; break; case 2: K = SHA256_K02; break; case 3: K = SHA256_K03; break;
+            case 4: K = SHA256_K04; break; case 5: K = SHA256_K05; break; case 6: K = SHA256_K06; break; case 7: K = SHA256_K07; break;
+            case 8: K = SHA256_K08; break; case 9: K = SHA256_K09; break; case 10: K = SHA256_K10; break; case 11: K = SHA256_K11; break;
+            case 12: K = SHA256_K12; break; case 13: K = SHA256_K13; break; case 14: K = SHA256_K14; break; case 15: K = SHA256_K15; break;
+            case 16: K = SHA256_K16; break; case 17: K = SHA256_K17; break; case 18: K = SHA256_K18; break; case 19: K = SHA256_K19; break;
+            case 20: K = SHA256_K20; break; case 21: K = SHA256_K21; break; case 22: K = SHA256_K22; break; case 23: K = SHA256_K23; break;
+            case 24: K = SHA256_K24; break; case 25: K = SHA256_K25; break; case 26: K = SHA256_K26; break; case 27: K = SHA256_K27; break;
+            case 28: K = SHA256_K28; break; case 29: K = SHA256_K29; break; case 30: K = SHA256_K30; break; case 31: K = SHA256_K31; break;
+            case 32: K = SHA256_K32; break; case 33: K = SHA256_K33; break; case 34: K = SHA256_K34; break; case 35: K = SHA256_K35; break;
+            case 36: K = SHA256_K36; break; case 37: K = SHA256_K37; break; case 38: K = SHA256_K38; break; case 39: K = SHA256_K39; break;
+            case 40: K = SHA256_K40; break; case 41: K = SHA256_K41; break; case 42: K = SHA256_K42; break; case 43: K = SHA256_K43; break;
+            case 44: K = SHA256_K44; break; case 45: K = SHA256_K45; break; case 46: K = SHA256_K46; break; case 47: K = SHA256_K47; break;
+            case 48: K = SHA256_K48; break; case 49: K = SHA256_K49; break; case 50: K = SHA256_K50; break; case 51: K = SHA256_K51; break;
+            case 52: K = SHA256_K52; break; case 53: K = SHA256_K53; break; case 54: K = SHA256_K54; break; case 55: K = SHA256_K55; break;
+            case 56: K = SHA256_K56; break; case 57: K = SHA256_K57; break; case 58: K = SHA256_K58; break; case 59: K = SHA256_K59; break;
+            case 60: K = SHA256_K60; break; case 61: K = SHA256_K61; break; case 62: K = SHA256_K62; break; case 63: K = SHA256_K63; break;
+        }
+        T1 = h + Sigma1(e) + Ch(e, f, g) + K + W[i];
+        T2 = Sigma0(a) + Maj(a, b, c);
+        h = g; g = f; f = e; e = d + T1;
+        d = c; c = b; b = a; a = T1 + T2;
+    }
+
+    state[0] += a; state[1] += b; state[2] += c; state[3] += d;
+    state[4] += e; state[5] += f; state[6] += g; state[7] += h;
+}
+
+// Overloaded sha256_transform for __private memory
+void sha256_transform_private(uint state[8], __private const uchar block[64]) {
+    uint a = state[0], b = state[1], c = state[2], d = state[3];
+    uint e = state[4], f = state[5], g = state[6], h = state[7];
+    uint W[64];
+    uint T1, T2;
+
+    for (int i = 0; i < 16; i++) {
+        W[i] = (block[i * 4 + 0] << 24) | (block[i * 4 + 1] << 16) | (block[i * 4 + 2] << 8) | (block[i * 4 + 3]);
+    }
+
+    for (int i = 16; i < 64; i++) {
+        W[i] = sigma1(W[i - 2]) + W[i - 7] + sigma0(W[i - 15]) + W[i - 16];
+    }
+
+    // Main loop
+    #pragma unroll
+    for (int i = 0; i < 64; i++) {
+        uint K;
+        switch (i) {
+            case 0: K = SHA256_K00; break; case 1: K = SHA256_K01; break; case 2: K = SHA256_K02; break; case 3: K = SHA256_K03; break;
+            case 4: K = SHA256_K04; break; case 5: K = SHA256_K05; break; case 6: K = SHA256_K06; break; case 7: K = SHA256_K07; break;
+            case 8: K = SHA256_K08; break; case 9: K = SHA256_K09; break; case 10: K = SHA256_K10; break; case 11: K = SHA256_K11; break;
+            case 12: K = SHA256_K12; break; case 13: K = SHA256_K13; break; case 14: K = SHA256_K14; break; case 15: K = SHA256_K15; break;
+            case 16: K = SHA256_K16; break; case 17: K = SHA256_K17; break; case 18: K = SHA256_K18; break; case 19: K = SHA256_K19; break;
+            case 20: K = SHA256_K20; break; case 21: K = SHA256_K21; break; case 22: K = SHA256_K22; break; case 23: K = SHA256_K23; break;
+            case 24: K = SHA256_K24; break; case 25: K = SHA256_K25; break; case 26: K = SHA256_K26; break; case 27: K = SHA256_K27; break;
+            case 28: K = SHA256_K28; break; case 29: K = SHA256_K29; break; case 30: K = SHA256_K30; break; case 31: K = SHA256_K31; break;
+            case 32: K = SHA256_K32; break; case 33: K = SHA256_K33; break; case 34: K = SHA256_K34; break; case 35: K = SHA256_K35; break;
+            case 36: K = SHA256_K36; break; case 37: K = SHA256_K37; break; case 38: K = SHA256_K38; break; case 39: K = SHA256_K39; break;
+            case 40: K = SHA256_K40; break; case 41: K = SHA256_K41; break; case 42: K = SHA256_K42; break; case 43: K = SHA256_K43; break;
+            case 44: K = SHA256_K44; break; case 45: K = SHA256_K45; break; case 46: K = SHA256_K46; break; case 47: K = SHA256_K47; break;
+            case 48: K = SHA256_K48; break; case 49: K = SHA256_K49; break; case 50: K = SHA256_K50; break; case 51: K = SHA256_K51; break;
+            case 52: K = SHA256_K52; break; case 53: K = SHA256_K53; break; case 54: K = SHA256_K54; break; case 55: K = SHA256_K55; break;
+            case 56: K = SHA256_K56; break; case 57: K = SHA256_K57; break; case 58: K = SHA256_K58; break; case 59: K = SHA256_K59; break;
+            case 60: K = SHA256_K60; break; case 61: K = SHA256_K61; break; case 62: K = SHA256_K62; break; case 63: K = SHA256_K63; break;
+        }
+        T1 = h + Sigma1(e) + Ch(e, f, g) + K + W[i];
+        T2 = Sigma0(a) + Maj(a, b, c);
+        h = g; g = f; f = e; e = d + T1;
+        d = c; c = b; b = a; a = T1 + T2;
+    }
+
+    state[0] += a; state[1] += b; state[2] += c; state[3] += d;
+    state[4] += e; state[5] += f; state[6] += g; state[7] += h;
+}
+
+void sha256_init(SHA256_CTX *ctx) {
+    ctx->state[0] = 0x6a09e667U;
+    ctx->state[1] = 0xbb67ae85U;
+    ctx->state[2] = 0x3c6ef372U;
+    ctx->state[3] = 0xa54ff53aU;
+    ctx->state[4] = 0x510e527fU;
+    ctx->state[5] = 0x9b05688cU;
+    ctx->state[6] = 0x1f83d9abU;
+    ctx->state[7] = 0x5be0cd19U;
+    ctx->count[0] = 0;
+    ctx->count[1] = 0;
+}
+
+void sha256_update(SHA256_CTX *ctx, __constant const uchar *data, uint len) {
+    uint i, j;
+
+    j = ctx->count[0];
+    if ((ctx->count[0] += len << 3) < j)
+        ctx->count[1]++;
+    ctx->count[1] += (len >> 29);
+    j = (j >> 3) & 63;
+    if ((j + len) > 63) {
+        for (int k = 0; k < (64 - j); k++) ctx->buffer[j + k] = data[k];
+        sha256_transform_private(ctx->state, ctx->buffer);
+        for (i = (64 - j); i + 63 < len; i += 64)
+            sha256_transform_constant(ctx->state, &data[i]);
+        j = 0;
+    } else {
+        i = 0;
+    }
+    for (int k = 0; k < (len - i); k++) ctx->buffer[j + k] = data[i + k];
+}
+
+void sha256_update_private(SHA256_CTX *ctx, __private const uchar *data, uint len) {
+    uint i, j;
+
+    j = ctx->count[0];
+    if ((ctx->count[0] += len << 3) < j)
+        ctx->count[1]++;
+    ctx->count[1] += (len >> 29);
+    j = (j >> 3) & 63;
+    if ((j + len) > 63) {
+        for (int k = 0; k < (64 - j); k++) ctx->buffer[j + k] = data[k];
+        sha256_transform_private(ctx->state, ctx->buffer);
+        for (i = (64 - j); i + 63 < len; i += 64)
+            sha256_transform_private(ctx->state, &data[i]);
+        j = 0;
+    } else {
+        i = 0;
+    }
+    for (int k = 0; k < (len - i); k++) ctx->buffer[j + k] = data[i + k];
+}
+
+void sha256_final(SHA256_CTX *ctx, uchar hash[32]) {
+    uint i;
+    uint last_block_len = (ctx->count[0] >> 3) & 63;
+    uint padding_len = (last_block_len < 56) ? (56 - last_block_len) : (120 - last_block_len);
+
+    sha256_update(ctx, (__constant const uchar*)"\x80", 1);
+    sha256_update(ctx, (__constant const uchar*)"\x00\x00\x00\x00\x00\x00\x00", padding_len - 1);
+    sha256_update_private(ctx, (__private const uchar*)&ctx->count[1], 4);
+    sha256_update_private(ctx, (__private const uchar*)&ctx->count[0], 4);
+
+    for (i = 0; i < 8; i++) {
+        hash[i * 4 + 0] = (ctx->state[i] >> 24) & 0xFF;
+        hash[i * 4 + 1] = (ctx->state[i] >> 16) & 0xFF;
+        hash[i * 4 + 2] = (ctx->state[i] >> 8) & 0xFF;
+        hash[i * 4 + 3] = (ctx->state[i] >> 0) & 0xFF;
+    }
+}
+
+// Helper for HMAC-SHA256
+void hmac_sha256(__private uchar *key, uint key_len, __private const uchar *data, uint data_len, uchar *output) {
+    SHA256_CTX ctx;
+    uchar k_ipad[64];
+    uchar k_opad[64];
+    uchar tk[32];
+    uint i;
+
+    if (key_len > 64) {
+        sha256_init(&ctx);
+        sha256_update_private(&ctx, key, key_len);
+        sha256_final(&ctx, tk);
+        for (int k = 0; k < 32; k++) key[k] = tk[k]; // Copy tk to key
+        key_len = 32;
+    }
+
+    for (i = 0; i < key_len; i++) {
+        k_ipad[i] = key[i] ^ 0x36;
+        k_opad[i] = key[i] ^ 0x5c;
+    }
+    for (; i < 64; i++) {
+        k_ipad[i] = 0x36;
+        k_opad[i] = 0x5c;
+    }
+
+    sha256_init(&ctx);
+    sha256_update_private(&ctx, k_ipad, 64);
+    sha256_update_private(&ctx, data, data_len);
+    sha256_final(&ctx, output);
+
+    sha256_init(&ctx);
+    sha256_update_private(&ctx, k_opad, 64);
+    sha256_update_private(&ctx, output, 32);
+    sha256_final(&ctx, output);
+}
+
+// PBKDF2-HMAC-SHA256
+void pbkdf2_hmac_sha256(__private const uchar *password, uint password_len,
+                        __private const uchar *salt, uint salt_len,
+                        uint iterations, uint dkLen, __private uchar *derived_key) {
+    uchar T[32]; // HMAC-SHA256 output is 32 bytes
+    uint i;
+
+    // Concatenate salt and iteration count (1)
+    // Max salt_len is 128, so 128 + 4 = 132
+    uchar salt_with_iter[132];
+    for (i = 0; i < salt_len; i++) {
+        salt_with_iter[i] = salt[i];
+    }
+    // Convert iteration count (1) to big-endian 4-byte integer
+    salt_with_iter[salt_len + 0] = (uchar)((1 >> 24) & 0xFF);
+    salt_with_iter[salt_len + 1] = (uchar)((1 >> 16) & 0xFF);
+    salt_with_iter[salt_len + 2] = (uchar)((1 >> 8) & 0xFF);
+    salt_with_iter[salt_len + 3] = (uchar)(1 & 0xFF);
+
+    hmac_sha256((__private uchar*)password, password_len,
+                (__private const uchar*)salt_with_iter, salt_len + 4, T);
+
+    // Copy the result to derived_key, truncating if necessary
+    for (i = 0; i < dkLen; i++) {
+        derived_key[i] = T[i];
+    }
+}
+
+// --- Device Functions ---
+
+// Rotate left
+inline uint R(uint a, int b) {
+    return rotate(a, (uint)b);
+}
+
+// Salsa20/8 core function
+void salsa20_8_core(__private uint state[16]) {
+    uint x[16];
+    for (int i = 0; i < 16; i++) x[i] = state[i];
+
+    #pragma unroll
+    for (int i = 0; i < 4; ++i) { // 8 rounds = 4 double-rounds
+        // Column round
+        x[ 4] ^= R(x[ 0]+x[12], 7);  x[ 8] ^= R(x[ 4]+x[ 0], 9);
+        x[12] ^= R(x[ 8]+x[ 4],13);  x[ 0] ^= R(x[12]+x[ 8],18);
+        x[ 9] ^= R(x[ 5]+x[ 1], 7);  x[13] ^= R(x[ 9]+x[ 5], 9);
+        x[ 1] ^= R(x[13]+x[ 9],13);  x[ 5] ^= R(x[ 1]+x[13],18);
+        x[14] ^= R(x[10]+x[ 6], 7);  x[ 2] ^= R(x[14]+x[10], 9);
+        x[ 6] ^= R(x[ 2]+x[14],13);  x[10] ^= R(x[ 6]+x[ 2],18);
+        x[ 3] ^= R(x[15]+x[11], 7);  x[ 7] ^= R(x[ 3]+x[15], 9);
+        x[11] ^= R(x[ 7]+x[ 3],13);  x[15] ^= R(x[11]+x[ 7],18);
+
+        // Row round
+        x[ 1] ^= R(x[ 0]+x[ 3], 7);  x[ 2] ^= R(x[ 1]+x[ 0], 9);
+        x[ 3] ^= R(x[ 2]+x[ 1],13);  x[ 0] ^= R(x[ 3]+x[ 2],18);
+        x[ 6] ^= R(x[ 5]+x[ 4], 7);  x[ 7] ^= R(x[ 6]+x[ 5], 9);
+        x[ 4] ^= R(x[ 7]+x[ 6],13);  x[ 5] ^= R(x[ 4]+x[ 7],18);
+        x[11] ^= R(x[10]+x[ 9], 7);  x[ 8] ^= R(x[11]+x[10], 9);
+        x[ 9] ^= R(x[ 8]+x[11],13);  x[10] ^= R(x[ 9]+x[ 8],18);
+        x[12] ^= R(x[15]+x[14], 7);  x[13] ^= R(x[12]+x[15], 9);
+        x[14] ^= R(x[13]+x[12],13);  x[15] ^= R(x[14]+x[13],18);
+    }
+
+    for (int i = 0; i < 16; i++) state[i] += x[i];
+}
+
+// BlockMix function for Scrypt
+void blockmix_salsa8(__private uint *B, __private uint *Y) {
+    uint X[16];
+    for (int i = 0; i < 16; i++) X[i] = B[16 * (2 * SCRYPT_r - 1) + i];
+
+    for (int i = 0; i < 2 * SCRYPT_r; i++) {
+        for (int j = 0; j < 16; j++) {
+            X[j] ^= B[i * 16 + j];
+        }
+        salsa20_8_core(X);
+        for (int j = 0; j < 16; j++) {
+            Y[i * 16 + j] = X[j];
+        }
+    }
+}
+
+// The main memory-hard mixing function of Scrypt
+void scryptROMix(__private uint *B, __global uint *V) {
+    // Copy B to V[0]
+    for (int i = 0; i < 32; i++) { // 32 uints = 128 bytes
+        V[i] = B[i];
+    }
+
+    // Generate V[1] through V[N-1]
+    for (int i = 1; i < SCRYPT_N; i++) {
+        __private uint V_private_B[32];
+        __private uint V_private_Y[32];
+        for(int k=0; k<32; k++) V_private_B[k] = V[(i - 1) * 32 + k];
+        blockmix_salsa8(V_private_B, V_private_Y);
+        for(int k=0; k<32; k++) V[i * 32 + k] = V_private_Y[k];
+    }
+
+    // Main ROMix loop
+    __private uint X[32]; // Changed to __private
+    for (int i = 0; i < 32; i++) X[i] = V[(SCRYPT_N - 1) * 32 + i];
+
+    for (int i = 0; i < SCRYPT_N; i++) {
+        uint j = (uint)(((ulong)X[1] << 32 | X[0]) & (SCRYPT_N - 1)); // Correct j selection based on first 64 bits of X
+        
+        
+        // XOR X with V[j]
+        for (int k = 0; k < 32; k++) {
+            X[k] ^= V[j * 32 + k];
+        }
+        
+        __private uint X_private[32];
+        for(int k=0; k<32; k++) X_private[k] = X[k];
+        blockmix_salsa8(X_private, X_private);
+        for(int k=0; k<32; k++) X[k] = X_private[k];
+    }
+
+    // Copy final X back to B (or a global output buffer)
+    for (int i = 0; i < 32; i++) {
+        B[i] = X[i];
+    }
+}
+
+
+__kernel void scrypt_kernel(__global const uchar* input, __global uint* output, uint nonce, __global uint* V) {
+    
+    // --- Local Memory Allocation ---
+    // As per the blueprint, the 128KiB scratchpad (V) is key.
+    // This is allocated in the host code and passed to the kernel.
+    
+
+    // --- Thread/Block Identification ---
+    const int thread_id = get_global_id(0);
+    
+    uint current_nonce = nonce + thread_id;
+
+    // --- Main Scrypt Logic ---
+
+    // 1. PBKDF2-HMAC to generate the initial block B from the input and nonce.
+    uchar B_bytes[128]; // 128 bytes for B
+    uint B_uints[32]; // B as uints
+
+    // Copy global input to private memory for PBKDF2
+    uchar input_private[80];
+    for(int i = 0; i < 80; i++) {
+        input_private[i] = input[i];
+    }
+
+    // Prepare salt for PBKDF2 (nonce as 4 bytes)
+    uchar nonce_bytes[4];
+    nonce_bytes[0] = (uchar)(current_nonce & 0xFF);
+    nonce_bytes[1] = (uchar)((current_nonce >> 8) & 0xFF);
+    nonce_bytes[2] = (uchar)((current_nonce >> 16) & 0xFF);
+    nonce_bytes[3] = (uchar)((current_nonce >> 24) & 0xFF);
+
+    // Call PBKDF2-HMAC-SHA256 for initial B
+    // Password: input_private (block header) - 80 bytes
+    // Salt: nonce_bytes
+    // Iterations: 1
+    // Desired Key Length: 128 bytes
+    pbkdf2_hmac_sha256(input_private, 80,
+                        nonce_bytes, 4,
+                        1, 128, B_bytes);
+
+    // Convert B_bytes to B_uints (little-endian)
+    for (int i = 0; i < 32; i++) {
+        B_uints[i] = (B_bytes[i * 4 + 0] << 0) |
+                     (B_bytes[i * 4 + 1] << 8) |
+                     (B_bytes[i * 4 + 2] << 16) |
+                     (B_bytes[i * 4 + 3] << 24);
+    }
+
+    // 2. Call scryptROMix
+    scryptROMix(B_uints, V);
+
+    // 3. Final PBKDF2-HMAC to produce the output hash.
+    uchar final_hash_bytes[32];
+
+    // Call PBKDF2-HMAC-SHA256 for final hash
+    // Password: input_private (block header) - 80 bytes
+    // Salt: B_bytes (output of scryptROMix)
+    // Iterations: 1
+    // Desired Key Length: 32 bytes
+    pbkdf2_hmac_sha256(input_private, 80,
+                        B_bytes, 128,
+                        1, 32, final_hash_bytes);
+
+    // 4. Write the final hash to the output buffer.
+    for (int i = 0; i < 8; i++) { // Copy 32 bytes (8 uints)
+        output[i] = (final_hash_bytes[i * 4 + 0] << 0) |
+                    (final_hash_bytes[i * 4 + 1] << 8) |
+                    (final_hash_bytes[i * 4 + 2] << 16) |
+                    (final_hash_bytes[i * 4 + 3] << 24);
+    }
+}

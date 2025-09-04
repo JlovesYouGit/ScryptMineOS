@@ -1,0 +1,33 @@
+PyOpenCL imported successfully.
+Starting OpenCL runner...
+OpenCL initialized with device: Ellesmere
+--- Rendered Kernel (first 200 chars) ---
+// scrypt_core.cl.jinja
+//
+// OpenCL implementation of the Scrypt algorithm, designed as a Jinja2 template.
+// This is a scaffold and will require further implementation and debugging.
+
+// --- Jinja2 
+------------------------------------
+
+Preparing data and launching kernel...
+Kernel launched and completed for iteration 0.
+Output hash (first 32 bytes): 0c972c8eddd13754
+Kernel launched and completed for iteration 1.
+Output hash (first 32 bytes): 48ff746fd0266474
+Kernel launched and completed for iteration 2.
+Output hash (first 32 bytes): 935eadfd84e96de2
+Kernel launched and completed for iteration 3.
+Output hash (first 32 bytes): 07543d1fc83793c6
+Kernel launched and completed for iteration 4.
+Output hash (first 32 bytes): dbb2c531f77e29cb
+Kernel launched and completed for iteration 5.
+Output hash (first 32 bytes): 6776b7661324ceae
+Kernel launched and completed for iteration 6.
+Output hash (first 32 bytes): 0c206be0bea23d33
+Kernel launched and completed for iteration 7.
+Output hash (first 32 bytes): df2447f5ab2da5fc
+Kernel launched and completed for iteration 8.
+Output hash (first 32 bytes): 59bf8cdb4dae1e71
+Kernel launched and completed for iteration 9.
+Output hash (first 32 bytes): 55a279c7636ec638
