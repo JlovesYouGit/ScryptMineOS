@@ -157,7 +157,7 @@ POOLS = {
 #### Worker Authentication Format
 ```python
 worker_format = f"{LTC_WALLET}.{DOGE_WALLET}.{WORKER_NAME}"
-# Example: "LBK8KmLvPZ5YtKjqZAKkKqFHfpQzCQP6N3.DGKsuHU6XdghZtA2aWGqvrZrkWracQJzPd.rig01"
+# Example: "os.getenv("LTC_ADDRESS", "your_ltc_address_here").os.getenv("DOGE_ADDRESS", "your_doge_address_here").rig01"
 ```
 
 #### Enhanced Stratum Client Usage
@@ -172,7 +172,7 @@ config = {
     "pool_host": "doge.zsolo.bid",
     "pool_port": 8057,
     "wallet_address": "your_wallet_address",
-    "worker_password": "x"
+    "worker_password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")"
 }
 
 # Initialize enhanced client
@@ -180,7 +180,7 @@ client = EnhancedStratumClient(
     host=config["pool_host"],
     port=config["pool_port"],
     user=config["wallet_address"],
-    password=config["worker_password"]
+    password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")"worker_password"]
 )
 monitor = SystemMonitor()
 security = SecurityManager()

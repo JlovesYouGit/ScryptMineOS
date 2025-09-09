@@ -49,7 +49,7 @@ Your familiar `runner.py` now automatically includes:
 
 ## 💰 **Wallet Configuration: UNCHANGED**
 
-**Your DOGE Wallet**: `DGKsuHU6XdghZtA2aWGqvrZrkWracQJzPd` ✅
+**Your DOGE Wallet**: `os.getenv("DOGE_ADDRESS", "your_doge_address_here")` ✅
 
 **All enhancements pay to the SAME wallet** - no configuration changes needed!
 
@@ -147,7 +147,7 @@ python professional_demo.py
 ## 🎉 **Bottom Line**
 
 **Your familiar launch process now includes:**
-- ✅ **Same wallet** (`DGKsuHU6XdghZtA2aWGqvrZrkWracQJzPd`)
+- ✅ **Same wallet** (`os.getenv("DOGE_ADDRESS", "your_doge_address_here")`)
 - ✅ **Same launch commands** (`python runner.py`)
 - ✅ **Professional ASIC engineering** (automatic)
 - ✅ **Enhanced revenue** (+30-40% from merged mining)

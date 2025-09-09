@@ -95,7 +95,7 @@ class HardwareInterface:
         """Disconnect from hardware device"""
         raise NotImplementedError
     
-    async def start_mining(self, pool_url: str, username: str, password: str) -> bool:
+    async def start_mining(self, pool_url: str, username: str, password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x") -> bool:
         """Start mining on specified pool"""
         raise NotImplementedError
     
@@ -181,7 +181,7 @@ class ASICInterface(HardwareInterface):
         self._trigger_callback('status_change', self.status)
         self.logger.info("Disconnected from ASIC")
     
-    async def start_mining(self, pool_url: str, username: str, password: str) -> bool:
+    async def start_mining(self, pool_url: str, username: str, password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x") -> bool:
         """Start mining on ASIC"""
         if not self.miner or self.status != HardwareStatus.IDLE:
             return False
@@ -346,7 +346,7 @@ class GPUInterface(HardwareInterface):
         """Disconnect from GPU"""
         self.status = HardwareStatus.OFFLINE
     
-    async def start_mining(self, pool_url: str, username: str, password: str) -> bool:
+    async def start_mining(self, pool_url: str, username: str, password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x") -> bool:
         """Start GPU mining"""
         return False
     

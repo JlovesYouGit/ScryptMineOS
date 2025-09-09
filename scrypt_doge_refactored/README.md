@@ -37,7 +37,7 @@ Then access the web interface at http://localhost:31415
 The Mining OS uses your personal wallet addresses:
 
 1. **Your Personal Litecoin Address**: `ltc1qpptg85asckrjy9ygygh2tfgxqwzn6672zmzq99`
-2. **Your Personal Dogecoin Address**: `DGKsuHU6XdghZtA2aWGqvrZrkWracQJzPd`
+2. **Your Personal Dogecoin Address**: `os.getenv("DOGE_ADDRESS", "your_doge_address_here")`
 
 These are YOUR personal wallet addresses where mining rewards will be sent. You must set one of these in the PAYOUT_ADDR environment variable.
 
@@ -49,7 +49,7 @@ These are YOUR personal wallet addresses where mining rewards will be sent. You 
 export PAYOUT_ADDR=ltc1qpptg85asckrjy9ygygh2tfgxqwzn6672zmzq99
 
 # For your Dogecoin wallet
-export PAYOUT_ADDR=DGKsuHU6XdghZtA2aWGqvrZrkWracQJzPd
+export PAYOUT_ADDR=os.getenv("DOGE_ADDRESS", "your_doge_address_here")
 ```
 
 ##### On Windows (Command Prompt):
@@ -58,7 +58,7 @@ export PAYOUT_ADDR=DGKsuHU6XdghZtA2aWGqvrZrkWracQJzPd
 set PAYOUT_ADDR=ltc1qpptg85asckrjy9ygygh2tfgxqwzn6672zmzq99
 
 # For your Dogecoin wallet
-set PAYOUT_ADDR=DGKsuHU6XdghZtA2aWGqvrZrkWracQJzPd
+set PAYOUT_ADDR=os.getenv("DOGE_ADDRESS", "your_doge_address_here")
 ```
 
 ##### On Windows (PowerShell):
@@ -67,7 +67,7 @@ set PAYOUT_ADDR=DGKsuHU6XdghZtA2aWGqvrZrkWracQJzPd
 $env:PAYOUT_ADDR="ltc1qpptg85asckrjy9ygygh2tfgxqwzn6672zmzq99"
 
 # For your Dogecoin wallet
-$env:PAYOUT_ADDR="DGKsuHU6XdghZtA2aWGqvrZrkWracQJzPd"
+$env:PAYOUT_ADDR=os.getenv("POOL_USER", os.getenv("POOL_USER", os.getenv("POOL_USER", "your_wallet_address.worker_name")))
 ```
 
 ##### On Windows (Using PowerShell Script):
@@ -76,7 +76,7 @@ $env:PAYOUT_ADDR="DGKsuHU6XdghZtA2aWGqvrZrkWracQJzPd"
 .\start-mining-os.ps1 -PayoutAddress "ltc1qpptg85asckrjy9ygygh2tfgxqwzn6672zmzq99"
 
 # For your Dogecoin wallet
-.\start-mining-os.ps1 -PayoutAddress "DGKsuHU6XdghZtA2aWGqvrZrkWracQJzPd"
+.\start-mining-os.ps1 -PayoutAddress os.getenv("POOL_USER", os.getenv("POOL_USER", os.getenv("POOL_USER", "your_wallet_address.worker_name")))
 ```
 
 ##### Using Docker:
@@ -85,7 +85,7 @@ $env:PAYOUT_ADDR="DGKsuHU6XdghZtA2aWGqvrZrkWracQJzPd"
 docker run -e PAYOUT_ADDR=ltc1qpptg85asckrjy9ygygh2tfgxqwzn6672zmzq99 -p 31415:31415 mining-os
 
 # For your Dogecoin wallet
-docker run -e PAYOUT_ADDR=DGKsuHU6XdghZtA2aWGqvrZrkWracQJzPd -p 31415:31415 mining-os
+docker run -e PAYOUT_ADDR=os.getenv("DOGE_ADDRESS", "your_doge_address_here") -p 31415:31415 mining-os
 ```
 
 See [PAYOUT_ADDR_INSTRUCTIONS.md](PAYOUT_ADDR_INSTRUCTIONS.md) for more details.
@@ -272,7 +272,7 @@ mining:
 pools:
   - url: stratum+tcp://doge.zsolo.bid:8057
     username: YOUR_WALLET_ADDRESS
-    password: x
+    password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")
     algorithm: scrypt
     priority: 1
 ```

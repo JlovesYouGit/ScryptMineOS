@@ -49,7 +49,7 @@ cp .env.example .env
 
 # Edit with your wallet addresses
 LTC_ADDR=your_litecoin_address_here
-DOGE_ADDR=DGKsuHU6XdghZtA2aWGqvrZrkWracQJzPd  # Already configured
+DOGE_ADDR=os.getenv("DOGE_ADDRESS", "your_doge_address_here")  # Already configured
 WORKER_NAME=rig01
 ```
 

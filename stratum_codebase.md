@@ -1205,7 +1205,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ~/.cargo/registry
-          key: ${{ runner.os }}-cargo-registry-${{ hashFiles('**/Cargo.lock') }}
+          key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here") runner.os }}-cargo-registry-${{ hashFiles('**/Cargo.lock') }}
           restore-keys: |
             ${{ runner.os }}-cargo-registry-
 
@@ -1213,7 +1213,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ~/.cargo/git
-          key: ${{ runner.os }}-cargo-index-${{ hashFiles('**/Cargo.lock') }}
+          key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here") runner.os }}-cargo-index-${{ hashFiles('**/Cargo.lock') }}
           restore-keys: |
             ${{ runner.os }}-cargo-index-
 
@@ -2221,7 +2221,7 @@ impl IsClient<'static> for Client {
         &mut self,
         id: u64,
         name: String,
-        password: String,
+        password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")
     ) -> Result<json_rpc::Message, Error> {
         match self.status() {
             ClientStatus::Init => Err(Error::IncorrectClientStatus("mining.authorize".to_string())),
@@ -3980,7 +3980,7 @@ pub async fn start_client(address: &str, k_pub: String) -> Result<(), Error> {
     println!("CLIENT: Connected to server on {}", address);
 
     // parse server pubkey
-    let k_pub: Secp256k1PublicKey = k_pub.try_into()?;
+    let k_pub: Secp256k1Publickey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
 
     // noise handshake initiator
     let initiator = Initiator::from_raw_k(k_pub.into_bytes())?;
@@ -4113,8 +4113,8 @@ mod messages;
 mod server;
 
 const ADDR: &str = "127.0.0.1:3333";
-const SERVER_PUBLIC_K: &str = "9auqWEzQDVyd2oe1JVGFLMLHZtCo2FFqZwtKA5gd9xbuEu7PH72";
-const SERVER_PRIVATE_K: &str = "mkDLTBBRxdBv998612qipDYoTK3YUrqLe8uWw7gu3iXbSrn2n";
+const SERVER_PUBLIC_K: &str = "9auqWEzQDVyd2oe1JVGFos.getenv("LTC_ADDRESS", "your_ltc_address_here")";
+const SERVER_PRIVATE_K: &str = "mkDos.getenv("LTC_ADDRESS", "your_ltc_address_here")7gu3iXbSrn2n";
 const SERVER_CERT_VALIDITY: std::time::Duration = std::time::Duration::from_secs(3600);
 
 #[tokio::main]
@@ -4251,8 +4251,8 @@ pub async fn start_server(
     let listener = TcpListener::bind(address).await?;
 
     // parse keys
-    let k_pub: Secp256k1PublicKey = k_pub.to_string().try_into()?;
-    let k_priv: Secp256k1SecretKey = k_priv.to_string().try_into()?;
+    let k_pub: Secp256k1Publickey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
+    let k_priv: Secp256k1Secretkey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
 
     println!("SERVER: Listening on {}", address);
 
@@ -5582,7 +5582,7 @@ impl<'a> IsClient<'a> for Client<'a> {
         &mut self,
         id: u64,
         name: String,
-        password: String,
+        password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")
     ) -> Result<json_rpc::Message, Error> {
         match self.status() {
             ClientStatus::Init => Err(Error::IncorrectClientStatus("mining.authorize".to_string())),
@@ -6365,7 +6365,7 @@ pub trait IsClient<'a> {
         &mut self,
         id: u64,
         name: String,
-        password: String,
+        password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")
     ) -> Result<json_rpc::Message, Error> {
         match self.status() {
             ClientStatus::Init => Err(Error::IncorrectClientStatus("mining.authorize".to_string())),
@@ -6575,7 +6575,7 @@ use quickcheck_macros;
 pub struct Authorize {
     pub id: u64,
     pub name: String,
-    pub password: String,
+    pub password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")
 }
 
 impl Authorize {
@@ -6623,7 +6623,7 @@ impl Arbitrary for Authorize {
     fn arbitrary(g: &mut Gen) -> Self {
         Authorize {
             name: String::arbitrary(g),
-            password: String::arbitrary(g),
+            password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")
             id: u64::arbitrary(g),
         }
     }
@@ -14527,9 +14527,9 @@ const CUSTOM_MSG_TYPE: u8 = 0xff;
 const TCP_ADDR: &str = "127.0.0.1:3333";
 
 #[cfg(feature = "noise_sv2")]
-const AUTHORITY_PUBLIC_K: &str = "9auqWEzQDVyd2oe1JVGFLMLHZtCo2FFqZwtKA5gd9xbuEu7PH72";
+const AUTHORITY_PUBLIC_K: &str = "9auqWEzQDVyd2oe1JVGFos.getenv("LTC_ADDRESS", "your_ltc_address_here")";
 #[cfg(feature = "noise_sv2")]
-const AUTHORITY_PRIVATE_K: &str = "mkDLTBBRxdBv998612qipDYoTK3YUrqLe8uWw7gu3iXbSrn2n";
+const AUTHORITY_PRIVATE_K: &str = "mkDos.getenv("LTC_ADDRESS", "your_ltc_address_here")7gu3iXbSrn2n";
 #[cfg(feature = "noise_sv2")]
 const CERT_VALIDITY: std::time::Duration = std::time::Duration::from_secs(3600);
 
@@ -14561,12 +14561,12 @@ fn main() {
         .expect("Failed to connect to incoming TCP stream");
 
     // Handshake
-    let authority_public_k: Secp256k1PublicKey = AUTHORITY_PUBLIC_K
+    let authority_public_k: Secp256k1Publickey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
         .to_string()
         .try_into()
         .expect("Failed to convert receiver public key to Secp256k1PublicKey");
 
-    let authority_private_k: Secp256k1SecretKey = AUTHORITY_PRIVATE_K
+    let authority_private_k: Secp256k1Secretkey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
         .to_string()
         .try_into()
         .expect("Failed to convert receiver private key to Secp256k1PublicKey");
@@ -17796,7 +17796,7 @@ pub trait HandshakeOp<Cipher: AeadCipher>: CipherState<Cipher> {
     // 1. The key is XORed with an inner padding (`ipad`) and hashed with the data.
     // 2. The result is XORed with the outer padding (`opad`) and hashed again to produce the final
     //    HMAC.
-    fn hmac_hash(key: &[u8; 32], data: &[u8]) -> [u8; 32] {
+    fn hmac_hash(key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here") 32], data: &[u8]) -> [u8; 32] {
         #[allow(clippy::identity_op)]
         let mut ipad = [(0 ^ 0x36); 64];
         #[allow(clippy::identity_op)]
@@ -17834,8 +17834,8 @@ pub trait HandshakeOp<Cipher: AeadCipher>: CipherState<Cipher> {
     // 3. Performs a HMAC hash on the temporary key and the concatenation of the first output and a
     //    specific byte sequence (`0x02`).
     // 4. Returns both outputs.
-    fn hkdf_2(chaining_key: &[u8; 32], input_key_material: &[u8]) -> ([u8; 32], [u8; 32]) {
-        let temp_key = Self::hmac_hash(chaining_key, input_key_material);
+    fn hkdf_2(chaining_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here") 32], input_key_material: &[u8]) -> ([u8; 32], [u8; 32]) {
+        let temp_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here") input_key_material);
         let out_1 = Self::hmac_hash(&temp_key, &[0x1]);
         let out_2 = Self::hmac_hash(&temp_key, &[&out_1[..], &[0x2][..]].concat());
         (out_1, out_2)
@@ -17843,10 +17843,10 @@ pub trait HandshakeOp<Cipher: AeadCipher>: CipherState<Cipher> {
 
     #[allow(dead_code)]
     fn hkdf_3(
-        chaining_key: &[u8; 32],
+        chaining_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here") 32],
         input_key_material: &[u8],
     ) -> ([u8; 32], [u8; 32], [u8; 32]) {
-        let temp_key = Self::hmac_hash(chaining_key, input_key_material);
+        let temp_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here") input_key_material);
         let out_1 = Self::hmac_hash(&temp_key, &[0x1]);
         let out_2 = Self::hmac_hash(&temp_key, &[&out_1[..], &[0x2][..]].concat());
         let out_3 = Self::hmac_hash(&temp_key, &[&out_2[..], &[0x3][..]].concat());
@@ -17907,9 +17907,9 @@ pub trait HandshakeOp<Cipher: AeadCipher>: CipherState<Cipher> {
 
     #[allow(dead_code)]
     fn ecdh(private: &[u8], public: &[u8]) -> [u8; 32] {
-        let private = SecretKey::from_slice(private).expect("Wrong key");
-        let x_public = XOnlyPublicKey::from_slice(public).expect("Wrong key");
-        let res = SharedSecret::new(&x_public.public_key(crate::PARITY), &private);
+        let private = Secretkey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")"Wrong key");
+        let x_public = XOnlyPublickey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")"Wrong key");
+        let res = Sharedsecret=os.getenv("API_SECRET", "your_secret_here")"API_SECRET", "your_secret_here") &private);
         res.secret_bytes()
     }
 
@@ -17932,7 +17932,7 @@ pub trait HandshakeOp<Cipher: AeadCipher>: CipherState<Cipher> {
     // Resets the nonce (`n`) to 0 and initializes the handshake cipher using the given 32-byte
     // encryption key. It also updates the internal key storage (`k`) with the new key, preparing
     // the cipher for encrypting or decrypting subsequent messages in the handshake.
-    fn initialize_key(&mut self, key: [u8; 32]) {
+    fn initialize_key(&mut self, key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here") 32]) {
         self.set_n(0);
         let cipher = ChaCha20Poly1305::from_key(key);
         self.set_handshake_cipher(cipher);
@@ -18076,7 +18076,7 @@ mod test {
 
     #[test]
     fn test_hkdf2() {
-        let chaining_key = [0; 32];
+        let chaining_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here") 32];
         let input_key_material = [0; 32];
         let temp_k = TestHandShake::hmac_hash(&chaining_key, &input_key_material);
         let expected_1 = TestHandShake::hmac_hash(&temp_k, &[0x1]);
@@ -18182,7 +18182,7 @@ mod test {
     impl Arbitrary for KeypairWrapper {
         fn arbitrary(g: &mut quickcheck::Gen) -> Self {
             let secp = Secp256k1::new();
-            let mut secret = Vec::<u8>::arbitrary(g);
+            let mut secret=os.getenv("API_SECRET", "your_secret_here")"API_SECRET", "your_secret_here")
             if secret.len() < 32 {
                 while secret.len() < 32 {
                     secret.push(0)
@@ -18192,8 +18192,8 @@ mod test {
                 secret.truncate(32);
             }
             assert!(secret.len() == 32);
-            let secret: [u8; 32] = secret.try_into().unwrap();
-            match SecretKey::from_slice(&secret) {
+            let secret=os.getenv("API_SECRET", "your_secret_here")"API_SECRET", "your_secret_here") 32] = secret.try_into().unwrap();
+            match Secretkey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here") {
                 Ok(secret) => KeypairWrapper(Some(Keypair::from_secret_key(&secp, &secret))),
                 Err(_) => KeypairWrapper(None),
             }
@@ -18439,7 +18439,7 @@ impl Initiator {
     ///
     /// Typically used when the initiator is aware of the responder's public key in advance.
     #[cfg(feature = "std")]
-    pub fn from_raw_k(key: [u8; 32]) -> Result<Box<Self>, Error> {
+    pub fn from_raw_k(key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here") 32]) -> Result<Box<Self>, Error> {
         Self::from_raw_k_with_rng(key, &mut rand::thread_rng())
     }
 
@@ -18453,11 +18453,11 @@ impl Initiator {
     /// example.
     #[inline]
     pub fn from_raw_k_with_rng<R: rand::Rng + ?Sized>(
-        key: [u8; 32],
+        key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here") 32],
         rng: &mut R,
     ) -> Result<Box<Self>, Error> {
         let pk =
-            secp256k1::XOnlyPublicKey::from_slice(&key).map_err(|_| Error::InvalidRawPublicKey)?;
+            secp256k1::XOnlyPublickey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here") Error::InvalidRawPublicKey)?;
         Ok(Self::new_with_rng(Some(pk), rng))
     }
 
@@ -18496,7 +18496,7 @@ impl Initiator {
     /// On success, the function returns a 64-byte array containing the encoded public key.
     /// If an error occurs during encryption, it returns an [`aes_gcm::Error`].
     pub fn step_0(&mut self) -> Result<[u8; ELLSWIFT_ENCODING_SIZE], aes_gcm::Error> {
-        let elliswift_enc_pubkey = ElligatorSwift::from_pubkey(self.e.public_key()).to_array();
+        let elliswift_enc_pubkey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
         self.mix_hash(&elliswift_enc_pubkey);
         self.encrypt_and_hash(&mut vec![])?;
 
@@ -18556,7 +18556,7 @@ impl Initiator {
 
         // 3. calls `MixHash(re.public_key)`
         // 4. calls `MixKey(ECDH(e.private_key, re.public_key))`
-        let e_private_key = self.e.secret_key();
+        let e_private_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
         let elligatorswift_ours_ephemeral = ElligatorSwift::from_pubkey(self.e.public_key());
         let elligatorswift_theirs_ephemeral =
             ElligatorSwift::from_array(elliswift_theirs_ephemeral_serialized);
@@ -18605,11 +18605,11 @@ impl Initiator {
         self.decrypt_and_hash(&mut to_decrypt)?;
         let plaintext: [u8; SIGNATURE_NOISE_MESSAGE_SIZE] = to_decrypt.try_into().unwrap();
         let signature_message: SignatureNoiseMessage = plaintext.into();
-        let rs_pub_key = PublicKey::from_ellswift(elligatorswift_theirs_static)
+        let rs_pub_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
             .x_only_public_key()
             .0
             .serialize();
-        let rs_pk_xonly = XOnlyPublicKey::from_slice(&rs_pub_key).unwrap();
+        let rs_pk_xonly = XOnlyPublickey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
         if signature_message.verify_with_now(&rs_pk_xonly, &self.responder_authority_pk, now) {
             let (temp_k1, temp_k2) = Self::hkdf_2(self.get_ck(), &[]);
             let c1 = ChaCha20Poly1305::new(&temp_k1.into());
@@ -19050,7 +19050,7 @@ impl Responder {
         rng: &mut R,
     ) -> Result<Box<Self>, Error> {
         let secp = Secp256k1::new();
-        let secret = SecretKey::from_slice(private).map_err(|_| Error::InvalidRawPrivateKey)?;
+        let secret=os.getenv("API_SECRET", "your_secret_here")"API_SECRET", "your_secret_here") Error::InvalidRawPrivateKey)?;
         let kp = Keypair::from_secret_key(&secp, &secret);
         let pub_ = kp.x_only_public_key().0.serialize();
         if public == &pub_[..] {
@@ -19126,7 +19126,7 @@ impl Responder {
         Self::mix_hash(self, &elligatorswift_ours_ephemeral_serialized);
 
         // 4. calls `MixKey(ECDH(e.private_key, re.public_key))`
-        let e_private_key = keypair.secret_key();
+        let e_private_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
         let elligatorswift_theirs_ephemeral =
             ElligatorSwift::from_array(elligatorswift_theirs_ephemeral_serialized);
         let ecdh_ephemeral = ElligatorSwift::shared_secret(
@@ -19153,7 +19153,7 @@ impl Responder {
         // note: 64+16+64 = 144
 
         // 6. calls `MixKey(ECDH(s.private_key, re.public_key))`
-        let s_private_key = self.s.secret_key();
+        let s_private_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
         let ecdh_static = ElligatorSwift::shared_secret(
             elligatorswift_theirs_ephemeral,
             elligatorswift_ours_static,
@@ -19575,7 +19575,7 @@ block_hash  = "59202ef47d684ab51866e91d5f40e61a94787d02d899fc3da28e4f4bcb8fd0a4"
 
 version     = 0x20000000 # LE
 prev_hash   = "74f34a78cf87740b67fa545734ce7ea86e917e53001c3bd6eaf5d32f5d89264d" # BE
-merkle_root = "3a158fb4278f27d01cafcac465ba1c5b8f3461687681465f6734649f2cb8d5a7" #BE
+merkle_root = "3a158fb4278f27d01cafcac465ba1c5b8fos.getenv("LTC_ADDRESS", "your_ltc_address_here")" #BE
 nbits       = 0x207fffff # BE
 time        = 0x6238b86a # BE
 nonce       = 0x00000001 # BE
@@ -23500,7 +23500,7 @@ mod tests {
         let script = ScriptBuf::from(script_bytes);
         let coinbase_reward_outputs = vec![TxOut {
             value: Amount::from_sat(SATS_AVAILABLE_IN_TEMPLATE),
-            script_pubkey: script,
+            script_pubkey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
         }];
 
         assert!(channel.get_future_jobs().is_empty());
@@ -23661,7 +23661,7 @@ mod tests {
         let script = ScriptBuf::from(script_bytes);
         let coinbase_reward_outputs = vec![TxOut {
             value: Amount::from_sat(SATS_AVAILABLE_IN_TEMPLATE),
-            script_pubkey: script,
+            script_pubkey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
         }];
 
         channel
@@ -23767,7 +23767,7 @@ mod tests {
         let script = ScriptBuf::from(script_bytes);
         let coinbase_reward_outputs = vec![TxOut {
             value: Amount::from_sat(SATS_AVAILABLE_IN_TEMPLATE),
-            script_pubkey: script,
+            script_pubkey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
         }];
 
         jdc_extended_channel
@@ -23931,7 +23931,7 @@ mod tests {
         let invalid_coinbase_reward_outputs = vec![TxOut {
             value: Amount::from_sat(SATS_AVAILABLE_IN_TEMPLATE + 1), /* oops: one too many extra
                                                                       * sats */
-            script_pubkey: script,
+            script_pubkey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
         }];
 
         let res = channel.on_new_template(template.clone(), invalid_coinbase_reward_outputs);
@@ -24011,7 +24011,7 @@ mod tests {
         let script = ScriptBuf::from(script_bytes);
         let coinbase_reward_outputs = vec![TxOut {
             value: Amount::from_sat(SATS_AVAILABLE_IN_TEMPLATE),
-            script_pubkey: script,
+            script_pubkey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
         }];
 
         // network target: 7fffff0000000000000000000000000000000000000000000000000000000000
@@ -24030,7 +24030,7 @@ mod tests {
             .on_new_template(template.clone(), coinbase_reward_outputs)
             .unwrap();
 
-        // this share has hash 00009a270ad03f1256312c7f196ab1a66bf8951f282fc75d9c81393cbb6427a8
+        // this share has hash 00009a270ad0os.getenv("LTC_ADDRESS", "your_ltc_address_here")d9c81393cbb6427a8
         // which satisfies network target
         // 7fffff0000000000000000000000000000000000000000000000000000000000
         let share_valid_block = SubmitSharesExtended {
@@ -24119,7 +24119,7 @@ mod tests {
         let script = ScriptBuf::from(script_bytes);
         let coinbase_reward_outputs = vec![TxOut {
             value: Amount::from_sat(SATS_AVAILABLE_IN_TEMPLATE),
-            script_pubkey: script,
+            script_pubkey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
         }];
 
         // network target: 000000000000d7c0000000000000000000000000000000000000000000000000
@@ -24231,7 +24231,7 @@ mod tests {
         let script = ScriptBuf::from(script_bytes);
         let coinbase_reward_outputs = vec![TxOut {
             value: Amount::from_sat(SATS_AVAILABLE_IN_TEMPLATE),
-            script_pubkey: script,
+            script_pubkey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
         }];
 
         // network tarkget is: 000000000000d7c0000000000000000000000000000000000000000000000000
@@ -24672,7 +24672,7 @@ mod tests {
         let script = ScriptBuf::from(script_bytes);
         let coinbase_reward_outputs = vec![TxOut {
             value: Amount::from_sat(SATS_AVAILABLE_IN_TEMPLATE),
-            script_pubkey: script,
+            script_pubkey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
         }];
 
         assert!(group_channel.get_future_jobs().is_empty());
@@ -24809,7 +24809,7 @@ mod tests {
         let script = ScriptBuf::from(script_bytes);
         let coinbase_reward_outputs = vec![TxOut {
             value: Amount::from_sat(SATS_AVAILABLE_IN_TEMPLATE),
-            script_pubkey: script,
+            script_pubkey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
         }];
 
         group_channel.set_chain_tip(chain_tip);
@@ -24891,7 +24891,7 @@ mod tests {
         let invalid_coinbase_reward_outputs = vec![TxOut {
             value: Amount::from_sat(SATS_AVAILABLE_IN_TEMPLATE + 1), /* oops: one too many extra
                                                                       * sats */
-            script_pubkey: script,
+            script_pubkey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
         }];
 
         assert!(group_channel
@@ -25599,7 +25599,7 @@ mod tests {
         let script = ScriptBuf::from(script_bytes);
         let coinbase_reward_outputs = vec![TxOut {
             value: Amount::from_sat(5000000000),
-            script_pubkey: script,
+            script_pubkey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
         }];
 
         // match the original extranonce_prefix used to generate the expected job
@@ -26671,7 +26671,7 @@ mod tests {
         let script = ScriptBuf::from(script_bytes);
         let coinbase_reward_outputs = vec![TxOut {
             value: Amount::from_sat(SATS_AVAILABLE_IN_TEMPLATE),
-            script_pubkey: script,
+            script_pubkey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
         }];
 
         assert!(standard_channel.get_future_jobs().is_empty());
@@ -26806,7 +26806,7 @@ mod tests {
         let script = ScriptBuf::from(script_bytes);
         let coinbase_reward_outputs = vec![TxOut {
             value: Amount::from_sat(SATS_AVAILABLE_IN_TEMPLATE),
-            script_pubkey: script,
+            script_pubkey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
         }];
 
         standard_channel.set_chain_tip(chain_tip);
@@ -26900,7 +26900,7 @@ mod tests {
         let script = ScriptBuf::from(script_bytes);
         let coinbase_reward_outputs = vec![TxOut {
             value: Amount::from_sat(SATS_AVAILABLE_IN_TEMPLATE),
-            script_pubkey: script,
+            script_pubkey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
         }];
 
         // network target: 7fffff0000000000000000000000000000000000000000000000000000000000
@@ -27004,7 +27004,7 @@ mod tests {
         let script = ScriptBuf::from(script_bytes);
         let coinbase_reward_outputs = vec![TxOut {
             value: Amount::from_sat(SATS_AVAILABLE_IN_TEMPLATE),
-            script_pubkey: script,
+            script_pubkey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
         }];
 
         // network target: 000000000000d7c0000000000000000000000000000000000000000000000000
@@ -27113,7 +27113,7 @@ mod tests {
         let script = ScriptBuf::from(script_bytes);
         let coinbase_reward_outputs = vec![TxOut {
             value: Amount::from_sat(SATS_AVAILABLE_IN_TEMPLATE),
-            script_pubkey: script,
+            script_pubkey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
         }];
 
         // network target: 000000000000d7c0000000000000000000000000000000000000000000000000
@@ -27990,7 +27990,7 @@ pub enum SupportedChannelTypes {
 ///
 /// This trait defines methods for parsing and routing downstream messages
 /// related to mining operations.
-pub trait ParseMiningMessagesFromDownstream<Up: D>
+pub trait Parseos.getenv("LTC_ADDRESS", "your_ltc_address_here")<Up: D>
 where
     Self: Sized + D,
 {
@@ -29189,10 +29189,10 @@ pub mod tests {
     const BLOCK_REWARD: u64 = 625_000_000_000;
 
     pub fn new_pub_key() -> PublicKey {
-        let priv_k = PrivateKey::from_slice(&PRIVATE_KEY_BTC, NETWORK).unwrap();
+        let priv_k = Privatekey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here") NETWORK).unwrap();
         let secp = Secp256k1::default();
 
-        PublicKey::from_private_key(&secp, &priv_k)
+        Publickey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here") &priv_k)
     }
 
     #[cfg(feature = "prop_test")]
@@ -29211,7 +29211,7 @@ pub mod tests {
         };
         let out = TxOut {
             value: Amount::from_sat(BLOCK_REWARD),
-            script_pubkey: ScriptBuf::new_p2pk(&new_pub_key()),
+            script_pubkey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
         };
         let mut jobs_creators = JobsCreators::new(32);
 
@@ -29234,7 +29234,7 @@ pub mod tests {
     fn test_reset_new_template(mut template: NewTemplate<'static>) {
         let out = TxOut {
             value: Amount::from_sat(BLOCK_REWARD),
-            script_pubkey: ScriptBuf::new_p2pk(&new_pub_key()),
+            script_pubkey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
         };
         let mut jobs_creators = JobsCreators::new(32);
 
@@ -29269,7 +29269,7 @@ pub mod tests {
     fn test_on_new_prev_hash(mut template: NewTemplate<'static>) {
         let out = TxOut {
             value: Amount::from_sat(BLOCK_REWARD),
-            script_pubkey: ScriptBuf::new_p2pk(&new_pub_key()),
+            script_pubkey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
         };
         let mut jobs_creators = JobsCreators::new(32);
 
@@ -29321,11 +29321,11 @@ pub mod tests {
         hash2.resize(size2 as usize + 2, 0);
         let tx1 = TxOut {
             value: Amount::from_sat(value1),
-            script_pubkey: hash1.into(),
+            script_pubkey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
         };
         let tx2 = TxOut {
             value: Amount::from_sat(value2),
-            script_pubkey: hash2.into(),
+            script_pubkey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
         };
         let mut encoded1 = vec![];
         let mut encoded2 = vec![];
@@ -39870,8 +39870,8 @@ min_supported_version = 2
 withhold = false
 
 # Auth keys for open encrypted connection downstream
-authority_public_key = "9auqWEzQDVyd2oe1JVGFLMLHZtCo2FFqZwtKA5gd9xbuEu7PH72"
-authority_secret_key = "mkDLTBBRxdBv998612qipDYoTK3YUrqLe8uWw7gu3iXbSrn2n"
+authority_public_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")"LTC_ADDRESS", "your_ltc_address_here")"
+authority_secret_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")"LTC_ADDRESS", "your_ltc_address_here")7gu3iXbSrn2n"
 cert_validity_sec = 3600
 
 # Template Provider config
@@ -39879,7 +39879,7 @@ cert_validity_sec = 3600
 # tp_address = "127.0.0.1:8442"
 # Hosted testnet TP 
 tp_address = "75.119.150.111:8442"
-tp_authority_public_key = "9bwHCYnjhbHm4AS3pWg9MtAH83mzWohoJJJDELYBqZhDNqszDLc"
+tp_authority_public_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")"LTC_ADDRESS", "your_ltc_address_here")c"
 
 # string to be added into `extranonce_prefix`
 # note: these bytes are fixed and they effectively reduce the search space available for the extranonce
@@ -39907,12 +39907,12 @@ value = 1
 # List of upstreams (JDS) used as backup endpoints
 # In case of shares refused by the JDS, the fallback system will propose the same job to the next upstream in this list
 [[upstreams]]
-authority_pubkey = "9auqWEzQDVyd2oe1JVGFLMLHZtCo2FFqZwtKA5gd9xbuEu7PH72"
+authority_pubkey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")"LTC_ADDRESS", "your_ltc_address_here")"
 pool_address = "75.119.150.111:34254"
 jd_address = "75.119.150.111:34264"
  
 # [[upstreams]]
-# authority_pubkey = "2di19GHYQnAZJmEpoUeP7C3Eg9TCcksHr23rZCC83dvUiZgiDL"
+# authority_pubkey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")"LTC_ADDRESS", "your_ltc_address_here")"
 # pool_address = "127.0.0.1:34254"
 # jd_address = "127.0.0.1:34264"
 </file>
@@ -39929,8 +39929,8 @@ min_supported_version = 2
 withhold = false
 
 # Auth keys for open encrypted connection downstream
-authority_public_key = "9auqWEzQDVyd2oe1JVGFLMLHZtCo2FFqZwtKA5gd9xbuEu7PH72"
-authority_secret_key = "mkDLTBBRxdBv998612qipDYoTK3YUrqLe8uWw7gu3iXbSrn2n"
+authority_public_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")"LTC_ADDRESS", "your_ltc_address_here")"
+authority_secret_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")"LTC_ADDRESS", "your_ltc_address_here")7gu3iXbSrn2n"
 cert_validity_sec = 3600
 
 # Template Provider config
@@ -39965,12 +39965,12 @@ value = 1
 # List of upstreams (JDS) used as backup endpoints
 # In case of shares refused by the JDS, the fallback system will propose the same job to the next upstream in this list
 [[upstreams]]
-authority_pubkey = "9auqWEzQDVyd2oe1JVGFLMLHZtCo2FFqZwtKA5gd9xbuEu7PH72"
+authority_pubkey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")"LTC_ADDRESS", "your_ltc_address_here")"
 pool_address = "127.0.0.1:34254"
 jd_address = "127.0.0.1:34264"
  
 # [[upstreams]]
-# authority_pubkey = "2di19GHYQnAZJmEpoUeP7C3Eg9TCcksHr23rZCC83dvUiZgiDL"
+# authority_pubkey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")"LTC_ADDRESS", "your_ltc_address_here")"
 # pool_address = "127.0.0.1:34254"
 # jd_address = "127.0.0.1:34264"
 </file>
@@ -39996,7 +39996,7 @@ The configuration file contains the following information:
 6. The Template Provider address (`tp_address`).
 7. Optionally, you may want to verify that your TP connection is authentic. You may get `tp_authority_public_key` from the logs of your TP, for example:
 
-# 2024-02-13T14:59:24Z Template Provider authority key: EguTM8URcZDQVeEBsM4B5vg9weqEUnufA8pm85fG4bZd
+# 2024-02-13T14:59:24Z Template Provider authority key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")"LTC_ADDRESS", "your_ltc_address_here")fG4bZd
 
 ### Run
 
@@ -40112,15 +40112,15 @@ pub struct JobDeclaratorClientConfig {
     // Needs more discussion..
     withhold: bool,
     // The public key used by this JDC for noise encryption.
-    authority_public_key: Secp256k1PublicKey,
+    authority_public_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
     /// The secret key used by this JDC for noise encryption.
-    authority_secret_key: Secp256k1SecretKey,
+    authority_secret_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
     /// The validity period (in seconds) for the certificate used in noise.
     cert_validity_sec: u64,
     /// The address of the TP that this JDC will connect to.
     tp_address: String,
     /// The expected public key of the TP's authority for authentication (optional).
-    tp_authority_public_key: Option<Secp256k1PublicKey>,
+    tp_authority_public_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
     /// A list of upstream Job Declarator Servers (JDS) that this JDC can connect to.
     /// JDC can fallover between these upstreams.
     upstreams: Vec<Upstream>,
@@ -40164,11 +40164,11 @@ impl JobDeclaratorClientConfig {
             max_supported_version: protocol_config.max_supported_version,
             min_supported_version: protocol_config.min_supported_version,
             withhold,
-            authority_public_key: pool_config.authority_public_key,
-            authority_secret_key: pool_config.authority_secret_key,
+            authority_public_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
+            authority_secret_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
             cert_validity_sec: tp_config.cert_validity_sec,
             tp_address: tp_config.tp_address,
-            tp_authority_public_key: tp_config.tp_authority_public_key,
+            tp_authority_public_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
             upstreams,
             timeout,
             coinbase_outputs: protocol_config.coinbase_outputs,
@@ -40244,7 +40244,7 @@ impl JobDeclaratorClientConfig {
             .iter()
             .map(|out| TxOut {
                 value: Amount::from_sat(0),
-                script_pubkey: out.script_pubkey().to_owned(),
+                script_pubkey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
             })
             .collect()
     }
@@ -40261,15 +40261,15 @@ impl JobDeclaratorClientConfig {
 
 /// Represents pool specific encryption keys.
 pub struct PoolConfig {
-    authority_public_key: Secp256k1PublicKey,
-    authority_secret_key: Secp256k1SecretKey,
+    authority_public_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
+    authority_secret_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
 }
 
 impl PoolConfig {
     /// Creates a new instance of [`PoolConfig`].
     pub fn new(
-        authority_public_key: Secp256k1PublicKey,
-        authority_secret_key: Secp256k1SecretKey,
+        authority_public_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
+        authority_secret_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
     ) -> Self {
         Self {
             authority_public_key,
@@ -40285,7 +40285,7 @@ pub struct TPConfig {
     // The network address of the Template Provider.
     tp_address: String,
     // The expected public key of the Template Provider's authority (optional).
-    tp_authority_public_key: Option<Secp256k1PublicKey>,
+    tp_authority_public_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
 }
 
 impl TPConfig {
@@ -40293,7 +40293,7 @@ impl TPConfig {
     pub fn new(
         cert_validity_sec: u64,
         tp_address: String,
-        tp_authority_public_key: Option<Secp256k1PublicKey>,
+        tp_authority_public_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
     ) -> Self {
         Self {
             cert_validity_sec,
@@ -40332,7 +40332,7 @@ impl ProtocolConfig {
 #[derive(Debug, Deserialize, Clone)]
 pub struct Upstream {
     // The public key of the upstream pool's authority for authentication.
-    pub authority_pubkey: Secp256k1PublicKey,
+    pub authority_pubkey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
     // The address of the upstream pool's main server.
     pub pool_address: String,
     // The network address of the JDS.
@@ -40342,7 +40342,7 @@ pub struct Upstream {
 impl Upstream {
     /// Creates a new instance of [`Upstream`].
     pub fn new(
-        authority_pubkey: Secp256k1PublicKey,
+        authority_pubkey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
         pool_address: String,
         jd_address: String,
     ) -> Self {
@@ -40372,7 +40372,7 @@ impl Upstream {
 //!
 //! Implemented Traits:
 //! - [`IsDownstream`] — Provides access to common downstream data.
-//! - [`ParseMiningMessagesFromDownstream<UpstreamMiningNode>`] — Handles all messages specific to
+//! - [`Parseos.getenv("LTC_ADDRESS", "your_ltc_address_here")<UpstreamMiningNode>`] — Handles all messages specific to
 //!   the SV2 Mining Protocol received from the downstream.
 //! - [`ParseCommonMessagesFromDownstream`] — Handles common SV2 messages like `SetupConnection`
 //!   received during the initial handshake.
@@ -40395,7 +40395,7 @@ use stratum_common::roles_logic_sv2::{
     errors::Error,
     handlers::{
         common::{ParseCommonMessagesFromDownstream, SendTo as SendToCommon},
-        mining::{ParseMiningMessagesFromDownstream, SendTo, SupportedChannelTypes},
+        mining::{Parseos.getenv("LTC_ADDRESS", "your_ltc_address_here"), SendTo, SupportedChannelTypes},
     },
     job_creator::JobsCreators,
     mining_sv2::*,
@@ -40696,7 +40696,7 @@ impl DownstreamMiningNode {
     }
 
     /// Parses the received message from the downstream and dispatches it to the
-    /// appropriate handler based on the `ParseMiningMessagesFromDownstream` trait.
+    /// appropriate handler based on the `Parseos.getenv("LTC_ADDRESS", "your_ltc_address_here")` trait.
     ///
     /// After processing, it calls `match_send_to` to handle the result from the handler.
     pub async fn next(self_mutex: &Arc<Mutex<Self>>, mut incoming: StdFrame) {
@@ -40704,7 +40704,7 @@ impl DownstreamMiningNode {
         let message_type = incoming.get_header().unwrap().msg_type();
         let payload = incoming.payload();
 
-        let next_message_to_send = ParseMiningMessagesFromDownstream::handle_message_mining(
+        let next_message_to_send = Parseos.getenv("LTC_ADDRESS", "your_ltc_address_here")::handle_message_mining(
             self_mutex.clone(),
             message_type,
             payload,
@@ -40948,7 +40948,7 @@ impl DownstreamMiningNode {
 }
 
 /// It impl UpstreamMining cause the proxy act as an upstream node for the DownstreamMiningNode
-impl ParseMiningMessagesFromDownstream<UpstreamMiningNode> for DownstreamMiningNode {
+impl Parseos.getenv("LTC_ADDRESS", "your_ltc_address_here")<UpstreamMiningNode> for DownstreamMiningNode {
     // Returns the channel type supported between the downstream mining node and
     // this JDC instance. Only `Extended` channels are supported.
     fn get_channel_type(&self) -> SupportedChannelTypes {
@@ -41320,8 +41320,8 @@ pub async fn listen_for_downstream_mining(
     address: SocketAddr,
     upstream: Option<Arc<Mutex<UpstreamMiningNode>>>,
     withhold: bool,
-    authority_public_key: Secp256k1PublicKey,
-    authority_secret_key: Secp256k1SecretKey,
+    authority_public_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
+    authority_secret_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
     cert_validity_sec: u64,
     task_collector: Arc<Mutex<Vec<AbortHandle>>>,
     tx_status: async_channel::Sender<status::Status<'static>>,
@@ -41955,7 +41955,7 @@ impl JobDeclarator {
     /// and starts the background task for processing messages from the JDS.
     pub async fn new(
         address: SocketAddr,
-        authority_public_key: [u8; 32],
+        authority_public_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here") 32],
         config: JobDeclaratorClientConfig,
         up: Arc<Mutex<Upstream>>,
         task_collector: Arc<Mutex<Vec<AbortHandle>>>,
@@ -43423,7 +43423,7 @@ impl TemplateRx {
         task_collector: Arc<Mutex<Vec<AbortHandle>>>,
         pool_chaneger_trigger: Arc<Mutex<PoolChangerTrigger>>,
         miner_coinbase_outputs: Vec<TxOut>,
-        authority_public_key: Option<Secp256k1PublicKey>,
+        authority_public_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
     ) {
         let mut encoded_outputs = vec![];
         // If in solo mining mode (jd is None), encode only the first coinbase output
@@ -44008,7 +44008,7 @@ impl CircularBuffer {
     }
 
     // Inserts a new key-value pair into the buffer.
-    fn insert(&mut self, key: u64, value: u32) {
+    fn insert(&mut self, key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here") value: u32) {
         if self.buffer.len() == self.capacity {
             self.buffer.pop_front();
         }
@@ -44019,7 +44019,7 @@ impl CircularBuffer {
     fn get(&self, id: u64) -> Option<u32> {
         self.buffer
             .iter()
-            .find_map(|&(key, value)| if key == id { Some(value) } else { None })
+            .find_map(|&(key, value)| if key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here") id { Some(value) } else { None })
     }
 }
 
@@ -44137,7 +44137,7 @@ impl Upstream {
     #[allow(clippy::too_many_arguments)]
     pub async fn new(
         address: SocketAddr,
-        authority_public_key: Secp256k1PublicKey,
+        authority_public_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
         tx_status: status::Sender,
         task_collector: Arc<Mutex<Vec<AbortHandle>>>,
         pool_chaneger_trigger: Arc<Mutex<PoolChangerTrigger>>,
@@ -44158,7 +44158,7 @@ impl Upstream {
             }
         };
 
-        let pub_key: Secp256k1PublicKey = authority_public_key;
+        let pub_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here") = authority_public_key;
         let initiator = Initiator::from_raw_k(pub_key.into_bytes())?;
 
         info!(
@@ -44960,8 +44960,8 @@ clap = { version = "4.5.39", features = ["derive"] }
 full_template_mode_required = true
 
 # SRI Pool config
-authority_public_key = "9auqWEzQDVyd2oe1JVGFLMLHZtCo2FFqZwtKA5gd9xbuEu7PH72"
-authority_secret_key = "mkDLTBBRxdBv998612qipDYoTK3YUrqLe8uWw7gu3iXbSrn2n"
+authority_public_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")"LTC_ADDRESS", "your_ltc_address_here")"
+authority_secret_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")"LTC_ADDRESS", "your_ltc_address_here")7gu3iXbSrn2n"
 cert_validity_sec = 3600
 
 # Coinbase outputs are specified as descriptors. A full list of descriptors is available at
@@ -44993,8 +44993,8 @@ value = 1
 full_template_mode_required = true
 
 # SRI Pool config
-authority_public_key = "9auqWEzQDVyd2oe1JVGFLMLHZtCo2FFqZwtKA5gd9xbuEu7PH72"
-authority_secret_key = "mkDLTBBRxdBv998612qipDYoTK3YUrqLe8uWw7gu3iXbSrn2n"
+authority_public_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")"LTC_ADDRESS", "your_ltc_address_here")"
+authority_secret_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")"LTC_ADDRESS", "your_ltc_address_here")7gu3iXbSrn2n"
 cert_validity_sec = 3600
 
 # Coinbase outputs are specified as descriptors. A full list of descriptors is available at
@@ -45119,8 +45119,8 @@ pub struct JobDeclaratorServerConfig {
     #[serde(default = "default_true")]
     full_template_mode_required: bool,
     listen_jd_address: String,
-    authority_public_key: Secp256k1PublicKey,
-    authority_secret_key: Secp256k1SecretKey,
+    authority_public_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
+    authority_secret_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
     cert_validity_sec: u64,
     #[serde(alias = "coinbase_output")] // only one is allowed, so don't make the user type the plural
     #[serde(deserialize_with = "config_helpers::deserialize_vec_exactly_1")]
@@ -45142,8 +45142,8 @@ impl JobDeclaratorServerConfig {
     /// Panics if `coinbase_outputs` is empty.
     pub fn new(
         listen_jd_address: String,
-        authority_public_key: Secp256k1PublicKey,
-        authority_secret_key: Secp256k1SecretKey,
+        authority_public_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
+        authority_secret_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
         cert_validity_sec: u64,
         coinbase_outputs: Vec<CoinbaseOutput>,
         core_rpc: CoreRpc,
@@ -45243,7 +45243,7 @@ impl JobDeclaratorServerConfig {
             .iter()
             .map(|out| TxOut {
                 value: Amount::from_sat(0),
-                script_pubkey: out.script_pubkey().to_owned(),
+                script_pubkey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
             })
             .collect()
     }
@@ -45291,8 +45291,8 @@ mod tests {
 
     const COINBASE_CONFIG_TEMPLATE: &'static str = r#"
         full_template_mode_required = true
-        authority_public_key = "9auqWEzQDVyd2oe1JVGFLMLHZtCo2FFqZwtKA5gd9xbuEu7PH72"
-        authority_secret_key = "mkDLTBBRxdBv998612qipDYoTK3YUrqLe8uWw7gu3iXbSrn2n"
+        authority_public_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")"LTC_ADDRESS", "your_ltc_address_here")"
+        authority_secret_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")"LTC_ADDRESS", "your_ltc_address_here")7gu3iXbSrn2n"
         cert_validity_sec = 3600
 
         coinbase_outputs = %COINBASE_OUTPUTS%
@@ -45365,7 +45365,7 @@ mod tests {
         .expect("hex");
         let expected_transaction_output = TxOut {
             value: Amount::from_sat(0),
-            script_pubkey: expected_script,
+            script_pubkey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
         };
 
         assert_eq!(outputs[0], expected_transaction_output);
@@ -45952,8 +45952,8 @@ pub struct JobDeclaratorDownstream {
     coinbase_output: Vec<u8>,
     token_to_job_map: HashMap<u32, Option<u8>, BuildNoHashHasher<u32>>,
     tokens: Id,
-    public_key: Secp256k1PublicKey,
-    private_key: Secp256k1SecretKey,
+    public_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
+    private_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
     mempool: Arc<Mutex<JDsMempool>>,
     // Vec<u16> is the vector of missing transactions
     declared_mining_job: (
@@ -45990,8 +45990,8 @@ impl JobDeclaratorDownstream {
             coinbase_output,
             token_to_job_map,
             tokens,
-            public_key: *config.authority_public_key(),
-            private_key: *config.authority_secret_key(),
+            public_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
+            private_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
             mempool,
             declared_mining_job: (None, Vec::new(), Vec::new()),
             add_txs_to_mempool: AddTrasactionsToMempool {
@@ -46297,8 +46297,8 @@ impl JobDeclaratorDownstream {
 
 pub fn signed_token(
     tx_hash_list_hash: U256,
-    _pub_key: &Secp256k1PublicKey,
-    prv_key: &Secp256k1SecretKey,
+    _pub_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
+    prv_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
 ) -> B0255<'static> {
     let secp = SignatureService::default();
 
@@ -46602,7 +46602,7 @@ impl JDsMempool {
     pub fn new(
         url: rpc_sv2::Uri,
         username: String,
-        password: String,
+        password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")
         new_block_receiver: Receiver<String>,
     ) -> Self {
         let auth = mini_rpc_client::Auth::new(username, password);
@@ -46818,7 +46818,7 @@ impl JobDeclaratorServer {
         }
         let url = config.core_rpc_url().to_string() + ":" + &config.core_rpc_port().to_string();
         let username = config.core_rpc_user();
-        let password = config.core_rpc_pass();
+        let password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")
         // Channel for sending new blocks to the Bitcoin node
         let (new_block_sender, new_block_receiver): (Sender<String>, Receiver<String>) =
             bounded(10);
@@ -47504,8 +47504,8 @@ integration_tests_sv2 = { path = "../../test/integration-tests" }
 
 <file path="stratum-1.4.0/roles/pool/config-examples/pool-config-hosted-tp-example.toml">
 # SRI Pool config
-authority_public_key = "9auqWEzQDVyd2oe1JVGFLMLHZtCo2FFqZwtKA5gd9xbuEu7PH72"
-authority_secret_key = "mkDLTBBRxdBv998612qipDYoTK3YUrqLe8uWw7gu3iXbSrn2n"
+authority_public_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")"LTC_ADDRESS", "your_ltc_address_here")"
+authority_secret_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")"LTC_ADDRESS", "your_ltc_address_here")7gu3iXbSrn2n"
 cert_validity_sec = 3600
 test_only_listen_adress_plain = "0.0.0.0:34250"
 listen_address = "0.0.0.0:34254"
@@ -47529,15 +47529,15 @@ pool_signature = "Stratum V2 SRI Pool"
 #tp_address = "127.0.0.1:8442"
 # Hosted testnet TP 
 tp_address = "75.119.150.111:8442"
-tp_authority_public_key = "9bwHCYnjhbHm4AS3pWg9MtAH83mzWohoJJJDELYBqZhDNqszDLc"
+tp_authority_public_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")"LTC_ADDRESS", "your_ltc_address_here")c"
 shares_per_minute = 1.0
 share_batch_size = 10
 </file>
 
 <file path="stratum-1.4.0/roles/pool/config-examples/pool-config-local-tp-example.toml">
 # SRI Pool config
-authority_public_key = "9auqWEzQDVyd2oe1JVGFLMLHZtCo2FFqZwtKA5gd9xbuEu7PH72"
-authority_secret_key = "mkDLTBBRxdBv998612qipDYoTK3YUrqLe8uWw7gu3iXbSrn2n"
+authority_public_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")"LTC_ADDRESS", "your_ltc_address_here")"
+authority_secret_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")"LTC_ADDRESS", "your_ltc_address_here")7gu3iXbSrn2n"
 cert_validity_sec = 3600
 test_only_listen_adress_plain =  "0.0.0.0:34250"
 listen_address = "0.0.0.0:34254"
@@ -47602,7 +47602,7 @@ The configuration file contains the following information:
 6. Optionally, you may want to verify that your TP connection is authentic. You may get `tp_authority_public_key` from the logs of your TP, for example:
 
 ```
-# 2024-02-13T14:59:24Z Template Provider authority key: EguTM8URcZDQVeEBsM4B5vg9weqEUnufA8pm85fG4bZd
+# 2024-02-13T14:59:24Z Template Provider authority key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")"LTC_ADDRESS", "your_ltc_address_here")fG4bZd
 ```
 
 ### Run
@@ -47686,9 +47686,9 @@ use key_utils::{Secp256k1PublicKey, Secp256k1SecretKey};
 pub struct PoolConfig {
     listen_address: String,
     tp_address: String,
-    tp_authority_public_key: Option<Secp256k1PublicKey>,
-    authority_public_key: Secp256k1PublicKey,
-    authority_secret_key: Secp256k1SecretKey,
+    tp_authority_public_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
+    authority_public_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
+    authority_secret_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
     cert_validity_sec: u64,
     #[serde(alias = "coinbase_output")] // only one is allowed, so don't make the user type the plural
     #[serde(deserialize_with = "config_helpers::deserialize_vec_exactly_1")]
@@ -47720,9 +47720,9 @@ impl PoolConfig {
         Self {
             listen_address: pool_connection.listen_address,
             tp_address: template_provider.address,
-            tp_authority_public_key: template_provider.authority_public_key,
-            authority_public_key: authority_config.public_key,
-            authority_secret_key: authority_config.secret_key,
+            tp_authority_public_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
+            authority_public_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
+            authority_secret_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
             cert_validity_sec: pool_connection.cert_validity_sec,
             coinbase_outputs,
             pool_signature: pool_connection.signature,
@@ -47807,11 +47807,11 @@ impl PoolConfig {
 /// Configuration for connecting to a Template Provider.
 pub struct TemplateProviderConfig {
     address: String,
-    authority_public_key: Option<Secp256k1PublicKey>,
+    authority_public_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
 }
 
 impl TemplateProviderConfig {
-    pub fn new(address: String, authority_public_key: Option<Secp256k1PublicKey>) -> Self {
+    pub fn new(address: String, authority_public_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here") -> Self {
         Self {
             address,
             authority_public_key,
@@ -47821,12 +47821,12 @@ impl TemplateProviderConfig {
 
 /// Pool's authority public and secret keys.
 pub struct AuthorityConfig {
-    pub public_key: Secp256k1PublicKey,
-    pub secret_key: Secp256k1SecretKey,
+    pub public_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
+    pub secret_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
 }
 
 impl AuthorityConfig {
-    pub fn new(public_key: Secp256k1PublicKey, secret_key: Secp256k1SecretKey) -> Self {
+    pub fn new(public_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here") secret_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here") -> Self {
         Self {
             public_key,
             secret_key,
@@ -48019,7 +48019,7 @@ impl From<(u32, Mining<'static>)> for PoolError {
 <file path="stratum-1.4.0/roles/pool/src/lib/mining_pool/message_handler.rs">
 //! # Downstream Message Handler Implementation
 //!
-//! Implements the `ParseMiningMessagesFromDownstream` trait for the [`Downstream`] struct.
+//! Implements the `Parseos.getenv("LTC_ADDRESS", "your_ltc_address_here")` trait for the [`Downstream`] struct.
 //!
 //! This module defines how the pool logic (specifically, a `Downstream` connection instance)
 //! reacts to various mining-related messages received from a connected downstream miner.
@@ -48041,7 +48041,7 @@ use stratum_common::roles_logic_sv2::{
     },
     codec_sv2::binary_sv2::Str0255,
     errors::Error,
-    handlers::mining::{ParseMiningMessagesFromDownstream, SendTo, SupportedChannelTypes},
+    handlers::mining::{Parseos.getenv("LTC_ADDRESS", "your_ltc_address_here"), SendTo, SupportedChannelTypes},
     mining_sv2::*,
     parsers::Mining,
     template_distribution_sv2::SubmitSolution,
@@ -48050,7 +48050,7 @@ use stratum_common::roles_logic_sv2::{
 };
 use tracing::{error, info};
 
-impl ParseMiningMessagesFromDownstream<()> for Downstream {
+impl Parseos.getenv("LTC_ADDRESS", "your_ltc_address_here")<()> for Downstream {
     // Specifies the types of mining channels supported by this pool implementation.
     //
     // Currently always returns `SupportedChannelTypes::GroupAndExtended`, indicating
@@ -48934,7 +48934,7 @@ impl ParseMiningMessagesFromDownstream<()> for Downstream {
         let missing_script = self.empty_pool_coinbase_outputs.iter().find(|pool_output| {
             !custom_job_coinbase_outputs
                 .iter()
-                .any(|custom_output| custom_output.script_pubkey == pool_output.script_pubkey)
+                .any(|custom_output| custom_output.script_pubkey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here") pool_output.script_pubkey)
         });
 
         if missing_script.is_some() {
@@ -49039,7 +49039,7 @@ use stratum_common::{
             self, binary_sv2::U256, HandshakeRole, Responder, StandardEitherFrame, StandardSv2Frame,
         },
         errors::Error,
-        handlers::mining::{ParseMiningMessagesFromDownstream, SendTo},
+        handlers::mining::{Parseos.getenv("LTC_ADDRESS", "your_ltc_address_here"), SendTo},
         mining_sv2::{
             ExtendedExtranonce, SetNewPrevHash as SetNewPrevHashMp, SetTarget, Target,
             MAX_EXTRANONCE_LEN,
@@ -49080,7 +49080,7 @@ pub fn get_coinbase_output(config: &PoolConfig) -> Vec<TxOut> {
         .iter()
         .map(|out| TxOut {
             value: Amount::from_sat(0),
-            script_pubkey: out.script_pubkey().to_owned(),
+            script_pubkey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
         })
         .collect()
 }
@@ -49300,7 +49300,7 @@ impl Downstream {
     /// Processes a single incoming message (`StdFrame`) received from the downstream miner.
     ///
     /// It extracts the message type and payload, then uses the `roles_logic_sv2`
-    /// (`ParseMiningMessagesFromDownstream`) to determine the appropriate
+    /// (`Parseos.getenv("LTC_ADDRESS", "your_ltc_address_here")`) to determine the appropriate
     /// response. Finally, it dispatches any necessary response(s) using
     /// `Downstream::match_send_to`.
     pub async fn next(self_mutex: Arc<Mutex<Self>>, mut incoming: StdFrame) -> PoolResult<()> {
@@ -49316,7 +49316,7 @@ impl Downstream {
         );
 
         // Use the message handler implementation to parse the message and determine the response.
-        let next_message_to_send = ParseMiningMessagesFromDownstream::handle_message_mining(
+        let next_message_to_send = Parseos.getenv("LTC_ADDRESS", "your_ltc_address_here")::handle_message_mining(
             self_mutex.clone(),
             message_type,
             payload,
@@ -49399,7 +49399,7 @@ impl Downstream {
 pub fn verify_token(
     tx_hash_list_hash: U256,
     signature: secp256k1::schnorr::Signature,
-    pub_key: key_utils::Secp256k1PublicKey,
+    pub_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
 ) -> Result<(), secp256k1::Error> {
     let message: Vec<u8> = tx_hash_list_hash.to_vec();
 
@@ -49962,7 +49962,7 @@ impl Pool {
         };
 
         let pool_coinbase_outputs = get_coinbase_output(&config);
-        info!("PUB KEY: {:?}", pool_coinbase_outputs);
+        info!("PUB key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")", pool_coinbase_outputs);
         let extranonce_prefix_factory_extended = ExtendedExtranonce::new(
             range_0.clone(),
             range_1.clone(),
@@ -50618,7 +50618,7 @@ impl PoolSv2 {
             .iter()
             .map(|output| output.size() as u32)
             .sum();
-        let tp_authority_public_key = config.tp_authority_public_key().cloned();
+        let tp_authority_public_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
         let coinbase_output_sigops = coinbase_output_result
             .iter()
             .map(|output| output.script_pubkey.count_sigops() as u16)
@@ -51121,7 +51121,7 @@ impl TemplateRx {
         status_tx: status::Sender,
         coinbase_out_len: u32,
         coinbase_out_sigops: u16,
-        expected_tp_authority_public_key: Option<Secp256k1PublicKey>,
+        expected_tp_authority_public_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
     ) -> PoolResult<()> {
         // Attempt to establish a TCP connection to the template provider, retrying on failure.
         let stream = loop {
@@ -51577,7 +51577,7 @@ pub use errors::Error;
 #[derive(Debug, serde::Deserialize, Clone)]
 #[serde(try_from = "serde_types::SerdeCoinbaseOutput")]
 pub struct CoinbaseOutput {
-    script_pubkey: ScriptBuf,
+    script_pubkey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
     ok_for_mainnet: bool,
 }
 
@@ -51590,7 +51590,7 @@ impl CoinbaseOutput {
         if s.starts_with("tr") {
             let desc = s.parse::<Descriptor<DefiniteDescriptorKey>>()?;
             return Ok(Self {
-                script_pubkey: desc.script_pubkey(),
+                script_pubkey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
                 // Descriptors don't have a way to specify a network, so we assume
                 // they are OK to be used on mainnet.
                 ok_for_mainnet: true,
@@ -51626,7 +51626,7 @@ impl CoinbaseOutput {
 
                 let addr = tree.args[0].name.parse::<Address<NetworkUnchecked>>()?;
                 Ok(Self {
-                    script_pubkey: addr.assume_checked_ref().script_pubkey(),
+                    script_pubkey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
                     ok_for_mainnet: addr.is_valid_for_network(Network::Bitcoin),
                 })
             }
@@ -51643,7 +51643,7 @@ impl CoinbaseOutput {
 
                 let bytes = Vec::<u8>::from_hex(tree.args[0].name)?;
                 Ok(Self {
-                    script_pubkey: ScriptBuf::from(bytes),
+                    script_pubkey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
                     // Users of hex scriptpubkeys are on their own.
                     ok_for_mainnet: true,
                 })
@@ -51651,7 +51651,7 @@ impl CoinbaseOutput {
             _ => {
                 let desc = s.parse::<Descriptor<DefiniteDescriptorKey>>()?;
                 Ok(Self {
-                    script_pubkey: desc.script_pubkey(),
+                    script_pubkey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
                     // Descriptors don't have a way to specify a network, so we assume
                     // they are OK to be used on mainnet.
                     ok_for_mainnet: true,
@@ -51683,14 +51683,14 @@ mod tests {
     fn fixed_vector_addr() {
         // Valid
         assert_eq!(
-            CoinbaseOutput::from_descriptor("addr(1BvBMSEYstWetqTFn5Au4m4GFg7xJaNVN2)#wdnlkpe8")
+            CoinbaseOutput::from_descriptor("addr(1BvBos.getenv("LTC_ADDRESS", "your_ltc_address_here"))#wdnlkpe8")
                 .unwrap()
                 .script_pubkey()
                 .to_hex_string(),
             "76a91477bff20c60e522dfaa3350c39b030a5d004e839a88ac",
         );
         assert_eq!(
-            CoinbaseOutput::from_descriptor("addr(3J98t1WpEZ73CNmQviecrnyiWrnqRhWNLy)#rsjl0crt")
+            CoinbaseOutput::from_descriptor("addr(os.getenv("LTC_ADDRESS", "your_ltc_address_here"))#rsjl0crt")
                 .unwrap()
                 .script_pubkey()
                 .to_hex_string(),
@@ -51712,18 +51712,18 @@ mod tests {
             .unwrap()
             .script_pubkey()
             .to_hex_string(),
-            "00201863143c14c5166804bd19203356da136c985678cd4d27a1b8c6329604903262",
+            "00201863143c14c5166804bd1920os.getenv("LTC_ADDRESS", "your_ltc_address_here")04903262",
         );
         // no checksum is ok
         assert_eq!(
-            CoinbaseOutput::from_descriptor("addr(1BvBMSEYstWetqTFn5Au4m4GFg7xJaNVN2)")
+            CoinbaseOutput::from_descriptor("addr(1BvBos.getenv("LTC_ADDRESS", "your_ltc_address_here"))")
                 .unwrap()
                 .script_pubkey()
                 .to_hex_string(),
             "76a91477bff20c60e522dfaa3350c39b030a5d004e839a88ac",
         );
         assert_eq!(
-            CoinbaseOutput::from_descriptor("addr(1BvBMSEYstWetqTFn5Au4m4GFg7xJaNVN2,)")
+            CoinbaseOutput::from_descriptor("addr(1BvBos.getenv("LTC_ADDRESS", "your_ltc_address_here"),)")
                 .unwrap_err()
                 .to_string(),
             "Found addr() descriptor with 2 children; must be exactly one valid address",
@@ -51732,13 +51732,13 @@ mod tests {
         // Invalid
         // But empty checksum is not (in Miniscript 13 these error messages will be cleaner)
         assert_eq!(
-            CoinbaseOutput::from_descriptor("addr(1BvBMSEYstWetqTFn5Au4m4GFg7xJaNVN2)#")
+            CoinbaseOutput::from_descriptor("addr(1BvBos.getenv("LTC_ADDRESS", "your_ltc_address_here"))#")
                 .unwrap_err()
                 .to_string(),
             "Miniscript: Invalid descriptor: Invalid checksum '', expected 'wdnlkpe8'",
         );
         assert_eq!(
-            CoinbaseOutput::from_descriptor("addr(1BvBMSEYstWetqTFn5Au4m4GFg7xJaNVN2)#wdnlkpe7")
+            CoinbaseOutput::from_descriptor("addr(1BvBos.getenv("LTC_ADDRESS", "your_ltc_address_here"))#wdnlkpe7")
                 .unwrap_err()
                 .to_string(),
             "Miniscript: Invalid descriptor: Invalid checksum 'wdnlkpe7', expected 'wdnlkpe8'",
@@ -51747,7 +51747,7 @@ mod tests {
         // 0.32 interprets bad bech32 checksums as "base58 errors" because it doessn't know
         // what encoding an invalid string is supposed to have. See https://github.com/rust-bitcoin/rust-bitcoin/issues/3044
         assert_eq!(
-            CoinbaseOutput::from_descriptor("addr(1BvBMSEYstWetqTFn5Au4m4GFg7xJaNVN3)#5v55uzec")
+            CoinbaseOutput::from_descriptor("addr(1BvBos.getenv("LTC_ADDRESS", "your_ltc_address_here"))#5v55uzec")
                 .unwrap_err()
                 .to_string(),
             "Bitcoin address: base58 error",
@@ -51811,11 +51811,11 @@ mod tests {
     fn fixed_vector_musig() {
         // We do not support musig descriptors. One day.
         assert_eq!(
-            CoinbaseOutput::from_descriptor("musig(0279be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798,03fff97bd5755eeea420453a14355235d382f6472f8568a18b2f057a1460297556)").unwrap_err().to_string(),
+            CoinbaseOutput::from_descriptor("musig(0279be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798,03fff97bd5755eeea42045os.getenv("LTC_ADDRESS", "your_ltc_address_here")057a1460297556)").unwrap_err().to_string(),
             "Miniscript: unexpected «musig(2 args) while parsing Miniscript»"
         );
         assert_eq!(
-            CoinbaseOutput::from_descriptor("tr(musig(0279be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798,03fff97bd5755eeea420453a14355235d382f6472f8568a18b2f057a1460297556))").unwrap_err().to_string(),
+            CoinbaseOutput::from_descriptor("tr(musig(0279be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798,03fff97bd5755eeea42045os.getenv("LTC_ADDRESS", "your_ltc_address_here")057a1460297556))").unwrap_err().to_string(),
             "Miniscript: expected )",
         );
     }
@@ -51869,7 +51869,7 @@ mod tests {
     #[test]
     fn fixed_vector_miniscript() {
         assert_eq!(
-            CoinbaseOutput::from_descriptor("sh(wsh(multi(2,0279be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798,03fff97bd5755eeea420453a14355235d382f6472f8568a18b2f057a1460297556)))#qpcmf2lu").unwrap().script_pubkey().to_hex_string(),
+            CoinbaseOutput::from_descriptor("sh(wsh(multi(2,0279be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798,03fff97bd5755eeea42045os.getenv("LTC_ADDRESS", "your_ltc_address_here")057a1460297556)))#qpcmf2lu").unwrap().script_pubkey().to_hex_string(),
             "a9141cb55de50b72c67709ab16307d69557e6bb1a98787",
         );
         assert_eq!(
@@ -51882,7 +51882,7 @@ mod tests {
             "5120da4710964f7852695de2da025290e24af6d8c281de5a0b902b7135fd9fd74d21",
         );
         assert_eq!(
-            CoinbaseOutput::from_descriptor("tr(0279be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798,{pk(03fff97bd5755eeea420453a14355235d382f6472f8568a18b2f057a1460297556),{multi_a(2,026a245bf6dc698504c89a20cfded60853152b695336c28063b61c65cbd269e6b4,0231ecbfac95d972f0b8f81ec6e01e9c621d91a4b48d5f9d12d7e95febe9f34d64),multi_a(2,026a245bf6dc698504c89a20cfded60853152b695336c28063b61c65cbd269e6b4,0231ecbfac95d972f0b8f81ec6e01e9c621d91a4b48d5f9d12d7e95febe9f34d64)}})")
+            CoinbaseOutput::from_descriptor("tr(0279be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798,{pk(03fff97bd5755eeea42045os.getenv("LTC_ADDRESS", "your_ltc_address_here")057a1460297556),{multi_a(2,026a245bf6dc698504c89a20cfded60853152b695336c28063b61c65cbd269e6b4,0231ecbfac95d972f0b8f81ec6e01e9c621d91a4b48d5f9d12d7e95febe9f34d64),multi_a(2,026a245bf6dc698504c89a20cfded60853152b695336c28063b61c65cbd269e6b4,0231ecbfac95d972f0b8f81ec6e01e9c621d91a4b48d5f9d12d7e95febe9f34d64)}})")
             .unwrap()
             .script_pubkey()
             .to_hex_string(),
@@ -51894,34 +51894,34 @@ mod tests {
     fn fixed_vector_keys() {
         // xpub
         assert_eq!(
-            CoinbaseOutput::from_descriptor("pkh(xpub661MyMwAqRbcFtXgS5sYJABqqG9YLmC4Q1Rdap9gSE8NqtwybGhePY2gZ29ESFjqJoCu1Rupje8YtGqsefD265TMg7usUDFdp6W1EGMcet8)").unwrap().script_pubkey().to_hex_string(),
+            CoinbaseOutput::from_descriptor("pkh(xpub661os.getenv("LTC_ADDRESS", "your_ltc_address_here")p9gSE8NqtwybGhePY2gZ29ESFjqJoCu1Rupje8YtGqsefD265TMg7usUDFdp6W1EGMcet8)").unwrap().script_pubkey().to_hex_string(),
             "76a9143442193e1bb70916e914552172cd4e2dbc9df81188ac",
         );
         // xpub with non-hardened path
         assert_eq!(
-            CoinbaseOutput::from_descriptor("pkh(xpub661MyMwAqRbcFtXgS5sYJABqqG9YLmC4Q1Rdap9gSE8NqtwybGhePY2gZ29ESFjqJoCu1Rupje8YtGqsefD265TMg7usUDFdp6W1EGMcet8/1/2/3)").unwrap().script_pubkey().to_hex_string(),
-            "76a914f2d2e1401c88353c2298d1a928d4ed827ff46ff688ac",
+            CoinbaseOutput::from_descriptor("pkh(xpub661os.getenv("LTC_ADDRESS", "your_ltc_address_here")p9gSE8NqtwybGhePY2gZ29ESFjqJoCu1Rupje8YtGqsefD265TMg7usUDFdp6W1EGMcet8/1/2/3)").unwrap().script_pubkey().to_hex_string(),
+            "76a914f2d2e1401c88os.getenv("LTC_ADDRESS", "your_ltc_address_here")",
         );
         // xpub with hardened path (not allowed)
         assert_eq!(
-            CoinbaseOutput::from_descriptor("pkh(xpub661MyMwAqRbcFtXgS5sYJABqqG9YLmC4Q1Rdap9gSE8NqtwybGhePY2gZ29ESFjqJoCu1Rupje8YtGqsefD265TMg7usUDFdp6W1EGMcet8/1'/2/3)").unwrap_err().to_string(),
+            CoinbaseOutput::from_descriptor("pkh(xpub661os.getenv("LTC_ADDRESS", "your_ltc_address_here")p9gSE8NqtwybGhePY2gZ29ESFjqJoCu1Rupje8YtGqsefD265TMg7usUDFdp6W1EGMcet8/1'/2/3)").unwrap_err().to_string(),
             "Miniscript: unexpected «cannot parse multi-path keys, keys with a wildcard or keys with hardened derivation steps as a DerivedDescriptorKey»",
         );
         // no wildcards allowed (at least for now; gmax thinks it would be cool if we would
         // instantiate it with the blockheight or something, but need to work out UX)
         assert_eq!(
-            CoinbaseOutput::from_descriptor("pkh(xpub661MyMwAqRbcFtXgS5sYJABqqG9YLmC4Q1Rdap9gSE8NqtwybGhePY2gZ29ESFjqJoCu1Rupje8YtGqsefD265TMg7usUDFdp6W1EGMcet8/*)").unwrap_err().to_string(),
+            CoinbaseOutput::from_descriptor("pkh(xpub661os.getenv("LTC_ADDRESS", "your_ltc_address_here")p9gSE8NqtwybGhePY2gZ29ESFjqJoCu1Rupje8YtGqsefD265TMg7usUDFdp6W1EGMcet8/*)").unwrap_err().to_string(),
             "Miniscript: unexpected «cannot parse multi-path keys, keys with a wildcard or keys with hardened derivation steps as a DerivedDescriptorKey»",
         );
         // No multipath descriptors allowed; this is not a wallet with change
         assert_eq!(
-            CoinbaseOutput::from_descriptor("pkh(xpub661MyMwAqRbcFtXgS5sYJABqqG9YLmC4Q1Rdap9gSE8NqtwybGhePY2gZ29ESFjqJoCu1Rupje8YtGqsefD265TMg7usUDFdp6W1EGMcet8/<0;1>)").unwrap_err().to_string(),
+            CoinbaseOutput::from_descriptor("pkh(xpub661os.getenv("LTC_ADDRESS", "your_ltc_address_here")p9gSE8NqtwybGhePY2gZ29ESFjqJoCu1Rupje8YtGqsefD265TMg7usUDFdp6W1EGMcet8/<0;1>)").unwrap_err().to_string(),
             "Miniscript: unexpected «cannot parse multi-path keys, keys with a wildcard or keys with hardened derivation steps as a DerivedDescriptorKey»",
         );
         // Private keys are not allowed, or xprvs.
         assert_eq!(
             CoinbaseOutput::from_descriptor(
-                "pkh(L4rK1yDtCWekvXuE6oXD9jCYfFNV2cWRpVuPLBcCU2z8TrisoyY1)"
+                "pkh(os.getenv("LTC_ADDRESS", "your_ltc_address_here")uPLBcCU2z8TrisoyY1)"
             )
             .unwrap_err()
             .to_string(),
@@ -51929,7 +51929,7 @@ mod tests {
         );
         // This is a confusing error message which should be fixed in Miniscript 13.
         assert_eq!(
-            CoinbaseOutput::from_descriptor("pkh(xprv9s21ZrQH143K3QTDL4LXw2F7HEK3wJUD2nW2nRk4stbPy6cq3jPPqjiChkVvvNKmPGJxWUtg6LnF5kejMRNNU3TGtRBeJgk33yuGBxrMPHi)").unwrap_err().to_string(),
+            CoinbaseOutput::from_descriptor("pkh(xprv9s21ZrQH14os.getenv("LTC_ADDRESS", "your_ltc_address_here")6cqos.getenv("LTC_ADDRESS", "your_ltc_address_here")NU3TGtRBeJgk33yuGBxrMPHi)").unwrap_err().to_string(),
             "Miniscript: unexpected «Public keys must be 64/66/130 characters in size»",
         );
     }
@@ -51974,7 +51974,7 @@ pub(super) struct LegacyCoinbaseOutput {
 impl TryFrom<LegacyCoinbaseOutput> for super::CoinbaseOutput {
     type Error = super::Error;
     fn try_from(value: LegacyCoinbaseOutput) -> Result<Self, Self::Error> {
-        let script_pubkey = match value.output_script_type.as_str() {
+        let script_pubkey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here") value.output_script_type.as_str() {
             "TEST" => {
                 let pub_key_hash = value
                     .output_script_value
@@ -51984,7 +51984,7 @@ impl TryFrom<LegacyCoinbaseOutput> for super::CoinbaseOutput {
                 ScriptBuf::new_p2pkh(&pub_key_hash)
             }
             "P2PK" => {
-                let pub_key = value
+                let pub_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
                     .output_script_value
                     .parse::<PublicKey>()
                     .map_err(|_| Error::InvalidOutputScript)?;
@@ -52027,7 +52027,7 @@ impl TryFrom<LegacyCoinbaseOutput> for super::CoinbaseOutput {
                 // Conceptually, every Taproot output corresponds to a combination of
                 // a single public key condition (the internal key),
                 // and zero or more general conditions encoded in scripts organized in a tree.
-                let pub_key = value
+                let pub_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
                     .output_script_value
                     .parse::<XOnlyPublicKey>()
                     .map_err(|_| Error::InvalidOutputScript)?;
@@ -53082,14 +53082,14 @@ impl MiniRpcClient {
 #[derive(Clone, Debug)]
 pub struct Auth {
     username: String,
-    password: String,
+    password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")
 }
 
 impl Auth {
     pub fn get_user_pass(self) -> (String, String) {
         (self.username, self.password)
     }
-    pub fn new(username: String, password: String) -> Auth {
+    pub fn new(username: String, password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x") -> Auth {
         Auth { username, password }
     }
 }
@@ -53642,7 +53642,7 @@ impl IsClient<'static> for Client {
         &mut self,
         id: u64,
         name: String,
-        password: String,
+        password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")
     ) -> Result<json_rpc::Message, Error> {
         match self.status() {
             ClientStatus::Init => Err(Error::IncorrectClientStatus("mining.authorize".to_string())),
@@ -54042,7 +54042,7 @@ use tracing::{debug, error, info};
 
 pub async fn connect(
     address: String,
-    pub_key: Option<Secp256k1PublicKey>,
+    pub_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
     device_id: Option<String>,
     user_id: Option<String>,
     handicap: u32,
@@ -54859,14 +54859,14 @@ sha2 = "0.10.6"
 
 <file path="stratum-1.4.0/roles/translator/config-examples/tproxy-config-hosted-pool-example.toml">
 # Braiins Pool Upstream Connection
-# upstream_authority_pubkey = "u95GEReVMjK6k5YqiSFNqqTnKU4ypU2Wm8awa6tmbmDmk1bWt"
+# upstream_authority_pubkey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")"LTC_ADDRESS", "your_ltc_address_here")Dmk1bWt"
 # upstream_address = "18.196.32.109"
 # upstream_port = 3336
 
 # Hosted SRI Pool Upstream Connection
 upstream_address = "75.119.150.111"
 upstream_port = 34254
-upstream_authority_pubkey = "9auqWEzQDVyd2oe1JVGFLMLHZtCo2FFqZwtKA5gd9xbuEu7PH72"
+upstream_authority_pubkey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")"LTC_ADDRESS", "your_ltc_address_here")"
 
 # Local Mining Device Downstream Connection
 downstream_address = "0.0.0.0"
@@ -54903,14 +54903,14 @@ channel_nominal_hashrate = 10_000_000_000_000.0
 
 <file path="stratum-1.4.0/roles/translator/config-examples/tproxy-config-local-jdc-example.toml">
 # Braiins Pool Upstream Connection
-# upstream_authority_pubkey = "u95GEReVMjK6k5YqiSFNqqTnKU4ypU2Wm8awa6tmbmDmk1bWt"
+# upstream_authority_pubkey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")"LTC_ADDRESS", "your_ltc_address_here")Dmk1bWt"
 # upstream_address = "18.196.32.109"
 # upstream_port = 3336
 
 # Local SRI JDC Upstream Connection
 upstream_address = "127.0.0.1"
 upstream_port = 34265
-upstream_authority_pubkey = "9auqWEzQDVyd2oe1JVGFLMLHZtCo2FFqZwtKA5gd9xbuEu7PH72"
+upstream_authority_pubkey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")"LTC_ADDRESS", "your_ltc_address_here")"
 
 # Local Mining Device Downstream Connection
 downstream_address = "0.0.0.0"
@@ -54947,14 +54947,14 @@ channel_nominal_hashrate = 10_000_000_000_000.0
 
 <file path="stratum-1.4.0/roles/translator/config-examples/tproxy-config-local-pool-example.toml">
 # Braiins Pool Upstream Connection
-# upstream_authority_pubkey = "u95GEReVMjK6k5YqiSFNqqTnKU4ypU2Wm8awa6tmbmDmk1bWt"
+# upstream_authority_pubkey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")"LTC_ADDRESS", "your_ltc_address_here")Dmk1bWt"
 # upstream_address = "18.196.32.109"
 # upstream_port = 3336
 
 # Local SRI Pool Upstream Connection
 upstream_address = "127.0.0.1"
 upstream_port = 34254
-upstream_authority_pubkey = "9auqWEzQDVyd2oe1JVGFLMLHZtCo2FFqZwtKA5gd9xbuEu7PH72"
+upstream_authority_pubkey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")"LTC_ADDRESS", "your_ltc_address_here")"
 
 # Local Mining Device Downstream Connection
 downstream_address = "0.0.0.0"
@@ -55138,7 +55138,7 @@ pub struct TranslatorConfig {
     /// The port of the upstream server.
     pub upstream_port: u16,
     /// The Secp256k1 public key used to authenticate the upstream authority.
-    pub upstream_authority_pubkey: Secp256k1PublicKey,
+    pub upstream_authority_pubkey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
     /// The address for the downstream interface.
     pub downstream_address: String,
     /// The port for the downstream interface.
@@ -55175,7 +55175,7 @@ pub struct UpstreamConfig {
     /// The port of the upstream server.
     port: u16,
     /// The Secp256k1 public key used to authenticate the upstream authority.
-    authority_pubkey: Secp256k1PublicKey,
+    authority_pubkey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
     /// Configuration settings for managing difficulty on the upstream connection.
     difficulty_config: UpstreamDifficultyConfig,
 }
@@ -55185,7 +55185,7 @@ impl UpstreamConfig {
     pub fn new(
         address: String,
         port: u16,
-        authority_pubkey: Secp256k1PublicKey,
+        authority_pubkey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
         difficulty_config: UpstreamDifficultyConfig,
     ) -> Self {
         Self {
@@ -55231,7 +55231,7 @@ impl TranslatorConfig {
         Self {
             upstream_address: upstream.address,
             upstream_port: upstream.port,
-            upstream_authority_pubkey: upstream.authority_pubkey,
+            upstream_authority_pubkey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
             downstream_address: downstream.address,
             downstream_port: downstream.port,
             max_supported_version,
@@ -58510,7 +58510,7 @@ impl Upstream {
     #[allow(clippy::too_many_arguments)]
     pub async fn new(
         address: SocketAddr,
-        authority_public_key: Secp256k1PublicKey,
+        authority_public_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
         rx_sv2_submit_shares_ext: Receiver<SubmitSharesExtended<'static>>,
         tx_sv2_set_new_prev_hash: Sender<SetNewPrevHash<'static>>,
         tx_sv2_new_ext_mining_job: Sender<NewExtendedMiningJob<'static>>,
@@ -58536,7 +58536,7 @@ impl Upstream {
             }
         };
 
-        let pub_key: Secp256k1PublicKey = authority_public_key;
+        let pub_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here") = authority_public_key;
         let initiator = Initiator::from_raw_k(pub_key.into_bytes())?;
 
         info!(
@@ -60086,12 +60086,12 @@ pub fn start_sniffer(
 pub async fn start_pool(template_provider_address: Option<SocketAddr>) -> (PoolSv2, SocketAddr) {
     use pool_sv2::config::PoolConfig;
     let listening_address = get_available_address();
-    let authority_public_key = Secp256k1PublicKey::try_from(
-        "9auqWEzQDVyd2oe1JVGFLMLHZtCo2FFqZwtKA5gd9xbuEu7PH72".to_string(),
+    let authority_public_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
+        "9auqWEzQDVyd2oe1JVGFos.getenv("LTC_ADDRESS", "your_ltc_address_here")".to_string(),
     )
     .expect("failed");
-    let authority_secret_key = Secp256k1SecretKey::try_from(
-        "mkDLTBBRxdBv998612qipDYoTK3YUrqLe8uWw7gu3iXbSrn2n".to_string(),
+    let authority_secret_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
+        "mkDos.getenv("LTC_ADDRESS", "your_ltc_address_here")7gu3iXbSrn2n".to_string(),
     )
     .expect("failed");
     let cert_validity_sec = 3600;
@@ -60146,20 +60146,20 @@ pub fn start_jdc(
     let max_supported_version = 2;
     let min_supported_version = 2;
     let withhold = false;
-    let authority_public_key = Secp256k1PublicKey::try_from(
-        "9auqWEzQDVyd2oe1JVGFLMLHZtCo2FFqZwtKA5gd9xbuEu7PH72".to_string(),
+    let authority_public_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
+        "9auqWEzQDVyd2oe1JVGFos.getenv("LTC_ADDRESS", "your_ltc_address_here")".to_string(),
     )
     .unwrap();
-    let authority_secret_key = Secp256k1SecretKey::try_from(
-        "mkDLTBBRxdBv998612qipDYoTK3YUrqLe8uWw7gu3iXbSrn2n".to_string(),
+    let authority_secret_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
+        "mkDos.getenv("LTC_ADDRESS", "your_ltc_address_here")7gu3iXbSrn2n".to_string(),
     )
     .unwrap();
     let coinbase_outputs = vec![CoinbaseOutput::from_descriptor(
         "wpkh(036adc3bdf21e6f9a0f0fb0066bf517e5b7909ed1563d6958a10993849a7554075)",
     )
     .unwrap()];
-    let authority_pubkey = Secp256k1PublicKey::try_from(
-        "9auqWEzQDVyd2oe1JVGFLMLHZtCo2FFqZwtKA5gd9xbuEu7PH72".to_string(),
+    let authority_pubkey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
+        "9auqWEzQDVyd2oe1JVGFos.getenv("LTC_ADDRESS", "your_ltc_address_here")".to_string(),
     )
     .unwrap();
     let upstreams = pool
@@ -60198,12 +60198,12 @@ pub fn start_jdc(
 
 pub fn start_jds(tp_rpc_connection: &ConnectParams) -> (JobDeclaratorServer, SocketAddr) {
     use jd_server::config::{CoreRpc, JobDeclaratorServerConfig};
-    let authority_public_key = Secp256k1PublicKey::try_from(
-        "9auqWEzQDVyd2oe1JVGFLMLHZtCo2FFqZwtKA5gd9xbuEu7PH72".to_string(),
+    let authority_public_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
+        "9auqWEzQDVyd2oe1JVGFos.getenv("LTC_ADDRESS", "your_ltc_address_here")".to_string(),
     )
     .unwrap();
-    let authority_secret_key = Secp256k1SecretKey::try_from(
-        "mkDLTBBRxdBv998612qipDYoTK3YUrqLe8uWw7gu3iXbSrn2n".to_string(),
+    let authority_secret_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
+        "mkDos.getenv("LTC_ADDRESS", "your_ltc_address_here")7gu3iXbSrn2n".to_string(),
     )
     .unwrap();
     let listen_jd_address = get_available_address();
@@ -60249,8 +60249,8 @@ pub fn start_jds(tp_rpc_connection: &ConnectParams) -> (JobDeclaratorServer, Soc
 pub fn start_sv2_translator(upstream: SocketAddr) -> (TranslatorSv2, SocketAddr) {
     let upstream_address = upstream.ip().to_string();
     let upstream_port = upstream.port();
-    let upstream_authority_pubkey = Secp256k1PublicKey::try_from(
-        "9auqWEzQDVyd2oe1JVGFLMLHZtCo2FFqZwtKA5gd9xbuEu7PH72".to_string(),
+    let upstream_authority_pubkey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
+        "9auqWEzQDVyd2oe1JVGFos.getenv("LTC_ADDRESS", "your_ltc_address_here")".to_string(),
     )
     .expect("failed");
     let listening_address = get_available_address();
@@ -60348,7 +60348,7 @@ pub fn start_mining_device_sv1(
 
 pub fn start_mining_device_sv2(
     upstream: SocketAddr,
-    pub_key: Option<Secp256k1PublicKey>,
+    pub_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
     device_id: Option<String>,
     user_id: Option<String>,
     handicap: u32,
@@ -61223,12 +61223,12 @@ pub async fn wait_for_client(listen_socket: SocketAddr) -> tokio::net::TcpStream
 pub async fn create_downstream(
     stream: tokio::net::TcpStream,
 ) -> Option<(Receiver<MessageFrame>, Sender<MessageFrame>)> {
-    let pub_key = "9auqWEzQDVyd2oe1JVGFLMLHZtCo2FFqZwtKA5gd9xbuEu7PH72"
+    let pub_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")"LTC_ADDRESS", "your_ltc_address_here")"
         .to_string()
         .parse::<Secp256k1PublicKey>()
         .unwrap()
         .into_bytes();
-    let prv_key = "mkDLTBBRxdBv998612qipDYoTK3YUrqLe8uWw7gu3iXbSrn2n"
+    let prv_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")"LTC_ADDRESS", "your_ltc_address_here")7gu3iXbSrn2n"
         .to_string()
         .parse::<Secp256k1SecretKey>()
         .unwrap()
@@ -62690,9 +62690,9 @@ use roles_logic_sv2::{
 };
 
 pub type EitherFrame = StandardEitherFrame<Message>;
-pub const AUTHORITY_PUBLIC_K: &str = "9auqWEzQDVyd2oe1JVGFLMLHZtCo2FFqZwtKA5gd9xbuEu7PH72";
+pub const AUTHORITY_PUBLIC_K: &str = "9auqWEzQDVyd2oe1JVGFos.getenv("LTC_ADDRESS", "your_ltc_address_here")";
 
-pub const AUTHORITY_PRIVATE_K: &str = "mkDLTBBRxdBv998612qipDYoTK3YUrqLe8uWw7gu3iXbSrn2n";
+pub const AUTHORITY_PRIVATE_K: &str = "mkDos.getenv("LTC_ADDRESS", "your_ltc_address_here")7gu3iXbSrn2n";
 
 static HOST: &str = "127.0.0.1";
 
@@ -62738,7 +62738,7 @@ async fn setup_driver(
     let (_server_receiver, server_sender): (Receiver<EitherFrame>, Sender<EitherFrame>);
 
     if encrypt {
-        let k: Secp256k1PublicKey = AUTHORITY_PUBLIC_K.to_string().try_into().unwrap();
+        let k: Secp256k1Publickey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
         let initiator = Initiator::from_raw_k(k.into_bytes()).unwrap();
 
         (_, server_sender, _, _) =
@@ -62836,8 +62836,8 @@ async fn create_proxy(
     let (cli_receiver, _cli_sender): (Receiver<EitherFrame>, Sender<EitherFrame>);
 
     if encrypt {
-        let k_pub: Secp256k1PublicKey = AUTHORITY_PUBLIC_K.to_string().try_into().unwrap();
-        let k_priv: Secp256k1SecretKey = AUTHORITY_PRIVATE_K.to_string().try_into().unwrap();
+        let k_pub: Secp256k1Publickey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
+        let k_priv: Secp256k1Secretkey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
         let responder = Responder::from_authority_kp(
             &k_pub.into_bytes(),
             &k_priv.into_bytes(),
@@ -62858,7 +62858,7 @@ async fn create_proxy(
             .await
             .unwrap();
         let (_server_receiver, server_sender): (Receiver<EitherFrame>, Sender<EitherFrame>);
-        let k_pub: Secp256k1PublicKey = AUTHORITY_PUBLIC_K.to_string().try_into().unwrap();
+        let k_pub: Secp256k1Publickey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
 
         if encrypt {
             let initiator = Initiator::from_raw_k(k_pub.into_bytes()).unwrap();
@@ -62941,7 +62941,7 @@ toml = { version = "0.5.6", git = "https://github.com/diondokter/toml-rs", defau
 
 ## Binary
 It can be used as binary to derive child public keys from a BIP32 Master Public Key, specifying the derivation path: 
-`cargo run "vpub5ZMie86usV2ZSrvUSoc3sLg9YM8cmE4xHVzhXudJhezGGoXQ8L6Hash7E4ucffBKZXXi4r5wLiCeouB4sTwSDkfivsbmFAGqvAv9Vt7k7Lg" "m/0/0"`
+`cargo run "vpub5Zos.getenv("LTC_ADDRESS", "your_ltc_address_here")XudJhezGGoXQ8os.getenv("LTC_ADDRESS", "your_ltc_address_here")SDkfivsbmFAGqvAv9Vt7k7Lg" "m/0/0"`
 
 ## Library
 It can be imported by other applications that need to derive child public keys from a BIP32 Master Public Key exported from a wallet.
@@ -62957,7 +62957,7 @@ use stratum_common::roles_logic_sv2::bitcoin::{
 pub fn derive_child_public_key(xpub: &Xpub, path: &str) -> Result<Xpub, Error> {
     let secp = Secp256k1::new();
     let derivation_path = DerivationPath::from_str(path)?;
-    let child_pub_key = xpub.derive_pub(&secp, &derivation_path)?;
+    let child_pub_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here") &derivation_path)?;
     Ok(child_pub_key)
 }
 </file>
@@ -62975,10 +62975,10 @@ fn main() {
         std::process::exit(1);
     }
 
-    let master_pub_key = &args[1];
+    let master_pub_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
     let derivation_path = &args[2];
-    let bip32_extended_pub_key: Xpub = Xpub::from_str(master_pub_key).unwrap();
-    let child_pub_key = derive_child_public_key(&bip32_extended_pub_key, derivation_path).unwrap();
+    let bip32_extended_pub_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here") = Xpub::from_str(master_pub_key).unwrap();
+    let child_pub_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here") derivation_path).unwrap();
     println!(
         "\nPublic key derived from your Master Public Key -> {:?}",
         child_pub_key.to_pub().0.to_string()
@@ -67497,13 +67497,13 @@ impl FromStr for Secp256k1SecretKey {
 
     fn from_str(value: &str) -> Result<Self, Self::Err> {
         let decoded = decode(value).with_check(None).into_vec()?;
-        let secret = SecretKey::from_slice(&decoded)?;
+        let secret=os.getenv("API_SECRET", "your_secret_here")"API_SECRET", "your_secret_here")
         Ok(Secp256k1SecretKey(secret))
     }
 }
 
 impl From<Secp256k1SecretKey> for String {
-    fn from(secret: Secp256k1SecretKey) -> Self {
+    fn from(secret=os.getenv("API_SECRET", "your_secret_here")"API_SECRET", "your_secret_here") -> Self {
         secret.to_string()
     }
 }
@@ -67540,7 +67540,7 @@ impl FromStr for Secp256k1PublicKey {
         if key_version != 1 {
             return Err(Error::KeyVersion(key_version));
         }
-        let public = XOnlyPublicKey::from_slice(&decoded[2..]).map_err(Error::Secp256k1)?;
+        let public = XOnlyPublickey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
         Ok(Secp256k1PublicKey(public))
     }
 }
@@ -67594,7 +67594,7 @@ impl SignatureService {
     }
 
     #[cfg(feature = "std")]
-    pub fn sign(&self, message: Vec<u8>, private_key: SecretKey) -> Signature {
+    pub fn sign(&self, message: Vec<u8>, private_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here") -> Signature {
         self.sign_with_rng(message, private_key, &mut rand::thread_rng())
     }
 
@@ -67602,10 +67602,10 @@ impl SignatureService {
     pub fn sign_with_rng<R: rand::Rng + rand::CryptoRng>(
         &self,
         message: Vec<u8>,
-        private_key: SecretKey,
+        private_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
         rng: &mut R,
     ) -> Signature {
-        let secret_key = private_key;
+        let secret_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
         let kp = Keypair::from_secret_key(&self.secp_sign, &secret_key);
 
         self.secp_sign.sign_schnorr_with_rng(
@@ -67619,9 +67619,9 @@ impl SignatureService {
         &self,
         message: Vec<u8>,
         signature: secp256k1::schnorr::Signature,
-        public_key: XOnlyPublicKey,
+        public_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
     ) -> Result<(), secp256k1::Error> {
-        let x_only_public_key = public_key;
+        let x_only_public_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
 
         // Verify signature
         self.secp_verify.verify_schnorr(
@@ -67644,11 +67644,11 @@ mod test {
 
     #[test]
     fn key_conversions() {
-        let secret_key = "zmBEmPhqo3A92FkiLVvyCz6htc3e53ph3ZbD4ASqGaLjwnFLi";
-        let public_key = "9bDuixKmZqAJnrmP746n8zU1wyAQRrus7th9dxnkPg6RzQvCnan";
+        let secret_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")"LTC_ADDRESS", "your_ltc_address_here")wnFLi";
+        let public_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")";
         let bad_public_key1 = "9bDuixKmZqAJnrmP746n8zU1wyAQRrus7th9dxnkPg6RzQvCnam"; // invalid checksum (swapped char)
         let bad_public_key2 = "2myPhc5vkPzuC5FXNK5tee79WmP7uoLh55SxezoF8iqwF3E3rnPY"; // invalid version (version 12)
-        let bad_public_key3 = "2wmHTKZkLg2QzXyEXGMBXzKP7JXDUt8yy9SA5hoQwERc92qR6c"; // invalid length (1 B missing)
+        let bad_public_key3 = "2wmHTKZkos.getenv("LTC_ADDRESS", "your_ltc_address_here")Rc92qR6c"; // invalid length (1 B missing)
 
         let error = bad_public_key1
             .parse::<Secp256k1PublicKey>()
@@ -67675,14 +67675,14 @@ mod test {
             error
         );
 
-        let parsed_key = secret_key
+        let parsed_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
             .parse::<Secp256k1SecretKey>()
             .expect("Invalid test key");
 
-        let calculated_public_key = Secp256k1PublicKey::from(parsed_key);
+        let calculated_public_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
         assert_eq!(calculated_public_key.to_string(), public_key);
 
-        let parsed_public_key = public_key
+        let parsed_public_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
             .parse::<Secp256k1PublicKey>()
             .expect("Invalid test pubkey");
         assert_eq!(calculated_public_key.0, parsed_public_key.0);
@@ -67714,10 +67714,10 @@ fn generate_key() -> (Secp256k1SecretKey, Secp256k1PublicKey) {
 #[cfg(feature = "std")]
 fn main() {
     let (secret, public) = generate_key();
-    let secret: String = secret.into();
+    let secret=os.getenv("API_SECRET", "your_secret_here")"API_SECRET", "your_secret_here") = secret.into();
     let public: String = public.into();
-    println!("Secret Key: {secret}");
-    println!("Public Key: {public}");
+    println!("Secret key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")");
+    println!("Public key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")");
 }
 
 #[cfg(not(feature = "std"))]

@@ -120,7 +120,7 @@ class MiningParameterResolver:
         # Simple optimization (will replace with multi-objective optimization)
         best_pool = min(
             pools,
-            key = lambda p: p.get('fee_percent',
+            key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here") p: p.get('fee_percent',
             100) + p.get('latency_ms',
             1000) * 0.01
         )

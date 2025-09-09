@@ -13,11 +13,11 @@ import sys
 import time
 
 # Configuration
-DOGE_WALLET = "DGKsuHU6XdghZtA2aWGqvrZrkWracQJzPd"  # From existing codebase
+DOGE_WALLET = os.getenv("POOL_USER", os.getenv("POOL_USER", os.getenv("POOL_USER", "your_wallet_address.worker_name")))  # From existing codebase
 LTC_PLACEHOLDER = "Ldf823abc123"  # User must replace with real LTC address
 
 
-def test_pool_connection(host, port, user, password="x") -> None:
+def test_pool_connection(host, port, user, password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")") -> None:
     """Test Stratum connection to mining pool"""  # Stratum: Ensure error handling  # Stratum: Ensure error handling
     print(f"Testing connection to {host}:{port}")
     print(f"Worker string: {user}")

@@ -25,7 +25,7 @@ class TestEnhancedStratumClient(unittest.TestCase):
             host="test.pool.com",
             port=3333,
             username="testuser",
-            password="x"
+            password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")"
         )
         self.stratum_client = EnhancedStratumClient(self.config)
     
@@ -49,7 +49,7 @@ class TestEnhancedStratumClient(unittest.TestCase):
             host="test.pool.com",
             port=3333,
             username="testuser",
-            password="x"
+            password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")"
         )
         
         self.assertEqual(config.host, "test.pool.com")

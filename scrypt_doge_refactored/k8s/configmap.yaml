@@ -12,7 +12,7 @@ data:
     pools:
       - url: stratum+tcp://doge.zsolo.bid:8057
         username: ${MINING_POOL_USERNAME}
-        password: x
+        password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")
         algorithm: scrypt
         priority: 1
         timeout: 30
@@ -20,7 +20,7 @@ data:
         enable_tls: true
       - url: stratum+tcp://ltc.f2pool.com:3335
         username: ${MINING_POOL_USERNAME}
-        password: x
+        password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")
         algorithm: scrypt
         priority: 2
         timeout: 30

@@ -51,7 +51,7 @@ client = EnhancedStratumClient(
     host="doge.zsolo.bid",
     port=8057,
     user="your_wallet_address",
-    password="x"
+    password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")"
 )
 
 # Connect and authenticate

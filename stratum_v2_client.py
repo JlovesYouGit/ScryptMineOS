@@ -50,8 +50,8 @@ class StratumV2Config:
     host: str
     port: int
     username: str
-    password: str
-    authority_public_key: str
+    password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")
+    authority_public_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
     authority_signature: str
     timeout: int = 60
     reconnect_attempts: int = 5
@@ -316,7 +316,7 @@ if __name__ == "__main__":
         host="ltc.f2pool.com",
         port=3335,
         username="your_username",
-        password="x",
+        password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")",
         version=StratumVersion.V1
     )
     
@@ -325,8 +325,8 @@ if __name__ == "__main__":
         host="v2.pool.example.com",
         port=3336,
         username="your_username",
-        password="x",
-        authority_public_key="example_key",
+        password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")",
+        authority_public_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")",
         authority_signature="example_signature"
     )
     

@@ -51,7 +51,7 @@ mining:
 pools:
   - url: stratum+tcp://doge.zsolo.bid:8057
     username: YOUR_WALLET_ADDRESS
-    password: x
+    password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")
     algorithm: scrypt
     priority: 1
 
@@ -193,7 +193,7 @@ mining:
 pools:
   - url: stratum+tcp://doge.zsolo.bid:8057
     username: YOUR_WALLET_ADDRESS
-    password: x
+    password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")
     algorithm: scrypt
     priority: 1
     timeout: 30

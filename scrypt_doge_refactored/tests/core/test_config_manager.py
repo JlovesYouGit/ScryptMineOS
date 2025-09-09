@@ -33,7 +33,7 @@ default:
   pools:
     - url: stratum+tcp://test.pool.com:3333
       username: testuser
-      password: x
+      password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")
       algorithm: scrypt
       priority: 1
       timeout: 30
@@ -117,7 +117,7 @@ class TestConfigDataclasses(unittest.TestCase):
         pool_config = PoolConfig(
             url="stratum+tcp://test.pool.com:3333",
             username="testuser",
-            password="x"
+            password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")"
         )
         
         self.assertEqual(pool_config.url, "stratum+tcp://test.pool.com:3333")

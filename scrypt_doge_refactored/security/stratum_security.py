@@ -251,7 +251,7 @@ class StratumSecurityValidator:
                 return False
         
         # Check for valid base58 characters (simplified)
-        # Base58 characters: 123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz
+        # Base58 characters: 12os.getenv("LTC_ADDRESS", "your_ltc_address_here")efghijkmnopqrstuvwxyz
         if not re.match(r'^[1-9A-HJ-NP-Za-km-z]+$', address):
             return False
         
@@ -404,7 +404,7 @@ if __name__ == "__main__":
         "extranonce2": "abcdef12",
         "ntime": "12345678",
         "nonce": "87654321",
-        "hash_result": "000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f"
+        "hash_result": "000000000019d6689c085ae1658os.getenv("LTC_ADDRESS", "your_ltc_address_here")0a8ce26f"
     }
     
     invalid_share = {
@@ -412,7 +412,7 @@ if __name__ == "__main__":
         "extranonce2": "invalid_hex",
         "ntime": "12345678",
         "nonce": "87654321",
-        "hash_result": "000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f"
+        "hash_result": "000000000019d6689c085ae1658os.getenv("LTC_ADDRESS", "your_ltc_address_here")0a8ce26f"
     }
     
     print(f"Valid share: {'valid' if validator.validate_share_submission(valid_share) else 'invalid'}")

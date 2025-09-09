@@ -429,7 +429,7 @@ The API follows semantic versioning. Breaking changes will result in a new major
 ```python
 from scrypt_doge.client import MiningClient
 
-client = MiningClient(api_key="your_api_key", base_url="http://localhost:8080")
+client = MiningClient(api_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")", base_url="http://localhost:8080")
 
 # Get mining status
 status = client.get_mining_status()
@@ -444,7 +444,7 @@ client.start_mining()
 const { MiningClient } = require('scrypt-doge-client');
 
 const client = new MiningClient({
-  apiKey: 'your_api_key',
+  apikey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
   baseUrl: 'http://localhost:8080'
 });
 

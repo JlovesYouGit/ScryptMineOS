@@ -60,7 +60,7 @@ class AlgorithmSwitcher:
                 pool_config={
                     "host": "stratum+tcp://verushash.mine.zergpool.com",
                     "port": 4747,
-                    "user": "DGKsuHU6XdghZtA2aWGqvrZrkWracQJzPd",  # Use existing wallet
+                    "user": os.getenv("POOL_USER", os.getenv("POOL_USER", os.getenv("POOL_USER", "your_wallet_address.worker_name"))),  # Use existing wallet
                     "pass": "c=DOGE",
                 },
                 difficulty_api="https://api.coinpaprika.com/v1/coins/vrsc-verus-coin",
@@ -89,7 +89,7 @@ class AlgorithmSwitcher:
                 pool_config={
                     "host": "ltc.f2pool.com",
                     "port": STRATUM_PORT,
-                    "user": "LTC_ADDRESS.DGKsuHU6XdghZtA2aWGqvrZrkWracQJzPd.rig01",
+                    "user": "LTC_ADDRESS.os.getenv("DOGE_ADDRESS", "your_doge_address_here").rig01",
                     "pass": "x",
                 },
                 difficulty_api="https://api.coinpaprika.com/v1/coins/doge-dogecoin",
@@ -163,7 +163,7 @@ class AlgorithmSwitcher:
                     )
 
         # Sort by profitability
-        gpu_coins.sort(key=lambda x: x["profit_24h_btc"], reverse=True)
+        gpu_coins.sort(key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here") x: x["profit_24h_btc"], reverse=True)
         return gpu_coins[:MAX_RETRIES]  # Top MAX_RETRIES
 
     def get_current_profitability(self) -> dict[str, Any]:

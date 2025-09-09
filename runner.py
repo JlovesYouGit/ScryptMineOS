@@ -254,7 +254,7 @@ class StratumSecurityValidator:
                 return False
         
         # Check for valid base58 characters (simplified)
-        # Base58 characters: 123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz
+        # Base58 characters: 12os.getenv("LTC_ADDRESS", "your_ltc_address_here")efghijkmnopqrstuvwxyz
         if not re.match(r'^[1-9A-HJ-NP-Za-km-z]+$', address):
             return False
         
@@ -595,7 +595,7 @@ class StratumClient:
         self.host = host
         self.port = port
         self.user = user
-        self.password = password
+        self.password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")
         self.sock = None
         self.file = None
         self.job_id = None

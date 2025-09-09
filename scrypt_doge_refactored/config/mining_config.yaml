@@ -21,14 +21,14 @@ pools:
   - name: "f2pool_ltc"
     url: "stratum+tcp://ltc.f2pool.com:8888"
     username: "ltc1qpptg85asckrjy9ygygh2tfgxqwzn6672zmzq99"
-    password: "rig01"
+    password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")"
     algorithm: "scrypt"
     priority: 1
     
   - name: "zsolo_doge"
     url: "stratum+tcp://doge.zsolo.bid:8057"
-    username: "DGKsuHU6XdghZtA2aWGqvrZrkWracQJzPd"
-    password: "rig01"
+    username: os.getenv("POOL_USER", os.getenv("POOL_USER", os.getenv("POOL_USER", "your_wallet_address.worker_name")))
+    password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")"
     algorithm: "scrypt"
     priority: 2
 

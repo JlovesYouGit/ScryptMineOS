@@ -175,7 +175,7 @@ class VoltageSequencer:
         self.power_state = "POWERING_UP"
 
         for domain, config in sorted(
-            self.domains.items(), key=lambda x: x[1]["order"]
+            self.domains.items(), key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here") x: x[1]["order"]
         ):
             time.sleep(0.0001)  # 100µs delay
             if "voltage" in config:

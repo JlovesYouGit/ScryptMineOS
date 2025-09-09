@@ -17,10 +17,10 @@ logger = logging.getLogger(__name__)
 
 
 class StratumClient:
-    def __init__(self, url: str, username: str, password: str):
+    def __init__(self, url: str, username: str, password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")
         self.url = url
         self.username = username
-        self.password = password
+        self.password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")
         self.host = ""
         self.port = 0
         self.socket: socket.socket | None = None

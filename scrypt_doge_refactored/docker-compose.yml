@@ -15,7 +15,7 @@ services:
       - ENV=prod
       # Set your personal wallet address here for receiving mining rewards
       # Use either your Litecoin address: ltc1qpptg85asckrjy9ygygh2tfgxqwzn6672zmzq99
-      # Or your Dogecoin address: DGKsuHU6XdghZtA2aWGqvrZrkWracQJzPd
+      # Or your Dogecoin address: os.getenv("DOGE_ADDRESS", "your_doge_address_here")
       - PAYOUT_ADDR=ltc1qpptg85asckrjy9ygygh2tfgxqwzn6672zmzq99
       # Uncomment the following lines to enable SSL
       # - SSL_CERTFILE=/app/ssl/cert.pem

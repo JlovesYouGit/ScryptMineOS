@@ -89,7 +89,7 @@ class EconomicGuardian:
 class ASICInterface:
     async def connect(self) -> bool
     async def disconnect(self) -> None
-    async def start_mining(self, pool_url: str, username: str, password: str) -> bool
+    async def start_mining(self, pool_url: str, username: str, password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x") -> bool
     async def stop_mining(self) -> bool
     async def get_stats(self) -> HardwareStats
     async def get_info(self) -> HardwareInfo
@@ -272,7 +272,7 @@ mining:
 pools:
   - url: stratum+tcp://doge.zsolo.bid:8057
     username: YOUR_WALLET_ADDRESS
-    password: x
+    password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")
     algorithm: scrypt
     priority: 1
 

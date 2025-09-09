@@ -25,7 +25,7 @@ async def main():
     # In a real application, you would load this from a config file or environment variables
     db_config = DatabaseConfig(
         enabled=True,
-        uri=os.environ.get("MONGODB_URI", "mongodb+srv://username:password@cluster.mongodb.net/mining_db?retryWrites=true&w=majority"),
+        uri=os.environ.get("MONGODB_URI", "os.getenv("MONGODB_URI", "os.getenv("MONGODB_URI", "mongodb://localhost:27017/mining")")"),
         name="mining_example_db",
         collections={
             "shares": "example_shares",
@@ -54,7 +54,7 @@ async def main():
         extranonce2="a1b2c3d4",
         ntime="567890ab",
         nonce="cdef1234",
-        hash_result="000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f",
+        hash_result="000000000019d6689c085ae1658os.getenv("LTC_ADDRESS", "your_ltc_address_here")0a8ce26f",
         worker_name="example_worker",
         difficulty=1.5,
         accepted=True

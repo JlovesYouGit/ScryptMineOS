@@ -68,7 +68,7 @@ default:
   pools:
     - url: stratum+tcp://doge.zsolo.bid:8057
       username: YOUR_WALLET_ADDRESS
-      password: x
+      password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")
       algorithm: scrypt
       priority: 1
   hardware:
@@ -182,7 +182,7 @@ export MAX_POWER_COST=0.12
 # Pool configuration
 export POOL_URL=stratum+tcp://doge.zsolo.bid:8057
 export POOL_USERNAME=YOUR_WALLET_ADDRESS
-export POOL_PASSWORD=x
+export POOL_password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")
 
 # Security settings
 export ENABLE_ENCRYPTION=true
@@ -201,12 +201,12 @@ default:
   pools:
     - url: stratum+tcp://primary.pool.com:3333
       username: YOUR_WALLET_ADDRESS
-      password: x
+      password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")
       algorithm: scrypt
       priority: 1
     - url: stratum+tcp://backup.pool.com:3333
       username: YOUR_WALLET_ADDRESS
-      password: x
+      password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")
       algorithm: scrypt
       priority: 2
   hardware:

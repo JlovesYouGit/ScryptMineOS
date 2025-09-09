@@ -48,7 +48,7 @@ class PoolConfig:
     """Mining pool configuration"""
     url: str
     username: str
-    password: str
+    password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")
     algorithm: str = "scrypt"
     priority: int = 1
     timeout: int = 30
@@ -84,7 +84,7 @@ class EconomicConfig:
 class SecurityConfig:
     """Security configuration"""
     enable_encryption: bool = True
-    wallet_encryption_key: Optional[str] = None
+    wallet_encryption_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here") = None
     rate_limiting_enabled: bool = True
     max_requests_per_minute: int = 60
     enable_ddos_protection: bool = True
@@ -228,7 +228,7 @@ class ConfigManager:
                     {
                         "url": "stratum+tcp://doge.solo.bid:8057",
                         "username": os.environ.get("WALLET_ADDRESS", ""),
-                        "password": "x",
+                        "password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")",
                         "algorithm": "scrypt",
                         "priority": 1,
                         "timeout": 30,
@@ -256,7 +256,7 @@ class ConfigManager:
                 },
                 "security": {
                     "enable_encryption": True,
-                    "wallet_encryption_key": None,
+                    "wallet_encryption_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
                     "rate_limiting_enabled": True,
                     "max_requests_per_minute": 60,
                     "enable_ddos_protection": True,
@@ -331,7 +331,7 @@ class ConfigManager:
                 PoolConfig(
                     url="stratum+tcp://doge.solo.bid:8057",
                     username=os.environ.get("WALLET_ADDRESS", ""),
-                    password="x"
+                    password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")"
                 )
             ],
             economic=EconomicConfig(
@@ -418,7 +418,7 @@ class ConfigManager:
                     {
                         "url": pool.url,
                         "username": pool.username,
-                        "password": pool.password,
+                        "password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")
                         "algorithm": pool.algorithm,
                         "priority": pool.priority,
                         "timeout": pool.timeout,
@@ -447,7 +447,7 @@ class ConfigManager:
                 },
                 "security": {
                     "enable_encryption": self._config.security.enable_encryption,
-                    "wallet_encryption_key": self._config.security.wallet_encryption_key,
+                    "wallet_encryption_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
                     "rate_limiting_enabled": self._config.security.rate_limiting_enabled,
                     "max_requests_per_minute": self._config.security.max_requests_per_minute,
                     "enable_ddos_protection": self._config.security.enable_ddos_protection,

@@ -34,11 +34,11 @@ class StratumJob:
 class SimpleStratumClient:
     """Simplified Stratum client for mining operations"""
     
-    def __init__(self, host: str, port: int, username: str, password: str):
+    def __init__(self, host: str, port: int, username: str, password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")
         self.host = host
         self.port = port
         self.username = username
-        self.password = password
+        self.password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")
         
         # Connection state
         self.socket: Optional[socket.socket] = None
@@ -424,7 +424,7 @@ class MockMiningEngine:
 
 
 # Factory functions
-def create_stratum_client(host: str, port: int, username: str, password: str) -> SimpleStratumClient:
+def create_stratum_client(host: str, port: int, username: str, password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x") -> SimpleStratumClient:
     """Create a Stratum client"""
     return SimpleStratumClient(host, port, username, password)
 

@@ -127,7 +127,7 @@ def test_asic_superpower_1_hash_density() -> None:
                 # protection
                 print(
                     f"   ✅ Virtual hashrate: {total_virtual_hashrate/1000:.1f} kH/s")
-                result_key = f"{config['cores']}_cores_{config['algorithm']}"
+                result_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")"{config['cores']}_cores_{config['algorithm']}"
                 print(
                     f"   ⚙️  Avg pipeline depth: {results[result_key]['pipeline_depth']:.1f}")
                 print(
@@ -136,7 +136,7 @@ def test_asic_superpower_1_hash_density() -> None:
             else:
                 print(
                     f"   ❌ Failed to initialize {config['cores']} virtual cores")
-                result_key = f"{config['cores']}_cores_{config['algorithm']}"
+                result_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")"{config['cores']}_cores_{config['algorithm']}"
                 results[result_key] = None
 
         # Analyze hash density improvements
@@ -147,8 +147,7 @@ def test_asic_superpower_1_hash_density() -> None:
             baseline_hashrate = baseline["virtual_hashrate"]
 
             for key, result in results.items():
-                if result and "SCRYPT" in key:
-                    cores = int(key.split("_")[0])
+                if result and "SCRYPT" in key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here") = int(key.split("_")[0])
                     # Add division by zero protection  # Add division by zero
                     # protection
                     improvement = result["virtual_hashrate"] /

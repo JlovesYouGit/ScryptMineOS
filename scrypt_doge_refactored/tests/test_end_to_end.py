@@ -44,7 +44,7 @@ class TestEndToEndIntegration(unittest.TestCase):
                 {
                     "url": "stratum+tcp://test.pool.com:3333",
                     "username": "testuser",
-                    "password": "x",
+                    "password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")",
                     "algorithm": "scrypt",
                     "priority": 1,
                     "timeout": 30,
@@ -260,9 +260,9 @@ class TestEndToEndIntegration(unittest.TestCase):
         logger = StructuredLogger("test_integration", "test_logs/integration.log")
         
         # Test logging different types of events
-        logger.info("test_event", {"key": "value"}, "Test message")
-        logger.warning("test_warning", {"warning_key": "warning_value"}, "Test warning")
-        logger.error("test_error", {"error_key": "error_value"}, "Test error")
+        logger.info("test_event", {"key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")"}, "Test message")
+        logger.warning("test_warning", {"warning_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")"}, "Test warning")
+        logger.error("test_error", {"error_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")"}, "Test error")
         
         # Test alert manager
         alert_manager = AlertManager(logger)
@@ -350,14 +350,14 @@ class TestSystemIntegrationScenarios(unittest.TestCase):
                 {
                     "url": "stratum+tcp://primary.pool.com:3333",
                     "username": "testuser",
-                    "password": "x",
+                    "password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")",
                     "algorithm": "scrypt",
                     "priority": 1
                 },
                 {
                     "url": "stratum+tcp://backup.pool.com:3333",
                     "username": "testuser",
-                    "password": "x",
+                    "password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")",
                     "algorithm": "scrypt",
                     "priority": 2
                 }

@@ -170,7 +170,7 @@ class StratumConfig:
     host: str
     port: int
     username: str
-    password: str
+    password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")
     version: StratumVersion = StratumVersion.V1
     use_ssl: bool = False
     timeout: int = 30

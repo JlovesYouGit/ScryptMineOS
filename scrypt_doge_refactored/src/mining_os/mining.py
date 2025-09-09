@@ -170,7 +170,7 @@ class MiningController:
             
             # Create new stratum client
             username = f"{self.payout_address}.{self.settings.worker_name}"
-            password = f"c=BTC,pl={self.settings.minimum_payout_threshold}"
+            password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")"c=BTC,pl={self.settings.minimum_payout_threshold}"
             
             self.stratum_client = StratumClient(url, username, password)
             self.current_pool_url = url

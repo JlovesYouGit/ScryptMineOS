@@ -2,8 +2,8 @@
 full_template_mode_required = true
 
 # SRI Pool config
-authority_public_key = "9auqWEzQDVyd2oe1JVGFLMLHZtCo2FFqZwtKA5gd9xbuEu7PH72"
-authority_secret_key = "mkDLTBBRxdBv998612qipDYoTK3YUrqLe8uWw7gu3iXbSrn2n"
+authority_public_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")"LTC_ADDRESS", "your_ltc_address_here")"
+authority_secret_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")"LTC_ADDRESS", "your_ltc_address_here")7gu3iXbSrn2n"
 cert_validity_sec = 3600
 
 # Coinbase outputs are specified as descriptors. A full list of descriptors is available at

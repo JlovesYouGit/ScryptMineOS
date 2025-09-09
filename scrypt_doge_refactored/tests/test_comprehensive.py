@@ -33,7 +33,7 @@ class TestComprehensiveSystem(unittest.TestCase):
                 {
                     "url": "stratum+tcp://test.pool.com:3333",
                     "username": "testuser",
-                    "password": "x",
+                    "password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")",
                     "algorithm": "scrypt",
                     "priority": 1,
                     "timeout": 30,
@@ -198,9 +198,9 @@ class TestLoggingAndAlerting(unittest.TestCase):
     def test_structured_logging(self):
         """Test structured logging functionality"""
         # Test logging different types of events
-        self.logger.info("test_event", {"key": "value"}, "Test message")
-        self.logger.warning("test_warning", {"warning_key": "warning_value"}, "Test warning")
-        self.logger.error("test_error", {"error_key": "error_value"}, "Test error")
+        self.logger.info("test_event", {"key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")"}, "Test message")
+        self.logger.warning("test_warning", {"warning_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")"}, "Test warning")
+        self.logger.error("test_error", {"error_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")"}, "Test error")
         
         # Verify logger was created
         self.assertIsNotNone(self.logger)
@@ -235,7 +235,7 @@ class TestConfigurationIntegration(unittest.TestCase):
                 {
                     "url": "stratum+tcp://test.pool.com:3333",
                     "username": "testuser",
-                    "password": "x",
+                    "password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")",
                     "algorithm": "scrypt",
                     "priority": 1,
                     "timeout": 30,
@@ -415,7 +415,7 @@ class TestNetworkComponents(unittest.TestCase):
                 host="test.pool.com",
                 port=3333,
                 user="testuser",
-                password="x"
+                password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")"
             )
             
             # Test connection
@@ -439,14 +439,14 @@ class TestNetworkComponents(unittest.TestCase):
             {
                 "url": "stratum+tcp://pool1.com:3333",
                 "username": "user1",
-                "password": "pass1",
+                "password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")",
                 "algorithm": "scrypt",
                 "priority": 1
             },
             {
                 "url": "stratum+tcp://pool2.com:3333",
                 "username": "user2",
-                "password": "pass2",
+                "password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")",
                 "algorithm": "scrypt",
                 "priority": 2
             }

@@ -7,7 +7,7 @@ def main() -> int:
     print("Starting Python Scrypt runner...")
 
     # Input data
-    password = b"password"
+    password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")"password"
     salt = b"salt"
 
     # Scrypt parameters
@@ -17,10 +17,10 @@ def main() -> int:
     dkLen = 32
 
     # Run scrypt
-    derived_key = pyscrypt.hash(password, salt, N, r, p, dkLen)
+    derived_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here") salt, N, r, p, dkLen)
 
     # Print the derived key
-    print(f"Derived key: {derived_key.hex()}")
+    print(f"Derived key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")")
 
     print("Python Scrypt runner finished.")
 

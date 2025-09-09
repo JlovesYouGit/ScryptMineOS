@@ -186,7 +186,7 @@ class RealMiningService:
                 
                 # Create Stratum client
                 username = pool['username']
-                password = pool.get('password', 'x')
+                password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x") 'x')
                 
                 self.stratum_client = SimpleStratumClient(host, port, username, password)
                 

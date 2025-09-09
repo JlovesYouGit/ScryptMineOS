@@ -43,7 +43,7 @@ async def test_mining_service():
             {
                 'name': 'ZSolo DOGE',
                 'url': 'stratum+tcp://doge.zsolo.bid:8057',
-                'username': 'DGKsuHU6XdghZtA2aWGqvrZrkWracQJzPd.test_rig',
+                'username': 'os.getenv("DOGE_ADDRESS", "your_doge_address_here").test_rig',
                 'password': 'x',
                 'algorithm': 'scrypt',
                 'priority': 2

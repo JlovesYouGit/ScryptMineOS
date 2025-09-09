@@ -27,17 +27,17 @@ spec:
           valueFrom:
             secretKeyRef:
               name: mining-secrets
-              key: wallet-address
+              key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
         - name: MINING_POOL_USERNAME
           valueFrom:
             secretKeyRef:
               name: mining-secrets
-              key: pool-username
+              key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
         - name: ELECTRICITY_COST_KWH
           valueFrom:
             configMapKeyRef:
               name: mining-config
-              key: electricity-cost
+              key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
         volumeMounts:
         - name: config
           mountPath: /app/config

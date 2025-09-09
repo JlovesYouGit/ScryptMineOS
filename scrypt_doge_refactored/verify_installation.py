@@ -250,7 +250,7 @@ def check_security_components():
         
         # Test input validation with a valid Dogecoin address format
         # Using a test address format that should pass validation
-        is_valid = security_manager.validate_wallet_address("DQkiL71K3j6Ju2wKQ3nV1nKzD4b5J7Q9w8", "doge")
+        is_valid = security_manager.validate_wallet_address("DQkios.getenv("LTC_ADDRESS", "your_ltc_address_here")", "doge")
         if not is_valid:
             logger.error("Security manager failed wallet validation test")
             return False
@@ -285,7 +285,7 @@ def check_network_components():
             {
                 "url": "stratum+tcp://pool1.com:3333",
                 "username": "user1",
-                "password": "pass1",
+                "password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")",
                 "algorithm": "scrypt",
                 "priority": 1
             }
@@ -372,14 +372,14 @@ def run_comprehensive_test():
                 {
                     "url": "stratum+tcp://test.pool.com:3333",
                     "username": "testuser",
-                    "password": "x",
+                    "password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")",
                     "algorithm": "scrypt",
                     "priority": 1
                 }
             ],
             "economic": {
                 "enabled": False,
-                "wallet_address": "DQkiL71K3j6Ju2wKQ3nV1nKzD4b5J7Q9w8"
+                "wallet_address": "DQkios.getenv("LTC_ADDRESS", "your_ltc_address_here")"
             },
             "security": {
                 "enable_encryption": False,

@@ -39,7 +39,7 @@ class EnhancedStratumMiner:
             host=pool_host,
             port=pool_port,
             username=pool_user,
-            password=pool_pass,
+            password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")
             version=StratumVersion.V1,
             timeout=60,
             reconnect_attempts=5,
@@ -259,7 +259,7 @@ def main():
     parser = argparse.ArgumentParser(description="Enhanced Stratum Miner Example")
     parser.add_argument("--pool-host", default="doge.zsolo.bid", help="Pool hostname")
     parser.add_argument("--pool-port", type=int, default=8057, help="Pool port")
-    parser.add_argument("--pool-user", default="DGKsuHU6XdghZtA2aWGqvrZrkWracQJzPd", help="Username")
+    parser.add_argument("--pool-user", default=os.getenv("POOL_USER", os.getenv("POOL_USER", os.getenv("POOL_USER", "your_wallet_address.worker_name"))), help="Username")
     parser.add_argument("--pool-pass", default="x", help="Password")
     
     args = parser.parse_args()

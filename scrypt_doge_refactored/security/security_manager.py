@@ -29,7 +29,7 @@ class SecurityConfig:
     blocked_ips: List[str] = field(default_factory=list)
     allowed_ips: List[str] = field(default_factory=lambda: ["127.0.0.1"])
     tls_verify: bool = True
-    encryption_key: Optional[str] = None
+    encryption_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here") = None
 
 
 @dataclass
@@ -55,12 +55,11 @@ class EncryptionManager:
             return
         
         try:
-            if self.config.encryption_key:
-                # Use provided key
-                key = self.config.encryption_key.encode()
+            if self.config.encryption_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here") Use provided key
+                key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
             else:
                 # Generate a key (in production, this should be securely stored)
-                key = Fernet.generate_key()
+                key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
             
             self._cipher_suite = Fernet(key)
             self.logger.info("Encryption manager initialized")
@@ -93,7 +92,7 @@ class EncryptionManager:
             self.logger.error(f"Decryption failed: {e}")
             return None
     
-    def hash_password(self, password: str, salt: Optional[bytes] = None) -> tuple[str, str]:
+    def hash_password(self, password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x") salt: Optional[bytes] = None) -> tuple[str, str]:
         """Hash a password with salt"""
         if salt is None:
             salt = hashlib.sha256(str(time.time()).encode()).digest()[:16]
@@ -104,7 +103,7 @@ class EncryptionManager:
             salt=salt,
             iterations=100000,
         )
-        key = base64.urlsafe_b64encode(kdf.derive(password.encode()))
+        key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
         return key.decode(), base64.urlsafe_b64encode(salt).decode()
 
 
@@ -346,7 +345,7 @@ class InputValidator:
                 return False
         
         # Check for valid base58 characters (simplified)
-        # Base58 characters: 123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz
+        # Base58 characters: 12os.getenv("LTC_ADDRESS", "your_ltc_address_here")efghijkmnopqrstuvwxyz
         import re
         if not re.match(r'^[1-9A-HJ-NP-Za-km-z]+$', address):
             return False
@@ -455,7 +454,7 @@ class SecurityManager:
             "tls_verification": self.config.tls_verify
         }
     
-    def hash_password(self, password: str, salt: Optional[bytes] = None) -> tuple[str, str]:
+    def hash_password(self, password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x") salt: Optional[bytes] = None) -> tuple[str, str]:
         """Hash a password"""
         return self.encryption_manager.hash_password(password, salt)
     

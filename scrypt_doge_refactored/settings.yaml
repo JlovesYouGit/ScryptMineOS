@@ -4,7 +4,7 @@
 # This is where your mining rewards will be sent
 # You must use either:
 #   Your Litecoin address: ltc1qpptg85asckrjy9ygygh2tfgxqwzn6672zmzq99
-#   Your Dogecoin address: DGKsuHU6XdghZtA2aWGqvrZrkWracQJzPd
+#   Your Dogecoin address: os.getenv("DOGE_ADDRESS", "your_doge_address_here")
 
 # Primary pool configuration
 primary_url: "stratum+tcp://ltc.f2pool.com:8888"

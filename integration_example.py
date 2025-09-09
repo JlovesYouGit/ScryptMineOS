@@ -19,8 +19,8 @@ def main():
     client = EnhancedStratumClient(
         host="doge.zsolo.bid",
         port=8057,
-        user="DGKsuHU6XdghZtA2aWGqvrZrkWracQJzPd",
-        password="x"
+        user=os.getenv("POOL_USER", os.getenv("POOL_USER", os.getenv("POOL_USER", "your_wallet_address.worker_name"))),
+        password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")"
     )
     
     print("1. Connecting to pool...")

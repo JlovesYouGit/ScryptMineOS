@@ -23,7 +23,7 @@ from enhanced_stratum_client import EnhancedStratumClient, construct_block_heade
 # --- Mining Pool Configuration (Placeholder) ---
 POOL_HOST = "doge.zsolo.bid"
 POOL_PORT = 8057
-POOL_USER = "DGKsuHU6XdghZtA2aWGqvrZrkWracQJzPd"
+POOL_USER = os.getenv("POOL_USER", os.getenv("POOL_USER", os.getenv("POOL_USER", "your_wallet_address.worker_name")))
 POOL_PASS = "x"
 
 def main():

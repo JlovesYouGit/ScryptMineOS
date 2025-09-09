@@ -49,7 +49,7 @@ class StratumConfig:
     host: str
     port: int
     username: str
-    password: str
+    password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")
     version: StratumVersion = StratumVersion.V1
     ssl_enabled: bool = False
     timeout: int = 60
@@ -444,7 +444,7 @@ if __name__ == "__main__":
         host="ltc.f2pool.com",
         port=3335,
         username="your_username",
-        password="x"
+        password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")"
     )
     
     # Create and initialize client

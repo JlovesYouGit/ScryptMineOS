@@ -15,7 +15,7 @@ class PoolConfig(BaseSettings):
     host: str
     port: int
     username: str
-    password: str = "x"
+    password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x") = "x"
 
 
 class Settings(BaseSettings):

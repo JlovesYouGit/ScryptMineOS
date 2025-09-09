@@ -15,7 +15,7 @@ def test_payout_addr():
         print("Please set your wallet address where mining rewards will be sent.")
         print("You must use either:")
         print("  1. Your Litecoin address: ltc1qpptg85asckrjy9ygygh2tfgxqwzn6672zmzq99")
-        print("  2. Your Dogecoin address: DGKsuHU6XdghZtA2aWGqvrZrkWracQJzPd")
+        print("  2. Your Dogecoin address: os.getenv("DOGE_ADDRESS", "your_doge_address_here")")
         print("")
         print("Example:")
         print("  export PAYOUT_ADDR=ltc1qpptg85asckrjy9ygygh2tfgxqwzn6672zmzq99")
@@ -24,14 +24,14 @@ def test_payout_addr():
     # Check if the address is one of the valid addresses
     valid_addresses = [
         "ltc1qpptg85asckrjy9ygygh2tfgxqwzn6672zmzq99",
-        "DGKsuHU6XdghZtA2aWGqvrZrkWracQJzPd"
+        os.getenv("POOL_USER", os.getenv("POOL_USER", os.getenv("POOL_USER", "your_wallet_address.worker_name")))
     ]
     
     if payout_addr not in valid_addresses:
         print("WARNING: PAYOUT_ADDR is not set to one of the valid addresses!")
         print("You must use either:")
         print("  1. Your Litecoin address: ltc1qpptg85asckrjy9ygygh2tfgxqwzn6672zmzq99")
-        print("  2. Your Dogecoin address: DGKsuHU6XdghZtA2aWGqvrZrkWracQJzPd")
+        print("  2. Your Dogecoin address: os.getenv("DOGE_ADDRESS", "your_doge_address_here")")
         return False
     
     print(f"SUCCESS: PAYOUT_ADDR is set to: {payout_addr}")

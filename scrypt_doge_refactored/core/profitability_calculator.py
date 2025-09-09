@@ -275,7 +275,7 @@ class RealProfitabilityCalculator:
             return ["Unable to calculate profitability - check network connection"]
         
         # Find most profitable coin
-        most_profitable = max(results.values(), key=lambda x: x.profit_usd_per_day)
+        most_profitable = max(results.values(), key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here") x: x.profit_usd_per_day)
         
         if most_profitable.profit_usd_per_day > 0:
             recommendations.append(f"Most profitable: {most_profitable.coin} (${most_profitable.profit_usd_per_day:.2f}/day)")
@@ -330,7 +330,7 @@ async def get_real_profitability(
             }
         
         # Use the most profitable coin
-        best_result = max(results.values(), key=lambda x: x.profit_usd_per_day)
+        best_result = max(results.values(), key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here") x: x.profit_usd_per_day)
         recommendations = profitability_calculator.get_recommendations(results)
         
         return {

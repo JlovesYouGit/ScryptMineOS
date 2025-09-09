@@ -53,8 +53,8 @@ port: 31415
 pools:
   - host: "pool.example.com"
     port: 3333
-    username: "your_wallet_address.worker_name"
-    password: "x"
+    username: os.getenv("POOL_USER", os.getenv("POOL_USER", "your_wallet_address.worker_name"))
+    password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")"
 
 # Economic settings
 min_profit_margin_pct: 0.5

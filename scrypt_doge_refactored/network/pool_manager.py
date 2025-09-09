@@ -129,7 +129,7 @@ class PoolConnection:
     """Pool connection details"""
     url: str
     username: str
-    password: str
+    password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")
     algorithm: str
     priority: int
     timeout: int
@@ -163,7 +163,7 @@ class PoolFailoverManager:
             pool = PoolConnection(
                 url=pool_config['url'],
                 username=pool_config['username'],
-                password=pool_config['password'],
+                password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")
                 algorithm=pool_config.get('algorithm', 'scrypt'),
                 priority=pool_config.get('priority', 1),
                 timeout=pool_config.get('timeout', 30),
@@ -175,7 +175,7 @@ class PoolFailoverManager:
             self.pools.append(pool)
         
         # Sort by priority
-        self.pools.sort(key=lambda p: p.priority)
+        self.pools.sort(key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here") p: p.priority)
         
         # Statistics
         self.failover_count = 0
@@ -320,7 +320,7 @@ class PoolFailoverManager:
             return (success_rate * 0.7) + (circuit_health * 0.3)
         
         # Sort by health score (descending) then priority (ascending)
-        return sorted(self.pools, key=lambda p: (-health_score(p), p.priority))
+        return sorted(self.pools, key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here") p: (-health_score(p), p.priority))
 
 
 class ConnectionPool:
@@ -333,7 +333,7 @@ class ConnectionPool:
         self.connection_queue: asyncio.Queue = asyncio.Queue(maxsize=max_connections)
         self.lock = asyncio.Lock()
     
-    async def get_connection(self, pool_key: str) -> Any:
+    async def get_connection(self, pool_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here") -> Any:
         """Get a connection from the pool"""
         async with self.lock:
             if pool_key in self.active_connections:
@@ -354,14 +354,14 @@ class ConnectionPool:
             except asyncio.TimeoutError:
                 raise Exception("Timeout waiting for connection")
     
-    async def release_connection(self, pool_key: str, connection: Any) -> None:
+    async def release_connection(self, pool_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here") connection: Any) -> None:
         """Release a connection back to the pool"""
         async with self.lock:
             if pool_key in self.active_connections:
                 del self.active_connections[pool_key]
                 await self.connection_queue.put(connection)
     
-    async def _create_connection(self, pool_key: str) -> Any:
+    async def _create_connection(self, pool_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here") -> Any:
         """Create a new connection (placeholder)"""
         # This would create an actual connection to the mining pool
         self.logger.info(f"Creating new connection for pool: {pool_key}")

@@ -43,7 +43,7 @@ class TestCompleteIntegration(unittest.TestCase):
                 {
                     "url": "stratum+tcp://test.pool.com:3333",
                     "username": "testuser",
-                    "password": "x",
+                    "password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")",
                     "algorithm": "scrypt",
                     "priority": 1,
                     "timeout": 30,
@@ -233,7 +233,7 @@ class TestCompleteIntegration(unittest.TestCase):
                 host="test.pool.com",
                 port=3333,
                 user="testuser",
-                password="x"
+                password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")"
             )
             
             # Test connection (mocked)
@@ -388,7 +388,7 @@ class TestProductionReadiness(unittest.TestCase):
                 {
                     "url": "stratum+tcp://doge.zsolo.bid:8057",
                     "username": "Dproductionwallet1234567890",
-                    "password": "x",
+                    "password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")",
                     "algorithm": "scrypt",
                     "priority": 1,
                     "timeout": 30,
@@ -398,7 +398,7 @@ class TestProductionReadiness(unittest.TestCase):
                 {
                     "url": "stratum+tcp://backup.pool.com:3333",
                     "username": "Dproductionwallet1234567890",
-                    "password": "x",
+                    "password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")",
                     "algorithm": "scrypt",
                     "priority": 2,
                     "timeout": 30,

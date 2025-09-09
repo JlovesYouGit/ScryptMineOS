@@ -168,7 +168,7 @@ STRATUM_ASIA=stratum+tcp://ltc-asia.f2pool.com:3335
 
 # Wallet Configuration (Update with your addresses)
 LTC_ADDR=Ldf823abc123  # PLACEHOLDER - Replace with your LTC address
-DOGE_ADDR=DGKsuHU6XdghZtA2aWGqvrZrkWracQJzPd  # Existing DOGE wallet from codebase
+DOGE_ADDR=os.getenv("DOGE_ADDRESS", "your_doge_address_here")  # Existing DOGE wallet from codebase
 WORKER_NAME=rig01
 
 # Worker format: LTC_ADDR.DOGE_ADDR.WORKER_NAME
@@ -306,7 +306,7 @@ class AlgorithmSwitcher:
                 pool_config={
                     "host": "stratum+tcp://verushash.mine.zergpool.com",
                     "port": 4747,
-                    "user": "DGKsuHU6XdghZtA2aWGqvrZrkWracQJzPd",  # Use existing wallet
+                    "user": os.getenv("POOL_USER", os.getenv("POOL_USER", os.getenv("POOL_USER", "your_wallet_address.worker_name"))),  # Use existing wallet
                     "pass": "c=DOGE"
                 },
                 difficulty_api="https://api.coinpaprika.com/v1/coins/vrsc-verus-coin"
@@ -334,7 +334,7 @@ class AlgorithmSwitcher:
                 pool_config={
                     "host": "ltc.f2pool.com",
                     "port": 3335,
-                    "user": "LTC_ADDRESS.DGKsuHU6XdghZtA2aWGqvrZrkWracQJzPd.rig01",
+                    "user": "LTC_ADDRESS.os.getenv("DOGE_ADDRESS", "your_doge_address_here").rig01",
                     "pass": "x"
                 },
                 difficulty_api="https://api.coinpaprika.com/v1/coins/doge-dogecoin"
@@ -396,7 +396,7 @@ class AlgorithmSwitcher:
                         })
             
             # Sort by profitability
-            gpu_coins.sort(key=lambda x: x["profit_24h_btc"], reverse=True)
+            gpu_coins.sort(key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here") x: x["profit_24h_btc"], reverse=True)
             
             return {
                 "timestamp": time.time(),
@@ -847,7 +847,7 @@ class VoltageSequencer:
         logger.info("🔌 ASIC power-up sequence...")
         self.power_state = "POWERING_UP"
         
-        for domain, config in sorted(self.domains.items(), key=lambda x: x[1]['order']):
+        for domain, config in sorted(self.domains.items(), key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here") x: x[1]['order']):
             time.sleep(0.0001)  # 100µs delay
             if 'voltage' in config:
                 config['voltage'] = 12.0 if '12v' in domain else (1.2 if 'core' in domain else 0.8)
@@ -4568,7 +4568,7 @@ Your familiar `runner.py` now automatically includes:
 
 ## 💰 **Wallet Configuration: UNCHANGED**
 
-**Your DOGE Wallet**: `DGKsuHU6XdghZtA2aWGqvrZrkWracQJzPd` ✅
+**Your DOGE Wallet**: `os.getenv("DOGE_ADDRESS", "your_doge_address_here")` ✅
 
 **All enhancements pay to the SAME wallet** - no configuration changes needed!
 
@@ -4666,7 +4666,7 @@ python professional_demo.py
 ## 🎉 **Bottom Line**
 
 **Your familiar launch process now includes:**
-- ✅ **Same wallet** (`DGKsuHU6XdghZtA2aWGqvrZrkWracQJzPd`)
+- ✅ **Same wallet** (`os.getenv("DOGE_ADDRESS", "your_doge_address_here")`)
 - ✅ **Same launch commands** (`python runner.py`)
 - ✅ **Professional ASIC engineering** (automatic)
 - ✅ **Enhanced revenue** (+30-40% from merged mining)
@@ -8414,7 +8414,7 @@ echo    ✅ Fleet Management: Median J/TH efficiency optimization
 echo    ✅ Economic Safety: Real-time profitability protection
 echo    ✅ Merged Mining: LTC+DOGE+8 coins (+30-40%% revenue)
 echo.
-echo 💰 Payment Destination: DGKsuHU6XdghZtA2aWGqvrZrkWracQJzPd
+echo 💰 Payment Destination: os.getenv("DOGE_ADDRESS", "your_doge_address_here")
 echo 🌐 Professional API: http://localhost:4028/api/stats
 echo.
 echo Starting enhanced miner with professional engineering features...
@@ -8683,13 +8683,13 @@ def test_asic_superpower_1_hash_density():
                 }
                 
                 print(f"   ✅ Virtual hashrate: {total_virtual_hashrate/1000:.1f} kH/s")
-                result_key = f"{config['cores']}_cores_{config['algorithm']}"
+                result_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")"{config['cores']}_cores_{config['algorithm']}"
                 print(f"   ⚙️  Avg pipeline depth: {results[result_key]['pipeline_depth']:.1f}")
                 print(f"   💾 Memory per core: {results[result_key]['memory_per_core_kb']:.0f} KB")
                 
             else:
                 print(f"   ❌ Failed to initialize {config['cores']} virtual cores")
-                result_key = f"{config['cores']}_cores_{config['algorithm']}"
+                result_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")"{config['cores']}_cores_{config['algorithm']}"
                 results[result_key] = None
         
         # Analyze hash density improvements
@@ -8700,8 +8700,7 @@ def test_asic_superpower_1_hash_density():
             baseline_hashrate = baseline["virtual_hashrate"]
             
             for key, result in results.items():
-                if result and "SCRYPT" in key:
-                    cores = int(key.split("_")[0])
+                if result and "SCRYPT" in key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here") = int(key.split("_")[0])
                     improvement = result["virtual_hashrate"] / baseline_hashrate if baseline_hashrate > 0 else 0
                     theoretical_improvement = cores / 8  # Linear scaling expectation
                     efficiency = (improvement / theoretical_improvement) * 100 if theoretical_improvement > 0 else 0
@@ -9308,10 +9307,10 @@ import time
 import sys
 
 # Configuration
-DOGE_WALLET = "DGKsuHU6XdghZtA2aWGqvrZrkWracQJzPd"  # From existing codebase
+DOGE_WALLET = os.getenv("POOL_USER", os.getenv("POOL_USER", os.getenv("POOL_USER", "your_wallet_address.worker_name")))  # From existing codebase
 LTC_PLACEHOLDER = "Ldf823abc123"  # User must replace with real LTC address
 
-def test_pool_connection(host, port, user, password="x"):
+def test_pool_connection(host, port, user, password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")"):
     """Test Stratum connection to mining pool"""
     print(f"Testing connection to {host}:{port}")
     print(f"Worker string: {user}")
@@ -10296,7 +10295,7 @@ def main():
     print("Starting Python Scrypt runner...")
 
     # Input data
-    password = b'password'
+    password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")
     salt = b'salt'
 
     # Scrypt parameters
@@ -10306,10 +10305,10 @@ def main():
     dkLen = 32
 
     # Run scrypt
-    derived_key = pyscrypt.hash(password, salt, N, r, p, dkLen)
+    derived_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here") salt, N, r, p, dkLen)
 
     # Print the derived key
-    print(f"Derived key: {derived_key.hex()}")
+    print(f"Derived key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")")
 
     print("Python Scrypt runner finished.")
 
@@ -10369,7 +10368,7 @@ cp .env.example .env
 
 # Edit with your wallet addresses
 LTC_ADDR=your_litecoin_address_here
-DOGE_ADDR=DGKsuHU6XdghZtA2aWGqvrZrkWracQJzPd  # Already configured
+DOGE_ADDR=os.getenv("DOGE_ADDRESS", "your_doge_address_here")  # Already configured
 WORKER_NAME=rig01
 ```
 
@@ -10570,7 +10569,7 @@ except ImportError:
 # Specification: F2Pool Merged Scrypt Mining v2.1.0
 
 # Wallet Configuration (from existing codebase)
-DOGE_WALLET = "DGKsuHU6XdghZtA2aWGqvrZrkWracQJzPd"  # Existing DOGE wallet
+DOGE_WALLET = os.getenv("POOL_USER", os.getenv("POOL_USER", os.getenv("POOL_USER", "your_wallet_address.worker_name")))  # Existing DOGE wallet
 # NOTE: LTC wallet needed for merged mining - placeholder for now
 LTC_WALLET = "Ldf823abc123"  # PLACEHOLDER - User needs to provide LTC address
 
@@ -10651,11 +10650,11 @@ POOL_USER = POOL_CONFIGS[DEFAULT_POOL]["user"]
 POOL_PASS = POOL_CONFIGS[DEFAULT_POOL]["pass"]
 
 class StratumClient:
-    def __init__(self, host: str, port: int, user: str, password: str):
+    def __init__(self, host: str, port: int, user: str, password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")
         self.host = host
         self.port = port
         self.user = user
-        self.password = password
+        self.password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")
         self.sock: Optional[socket.socket] = None
         self.file: Optional[Any] = None
         self.json_rpc_id = 1
@@ -12517,7 +12516,7 @@ static const u8 test_002_sha256[32] = {
     0xb4, 0x10, 0xff, 0x61, 0xf2, 0x00, 0x15, 0xad
 };
 
-// test_003 - 248d6a61d20638b8e5c026930c3e6039a33ce45964ff2167f6ecedd419db06c1
+// test_003 - 248d6a61d20638b8e5c026930c3e60os.getenv("LTC_ADDRESS", "your_ltc_address_here")06c1
 static const u8 test_003_input[] = "abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq";
 static const u8 test_003_sha256[32] = {
     0x24, 0x8d, 0x6a, 0x61, 0xd2, 0x06, 0x38, 0xb8, 0xe5, 0xc0, 0x26, 0x93,

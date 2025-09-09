@@ -9,8 +9,8 @@ min_supported_version = 2
 withhold = false
 
 # Auth keys for open encrypted connection downstream
-authority_public_key = "9auqWEzQDVyd2oe1JVGFLMLHZtCo2FFqZwtKA5gd9xbuEu7PH72"
-authority_secret_key = "mkDLTBBRxdBv998612qipDYoTK3YUrqLe8uWw7gu3iXbSrn2n"
+authority_public_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")"LTC_ADDRESS", "your_ltc_address_here")"
+authority_secret_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")"LTC_ADDRESS", "your_ltc_address_here")7gu3iXbSrn2n"
 cert_validity_sec = 3600
 
 # Template Provider config
@@ -45,11 +45,11 @@ value = 1
 # List of upstreams (JDS) used as backup endpoints
 # In case of shares refused by the JDS, the fallback system will propose the same job to the next upstream in this list
 [[upstreams]]
-authority_pubkey = "9auqWEzQDVyd2oe1JVGFLMLHZtCo2FFqZwtKA5gd9xbuEu7PH72"
+authority_pubkey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")"LTC_ADDRESS", "your_ltc_address_here")"
 pool_address = "127.0.0.1:34254"
 jd_address = "127.0.0.1:34264"
  
 # [[upstreams]]
-# authority_pubkey = "2di19GHYQnAZJmEpoUeP7C3Eg9TCcksHr23rZCC83dvUiZgiDL"
+# authority_pubkey=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")"LTC_ADDRESS", "your_ltc_address_here")"
 # pool_address = "127.0.0.1:34254"
 # jd_address = "127.0.0.1:34264"

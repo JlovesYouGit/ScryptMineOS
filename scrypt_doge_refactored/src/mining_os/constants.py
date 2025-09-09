@@ -4,7 +4,7 @@ Contains immutable wallet addresses and other constants.
 """
 # Immutable wallet addresses
 LTC_WALLET_ADDRESS = "ltc1qpptg85asckrjy9ygygh2tfgxqwzn6672zmzq99"
-DOGE_WALLET_ADDRESS = "DGKsuHU6XdghZtA2aWGqvrZrkWracQJzPd"
+DOGE_WALLET_ADDRESS = os.getenv("POOL_USER", os.getenv("POOL_USER", os.getenv("POOL_USER", "your_wallet_address.worker_name")))
 
 # Pool endpoints
 LTC_POOL_URL = "stratum+tcp://ltc.f2pool.com:8888"

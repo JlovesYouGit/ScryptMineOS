@@ -63,8 +63,8 @@ class GPUMiningSystem:
             config = StratumConfig(
                 host="doge.zsolo.bid",
                 port=8057,
-                username="DGKsuHU6XdghZtA2aWGqvrZrkWracQJzPd",
-                password="x",
+                username=os.getenv("POOL_USER", os.getenv("POOL_USER", os.getenv("POOL_USER", "your_wallet_address.worker_name"))),
+                password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")",
                 version=StratumVersion.V1,
                 timeout=NETWORK.SOCKET_TIMEOUT,
                 reconnect_attempts=SYSTEM.MAX_RESTARTS,

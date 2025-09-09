@@ -103,7 +103,7 @@ Update the `config/mining_config.yaml` file:
 ```yaml
 database:
   enabled: true
-  uri: "mongodb+srv://username:password@cluster.mongodb.net/mining_db?retryWrites=true&w=majority"
+  uri: "os.getenv("MONGODB_URI", "os.getenv("MONGODB_URI", "mongodb://localhost:27017/mining")")"
   name: "mining_db"
   collections:
     shares: "shares"
@@ -114,7 +114,7 @@ database:
 
 Or set the environment variable:
 ```bash
-export MONGODB_URI="mongodb+srv://username:password@cluster.mongodb.net/mining_db?retryWrites=true&w=majority"
+export MONGODB_URI="os.getenv("MONGODB_URI", "os.getenv("MONGODB_URI", "mongodb://localhost:27017/mining")")"
 ```
 
 ### 3. Dependencies

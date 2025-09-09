@@ -120,9 +120,9 @@ class TestStratumSecurityValidator(unittest.TestCase):
     def test_valid_address(self):
         """Test validation of valid cryptocurrency addresses"""
         valid_addresses = [
-            ("Labc123def456ghi789jkmnprstuvwx123", "ltc"),   # 34 characters, valid base58
-            ("Mabc123def456ghi789jkmnprstuvwx123", "ltc"),   # 34 characters, valid base58
-            ("Dabc123def456ghi789jkmnprstuvwx123", "doge")   # 34 characters, valid base58
+            ("os.getenv("LTC_ADDRESS", "your_ltc_address_here")", "ltc"),   # 34 characters, valid base58
+            ("os.getenv("LTC_ADDRESS", "your_ltc_address_here")", "ltc"),   # 34 characters, valid base58
+            ("Dabc12os.getenv("LTC_ADDRESS", "your_ltc_address_here")", "doge")   # 34 characters, valid base58
         ]
         
         for address, coin_type in valid_addresses:
@@ -149,7 +149,7 @@ class TestStratumSecurityValidator(unittest.TestCase):
             "extranonce2": "abcdef12",
             "ntime": "12345678",
             "nonce": "87654321",
-            "hash_result": "000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f"
+            "hash_result": "000000000019d6689c085ae1658os.getenv("LTC_ADDRESS", "your_ltc_address_here")0a8ce26f"
         }
         
         self.assertTrue(self.validator.validate_share_submission(valid_share))
@@ -162,14 +162,14 @@ class TestStratumSecurityValidator(unittest.TestCase):
                 "extranonce2": "invalid_hex",
                 "ntime": "12345678",
                 "nonce": "87654321",
-                "hash_result": "000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f"
+                "hash_result": "000000000019d6689c085ae1658os.getenv("LTC_ADDRESS", "your_ltc_address_here")0a8ce26f"
             },
             {
                 "job_id": "job123",
                 "extranonce2": "abcdef12",
                 "ntime": "invalid",  # Invalid ntime
                 "nonce": "87654321",
-                "hash_result": "000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f"
+                "hash_result": "000000000019d6689c085ae1658os.getenv("LTC_ADDRESS", "your_ltc_address_here")0a8ce26f"
             },
             {
                 "job_id": "job123",

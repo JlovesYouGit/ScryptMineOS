@@ -7,34 +7,35 @@ Professional Scrypt ASIC mining implementation optimized for Antminer L7 and com
 
 ### Technology Stack
 - **Core Language**: Python 3.11+ 
-- **Mining Framework**: PyOpenCL for GPU computation, Custom Stratum V1 client
+- **Mining Framework**: PyOpenCL for GPU computation, Enhanced Stratum V1/V2 client
 - **Key Dependencies**: numpy, pyopencl, requests, prometheus_client, Jinja2
 - **Hardware Integration**: ASIC monitoring APIs, OpenCL compute kernels
-- **Monitoring**: Prometheus metrics, Grafana dashboards
-- **Pool Protocol**: Stratum V1 with extraNonce handling for merged mining
+- **Monitoring**: Prometheus metrics, Grafana dashboards, Comprehensive Stratum monitoring
+- **Pool Protocol**: Enhanced Stratum V1/V2 with extraNonce handling, difficulty management, and security validation
 
 ### Architecture Pattern
 **Modular Mining Architecture** with separation of concerns:
 - **Mining Core**: OpenCL kernel execution and hash computation
-- **Network Layer**: Stratum protocol client for pool communication
+- **Network Layer**: Enhanced Stratum protocol client for pool communication with advanced features
 - **Hardware Layer**: ASIC monitoring, temperature, and power control
 - **Economic Layer**: Profitability analysis and auto-switching
-- **Safety Layer**: Economic guardian with kill-switch functionality
+- **Safety Layer**: Economic guardian with kill-switch functionality and Stratum security validation
 
 ### Key Technical Decisions
 - Educational Mode for safe development without real mining
 - Merged mining implementation for 30-40% revenue increase
 - ASIC virtualization for hardware emulation during development
 - Performance optimization targeting 1.3-1.4x profit improvement
+- Enhanced Stratum protocol with advanced difficulty management, security validation, and monitoring
 
 ## Layer 2: Module Map
 
 ### Core Modules
 
-#### Mining Engine (`runner.py`, `runner_fixed.py`)
-- **Responsibility**: Main mining loop, OpenCL kernel execution, Stratum client
-- **Key Functions**: `main()`, `mine_block()`, `calculate_hash()`
-- **Dependencies**: PyOpenCL, Stratum client, mining constants
+#### Mining Engine (`runner.py`, `runner_fixed.py`, `stratum_integration_example.py`)
+- **Responsibility**: Main mining loop, OpenCL kernel execution, Enhanced Stratum client
+- **Key Functions**: `main()`, `mine_block()`, `calculate_hash()`, `handle_notification()`, `submit_share()`
+- **Dependencies**: PyOpenCL, Enhanced Stratum client, mining constants
 - **Performance Target**: 9.5 GH/s on Antminer L7
 
 #### Hardware Abstraction (`asic_virtualization.py`, `asic_hardware_emulation.py`)
@@ -60,6 +61,37 @@ Professional Scrypt ASIC mining implementation optimized for Antminer L7 and com
 #### Configuration (`economic_config.py`, `.env.example`)
 - **Settings**: Pool configuration, wallet addresses, worker names
 - **Environment**: Regional pool optimization, SSL settings
+
+### Network Layer (Enhanced Stratum Modules)
+#### Stratum Client (`stratum_client.py`)
+- **Responsibility**: Enhanced Stratum V1/V2 protocol implementation with robust connection handling
+- **Key Features**: Automatic reconnection, SSL support, protocol version compatibility
+- **Classes**: `StratumClient`, `StratumConfig`, `StratumJob`
+
+#### Stratum Enhanced Utilities (`stratum_enhanced.py`)
+- **Responsibility**: Advanced Stratum functionality and utility functions
+- **Key Classes**: 
+  - `DifficultyManager`: Advanced difficulty management with auto-adjustment
+  - `StratumUtils`: Utility functions for merged mining and address validation
+  - `ExtranonceManager`: Enhanced extranonce handling
+  - `ConnectionManager`: Robust connection management
+  - `StratumJobManager`: Job tracking and management
+
+#### Stratum Monitoring (`stratum_monitoring.py`)
+- **Responsibility**: Comprehensive monitoring and logging for Stratum operations
+- **Key Classes**:
+  - `StratumMonitor`: Main monitoring class with share and connection tracking
+  - `ShareStats`: Share submission statistics
+  - `ConnectionStats`: Connection health monitoring
+  - `PerformanceMetrics`: Mining performance metrics
+  - `JsonLogger`: Structured JSON logging
+
+#### Stratum Security (`stratum_security.py`)
+- **Responsibility**: Security features and validation for Stratum client operations
+- **Key Classes**:
+  - `StratumSecurityValidator`: Message validation and security checks
+  - `SecurityConfig`: Security configuration settings
+  - `SecureConnectionManager`: Secure connection handling
 
 ### Utilities
 #### Unified Code Quality System (`pyfix.py`, `PYFIX_UNIVERSAL.bat`)
@@ -90,7 +122,40 @@ POOLS = {
 #### Worker Authentication Format
 ```python
 worker_format = f"{LTC_WALLET}.{DOGE_WALLET}.{WORKER_NAME}"
-# Example: "LBK8KmLvPZ5YtKjqZAKkKqFHfpQzCQP6N3.DGKsuHU6XdghZtA2aWGqvrZrkWracQJzPd.rig01"
+# Example: "os.getenv("LTC_ADDRESS", "your_ltc_address_here").os.getenv("DOGE_ADDRESS", "your_doge_address_here").rig01"
+```
+
+#### Enhanced Stratum Client Usage
+```python
+# Enhanced Stratum client with advanced features
+from stratum_client import StratumClient, StratumConfig, StratumVersion
+from stratum_enhanced import DifficultyManager, ExtranonceManager
+from stratum_monitoring import StratumMonitor
+from stratum_security import StratumSecurityValidator
+
+# Configuration
+config = StratumConfig(
+    host="ltc.f2pool.com",
+    port=3335,
+    username="your_username",
+    password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")",
+    version=StratumVersion.V1
+)
+
+# Initialize enhanced client
+client = StratumClient(config)
+monitor = StratumMonitor("worker_name")
+security = StratumSecurityValidator()
+
+# Connect and authenticate
+if client.initialize():
+    # Listen for jobs with enhanced monitoring and security
+    while client.connected:
+        message = client.receive_message()
+        if message and security.validate_message(message):
+            if "method" in message:
+                client.handle_notification(message)
+                monitor.record_job_received()
 ```
 
 ### Hardware APIs
@@ -216,6 +281,25 @@ SWITCHING_STRATEGIES = {
 }
 ```
 
+### Network Layer Extensions
+#### Advanced Difficulty Management
+```python
+# stratum_enhanced.py extension point
+class CustomDifficultyManager(DifficultyManager):
+    def adjust_difficulty(self, accepted_shares, rejected_shares, time_window=60):
+        # Implement custom difficulty adjustment algorithm
+        pass
+```
+
+#### Security Validation Extensions
+```python
+# stratum_security.py extension point
+class CustomSecurityValidator(StratumSecurityValidator):
+    def validate_message(self, message):
+        # Implement additional security checks
+        pass
+```
+
 ### Performance Optimization Patterns
 #### Algorithm-Specific Optimizations
 - **Factory Pattern**: Different optimization strategies per ASIC model
@@ -229,3 +313,4 @@ SWITCHING_STRATEGIES = {
 3. **Hardware-Specific Tuning**: Per-ASIC-model optimization profiles
 4. **Economic Safety Enhancements**: Advanced profit margin protection
 5. **Educational Mode Features**: Safe development environment expansions
+6. **Enhanced Stratum Protocol**: Advanced difficulty management, security validation, and monitoring

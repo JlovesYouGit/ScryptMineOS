@@ -65,8 +65,8 @@ class MarketDataProvider(ABC):
 class CoinGeckoProvider(MarketDataProvider):
     """CoinGecko API provider"""
     
-    def __init__(self, api_key: Optional[str] = None):
-        self.api_key = api_key
+    def __init__(self, api_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here") = None):
+        self.api_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here")
         self.base_url = "https://api.coingecko.com/api/v3"
         self.logger = logging.getLogger(__name__)
     

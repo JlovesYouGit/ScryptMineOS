@@ -24,7 +24,7 @@ async def test_database_integration():
     # In a real scenario, you would use environment variables or a config file
     db_config = DatabaseConfig(
         enabled=True,
-        uri=os.environ.get("MONGODB_URI", "mongodb+srv://username:password@cluster.mongodb.net/mining_db?retryWrites=true&w=majority"),
+        uri=os.environ.get("MONGODB_URI", "os.getenv("MONGODB_URI", "os.getenv("MONGODB_URI", "mongodb://localhost:27017/mining")")"),
         name="mining_test_db",
         collections={
             "shares": "test_shares",
@@ -53,7 +53,7 @@ async def test_database_integration():
         extranonce2="abcdef12",
         ntime="12345678",
         nonce="87654321",
-        hash_result="000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f",
+        hash_result="000000000019d6689c085ae1658os.getenv("LTC_ADDRESS", "your_ltc_address_here")0a8ce26f",
         worker_name="test_worker",
         difficulty=1.0,
         accepted=True

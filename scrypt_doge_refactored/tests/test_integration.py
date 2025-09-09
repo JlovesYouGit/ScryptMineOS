@@ -28,7 +28,7 @@ class TestSystemIntegration(unittest.TestCase):
             "pool_host": "test.pool.com",
             "pool_port": 3333,
             "wallet_address": "Dtestwalletaddress1234567890",
-            "worker_password": "x"
+            "worker_password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")"
         }
         
         self.mining_service = MiningService(self.config)
@@ -61,7 +61,7 @@ class TestSystemIntegration(unittest.TestCase):
             host="test.pool.com",
             port=3333,
             user="testuser",
-            password="x"
+            password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")"
         )
         
         # Run async connect
@@ -78,7 +78,7 @@ class TestSystemIntegration(unittest.TestCase):
             host="test.pool.com",
             port=3333,
             user="testuser",
-            password="x"
+            password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")"
         )
         
         self.assertIsNotNone(stratum_client.security_validator)
@@ -136,7 +136,7 @@ class TestEndToEndWorkflow(unittest.TestCase):
             "pool_host": "test.pool.com",
             "pool_port": 3333,
             "wallet_address": "Dtestwalletaddress1234567890",
-            "worker_password": "x"
+            "worker_password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x")"
         }
         
         self.mining_service = MiningService(self.config)

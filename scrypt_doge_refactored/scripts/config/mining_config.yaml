@@ -7,7 +7,7 @@ default:
   pools: 
     - url: stratum+tcp://doge.zsolo.bid:8057 
       username: YOUR_WALLET_ADDRESS 
-      password: x 
+      password=os.getenv("POOL_PASSWORD", "x")"POOL_PASSWORD", "x") 
       algorithm: scrypt 
       priority: 1 
       timeout: 30 
@@ -31,7 +31,7 @@ default:
     auto_withdrawal_threshold: 0.01 
   security: 
     enable_encryption: true 
-    wallet_encryption_key: null 
+    wallet_encryption_key=os.getenv("API_KEY", "your_key_here")"API_KEY", "your_key_here") 
     rate_limiting_enabled: true 
     max_requests_per_minute: 60 
     enable_ddos_protection: true 
