@@ -28,17 +28,22 @@ jobs:
         python -m pip install --upgrade pip
         pip install pyinstaller
         pip install -r requirements.txt
-        pip install tkinter
+        # tkinter is built into Python on Windows, no need to install
         pip install pywin32
         pip install winshell
     
     - name: Build Setup Executable
       run: |
-        pyinstaller --onefile --windowed --name "ScryptMineOS-Setup" --icon windows/icon.ico windows/setup_launcher.py
+        # Create build directory first
+        if (!(Test-Path "build")) { New-Item -ItemType Directory -Path "build" }
+        if (!(Test-Path "dist")) { New-Item -ItemType Directory -Path "dist" }
+        # Build with explicit paths
+        pyinstaller --onefile --windowed --name "ScryptMineOS-Setup" --icon "windows\icon.ico" "windows\setup_launcher.py"
     
     - name: Build Enterprise Launcher
       run: |
-        pyinstaller --onefile --windowed --name "ScryptMineOS-Enterprise" --icon windows/icon.ico windows/enterprise_launcher.py
+        # Build with explicit paths
+        pyinstaller --onefile --windowed --name "ScryptMineOS-Enterprise" --icon "windows\icon.ico" "windows\enterprise_launcher.py"
     
     - name: Create Release Package
       run: |
