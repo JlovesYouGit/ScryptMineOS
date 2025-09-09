@@ -1,0 +1,21 @@
+# ScryptMineOS Enterprise Edition - Replit Configuration
+# Easy cloud-based development and deployment
+
+[nix]
+channel = "stable-23.11"
+
+[deployment]
+run = ["python", "enterprise_runner.py", "--user-id", "replit-user"]
+deploymentTarget = "cloudrun"
+
+[[ports]]
+localPort = 8080
+externalPort = 80
+
+[[ports]]
+localPort = 9090
+externalPort = 9090
+
+[[ports]]
+localPort = 8081
+externalPort = 8081
