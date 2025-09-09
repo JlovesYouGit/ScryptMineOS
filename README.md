@@ -22,7 +22,7 @@
 ### ☁️ **Replit Cloud Mining**
 **Instant cloud-based mining with zero setup:**
 
-1. **Fork on Replit**: [Open in Replit](https://replit.com/@YourUsername/ScryptMineOS-Enterprise)
+1. **Import to Replit**: Go to [Replit.com](https://replit.com) → "Create Repl" → "Import from GitHub" → Use this repository URL
 2. **Click Run**: Automatic environment setup
 3. **Configure**: Edit `.env` file with your wallet addresses
 4. **Monitor**: Access built-in monitoring dashboard
@@ -89,11 +89,12 @@ python enterprise_runner.py --user-id your-user-id
 5. Click "Start Mining" and you're done! 🚀
 
 ### **Option 2: Replit Cloud (Instant)**
-1. Open [ScryptMineOS on Replit](https://replit.com)
-2. Click "Fork" to create your own copy
-3. Click "Run" - everything sets up automatically
-4. Edit the `.env` file with your wallet addresses
-5. Mining starts automatically in the cloud! ☁️
+1. Go to [Replit.com](https://replit.com) and create an account
+2. Click "Create Repl" → "Import from GitHub"
+3. Use this repository URL: `https://github.com/JlovesYouGit/ScryptMineOS.git`
+4. Click "Run" - everything sets up automatically
+5. Edit the `.env` file with your wallet addresses
+6. Mining starts automatically in the cloud! ☁️
 
 ### **Option 3: Manual Setup (Advanced)**
 1. Clone the repository and checkout enterprise branch
