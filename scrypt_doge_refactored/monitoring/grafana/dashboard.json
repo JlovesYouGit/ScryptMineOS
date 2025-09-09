@@ -1,0 +1,354 @@
+{
+  "dashboard": {
+    "id": null,
+    "title": "Scrypt DOGE Mining System",
+    "tags": ["mining", "cryptocurrency", "scrypt", "doge"],
+    "timezone": "browser",
+    "schemaVersion": 16,
+    "version": 0,
+    "refresh": "30s",
+    "templating": {
+      "list": []
+    },
+    "annotations": {
+      "list": []
+    },
+    "links": [],
+    "time": {
+      "from": "now-6h",
+      "to": "now"
+    },
+    "timepicker": {
+      "refresh_intervals": ["5s", "10s", "30s", "1m", "5m", "15m", "30m", "1h", "2h", "1d"],
+      "time_options": ["5m", "15m", "1h", "6h", "12h", "24h", "2d", "7d", "30d"]
+    },
+    "panels": [
+      {
+        "id": 1,
+        "type": "graph",
+        "title": "Hashrate Over Time",
+        "gridPos": {
+          "x": 0,
+          "y": 0,
+          "w": 12,
+          "h": 8
+        },
+        "targets": [
+          {
+            "expr": "mining_hashrate_mhs",
+            "legendFormat": "Hashrate (MH/s)",
+            "refId": "A"
+          }
+        ],
+        "yaxes": [
+          {
+            "format": "Mh/s",
+            "label": "Hashrate",
+            "min": 0
+          },
+          {
+            "format": "short",
+            "min": 0
+          }
+        ],
+        "xaxis": {
+          "show": true
+        }
+      },
+      {
+        "id": 2,
+        "type": "singlestat",
+        "title": "Current Hashrate",
+        "gridPos": {
+          "x": 12,
+          "y": 0,
+          "w": 6,
+          "h": 4
+        },
+        "targets": [
+          {
+            "expr": "mining_hashrate_mhs",
+            "refId": "A"
+          }
+        ],
+        "format": "Mh/s",
+        "prefix": "",
+        "postfix": " MH/s",
+        "decimals": 2,
+        "valueFontSize": "80%",
+        "colorBackground": false,
+        "colorValue": true
+      },
+      {
+        "id": 3,
+        "type": "singlestat",
+        "title": "Accepted Shares",
+        "gridPos": {
+          "x": 18,
+          "y": 0,
+          "w": 6,
+          "h": 4
+        },
+        "targets": [
+          {
+            "expr": "mining_shares_accepted_total",
+            "refId": "A"
+          }
+        ],
+        "format": "none",
+        "prefix": "",
+        "postfix": " shares",
+        "decimals": 0,
+        "valueFontSize": "80%",
+        "colorBackground": false,
+        "colorValue": true
+      },
+      {
+        "id": 4,
+        "type": "graph",
+        "title": "Share Acceptance Rate",
+        "gridPos": {
+          "x": 0,
+          "y": 8,
+          "w": 12,
+          "h": 8
+        },
+        "targets": [
+          {
+            "expr": "rate(mining_shares_accepted_total[5m])",
+            "legendFormat": "Accepted Shares/minute",
+            "refId": "A"
+          },
+          {
+            "expr": "rate(mining_shares_rejected_total[5m])",
+            "legendFormat": "Rejected Shares/minute",
+            "refId": "B"
+          }
+        ],
+        "yaxes": [
+          {
+            "format": "short",
+            "label": "Shares per minute",
+            "min": 0
+          },
+          {
+            "format": "short",
+            "min": 0
+          }
+        ],
+        "xaxis": {
+          "show": true
+        }
+      },
+      {
+        "id": 5,
+        "type": "singlestat",
+        "title": "Rejected Shares",
+        "gridPos": {
+          "x": 12,
+          "y": 4,
+          "w": 6,
+          "h": 4
+        },
+        "targets": [
+          {
+            "expr": "mining_shares_rejected_total",
+            "refId": "A"
+          }
+        ],
+        "format": "none",
+        "prefix": "",
+        "postfix": " shares",
+        "decimals": 0,
+        "valueFontSize": "80%",
+        "colorBackground": false,
+        "colorValue": true
+      },
+      {
+        "id": 6,
+        "type": "singlestat",
+        "title": "Acceptance Rate",
+        "gridPos": {
+          "x": 18,
+          "y": 4,
+          "w": 6,
+          "h": 4
+        },
+        "targets": [
+          {
+            "expr": "(mining_shares_accepted_total / (mining_shares_accepted_total + mining_shares_rejected_total)) * 100",
+            "refId": "A"
+          }
+        ],
+        "format": "percent",
+        "prefix": "",
+        "postfix": "",
+        "decimals": 2,
+        "valueFontSize": "80%",
+        "colorBackground": false,
+        "colorValue": true
+      },
+      {
+        "id": 7,
+        "type": "graph",
+        "title": "Hardware Temperature",
+        "gridPos": {
+          "x": 0,
+          "y": 16,
+          "w": 12,
+          "h": 8
+        },
+        "targets": [
+          {
+            "expr": "mining_hardware_temperature_celsius",
+            "legendFormat": "Temperature (°C)",
+            "refId": "A"
+          }
+        ],
+        "yaxes": [
+          {
+            "format": "celsius",
+            "label": "Temperature",
+            "min": 0
+          },
+          {
+            "format": "short",
+            "min": 0
+          }
+        ],
+        "xaxis": {
+          "show": true
+        }
+      },
+      {
+        "id": 8,
+        "type": "singlestat",
+        "title": "Current Temperature",
+        "gridPos": {
+          "x": 12,
+          "y": 8,
+          "w": 6,
+          "h": 4
+        },
+        "targets": [
+          {
+            "expr": "mining_hardware_temperature_celsius",
+            "refId": "A"
+          }
+        ],
+        "format": "celsius",
+        "prefix": "",
+        "postfix": " °C",
+        "decimals": 1,
+        "valueFontSize": "80%",
+        "colorBackground": false,
+        "colorValue": true
+      },
+      {
+        "id": 9,
+        "type": "singlestat",
+        "title": "Power Consumption",
+        "gridPos": {
+          "x": 18,
+          "y": 8,
+          "w": 6,
+          "h": 4
+        },
+        "targets": [
+          {
+            "expr": "mining_hardware_power_watts",
+            "refId": "A"
+          }
+        ],
+        "format": "watt",
+        "prefix": "",
+        "postfix": " W",
+        "decimals": 0,
+        "valueFontSize": "80%",
+        "colorBackground": false,
+        "colorValue": true
+      },
+      {
+        "id": 10,
+        "type": "graph",
+        "title": "Network Connection Status",
+        "gridPos": {
+          "x": 0,
+          "y": 24,
+          "w": 12,
+          "h": 8
+        },
+        "targets": [
+          {
+            "expr": "mining_network_connected",
+            "legendFormat": "Connected",
+            "refId": "A"
+          }
+        ],
+        "yaxes": [
+          {
+            "format": "short",
+            "label": "Connection Status",
+            "min": 0,
+            "max": 1
+          },
+          {
+            "format": "short",
+            "min": 0
+          }
+        ],
+        "xaxis": {
+          "show": true
+        }
+      },
+      {
+        "id": 11,
+        "type": "singlestat",
+        "title": "Uptime",
+        "gridPos": {
+          "x": 12,
+          "y": 12,
+          "w": 6,
+          "h": 4
+        },
+        "targets": [
+          {
+            "expr": "mining_system_uptime_seconds",
+            "refId": "A"
+          }
+        ],
+        "format": "s",
+        "prefix": "",
+        "postfix": " seconds",
+        "decimals": 0,
+        "valueFontSize": "80%",
+        "colorBackground": false,
+        "colorValue": true
+      },
+      {
+        "id": 12,
+        "type": "singlestat",
+        "title": "Efficiency",
+        "gridPos": {
+          "x": 18,
+          "y": 12,
+          "w": 6,
+          "h": 4
+        },
+        "targets": [
+          {
+            "expr": "(mining_hashrate_mhs * 1000000) / mining_hardware_power_watts",
+            "refId": "A"
+          }
+        ],
+        "format": "none",
+        "prefix": "",
+        "postfix": " MH/W",
+        "decimals": 2,
+        "valueFontSize": "80%",
+        "colorBackground": false,
+        "colorValue": true
+      }
+    ]
+  }
+}

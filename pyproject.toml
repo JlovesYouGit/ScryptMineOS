@@ -1,0 +1,179 @@
+# Unified Python Code Quality Configuration
+# Using ruff to replace black, isort, flake8, and pylint
+# Following project specifications: 79-char line length, type annotations, etc.
+
+[tool.ruff]
+# Target Python 3.10+ as per project requirements
+target-version = "py310"
+line-length = 79  # Project specification: Line Length Compliance
+
+# Include/exclude patterns
+include = ["*.py", "*.pyi"]
+exclude = [
+    "__pycache__",
+    ".git", 
+    ".mypy_cache",
+    ".pytest_cache",
+    ".ruff_cache",
+    "build",
+    "dist",
+    "venv",
+    ".venv",
+]
+
+[tool.ruff.lint]
+# Enable rule groups (replaces flake8, isort, pylint)
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings  
+    "F",   # pyflakes
+    "I",   # isort (import sorting)
+    "N",   # pep8-naming
+    "UP",  # pyupgrade
+    "B",   # flake8-bugbear
+    "C4",  # flake8-comprehensions
+    "S",   # flake8-bandit (security)
+    "T20", # flake8-print
+    "PT",  # flake8-pytest-style
+    "Q",   # flake8-quotes
+    "RET", # flake8-return
+    "SIM", # flake8-simplify
+    "TID", # flake8-tidy-imports
+    "ARG", # flake8-unused-arguments
+    "PIE", # flake8-pie
+    "PL",  # pylint
+]
+
+# Ignore specific rules for mining context
+ignore = [
+    "S101",   # Use of assert (common in mining algorithms)
+    "S603",   # subprocess without shell=True check (needed for mining tools)
+    "S607",   # Starting a process with a partial executable path
+    "T201",   # print statements (used for mining output)
+    "PLR0913", # Too many arguments (mining functions need many parameters)
+    "PLR0915", # Too many statements (complex mining logic)
+    "B008",   # Do not perform function call in argument defaults
+    "N806",   # Variable name should be lowercase (mining uses uppercase constants)
+]
+
+# Per-file ignores for specific mining files
+[tool.ruff.lint.per-file-ignores]
+"test_*.py" = ["S101", "PLR2004"]  # Allow assert and magic values in tests
+"*demo*.py" = ["T201", "S101"]     # Allow prints and asserts in demos
+"runner*.py" = ["PLR0911", "PLR0912"] # Allow complex mining runners
+"*fixer*.py" = ["T201", "S603"]    # Allow prints and subprocess in fixers
+
+[tool.ruff.lint.isort]
+# Configure import sorting (replaces isort)
+force-single-line = true
+known-first-party = ["scrypt_doge"]
+split-on-trailing-comma = false
+
+[tool.ruff.format]
+# Configure code formatting (replaces black)
+quote-style = "double"
+indent-style = "space"
+line-ending = "auto"
+
+# Bandit security configuration
+[tool.bandit]
+exclude_dirs = ["tests", "__pycache__", "*demo*", "test_*"]
+skips = [
+    "B101",  # assert_used (common in mining algorithms)
+    "B601",  # shell=True (needed for mining system calls)
+    "B602",  # subprocess_popen_with_shell_equals_true
+    "B603",  # subprocess_without_shell_equals_true
+]
+
+# MyPy type checking configuration
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true  # Project specification: Type Annotation Requirement
+check_untyped_defs = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+show_error_codes = true
+
+# Ignore missing imports for mining-specific libraries
+[[tool.mypy.overrides]]
+module = [
+    "pyopencl.*",
+    "numpy.*",
+    "prometheus_client.*",
+]
+ignore_missing_imports = true
+
+# Coverage configuration (for future testing)
+[tool.coverage.run]
+source = ["."]
+omit = [
+    "test_*.py",
+    "*_test.py", 
+    "*demo*.py",
+    "*fixer*.py",
+    "__pycache__/*",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+]
+
+[build-system]
+requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "scrypt_doge"
+description = "Professional Scrypt-based cryptocurrency mining suite for ASIC miners"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "scrypt_doge Team"}
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+]
+requires-python = ">=3.10"
+dependencies = [
+    "numpy==1.26.4",
+    "Jinja2==3.1.4",
+    "pyopencl==2025.2.6",
+    "requests==2.32.5",
+    "prometheus_client==0.16.0",
+    "dataclasses==0.6",
+]
+
+[project.optional-dependencies]
+dev = [
+    "black",
+    "flake8",
+    "isort",
+    "mypy",
+]
+
+[project.scripts]
+scrypt-miner = "runner:main"
+asic-monitor = "asic_monitor:main"
+performance-optimizer = "performance_optimizer:main"
+
+[tool.setuptools]
+packages = ["scrypt_doge"]
+
+[tool.black]
+line-length = 79
+target-version = ['py311']
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3

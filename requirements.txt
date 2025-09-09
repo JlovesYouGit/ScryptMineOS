@@ -1,0 +1,9 @@
+# Python 3.10+ required
+numpy==1.26.4
+Jinja2==3.1.4
+pyopencl==2025.2.6
+requests==2.32.5
+prometheus_client==0.16.0
+dataclasses==0.6  # For Python 3.6 compatibility
+pymongo==4.8.0
+dnspython==2.6.1
