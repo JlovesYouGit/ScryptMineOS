@@ -1,0 +1,72 @@
+Traceback (most recent call last):
+  File "N:\miner\NBMiner_42.3_Win\scrypt\scrypt_doge\runner.py", line 652, in main
+    program = cl.Program(context, rendered_kernel).build()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\JJ\AppData\Local\Programs\Python\Python311\Lib\site-packages\pyopencl\__init__.py", line 577, in build
+    self._prg, was_cached = self._build_and_catch_errors(
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\JJ\AppData\Local\Programs\Python\Python311\Lib\site-packages\pyopencl\__init__.py", line 629, in _build_and_catch_errors
+    raise err
+pyopencl._cl.RuntimeError: clBuildProgram failed: BUILD_PROGRAM_FAILURE - clBuildProgram failed: BUILD_PROGRAM_FAILURE - clBuildProgram failed: BUILD_PROGRAM_FAILURE
+
+Build on <pyopencl.Device 'Ellesmere' on 'AMD Accelerated Parallel Processing' at 0x2379249a4a0>:
+
+C:\Users\JJ\AppData\Local\Temp\\OCL23684T1.cl:306:6: error: redefinition of 'blockmix_salsa8'
+void blockmix_salsa8(__private uint *B, __private uint *Y) {
+     ^
+C:\Users\JJ\AppData\Local\Temp\\OCL23684T1.cl:188:6: note: previous definition is here
+void blockmix_salsa8(__private uint* Bin, __private uint* Bout) {
+     ^
+1 error generated.
+
+error: Clang front-end compilation failed!
+Frontend phase failed compilation.
+Error: Compiling CL to IR
+
+(options: -I C:\Users\JJ\AppData\Local\Programs\Python\Python311\Lib\site-packages\pyopencl\cl)
+(source saved as C:\Users\JJ\AppData\Local\Temp\tmpk23i3qwq.cl)
+Traceback (most recent call last):
+  File "N:\miner\NBMiner_42.3_Win\scrypt\scrypt_doge\runner.py", line 1033, in main
+    program = cl.Program(context, rendered_kernel).build()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\JJ\AppData\Local\Programs\Python\Python311\Lib\site-packages\pyopencl\__init__.py", line 577, in build
+    self._prg, was_cached = self._build_and_catch_errors(
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\JJ\AppData\Local\Programs\Python\Python311\Lib\site-packages\pyopencl\__init__.py", line 629, in _build_and_catch_errors
+    raise err
+pyopencl._cl.RuntimeError: clBuildProgram failed: BUILD_PROGRAM_FAILURE - clBuildProgram failed: BUILD_PROGRAM_FAILURE - clBuildProgram failed: BUILD_PROGRAM_FAILURE
+
+Build on <pyopencl.Device 'Ellesmere' on 'AMD Accelerated Parallel Processing' at 0x1448c101130>:
+
+C:\Users\JJ\AppData\Local\Temp\\OCL19944T1.cl:302:30: error: passing '__local uint *' (aka '__local unsigned int *') to parameter of type 'uint *' (aka 'unsigned int *') changes address space of pointer
+    asic_optimized_salsa20_8(X);
+                             ^
+C:\Users\JJ\AppData\Local\Temp\\OCL19944T1.cl:28:47: note: passing argument to parameter 'B' here
+void asic_optimized_salsa20_8(__private uint* B) {
+                                              ^
+C:\Users\JJ\AppData\Local\Temp\\OCL19944T1.cl:316:30: error: passing '__local uint *' (aka '__local unsigned int *') to parameter of type 'uint *' (aka 'unsigned int *') changes address space of pointer
+    asic_optimized_salsa20_8(X);
+                             ^
+C:\Users\JJ\AppData\Local\Temp\\OCL19944T1.cl:28:47: note: passing argument to parameter 'B' here
+void asic_optimized_salsa20_8(__private uint* B) {
+                                              ^
+C:\Users\JJ\AppData\Local\Temp\\OCL19944T1.cl:347:36: error: passing '__local uint *' (aka '__local unsigned int *') to parameter of type 'uint *' (aka 'unsigned int *') changes address space of pointer
+        asic_optimized_blockmix(B, temp_blocks, shared_memory, local_id);
+                                   ^~~~~~~~~~~
+C:\Users\JJ\AppData\Local\Temp\\OCL19944T1.cl:282:67: note: passing argument to parameter 'Bout' here
+void asic_optimized_blockmix(__private uint* Bin, __private uint* Bout,
+                                                                  ^
+C:\Users\JJ\AppData\Local\Temp\\OCL19944T1.cl:375:36: error: passing '__local uint *' (aka '__local unsigned int *') to parameter of type 'uint *' (aka 'unsigned int *') changes address space of pointer
+        asic_optimized_blockmix(B, temp_blocks, shared_memory, local_id);
+                                   ^~~~~~~~~~~
+C:\Users\JJ\AppData\Local\Temp\\OCL19944T1.cl:282:67: note: passing argument to parameter 'Bout' here
+void asic_optimized_blockmix(__private uint* Bin, __private uint* Bout,
+                                                                  ^
+4 errors generated.
+
+error: Clang front-end compilation failed!
+Frontend phase failed compilation.
+Error: Compiling CL to IR
+
+(options: -I C:\Users\JJ\AppData\Local\Programs\Python\Python311\Lib\site-packages\pyopencl\cl)
+(source saved as C:\Users\JJ\AppData\Local\Temp\tmpfilpus7d.cl)
