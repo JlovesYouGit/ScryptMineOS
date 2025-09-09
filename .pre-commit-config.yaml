@@ -1,0 +1,51 @@
+# Pre-commit configuration for unified Python code quality workflow
+# Updated to use ruff (replaces black, isort, flake8) + bandit + pip-audit
+
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+    -   id: trailing-whitespace
+    -   id: end-of-file-fixer
+    -   id: check-yaml
+    -   id: check-added-large-files
+    -   id: check-merge-conflict
+
+# Ruff replaces black, isort, and flake8 with Rust-speed performance
+-   repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.12.12
+    hooks:
+    -   id: ruff
+        name: ruff-lint
+        description: "Run ruff linter (replaces flake8)"
+        args: [--fix]
+    -   id: ruff-format
+        name: ruff-format  
+        description: "Run ruff formatter (replaces black and isort)"
+
+# Security scanning with bandit
+-   repo: https://github.com/PyCQA/bandit
+    rev: 1.8.6
+    hooks:
+    -   id: bandit
+        name: bandit-security
+        description: "Security linting with bandit"
+        args: ["-c", "pyproject.toml"]
+        additional_dependencies: ["bandit[toml]"]
+
+# Optional: Add pip-audit for dependency vulnerability scanning
+# Note: pip-audit requires network access and may slow down commits
+# -   repo: https://github.com/pypa/pip-audit
+#     rev: v2.9.0
+#     hooks:
+#     -   id: pip-audit
+#         name: pip-audit-deps
+#         description: "Audit dependencies for vulnerabilities"
+#         args: ["--desc", "--format=json"]
+
+# Optional: Type checking with mypy (commented out for performance)
+# -   repo: https://github.com/pre-commit/mirrors-mypy
+#     rev: v1.8.0
+#     hooks:
+#     -   id: mypy
+#         additional_dependencies: [types-requests, types-pyyaml]

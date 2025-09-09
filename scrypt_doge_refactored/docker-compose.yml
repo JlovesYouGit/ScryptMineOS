@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  mining-os:
+    build: .
+    ports:
+      - "31415:31415"
+    volumes:
+      - ./settings.yaml:/app/settings.yaml
+      # Uncomment the following lines to enable SSL
+      # - ./ssl/cert.pem:/app/ssl/cert.pem
+      # - ./ssl/key.pem:/app/ssl/key.pem
+    restart: unless-stopped
+    environment:
+      - ENV=prod
+      # Set your personal wallet address here for receiving mining rewards
+      # Use either your Litecoin address: ltc1qpptg85asckrjy9ygygh2tfgxqwzn6672zmzq99
+      # Or your Dogecoin address: os.getenv("DOGE_ADDRESS", "your_doge_address_here")
+      - PAYOUT_ADDR=ltc1qpptg85asckrjy9ygygh2tfgxqwzn6672zmzq99
+      # Uncomment the following lines to enable SSL
+      # - SSL_CERTFILE=/app/ssl/cert.pem
+      # - SSL_KEYFILE=/app/ssl/key.pem
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:31415/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+volumes:
+  mining-config:

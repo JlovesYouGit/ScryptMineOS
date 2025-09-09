@@ -1,0 +1,1158 @@
+\n=== Mining session started: 2025-09-04 20:34:00.622922 ===\nProcess started at 2025-09-04 20:34:00.634875 (PID: 8392)\n2025-09-04 20:34:01.058326: GPU-ASIC COMPLETE SYSTEM - FIXED VERSION\n2025-09-04 20:34:01.059328: ============================================================\n2025-09-04 20:34:01.059328: Educational Mode: ACTIVE (safe for development)\n2025-09-04 20:34:01.059328: Initializing system components...\n2025-09-04 20:34:01.059328: \n2025-09-04 20:34:01.059328: PERFORMANCE OPTIMIZATION\n2025-09-04 20:34:01.059328: ----------------------------------------\n2025-09-04 20:34:01.059328: Performance Optimization: SUCCESS\n2025-09-04 20:34:01.059328: 4.3x efficiency improvement achieved\n2025-09-04 20:34:01.059328: Baseline: 0.114 MH/J -> Final: 0.490 MH/J\n2025-09-04 20:34:01.059328: \n2025-09-04 20:34:01.059328: ASIC HARDWARE EMULATION\n2025-09-04 20:34:01.059328: ----------------------------------------\n2025-09-04 20:34:01.059328: Hardware emulation had issues\n2025-09-04 20:34:01.059328: \n2025-09-04 20:34:01.059328: GPU-ASIC HYBRID LAYER\n2025-09-04 20:34:01.059328: ----------------------------------------\n2025-09-04 20:34:01.059328: Hybrid layer had issues\n2025-09-04 20:34:01.059328: \n2025-09-04 20:34:01.059328: ============================================================\n2025-09-04 20:34:01.059328: COMPLETE SYSTEM INITIALIZATION FINISHED\n2025-09-04 20:34:01.059328: ============================================================\n2025-09-04 20:34:01.059328: \n2025-09-04 20:34:01.059328: SYSTEM STATUS SUMMARY:\n2025-09-04 20:34:01.059328: Performance Optimization: 4.3x efficiency improvement\n2025-09-04 20:34:01.059328: Hardware Emulation: Complete ASIC compatibility\n2025-09-04 20:34:01.059328: Hybrid Layer: External Antminer L7 appearance\n2025-09-04 20:34:01.059328: Educational Mode: Safe for development\n2025-09-04 20:34:01.059328: \n2025-09-04 20:34:01.060329: MISSION ACCOMPLISHED!\n2025-09-04 20:34:01.060329: Your GPU system now behaves like a complete ASIC\n2025-09-04 20:34:01.060329: Target: 1.0 MH/J efficiency pathway implemented\n2025-09-04 20:34:01.060329: All 8 'invisible' ASIC components emulated\n2025-09-04 20:34:01.060329: Fleet management compatibility: 100%\n2025-09-04 20:34:01.060329: \n2025-09-04 20:34:01.060329: Educational mode ensures safe operation\n2025-09-04 20:34:01.060329: No financial risk during development\n2025-09-04 20:34:01.060329: Perfect for testing and optimization\n2025-09-04 20:34:01.060329: \n2025-09-04 20:34:01.060329: Individual component testing:\n2025-09-04 20:34:01.060329: python performance_optimizer.py\n2025-09-04 20:34:01.060329: python asic_hardware_emulation.py\n2025-09-04 20:34:01.060329: python gpu_asic_hybrid_demo.py\n2025-09-04 20:34:01.060329: \n2025-09-04 20:34:01.060329: System ready for fleet management development!\n2025-09-04 20:34:01.060329: Traceback (most recent call last):\n2025-09-04 20:34:01.060329: File "N:\miner\NBMiner_42.3_Win\scrypt\scrypt_doge\runner_fixed.py", line 143, in <module>\n2025-09-04 20:34:01.060329: main()\n2025-09-04 20:34:01.060329: File "N:\miner\NBMiner_42.3_Win\scrypt\scrypt_doge\runner_fixed.py", line 124, in main\n2025-09-04 20:34:01.060329: print(f"\n\U0001f504 STARTING CONTINUOUS MINING MODE")\n2025-09-04 20:34:01.060329: File "C:\Users\JJ\AppData\Local\Programs\Python\Python311\Lib\encodings\cp1252.py", line 19, in encode\n2025-09-04 20:34:01.060329: return codecs.charmap_encode(input,self.errors,encoding_table)[0]\n2025-09-04 20:34:01.060329: ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n2025-09-04 20:34:01.060329: UnicodeEncodeError: 'charmap' codec can't encode character '\U0001f504' in position 2: character maps to <undefined>\nProcess ended at 2025-09-04 20:34:01.065328 (exit code: 1, runtime: 0.4s)\nProcess started at 2025-09-04 20:34:06.069023 (PID: 18260)\n2025-09-04 20:34:06.502488: GPU-ASIC COMPLETE SYSTEM - FIXED VERSION\n2025-09-04 20:34:06.502488: ============================================================\n2025-09-04 20:34:06.502488: Educational Mode: ACTIVE (safe for development)\n2025-09-04 20:34:06.502488: Initializing system components...\n2025-09-04 20:34:06.502488: \n2025-09-04 20:34:06.502488: PERFORMANCE OPTIMIZATION\n2025-09-04 20:34:06.502488: ----------------------------------------\n2025-09-04 20:34:06.502488: Performance Optimization: SUCCESS\n2025-09-04 20:34:06.502488: 4.3x efficiency improvement achieved\n2025-09-04 20:34:06.502488: Baseline: 0.114 MH/J -> Final: 0.490 MH/J\n2025-09-04 20:34:06.502488: \n2025-09-04 20:34:06.502488: ASIC HARDWARE EMULATION\n2025-09-04 20:34:06.502488: ----------------------------------------\n2025-09-04 20:34:06.502488: Hardware emulation had issues\n2025-09-04 20:34:06.502488: \n2025-09-04 20:34:06.502488: GPU-ASIC HYBRID LAYER\n2025-09-04 20:34:06.502488: ----------------------------------------\n2025-09-04 20:34:06.502488: Hybrid layer had issues\n2025-09-04 20:34:06.502488: \n2025-09-04 20:34:06.502488: ============================================================\n2025-09-04 20:34:06.502488: COMPLETE SYSTEM INITIALIZATION FINISHED\n2025-09-04 20:34:06.502488: ============================================================\n2025-09-04 20:34:06.502488: \n2025-09-04 20:34:06.502488: SYSTEM STATUS SUMMARY:\n2025-09-04 20:34:06.502488: Performance Optimization: 4.3x efficiency improvement\n2025-09-04 20:34:06.502488: Hardware Emulation: Complete ASIC compatibility\n2025-09-04 20:34:06.502488: Hybrid Layer: External Antminer L7 appearance\n2025-09-04 20:34:06.502488: Educational Mode: Safe for development\n2025-09-04 20:34:06.502488: \n2025-09-04 20:34:06.502488: MISSION ACCOMPLISHED!\n2025-09-04 20:34:06.502488: Your GPU system now behaves like a complete ASIC\n2025-09-04 20:34:06.502488: Target: 1.0 MH/J efficiency pathway implemented\n2025-09-04 20:34:06.502488: All 8 'invisible' ASIC components emulated\n2025-09-04 20:34:06.502488: Fleet management compatibility: 100%\n2025-09-04 20:34:06.502488: \n2025-09-04 20:34:06.502488: Educational mode ensures safe operation\n2025-09-04 20:34:06.502488: No financial risk during development\n2025-09-04 20:34:06.503487: Perfect for testing and optimization\n2025-09-04 20:34:06.503487: \n2025-09-04 20:34:06.503487: Individual component testing:\n2025-09-04 20:34:06.503487: python performance_optimizer.py\n2025-09-04 20:34:06.503487: python asic_hardware_emulation.py\n2025-09-04 20:34:06.503487: python gpu_asic_hybrid_demo.py\n2025-09-04 20:34:06.503487: \n2025-09-04 20:34:06.503487: System ready for fleet management development!\n2025-09-04 20:34:06.503487: Traceback (most recent call last):\n2025-09-04 20:34:06.503487: File "N:\miner\NBMiner_42.3_Win\scrypt\scrypt_doge\runner_fixed.py", line 143, in <module>\n2025-09-04 20:34:06.503487: main()\n2025-09-04 20:34:06.503487: File "N:\miner\NBMiner_42.3_Win\scrypt\scrypt_doge\runner_fixed.py", line 124, in main\n2025-09-04 20:34:06.503487: print(f"\n\U0001f504 STARTING CONTINUOUS MINING MODE")\n2025-09-04 20:34:06.503487: File "C:\Users\JJ\AppData\Local\Programs\Python\Python311\Lib\encodings\cp1252.py", line 19, in encode\n2025-09-04 20:34:06.503487: return codecs.charmap_encode(input,self.errors,encoding_table)[0]\n2025-09-04 20:34:06.503487: ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n2025-09-04 20:34:06.503487: UnicodeEncodeError: 'charmap' codec can't encode character '\U0001f504' in position 2: character maps to <undefined>\nProcess ended at 2025-09-04 20:34:06.508488 (exit code: 1, runtime: 0.4s)\nProcess started at 2025-09-04 20:34:16.733050 (PID: 13268)\n2025-09-04 20:34:17.145433: GPU-ASIC COMPLETE SYSTEM - FIXED VERSION\n2025-09-04 20:34:17.145433: ============================================================\n2025-09-04 20:34:17.145433: Educational Mode: ACTIVE (safe for development)\n2025-09-04 20:34:17.145433: Initializing system components...\n2025-09-04 20:34:17.145433: \n2025-09-04 20:34:17.145433: PERFORMANCE OPTIMIZATION\n2025-09-04 20:34:17.145433: ----------------------------------------\n2025-09-04 20:34:17.145433: Performance Optimization: SUCCESS\n2025-09-04 20:34:17.145433: 4.3x efficiency improvement achieved\n2025-09-04 20:34:17.145433: Baseline: 0.114 MH/J -> Final: 0.490 MH/J\n2025-09-04 20:34:17.145433: \n2025-09-04 20:34:17.145433: ASIC HARDWARE EMULATION\n2025-09-04 20:34:17.145433: ----------------------------------------\n2025-09-04 20:34:17.145433: Hardware emulation had issues\n2025-09-04 20:34:17.145433: \n2025-09-04 20:34:17.145433: GPU-ASIC HYBRID LAYER\n2025-09-04 20:34:17.146434: ----------------------------------------\n2025-09-04 20:34:17.146434: Hybrid layer had issues\n2025-09-04 20:34:17.146434: \n2025-09-04 20:34:17.146434: ============================================================\n2025-09-04 20:34:17.146434: COMPLETE SYSTEM INITIALIZATION FINISHED\n2025-09-04 20:34:17.146434: ============================================================\n2025-09-04 20:34:17.146434: \n2025-09-04 20:34:17.146434: SYSTEM STATUS SUMMARY:\n2025-09-04 20:34:17.146434: Performance Optimization: 4.3x efficiency improvement\n2025-09-04 20:34:17.146434: Hardware Emulation: Complete ASIC compatibility\n2025-09-04 20:34:17.146434: Hybrid Layer: External Antminer L7 appearance\n2025-09-04 20:34:17.146434: Educational Mode: Safe for development\n2025-09-04 20:34:17.146434: \n2025-09-04 20:34:17.146434: MISSION ACCOMPLISHED!\n2025-09-04 20:34:17.146434: Your GPU system now behaves like a complete ASIC\n2025-09-04 20:34:17.146434: Target: 1.0 MH/J efficiency pathway implemented\n2025-09-04 20:34:17.146434: All 8 'invisible' ASIC components emulated\n2025-09-04 20:34:17.146434: Fleet management compatibility: 100%\n2025-09-04 20:34:17.146434: \n2025-09-04 20:34:17.146434: Educational mode ensures safe operation\n2025-09-04 20:34:17.146434: No financial risk during development\n2025-09-04 20:34:17.146434: Perfect for testing and optimization\n2025-09-04 20:34:17.146434: \n2025-09-04 20:34:17.146434: Individual component testing:\n2025-09-04 20:34:17.146434: python performance_optimizer.py\n2025-09-04 20:34:17.146434: python asic_hardware_emulation.py\n2025-09-04 20:34:17.146434: python gpu_asic_hybrid_demo.py\n2025-09-04 20:34:17.146434: \n2025-09-04 20:34:17.146434: System ready for fleet management development!\n2025-09-04 20:34:17.146434: Traceback (most recent call last):\n2025-09-04 20:34:17.146434: File "N:\miner\NBMiner_42.3_Win\scrypt\scrypt_doge\runner_fixed.py", line 143, in <module>\n2025-09-04 20:34:17.146434: main()\n2025-09-04 20:34:17.146434: File "N:\miner\NBMiner_42.3_Win\scrypt\scrypt_doge\runner_fixed.py", line 124, in main\n2025-09-04 20:34:17.146434: print(f"\n\U0001f504 STARTING CONTINUOUS MINING MODE")\n2025-09-04 20:34:17.146434: File "C:\Users\JJ\AppData\Local\Programs\Python\Python311\Lib\encodings\cp1252.py", line 19, in encode\n2025-09-04 20:34:17.146434: return codecs.charmap_encode(input,self.errors,encoding_table)[0]\n2025-09-04 20:34:17.146434: ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n2025-09-04 20:34:17.146434: UnicodeEncodeError: 'charmap' codec can't encode character '\U0001f504' in position 2: character maps to <undefined>\nProcess ended at 2025-09-04 20:34:17.152434 (exit code: 1, runtime: 0.4s)\nProcess started at 2025-09-04 20:34:32.155480 (PID: 24420)\n2025-09-04 20:34:32.593592: GPU-ASIC COMPLETE SYSTEM - FIXED VERSION\n2025-09-04 20:34:32.593592: ============================================================\n2025-09-04 20:34:32.593592: Educational Mode: ACTIVE (safe for development)\n2025-09-04 20:34:32.593592: Initializing system components...\n2025-09-04 20:34:32.593592: \n2025-09-04 20:34:32.594597: PERFORMANCE OPTIMIZATION\n2025-09-04 20:34:32.594597: ----------------------------------------\n2025-09-04 20:34:32.594597: Performance Optimization: SUCCESS\n2025-09-04 20:34:32.594597: 4.3x efficiency improvement achieved\n2025-09-04 20:34:32.594597: Baseline: 0.114 MH/J -> Final: 0.490 MH/J\n2025-09-04 20:34:32.594597: \n2025-09-04 20:34:32.594597: ASIC HARDWARE EMULATION\n2025-09-04 20:34:32.594597: ----------------------------------------\n2025-09-04 20:34:32.594597: Hardware emulation had issues\n2025-09-04 20:34:32.594597: \n2025-09-04 20:34:32.594597: GPU-ASIC HYBRID LAYER\n2025-09-04 20:34:32.594597: ----------------------------------------\n2025-09-04 20:34:32.594597: Hybrid layer had issues\n2025-09-04 20:34:32.594597: \n2025-09-04 20:34:32.594597: ============================================================\n2025-09-04 20:34:32.594597: COMPLETE SYSTEM INITIALIZATION FINISHED\n2025-09-04 20:34:32.594597: ============================================================\n2025-09-04 20:34:32.594597: \n2025-09-04 20:34:32.594597: SYSTEM STATUS SUMMARY:\n2025-09-04 20:34:32.594597: Performance Optimization: 4.3x efficiency improvement\n2025-09-04 20:34:32.594597: Hardware Emulation: Complete ASIC compatibility\n2025-09-04 20:34:32.594597: Hybrid Layer: External Antminer L7 appearance\n2025-09-04 20:34:32.594597: Educational Mode: Safe for development\n2025-09-04 20:34:32.594597: \n2025-09-04 20:34:32.594597: MISSION ACCOMPLISHED!\n2025-09-04 20:34:32.594597: Your GPU system now behaves like a complete ASIC\n2025-09-04 20:34:32.594597: Target: 1.0 MH/J efficiency pathway implemented\n2025-09-04 20:34:32.594597: All 8 'invisible' ASIC components emulated\n2025-09-04 20:34:32.594597: Fleet management compatibility: 100%\n2025-09-04 20:34:32.594597: \n2025-09-04 20:34:32.594597: Educational mode ensures safe operation\n2025-09-04 20:34:32.594597: No financial risk during development\n2025-09-04 20:34:32.594597: Perfect for testing and optimization\n2025-09-04 20:34:32.594597: \n2025-09-04 20:34:32.594597: Individual component testing:\n2025-09-04 20:34:32.594597: python performance_optimizer.py\n2025-09-04 20:34:32.594597: python asic_hardware_emulation.py\n2025-09-04 20:34:32.594597: python gpu_asic_hybrid_demo.py\n2025-09-04 20:34:32.594597: \n2025-09-04 20:34:32.594597: System ready for fleet management development!\n2025-09-04 20:34:32.594597: Traceback (most recent call last):\n2025-09-04 20:34:32.594597: File "N:\miner\NBMiner_42.3_Win\scrypt\scrypt_doge\runner_fixed.py", line 143, in <module>\n2025-09-04 20:34:32.594597: main()\n2025-09-04 20:34:32.594597: File "N:\miner\NBMiner_42.3_Win\scrypt\scrypt_doge\runner_fixed.py", line 124, in main\n2025-09-04 20:34:32.594597: print(f"\n\U0001f504 STARTING CONTINUOUS MINING MODE")\n2025-09-04 20:34:32.594597: File "C:\Users\JJ\AppData\Local\Programs\Python\Python311\Lib\encodings\cp1252.py", line 19, in encode\n2025-09-04 20:34:32.594597: return codecs.charmap_encode(input,self.errors,encoding_table)[0]\n2025-09-04 20:34:32.594597: ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n2025-09-04 20:34:32.594597: UnicodeEncodeError: 'charmap' codec can't encode character '\U0001f504' in position 2: character maps to <undefined>\nProcess ended at 2025-09-04 20:34:32.600595 (exit code: 1, runtime: 0.4s)\n
+=== Mining session started: 2025-09-05 13:42:23.962298 ===
+Process started at 2025-09-05 13:42:24.244748 (PID: 18932)
+2025-09-05 13:42:24.691032: PyOpenCL imported successfully.
+2025-09-05 13:42:24.691032: Starting OpenCL runner...
+Process ended at 2025-09-05 13:42:24.726562 (exit code: 2, runtime: 0.5s)
+Process started at 2025-09-05 13:42:29.729613 (PID: 7004)
+2025-09-05 13:42:30.063931: PyOpenCL imported successfully.
+2025-09-05 13:42:30.063931: Starting OpenCL runner...
+Process ended at 2025-09-05 13:42:30.097775 (exit code: 2, runtime: 0.4s)
+Process started at 2025-09-05 13:42:40.101312 (PID: 22092)
+2025-09-05 13:42:40.434886: PyOpenCL imported successfully.
+2025-09-05 13:42:40.434886: Starting OpenCL runner...
+Process ended at 2025-09-05 13:42:40.471309 (exit code: 2, runtime: 0.4s)
+Process started at 2025-09-05 13:42:55.474438 (PID: 16544)
+2025-09-05 13:42:55.821045: PyOpenCL imported successfully.
+2025-09-05 13:42:55.821045: Starting OpenCL runner...
+Process ended at 2025-09-05 13:42:55.859045 (exit code: 2, runtime: 0.4s)
+Process started at 2025-09-05 13:43:15.862454 (PID: 25456)
+2025-09-05 13:43:16.216568: PyOpenCL imported successfully.
+2025-09-05 13:43:16.216568: Starting OpenCL runner...
+Process ended at 2025-09-05 13:43:16.262810 (exit code: 2, runtime: 0.4s)
+Process started at 2025-09-05 13:43:41.265647 (PID: 20648)
+2025-09-05 13:43:41.609872: PyOpenCL imported successfully.
+2025-09-05 13:43:41.609872: Starting OpenCL runner...
+Process ended at 2025-09-05 13:43:41.644711 (exit code: 2, runtime: 0.4s)
+Process started at 2025-09-05 13:44:11.648317 (PID: 2124)
+2025-09-05 13:44:12.006148: PyOpenCL imported successfully.
+2025-09-05 13:44:12.006148: Starting OpenCL runner...
+Process ended at 2025-09-05 13:44:12.040750 (exit code: 2, runtime: 0.4s)
+Process started at 2025-09-05 13:44:42.043439 (PID: 10232)
+2025-09-05 13:44:42.411785: PyOpenCL imported successfully.
+2025-09-05 13:44:42.411785: Starting OpenCL runner...
+Process ended at 2025-09-05 13:44:42.457599 (exit code: 2, runtime: 0.4s)
+Process started at 2025-09-05 13:45:12.462257 (PID: 6752)
+2025-09-05 13:45:12.801866: PyOpenCL imported successfully.
+2025-09-05 13:45:12.801866: Starting OpenCL runner...
+Process ended at 2025-09-05 13:45:12.843587 (exit code: 2, runtime: 0.4s)
+
+=== Mining session started: 2025-09-05 13:45:35.664591 ===
+Process started at 2025-09-05 13:45:35.670805 (PID: 20892)
+2025-09-05 13:45:36.868776: PyOpenCL imported successfully.
+2025-09-05 13:45:36.868825: Starting OpenCL runner...
+Process ended at 2025-09-05 13:45:36.914826 (exit code: 2, runtime: 1.2s)
+Process started at 2025-09-05 13:45:41.918654 (PID: 6168)
+2025-09-05 13:45:42.215914: PyOpenCL imported successfully.
+2025-09-05 13:45:42.215966: Starting OpenCL runner...
+Process ended at 2025-09-05 13:45:42.251722 (exit code: 2, runtime: 0.3s)
+Process started at 2025-09-05 13:45:52.254976 (PID: 14120)
+2025-09-05 13:45:52.565082: PyOpenCL imported successfully.
+2025-09-05 13:45:52.565169: Starting OpenCL runner...
+Process ended at 2025-09-05 13:45:52.618349 (exit code: 2, runtime: 0.4s)
+Process started at 2025-09-05 13:46:07.621923 (PID: 25872)
+2025-09-05 13:46:07.879654: PyOpenCL imported successfully.
+2025-09-05 13:46:07.879696: Starting OpenCL runner...
+Process ended at 2025-09-05 13:46:07.917289 (exit code: 2, runtime: 0.3s)
+Process started at 2025-09-05 13:46:27.920842 (PID: 26408)
+2025-09-05 13:46:28.195342: PyOpenCL imported successfully.
+2025-09-05 13:46:28.195436: Starting OpenCL runner...
+Process ended at 2025-09-05 13:46:28.243114 (exit code: 2, runtime: 0.3s)
+Process started at 2025-09-05 13:46:53.246874 (PID: 24092)
+2025-09-05 13:46:53.507796: PyOpenCL imported successfully.
+2025-09-05 13:46:53.507840: Starting OpenCL runner...
+Process ended at 2025-09-05 13:46:53.540701 (exit code: 2, runtime: 0.3s)
+Process started at 2025-09-05 13:47:23.543975 (PID: 25768)
+2025-09-05 13:47:23.794743: PyOpenCL imported successfully.
+2025-09-05 13:47:23.794798: Starting OpenCL runner...
+Process ended at 2025-09-05 13:47:23.826782 (exit code: 2, runtime: 0.3s)
+Process started at 2025-09-05 13:47:53.830133 (PID: 14068)
+2025-09-05 13:47:54.081893: PyOpenCL imported successfully.
+2025-09-05 13:47:54.081963: Starting OpenCL runner...
+Process ended at 2025-09-05 13:47:54.113854 (exit code: 2, runtime: 0.3s)
+Process started at 2025-09-05 13:48:24.117665 (PID: 7224)
+2025-09-05 13:48:24.381377: PyOpenCL imported successfully.
+2025-09-05 13:48:24.381436: Starting OpenCL runner...
+Process ended at 2025-09-05 13:48:24.412414 (exit code: 2, runtime: 0.3s)
+Process started at 2025-09-05 13:48:54.415627 (PID: 20744)
+2025-09-05 13:48:54.664831: PyOpenCL imported successfully.
+2025-09-05 13:48:54.664876: Starting OpenCL runner...
+Process ended at 2025-09-05 13:48:54.698333 (exit code: 2, runtime: 0.3s)
+
+=== Mining session started: 2025-09-05 13:51:06.636799 ===
+Process started at 2025-09-05 13:51:06.642700 (PID: 25736)
+2025-09-05 13:51:07.223542: GPU-ASIC COMPLETE SYSTEM - FIXED VERSION
+2025-09-05 13:51:07.223586: ============================================================
+2025-09-05 13:51:07.223599: Educational Mode: ACTIVE (safe for development)
+2025-09-05 13:51:07.223608: Initializing system components...
+2025-09-05 13:51:07.223616: 
+2025-09-05 13:51:07.223675: PERFORMANCE OPTIMIZATION
+2025-09-05 13:51:07.223689: ----------------------------------------
+2025-09-05 13:51:07.223733: Performance optimization had issues
+2025-09-05 13:51:07.223794: 
+2025-09-05 13:51:07.223849: ASIC HARDWARE EMULATION
+2025-09-05 13:51:07.223874: ----------------------------------------
+2025-09-05 13:51:07.223929: Hardware emulation had issues
+2025-09-05 13:51:07.223947: 
+2025-09-05 13:51:07.223958: GPU-ASIC HYBRID LAYER
+2025-09-05 13:51:07.223967: ----------------------------------------
+2025-09-05 13:51:07.223976: Hybrid layer had issues
+2025-09-05 13:51:07.223984: 
+2025-09-05 13:51:07.223992: ============================================================
+2025-09-05 13:51:07.224043: COMPLETE SYSTEM INITIALIZATION FINISHED
+2025-09-05 13:51:07.224056: ============================================================
+2025-09-05 13:51:07.224064: 
+2025-09-05 13:51:07.224073: SYSTEM STATUS SUMMARY:
+2025-09-05 13:51:07.224124: Performance Optimization: 4.3x efficiency improvement
+2025-09-05 13:51:07.224209: Hardware Emulation: Complete ASIC compatibility
+2025-09-05 13:51:07.224254: Hybrid Layer: External Antminer L7 appearance
+2025-09-05 13:51:07.224264: Educational Mode: Safe for development
+2025-09-05 13:51:07.224273: 
+2025-09-05 13:51:07.224283: MISSION ACCOMPLISHED!
+2025-09-05 13:51:07.224342: Your GPU system now behaves like a complete ASIC
+2025-09-05 13:51:07.224366: Target: 1.0 MH/J efficiency pathway implemented
+2025-09-05 13:51:07.224376: All 8 'invisible' ASIC components emulated
+2025-09-05 13:51:07.224384: Fleet management compatibility: 100%
+2025-09-05 13:51:07.224392: 
+2025-09-05 13:51:07.224401: Educational mode ensures safe operation
+2025-09-05 13:51:07.224410: No financial risk during development
+2025-09-05 13:51:07.224464: Perfect for testing and optimization
+2025-09-05 13:51:07.224489: 
+2025-09-05 13:51:07.224499: Individual component testing:
+2025-09-05 13:51:07.224508: python performance_optimizer.py
+2025-09-05 13:51:07.224556: python asic_hardware_emulation.py
+2025-09-05 13:51:07.224569: python gpu_asic_hybrid_demo.py
+2025-09-05 13:51:07.224578: 
+2025-09-05 13:51:07.224588: System ready for fleet management development!
+2025-09-05 13:51:07.224597: 
+2025-09-05 13:51:07.224641: [LOOP] STARTING CONTINUOUS MINING MODE
+2025-09-05 13:51:07.224655: ============================================================
+2025-09-05 13:51:07.224696: Continuous mining will keep running until manually stopped
+2025-09-05 13:51:07.224776: Press Ctrl+C to stop mining
+2025-09-05 13:51:07.224848: [ERROR] Error starting continuous mining: unmatched ')' (continuous_miner.py, line 91)
+Process ended at 2025-09-05 13:51:07.230945 (exit code: 0, runtime: 0.6s)
+
+=== Mining session started: 2025-09-05 13:53:06.130498 ===
+Process started at 2025-09-05 13:53:06.136457 (PID: 25732)
+2025-09-05 13:53:06.511792: GPU-ASIC COMPLETE SYSTEM - FIXED VERSION
+2025-09-05 13:53:06.511834: ============================================================
+2025-09-05 13:53:06.511848: Educational Mode: ACTIVE (safe for development)
+2025-09-05 13:53:06.511858: Initializing system components...
+2025-09-05 13:53:06.511867: 
+2025-09-05 13:53:06.511959: PERFORMANCE OPTIMIZATION
+2025-09-05 13:53:06.511973: ----------------------------------------
+2025-09-05 13:53:06.512029: Performance optimization had issues
+2025-09-05 13:53:06.512041: 
+2025-09-05 13:53:06.512094: ASIC HARDWARE EMULATION
+2025-09-05 13:53:06.512107: ----------------------------------------
+2025-09-05 13:53:06.512166: Hardware emulation had issues
+2025-09-05 13:53:06.512190: 
+2025-09-05 13:53:06.512200: GPU-ASIC HYBRID LAYER
+2025-09-05 13:53:06.512210: ----------------------------------------
+2025-09-05 13:53:06.512219: Hybrid layer had issues
+2025-09-05 13:53:06.512226: 
+2025-09-05 13:53:06.512235: ============================================================
+2025-09-05 13:53:06.512294: COMPLETE SYSTEM INITIALIZATION FINISHED
+2025-09-05 13:53:06.512307: ============================================================
+2025-09-05 13:53:06.512316: 
+2025-09-05 13:53:06.512324: SYSTEM STATUS SUMMARY:
+2025-09-05 13:53:06.512398: Performance Optimization: 4.3x efficiency improvement
+2025-09-05 13:53:06.512571: Hardware Emulation: Complete ASIC compatibility
+2025-09-05 13:53:06.512596: Hybrid Layer: External Antminer L7 appearance
+2025-09-05 13:53:06.512606: Educational Mode: Safe for development
+2025-09-05 13:53:06.512614: 
+2025-09-05 13:53:06.512623: MISSION ACCOMPLISHED!
+2025-09-05 13:53:06.512684: Your GPU system now behaves like a complete ASIC
+2025-09-05 13:53:06.512697: Target: 1.0 MH/J efficiency pathway implemented
+2025-09-05 13:53:06.512706: All 8 'invisible' ASIC components emulated
+2025-09-05 13:53:06.512715: Fleet management compatibility: 100%
+2025-09-05 13:53:06.512723: 
+2025-09-05 13:53:06.512732: Educational mode ensures safe operation
+2025-09-05 13:53:06.512740: No financial risk during development
+2025-09-05 13:53:06.512784: Perfect for testing and optimization
+2025-09-05 13:53:06.512796: 
+2025-09-05 13:53:06.512804: Individual component testing:
+2025-09-05 13:53:06.512813: python performance_optimizer.py
+2025-09-05 13:53:06.512851: python asic_hardware_emulation.py
+2025-09-05 13:53:06.512864: python gpu_asic_hybrid_demo.py
+2025-09-05 13:53:06.512871: 
+2025-09-05 13:53:06.512880: System ready for fleet management development!
+2025-09-05 13:53:06.512888: 
+2025-09-05 13:53:06.512930: [LOOP] STARTING CONTINUOUS MINING MODE
+2025-09-05 13:53:06.512943: ============================================================
+2025-09-05 13:53:06.512983: Continuous mining will keep running until manually stopped
+2025-09-05 13:53:06.513023: Press Ctrl+C to stop mining
+2025-09-05 13:53:06.513064: [ERROR] Error starting continuous mining: name 'Dict' is not defined
+Process ended at 2025-09-05 13:53:06.521296 (exit code: 0, runtime: 0.4s)
+
+=== Mining session started: 2025-09-05 13:53:54.751844 ===
+Process started at 2025-09-05 13:53:54.757890 (PID: 8600)
+2025-09-05 13:53:55,129 - INFO - Starting continuous mining service...
+2025-09-05 13:53:55.129773: 2025-09-05 13:53:55,129 - INFO - Starting continuous mining service...
+2025-09-05 13:53:55,133 - INFO - Starting mining process with runner.py
+2025-09-05 13:53:55.133899: 2025-09-05 13:53:55,133 - INFO - Starting mining process with runner.py
+2025-09-05 13:53:55,137 - INFO - Mining process started with PID 14732
+2025-09-05 13:53:55.138115: 2025-09-05 13:53:55,137 - INFO - Mining process started with PID 14732
+2025-09-05 13:53:55,417 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 13:53:55,417 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 13:53:55.417350: 2025-09-05 13:53:55,417 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 13:53:55.417403: 2025-09-05 13:53:55,417 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 13:53:55,467 - INFO - Output monitoring thread ended
+2025-09-05 13:53:55.467881: 2025-09-05 13:53:55,467 - INFO - Output monitoring thread ended
+2025-09-05 13:54:25,138 - WARNING - Mining process exited with code 2
+2025-09-05 13:54:25,139 - INFO - Restarting mining process (attempt 1)
+2025-09-05 13:54:25,139 - INFO - Stopping mining process...
+2025-09-05 13:54:25.139191: 2025-09-05 13:54:25,138 - WARNING - Mining process exited with code 2
+2025-09-05 13:54:25.139290: 2025-09-05 13:54:25,139 - INFO - Restarting mining process (attempt 1)
+2025-09-05 13:54:25.139372: 2025-09-05 13:54:25,139 - INFO - Stopping mining process...
+2025-09-05 13:54:30,143 - INFO - Starting mining process with runner.py
+2025-09-05 13:54:30.143985: 2025-09-05 13:54:30,143 - INFO - Starting mining process with runner.py
+2025-09-05 13:54:30,146 - INFO - Mining process started with PID 1828
+2025-09-05 13:54:30.146644: 2025-09-05 13:54:30,146 - INFO - Mining process started with PID 1828
+2025-09-05 13:54:30,393 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 13:54:30,394 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 13:54:30.394160: 2025-09-05 13:54:30,393 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 13:54:30.394205: 2025-09-05 13:54:30,394 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 13:54:30,426 - INFO - Output monitoring thread ended
+2025-09-05 13:54:30.426803: 2025-09-05 13:54:30,426 - INFO - Output monitoring thread ended
+2025-09-05 13:55:00,147 - WARNING - Mining process exited with code 2
+2025-09-05 13:55:00,147 - INFO - Restarting mining process (attempt 2)
+2025-09-05 13:55:00,147 - INFO - Stopping mining process...
+2025-09-05 13:55:00.147423: 2025-09-05 13:55:00,147 - WARNING - Mining process exited with code 2
+2025-09-05 13:55:00.147555: 2025-09-05 13:55:00,147 - INFO - Restarting mining process (attempt 2)
+2025-09-05 13:55:00.147629: 2025-09-05 13:55:00,147 - INFO - Stopping mining process...
+2025-09-05 13:55:05,151 - INFO - Starting mining process with runner.py
+2025-09-05 13:55:05.151839: 2025-09-05 13:55:05,151 - INFO - Starting mining process with runner.py
+2025-09-05 13:55:05,154 - INFO - Mining process started with PID 20408
+2025-09-05 13:55:05.154239: 2025-09-05 13:55:05,154 - INFO - Mining process started with PID 20408
+2025-09-05 13:55:05,436 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 13:55:05,436 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 13:55:05.437139: 2025-09-05 13:55:05,436 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 13:55:05.437188: 2025-09-05 13:55:05,436 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 13:55:05,470 - INFO - Output monitoring thread ended
+2025-09-05 13:55:05.470862: 2025-09-05 13:55:05,470 - INFO - Output monitoring thread ended
+2025-09-05 13:55:35,154 - WARNING - Mining process exited with code 2
+2025-09-05 13:55:35,154 - INFO - Restarting mining process (attempt 3)
+2025-09-05 13:55:35,154 - INFO - Stopping mining process...
+2025-09-05 13:55:35.154976: 2025-09-05 13:55:35,154 - WARNING - Mining process exited with code 2
+2025-09-05 13:55:35.155104: 2025-09-05 13:55:35,154 - INFO - Restarting mining process (attempt 3)
+2025-09-05 13:55:35.155236: 2025-09-05 13:55:35,154 - INFO - Stopping mining process...
+2025-09-05 13:55:40,159 - INFO - Starting mining process with runner.py
+2025-09-05 13:55:40.159963: 2025-09-05 13:55:40,159 - INFO - Starting mining process with runner.py
+2025-09-05 13:55:40,161 - INFO - Mining process started with PID 22556
+2025-09-05 13:55:40.162100: 2025-09-05 13:55:40,161 - INFO - Mining process started with PID 22556
+2025-09-05 13:55:40,467 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 13:55:40,467 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 13:55:40.467825: 2025-09-05 13:55:40,467 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 13:55:40.467867: 2025-09-05 13:55:40,467 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 13:55:40,504 - INFO - Output monitoring thread ended
+2025-09-05 13:55:40.504774: 2025-09-05 13:55:40,504 - INFO - Output monitoring thread ended
+2025-09-05 13:56:10,163 - WARNING - Mining process exited with code 2
+2025-09-05 13:56:10,163 - INFO - Restarting mining process (attempt 4)
+2025-09-05 13:56:10,163 - INFO - Stopping mining process...
+2025-09-05 13:56:10.163538: 2025-09-05 13:56:10,163 - WARNING - Mining process exited with code 2
+2025-09-05 13:56:10.163652: 2025-09-05 13:56:10,163 - INFO - Restarting mining process (attempt 4)
+2025-09-05 13:56:10.163771: 2025-09-05 13:56:10,163 - INFO - Stopping mining process...
+2025-09-05 13:56:15,167 - INFO - Starting mining process with runner.py
+2025-09-05 13:56:15.168161: 2025-09-05 13:56:15,167 - INFO - Starting mining process with runner.py
+2025-09-05 13:56:15,170 - INFO - Mining process started with PID 12000
+2025-09-05 13:56:15.170204: 2025-09-05 13:56:15,170 - INFO - Mining process started with PID 12000
+2025-09-05 13:56:15,422 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 13:56:15,422 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 13:56:15.422992: 2025-09-05 13:56:15,422 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 13:56:15.423065: 2025-09-05 13:56:15,422 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 13:56:15,454 - INFO - Output monitoring thread ended
+2025-09-05 13:56:15.454435: 2025-09-05 13:56:15,454 - INFO - Output monitoring thread ended
+2025-09-05 13:56:45,170 - WARNING - Mining process exited with code 2
+2025-09-05 13:56:45,170 - INFO - Restarting mining process (attempt 5)
+2025-09-05 13:56:45,170 - INFO - Stopping mining process...
+2025-09-05 13:56:45.170982: 2025-09-05 13:56:45,170 - WARNING - Mining process exited with code 2
+2025-09-05 13:56:45.171117: 2025-09-05 13:56:45,170 - INFO - Restarting mining process (attempt 5)
+2025-09-05 13:56:45.171173: 2025-09-05 13:56:45,170 - INFO - Stopping mining process...
+2025-09-05 13:56:50,176 - INFO - Starting mining process with runner.py
+2025-09-05 13:56:50.177380: 2025-09-05 13:56:50,176 - INFO - Starting mining process with runner.py
+2025-09-05 13:56:50,180 - INFO - Mining process started with PID 4528
+2025-09-05 13:56:50.180966: 2025-09-05 13:56:50,180 - INFO - Mining process started with PID 4528
+2025-09-05 13:56:50,437 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 13:56:50,437 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 13:56:50.437938: 2025-09-05 13:56:50,437 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 13:56:50.438019: 2025-09-05 13:56:50,437 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 13:56:50,469 - INFO - Output monitoring thread ended
+2025-09-05 13:56:50.469159: 2025-09-05 13:56:50,469 - INFO - Output monitoring thread ended
+2025-09-05 13:57:20,181 - WARNING - Mining process exited with code 2
+2025-09-05 13:57:20,181 - INFO - Restarting mining process (attempt 6)
+2025-09-05 13:57:20,181 - INFO - Stopping mining process...
+2025-09-05 13:57:20.181759: 2025-09-05 13:57:20,181 - WARNING - Mining process exited with code 2
+2025-09-05 13:57:20.181902: 2025-09-05 13:57:20,181 - INFO - Restarting mining process (attempt 6)
+2025-09-05 13:57:20.181983: 2025-09-05 13:57:20,181 - INFO - Stopping mining process...
+2025-09-05 13:57:25,185 - INFO - Starting mining process with runner.py
+2025-09-05 13:57:25.185969: 2025-09-05 13:57:25,185 - INFO - Starting mining process with runner.py
+2025-09-05 13:57:25,187 - INFO - Mining process started with PID 26212
+2025-09-05 13:57:25.188016: 2025-09-05 13:57:25,187 - INFO - Mining process started with PID 26212
+2025-09-05 13:57:25,426 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 13:57:25,426 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 13:57:25.426895: 2025-09-05 13:57:25,426 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 13:57:25.426964: 2025-09-05 13:57:25,426 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 13:57:25,453 - INFO - Output monitoring thread ended
+2025-09-05 13:57:25.453912: 2025-09-05 13:57:25,453 - INFO - Output monitoring thread ended
+2025-09-05 13:57:55,188 - WARNING - Mining process exited with code 2
+2025-09-05 13:57:55,188 - INFO - Restarting mining process (attempt 7)
+2025-09-05 13:57:55,188 - INFO - Stopping mining process...
+2025-09-05 13:57:55.188878: 2025-09-05 13:57:55,188 - WARNING - Mining process exited with code 2
+2025-09-05 13:57:55.189005: 2025-09-05 13:57:55,188 - INFO - Restarting mining process (attempt 7)
+2025-09-05 13:57:55.189134: 2025-09-05 13:57:55,188 - INFO - Stopping mining process...
+2025-09-05 13:58:00,193 - INFO - Starting mining process with runner.py
+2025-09-05 13:58:00.193690: 2025-09-05 13:58:00,193 - INFO - Starting mining process with runner.py
+2025-09-05 13:58:00,195 - INFO - Mining process started with PID 22104
+2025-09-05 13:58:00.195783: 2025-09-05 13:58:00,195 - INFO - Mining process started with PID 22104
+2025-09-05 13:58:00,448 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 13:58:00,448 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 13:58:00.448296: 2025-09-05 13:58:00,448 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 13:58:00.448357: 2025-09-05 13:58:00,448 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 13:58:00,480 - INFO - Output monitoring thread ended
+2025-09-05 13:58:00.480712: 2025-09-05 13:58:00,480 - INFO - Output monitoring thread ended
+2025-09-05 13:58:30,196 - WARNING - Mining process exited with code 2
+2025-09-05 13:58:30,196 - INFO - Restarting mining process (attempt 8)
+2025-09-05 13:58:30.196567: 2025-09-05 13:58:30,196 - WARNING - Mining process exited with code 2
+2025-09-05 13:58:30,196 - INFO - Stopping mining process...
+2025-09-05 13:58:30.196667: 2025-09-05 13:58:30,196 - INFO - Restarting mining process (attempt 8)
+2025-09-05 13:58:30.196728: 2025-09-05 13:58:30,196 - INFO - Stopping mining process...
+2025-09-05 13:58:35,200 - INFO - Starting mining process with runner.py
+2025-09-05 13:58:35.200944: 2025-09-05 13:58:35,200 - INFO - Starting mining process with runner.py
+2025-09-05 13:58:35,202 - INFO - Mining process started with PID 26312
+2025-09-05 13:58:35.202971: 2025-09-05 13:58:35,202 - INFO - Mining process started with PID 26312
+2025-09-05 13:58:35,435 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 13:58:35,435 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 13:58:35.435927: 2025-09-05 13:58:35,435 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 13:58:35.435966: 2025-09-05 13:58:35,435 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 13:58:35,463 - INFO - Output monitoring thread ended
+2025-09-05 13:58:35.463848: 2025-09-05 13:58:35,463 - INFO - Output monitoring thread ended
+2025-09-05 13:59:05,203 - WARNING - Mining process exited with code 2
+2025-09-05 13:59:05,203 - INFO - Restarting mining process (attempt 9)
+2025-09-05 13:59:05,203 - INFO - Stopping mining process...
+2025-09-05 13:59:05.203795: 2025-09-05 13:59:05,203 - WARNING - Mining process exited with code 2
+2025-09-05 13:59:05.203889: 2025-09-05 13:59:05,203 - INFO - Restarting mining process (attempt 9)
+2025-09-05 13:59:05.203966: 2025-09-05 13:59:05,203 - INFO - Stopping mining process...
+2025-09-05 13:59:10,209 - INFO - Starting mining process with runner.py
+2025-09-05 13:59:10.209637: 2025-09-05 13:59:10,209 - INFO - Starting mining process with runner.py
+2025-09-05 13:59:10,212 - INFO - Mining process started with PID 26388
+2025-09-05 13:59:10.212923: 2025-09-05 13:59:10,212 - INFO - Mining process started with PID 26388
+2025-09-05 13:59:10,521 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 13:59:10,521 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 13:59:10.521548: 2025-09-05 13:59:10,521 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 13:59:10.521592: 2025-09-05 13:59:10,521 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 13:59:10,555 - INFO - Output monitoring thread ended
+2025-09-05 13:59:10.556095: 2025-09-05 13:59:10,555 - INFO - Output monitoring thread ended
+2025-09-05 13:59:40,213 - WARNING - Mining process exited with code 2
+2025-09-05 13:59:40,213 - INFO - Restarting mining process (attempt 10)
+2025-09-05 13:59:40,214 - INFO - Stopping mining process...
+2025-09-05 13:59:40.214124: 2025-09-05 13:59:40,213 - WARNING - Mining process exited with code 2
+2025-09-05 13:59:40.214271: 2025-09-05 13:59:40,213 - INFO - Restarting mining process (attempt 10)
+2025-09-05 13:59:40.214383: 2025-09-05 13:59:40,214 - INFO - Stopping mining process...
+2025-09-05 13:59:45,218 - INFO - Starting mining process with runner.py
+2025-09-05 13:59:45.218944: 2025-09-05 13:59:45,218 - INFO - Starting mining process with runner.py
+2025-09-05 13:59:45,221 - INFO - Mining process started with PID 15908
+2025-09-05 13:59:45.221705: 2025-09-05 13:59:45,221 - INFO - Mining process started with PID 15908
+2025-09-05 13:59:45,477 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 13:59:45,477 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 13:59:45.478090: 2025-09-05 13:59:45,477 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 13:59:45.478134: 2025-09-05 13:59:45,477 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 13:59:45,513 - INFO - Output monitoring thread ended
+2025-09-05 13:59:45.513287: 2025-09-05 13:59:45,513 - INFO - Output monitoring thread ended
+2025-09-05 14:00:15,222 - WARNING - Mining process exited with code 2
+2025-09-05 14:00:15,222 - ERROR - Maximum restart count (10) reached, stopping service
+2025-09-05 14:00:15,222 - INFO - Cleaning up mining service...
+2025-09-05 14:00:15,222 - INFO - Stopping mining process...
+2025-09-05 14:00:15.222813: 2025-09-05 14:00:15,222 - WARNING - Mining process exited with code 2
+2025-09-05 14:00:15.222992: 2025-09-05 14:00:15,222 - ERROR - Maximum restart count (10) reached, stopping service
+2025-09-05 14:00:15.223102: 2025-09-05 14:00:15,222 - INFO - Cleaning up mining service...
+2025-09-05 14:00:15.223226: 2025-09-05 14:00:15,222 - INFO - Stopping mining process...
+2025-09-05 14:00:15,224 - INFO - Mining session summary:
+2025-09-05 14:00:15,224 - INFO -   Total runtime: 0.1 hours
+2025-09-05 14:00:15,224 - INFO -   Restart count: 10
+2025-09-05 14:00:15.224232: 2025-09-05 14:00:15,224 - INFO - Mining session summary:
+2025-09-05 14:00:15.224270: 2025-09-05 14:00:15,224 - INFO -   Total runtime: 0.1 hours
+2025-09-05 14:00:15,224 - INFO -   Shares found: 0
+2025-09-05 14:00:15.224283: 2025-09-05 14:00:15,224 - INFO -   Restart count: 10
+2025-09-05 14:00:15.224387: 2025-09-05 14:00:15,224 - INFO -   Shares found: 0
+2025-09-05 14:00:15.224533: GPU-ASIC COMPLETE SYSTEM - FIXED VERSION
+2025-09-05 14:00:15.224568: ============================================================
+2025-09-05 14:00:15.224584: Educational Mode: ACTIVE (safe for development)
+2025-09-05 14:00:15.224598: Initializing system components...
+2025-09-05 14:00:15.224611: 
+2025-09-05 14:00:15.224688: PERFORMANCE OPTIMIZATION
+2025-09-05 14:00:15.224717: ----------------------------------------
+2025-09-05 14:00:15.224793: Performance optimization had issues
+2025-09-05 14:00:15.224818: 
+2025-09-05 14:00:15.224889: ASIC HARDWARE EMULATION
+2025-09-05 14:00:15.224912: ----------------------------------------
+2025-09-05 14:00:15.224984: Hardware emulation had issues
+2025-09-05 14:00:15.225015: 
+2025-09-05 14:00:15.225030: GPU-ASIC HYBRID LAYER
+2025-09-05 14:00:15.225043: ----------------------------------------
+2025-09-05 14:00:15.225055: Hybrid layer had issues
+2025-09-05 14:00:15.225067: 
+2025-09-05 14:00:15.225081: ============================================================
+2025-09-05 14:00:15.225160: COMPLETE SYSTEM INITIALIZATION FINISHED
+2025-09-05 14:00:15.225189: ============================================================
+2025-09-05 14:00:15.225203: 
+2025-09-05 14:00:15.225217: SYSTEM STATUS SUMMARY:
+2025-09-05 14:00:15.225302: Performance Optimization: 4.3x efficiency improvement
+2025-09-05 14:00:15.225391: Hardware Emulation: Complete ASIC compatibility
+2025-09-05 14:00:15.225426: Hybrid Layer: External Antminer L7 appearance
+2025-09-05 14:00:15.225443: Educational Mode: Safe for development
+2025-09-05 14:00:15.225458: 
+2025-09-05 14:00:15.225473: MISSION ACCOMPLISHED!
+2025-09-05 14:00:15.225554: Your GPU system now behaves like a complete ASIC
+2025-09-05 14:00:15.225578: Target: 1.0 MH/J efficiency pathway implemented
+2025-09-05 14:00:15.225591: All 8 'invisible' ASIC components emulated
+2025-09-05 14:00:15.225604: Fleet management compatibility: 100%
+2025-09-05 14:00:15.225615: 
+2025-09-05 14:00:15.225624: Educational mode ensures safe operation
+2025-09-05 14:00:15.225633: No financial risk during development
+2025-09-05 14:00:15.225707: Perfect for testing and optimization
+2025-09-05 14:00:15.225731: 
+2025-09-05 14:00:15.225741: Individual component testing:
+2025-09-05 14:00:15.225756: python performance_optimizer.py
+2025-09-05 14:00:15.225853: python asic_hardware_emulation.py
+2025-09-05 14:00:15.225888: python gpu_asic_hybrid_demo.py
+2025-09-05 14:00:15.225901: 
+2025-09-05 14:00:15.225914: System ready for fleet management development!
+2025-09-05 14:00:15.225926: 
+2025-09-05 14:00:15.226002: [LOOP] STARTING CONTINUOUS MINING MODE
+2025-09-05 14:00:15.226033: ============================================================
+2025-09-05 14:00:15.226120: Continuous mining will keep running until manually stopped
+2025-09-05 14:00:15.226210: Press Ctrl+C to stop mining
+Process ended at 2025-09-05 14:00:15.234161 (exit code: 0, runtime: 380.5s)
+
+=== Mining session started: 2025-09-05 14:06:59.223323 ===
+Process started at 2025-09-05 14:06:59.229029 (PID: 26420)
+2025-09-05 14:06:59,601 - INFO - Starting continuous mining service...
+2025-09-05 14:06:59.602128: 2025-09-05 14:06:59,601 - INFO - Starting continuous mining service...
+2025-09-05 14:06:59,607 - INFO - Starting mining process with runner.py
+2025-09-05 14:06:59.607468: 2025-09-05 14:06:59,607 - INFO - Starting mining process with runner.py
+2025-09-05 14:06:59,611 - INFO - Mining process started with PID 18908
+2025-09-05 14:06:59.612054: 2025-09-05 14:06:59,611 - INFO - Mining process started with PID 18908
+2025-09-05 14:06:59,869 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 14:06:59,869 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 14:06:59.870026: 2025-09-05 14:06:59,869 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 14:06:59.870083: 2025-09-05 14:06:59,869 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 14:06:59,904 - INFO - Output monitoring thread ended
+2025-09-05 14:06:59.904344: 2025-09-05 14:06:59,904 - INFO - Output monitoring thread ended
+2025-09-05 14:07:29,612 - WARNING - Mining process exited with code 2
+2025-09-05 14:07:29,613 - INFO - Restarting mining process (attempt 1)
+2025-09-05 14:07:29,613 - INFO - Stopping mining process...
+2025-09-05 14:07:29.613435: 2025-09-05 14:07:29,612 - WARNING - Mining process exited with code 2
+2025-09-05 14:07:29.613577: 2025-09-05 14:07:29,613 - INFO - Restarting mining process (attempt 1)
+2025-09-05 14:07:29.613674: 2025-09-05 14:07:29,613 - INFO - Stopping mining process...
+2025-09-05 14:07:34,619 - INFO - Starting mining process with runner.py
+2025-09-05 14:07:34.619713: 2025-09-05 14:07:34,619 - INFO - Starting mining process with runner.py
+2025-09-05 14:07:34,622 - INFO - Mining process started with PID 25868
+2025-09-05 14:07:34.622335: 2025-09-05 14:07:34,622 - INFO - Mining process started with PID 25868
+2025-09-05 14:07:34,916 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 14:07:34,917 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 14:07:34.917170: 2025-09-05 14:07:34,916 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 14:07:34.917238: 2025-09-05 14:07:34,917 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 14:07:34,957 - INFO - Output monitoring thread ended
+2025-09-05 14:07:34.957425: 2025-09-05 14:07:34,957 - INFO - Output monitoring thread ended
+2025-09-05 14:08:04,623 - WARNING - Mining process exited with code 2
+2025-09-05 14:08:04,623 - INFO - Restarting mining process (attempt 2)
+2025-09-05 14:08:04,623 - INFO - Stopping mining process...
+2025-09-05 14:08:04.623452: 2025-09-05 14:08:04,623 - WARNING - Mining process exited with code 2
+2025-09-05 14:08:04.623557: 2025-09-05 14:08:04,623 - INFO - Restarting mining process (attempt 2)
+2025-09-05 14:08:04.623668: 2025-09-05 14:08:04,623 - INFO - Stopping mining process...
+2025-09-05 14:08:09,629 - INFO - Starting mining process with runner.py
+2025-09-05 14:08:09.629275: 2025-09-05 14:08:09,629 - INFO - Starting mining process with runner.py
+2025-09-05 14:08:09,631 - INFO - Mining process started with PID 25964
+2025-09-05 14:08:09.631554: 2025-09-05 14:08:09,631 - INFO - Mining process started with PID 25964
+2025-09-05 14:08:09,916 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 14:08:09,916 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 14:08:09.916453: 2025-09-05 14:08:09,916 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 14:08:09.916513: 2025-09-05 14:08:09,916 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 14:08:09,956 - INFO - Output monitoring thread ended
+2025-09-05 14:08:09.956296: 2025-09-05 14:08:09,956 - INFO - Output monitoring thread ended
+2025-09-05 14:08:39,631 - WARNING - Mining process exited with code 2
+2025-09-05 14:08:39,632 - INFO - Restarting mining process (attempt 3)
+2025-09-05 14:08:39,632 - INFO - Stopping mining process...
+2025-09-05 14:08:39.632346: 2025-09-05 14:08:39,631 - WARNING - Mining process exited with code 2
+2025-09-05 14:08:39.632514: 2025-09-05 14:08:39,632 - INFO - Restarting mining process (attempt 3)
+2025-09-05 14:08:39.632669: 2025-09-05 14:08:39,632 - INFO - Stopping mining process...
+2025-09-05 14:08:44,636 - INFO - Starting mining process with runner.py
+2025-09-05 14:08:44.636932: 2025-09-05 14:08:44,636 - INFO - Starting mining process with runner.py
+2025-09-05 14:08:44,638 - INFO - Mining process started with PID 8256
+2025-09-05 14:08:44.638976: 2025-09-05 14:08:44,638 - INFO - Mining process started with PID 8256
+2025-09-05 14:08:44,881 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 14:08:44,882 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 14:08:44.882255: 2025-09-05 14:08:44,881 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 14:08:44.882320: 2025-09-05 14:08:44,882 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 14:08:44,923 - INFO - Output monitoring thread ended
+2025-09-05 14:08:44.923791: 2025-09-05 14:08:44,923 - INFO - Output monitoring thread ended
+2025-09-05 14:09:14,639 - WARNING - Mining process exited with code 2
+2025-09-05 14:09:14,639 - INFO - Restarting mining process (attempt 4)
+2025-09-05 14:09:14,639 - INFO - Stopping mining process...
+2025-09-05 14:09:14.639729: 2025-09-05 14:09:14,639 - WARNING - Mining process exited with code 2
+2025-09-05 14:09:14.639883: 2025-09-05 14:09:14,639 - INFO - Restarting mining process (attempt 4)
+2025-09-05 14:09:14.639976: 2025-09-05 14:09:14,639 - INFO - Stopping mining process...
+2025-09-05 14:09:19,644 - INFO - Starting mining process with runner.py
+2025-09-05 14:09:19.644365: 2025-09-05 14:09:19,644 - INFO - Starting mining process with runner.py
+2025-09-05 14:09:19,646 - INFO - Mining process started with PID 7788
+2025-09-05 14:09:19.646513: 2025-09-05 14:09:19,646 - INFO - Mining process started with PID 7788
+2025-09-05 14:09:19,888 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 14:09:19,888 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 14:09:19.888765: 2025-09-05 14:09:19,888 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 14:09:19.888821: 2025-09-05 14:09:19,888 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 14:09:19,917 - INFO - Output monitoring thread ended
+2025-09-05 14:09:19.917427: 2025-09-05 14:09:19,917 - INFO - Output monitoring thread ended
+2025-09-05 14:09:49,647 - WARNING - Mining process exited with code 2
+2025-09-05 14:09:49,648 - INFO - Restarting mining process (attempt 5)
+2025-09-05 14:09:49,648 - INFO - Stopping mining process...
+2025-09-05 14:09:49.650129: 2025-09-05 14:09:49,647 - WARNING - Mining process exited with code 2
+2025-09-05 14:09:49.651626: 2025-09-05 14:09:49,648 - INFO - Restarting mining process (attempt 5)
+2025-09-05 14:09:49.651720: 2025-09-05 14:09:49,648 - INFO - Stopping mining process...
+2025-09-05 14:09:54,653 - INFO - Starting mining process with runner.py
+2025-09-05 14:09:54.653470: 2025-09-05 14:09:54,653 - INFO - Starting mining process with runner.py
+2025-09-05 14:09:54,655 - INFO - Mining process started with PID 25760
+2025-09-05 14:09:54.656118: 2025-09-05 14:09:54,655 - INFO - Mining process started with PID 25760
+2025-09-05 14:09:54,894 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 14:09:54,894 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 14:09:54.894326: 2025-09-05 14:09:54,894 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 14:09:54.894397: 2025-09-05 14:09:54,894 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 14:09:54,925 - INFO - Output monitoring thread ended
+2025-09-05 14:09:54.925947: 2025-09-05 14:09:54,925 - INFO - Output monitoring thread ended
+2025-09-05 14:10:24,656 - WARNING - Mining process exited with code 2
+2025-09-05 14:10:24,656 - INFO - Restarting mining process (attempt 6)
+2025-09-05 14:10:24,656 - INFO - Stopping mining process...
+2025-09-05 14:10:24.656885: 2025-09-05 14:10:24,656 - WARNING - Mining process exited with code 2
+2025-09-05 14:10:24.657013: 2025-09-05 14:10:24,656 - INFO - Restarting mining process (attempt 6)
+2025-09-05 14:10:24.657161: 2025-09-05 14:10:24,656 - INFO - Stopping mining process...
+2025-09-05 14:10:29,661 - INFO - Starting mining process with runner.py
+2025-09-05 14:10:29.662138: 2025-09-05 14:10:29,661 - INFO - Starting mining process with runner.py
+2025-09-05 14:10:29,664 - INFO - Mining process started with PID 7224
+2025-09-05 14:10:29.664529: 2025-09-05 14:10:29,664 - INFO - Mining process started with PID 7224
+2025-09-05 14:10:29,916 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 14:10:29,916 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 14:10:29.916635: 2025-09-05 14:10:29,916 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 14:10:29.916678: 2025-09-05 14:10:29,916 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 14:10:29,955 - INFO - Output monitoring thread ended
+2025-09-05 14:10:29.955226: 2025-09-05 14:10:29,955 - INFO - Output monitoring thread ended
+2025-09-05 14:10:59,665 - WARNING - Mining process exited with code 2
+2025-09-05 14:10:59,665 - INFO - Restarting mining process (attempt 7)
+2025-09-05 14:10:59,665 - INFO - Stopping mining process...
+2025-09-05 14:10:59.665530: 2025-09-05 14:10:59,665 - WARNING - Mining process exited with code 2
+2025-09-05 14:10:59.665624: 2025-09-05 14:10:59,665 - INFO - Restarting mining process (attempt 7)
+2025-09-05 14:10:59.665692: 2025-09-05 14:10:59,665 - INFO - Stopping mining process...
+2025-09-05 14:11:04,670 - INFO - Starting mining process with runner.py
+2025-09-05 14:11:04.670843: 2025-09-05 14:11:04,670 - INFO - Starting mining process with runner.py
+2025-09-05 14:11:04,672 - INFO - Mining process started with PID 2044
+2025-09-05 14:11:04.673090: 2025-09-05 14:11:04,672 - INFO - Mining process started with PID 2044
+2025-09-05 14:11:04,922 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 14:11:04,922 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 14:11:04.922674: 2025-09-05 14:11:04,922 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 14:11:04.922716: 2025-09-05 14:11:04,922 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 14:11:04,956 - INFO - Output monitoring thread ended
+2025-09-05 14:11:04.956557: 2025-09-05 14:11:04,956 - INFO - Output monitoring thread ended
+2025-09-05 14:11:34,673 - WARNING - Mining process exited with code 2
+2025-09-05 14:11:34,673 - INFO - Restarting mining process (attempt 8)
+2025-09-05 14:11:34,673 - INFO - Stopping mining process...
+2025-09-05 14:11:34.673906: 2025-09-05 14:11:34,673 - WARNING - Mining process exited with code 2
+2025-09-05 14:11:34.674021: 2025-09-05 14:11:34,673 - INFO - Restarting mining process (attempt 8)
+2025-09-05 14:11:34.674095: 2025-09-05 14:11:34,673 - INFO - Stopping mining process...
+2025-09-05 14:11:39,678 - INFO - Starting mining process with runner.py
+2025-09-05 14:11:39.678299: 2025-09-05 14:11:39,678 - INFO - Starting mining process with runner.py
+2025-09-05 14:11:39,680 - INFO - Mining process started with PID 25924
+2025-09-05 14:11:39.680573: 2025-09-05 14:11:39,680 - INFO - Mining process started with PID 25924
+2025-09-05 14:11:39,917 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 14:11:39,917 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 14:11:39.917534: 2025-09-05 14:11:39,917 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 14:11:39.917602: 2025-09-05 14:11:39,917 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 14:11:39,948 - INFO - Output monitoring thread ended
+2025-09-05 14:11:39.948226: 2025-09-05 14:11:39,948 - INFO - Output monitoring thread ended
+2025-09-05 14:12:09,681 - WARNING - Mining process exited with code 2
+2025-09-05 14:12:09,681 - INFO - Restarting mining process (attempt 9)
+2025-09-05 14:12:09,681 - INFO - Stopping mining process...
+2025-09-05 14:12:09.681491: 2025-09-05 14:12:09,681 - WARNING - Mining process exited with code 2
+2025-09-05 14:12:09.681595: 2025-09-05 14:12:09,681 - INFO - Restarting mining process (attempt 9)
+2025-09-05 14:12:09.681682: 2025-09-05 14:12:09,681 - INFO - Stopping mining process...
+2025-09-05 14:12:14,685 - INFO - Starting mining process with runner.py
+2025-09-05 14:12:14.685811: 2025-09-05 14:12:14,685 - INFO - Starting mining process with runner.py
+2025-09-05 14:12:14,687 - INFO - Mining process started with PID 19428
+2025-09-05 14:12:14.687820: 2025-09-05 14:12:14,687 - INFO - Mining process started with PID 19428
+2025-09-05 14:12:14,923 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 14:12:14,924 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 14:12:14.924220: 2025-09-05 14:12:14,923 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 14:12:14.924274: 2025-09-05 14:12:14,924 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 14:12:14,954 - INFO - Output monitoring thread ended
+2025-09-05 14:12:14.954666: 2025-09-05 14:12:14,954 - INFO - Output monitoring thread ended
+2025-09-05 14:12:44,688 - WARNING - Mining process exited with code 2
+2025-09-05 14:12:44,688 - INFO - Restarting mining process (attempt 10)
+2025-09-05 14:12:44,688 - INFO - Stopping mining process...
+2025-09-05 14:12:44.688823: 2025-09-05 14:12:44,688 - WARNING - Mining process exited with code 2
+2025-09-05 14:12:44.688925: 2025-09-05 14:12:44,688 - INFO - Restarting mining process (attempt 10)
+2025-09-05 14:12:44.689034: 2025-09-05 14:12:44,688 - INFO - Stopping mining process...
+2025-09-05 14:12:49,693 - INFO - Starting mining process with runner.py
+2025-09-05 14:12:49.693307: 2025-09-05 14:12:49,693 - INFO - Starting mining process with runner.py
+2025-09-05 14:12:49,695 - INFO - Mining process started with PID 26868
+2025-09-05 14:12:49.695368: 2025-09-05 14:12:49,695 - INFO - Mining process started with PID 26868
+2025-09-05 14:12:49,935 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 14:12:49,935 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 14:12:49.935495: 2025-09-05 14:12:49,935 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 14:12:49.935536: 2025-09-05 14:12:49,935 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 14:12:49,965 - INFO - Output monitoring thread ended
+2025-09-05 14:12:49.966141: 2025-09-05 14:12:49,965 - INFO - Output monitoring thread ended
+2025-09-05 14:13:19,696 - WARNING - Mining process exited with code 2
+2025-09-05 14:13:19,696 - ERROR - Maximum restart count (10) reached, stopping service
+2025-09-05 14:13:19,696 - INFO - Cleaning up mining service...
+2025-09-05 14:13:19,696 - INFO - Stopping mining process...
+2025-09-05 14:13:19.696489: 2025-09-05 14:13:19,696 - WARNING - Mining process exited with code 2
+2025-09-05 14:13:19.696588: 2025-09-05 14:13:19,696 - ERROR - Maximum restart count (10) reached, stopping service
+2025-09-05 14:13:19.696671: 2025-09-05 14:13:19,696 - INFO - Cleaning up mining service...
+2025-09-05 14:13:19.696754: 2025-09-05 14:13:19,696 - INFO - Stopping mining process...
+2025-09-05 14:13:19,697 - INFO - Mining session summary:
+2025-09-05 14:13:19,697 - INFO -   Total runtime: 0.1 hours
+2025-09-05 14:13:19,697 - INFO -   Restart count: 10
+2025-09-05 14:13:19.697612: 2025-09-05 14:13:19,697 - INFO - Mining session summary:
+2025-09-05 14:13:19.697650: 2025-09-05 14:13:19,697 - INFO -   Total runtime: 0.1 hours
+2025-09-05 14:13:19,697 - INFO -   Shares found: 0
+2025-09-05 14:13:19.697667: 2025-09-05 14:13:19,697 - INFO -   Restart count: 10
+2025-09-05 14:13:19.697766: 2025-09-05 14:13:19,697 - INFO -   Shares found: 0
+2025-09-05 14:13:19.697874: GPU-ASIC COMPLETE SYSTEM - FIXED VERSION
+2025-09-05 14:13:19.697909: ============================================================
+2025-09-05 14:13:19.697920: Educational Mode: ACTIVE (safe for development)
+2025-09-05 14:13:19.697929: Initializing system components...
+2025-09-05 14:13:19.697937: 
+2025-09-05 14:13:19.698010: PERFORMANCE OPTIMIZATION
+2025-09-05 14:13:19.698046: ----------------------------------------
+2025-09-05 14:13:19.698128: Performance optimization had issues
+2025-09-05 14:13:19.698150: 
+2025-09-05 14:13:19.698212: ASIC HARDWARE EMULATION
+2025-09-05 14:13:19.698243: ----------------------------------------
+2025-09-05 14:13:19.698305: Hardware emulation had issues
+2025-09-05 14:13:19.698328: 
+2025-09-05 14:13:19.698396: GPU-ASIC HYBRID LAYER
+2025-09-05 14:13:19.698416: ----------------------------------------
+2025-09-05 14:13:19.698430: Hybrid layer had issues
+2025-09-05 14:13:19.698442: 
+2025-09-05 14:13:19.698451: ============================================================
+2025-09-05 14:13:19.698510: COMPLETE SYSTEM INITIALIZATION FINISHED
+2025-09-05 14:13:19.698530: ============================================================
+2025-09-05 14:13:19.698545: 
+2025-09-05 14:13:19.698559: SYSTEM STATUS SUMMARY:
+2025-09-05 14:13:19.698619: Performance Optimization: 4.3x efficiency improvement
+2025-09-05 14:13:19.698691: Hardware Emulation: Complete ASIC compatibility
+2025-09-05 14:13:19.698706: Hybrid Layer: External Antminer L7 appearance
+2025-09-05 14:13:19.698715: Educational Mode: Safe for development
+2025-09-05 14:13:19.698723: 
+2025-09-05 14:13:19.698732: MISSION ACCOMPLISHED!
+2025-09-05 14:13:19.698787: Your GPU system now behaves like a complete ASIC
+2025-09-05 14:13:19.698816: Target: 1.0 MH/J efficiency pathway implemented
+2025-09-05 14:13:19.698831: All 8 'invisible' ASIC components emulated
+2025-09-05 14:13:19.698843: Fleet management compatibility: 100%
+2025-09-05 14:13:19.698854: 
+2025-09-05 14:13:19.698866: Educational mode ensures safe operation
+2025-09-05 14:13:19.698879: No financial risk during development
+2025-09-05 14:13:19.698935: Perfect for testing and optimization
+2025-09-05 14:13:19.698966: 
+2025-09-05 14:13:19.698979: Individual component testing:
+2025-09-05 14:13:19.698991: python performance_optimizer.py
+2025-09-05 14:13:19.699059: python asic_hardware_emulation.py
+2025-09-05 14:13:19.699085: python gpu_asic_hybrid_demo.py
+2025-09-05 14:13:19.699097: 
+2025-09-05 14:13:19.699111: System ready for fleet management development!
+2025-09-05 14:13:19.699119: 
+2025-09-05 14:13:19.699182: [LOOP] STARTING CONTINUOUS MINING MODE
+2025-09-05 14:13:19.699208: ============================================================
+2025-09-05 14:13:19.699268: Continuous mining will keep running until manually stopped
+2025-09-05 14:13:19.699334: Press Ctrl+C to stop mining
+Process ended at 2025-09-05 14:13:19.707550 (exit code: 0, runtime: 380.5s)
+
+=== Mining session started: 2025-09-05 14:15:20.184326 ===
+Process started at 2025-09-05 14:15:20.189816 (PID: 26028)
+2025-09-05 14:15:30.361021: Exception in thread Thread-6 (_readerthread):
+2025-09-05 14:15:30.406112: Traceback (most recent call last):
+2025-09-05 14:15:30.409476: File "C:\Python313\Lib\threading.py", line 1043, in _bootstrap_inner
+2025-09-05 14:15:30.409496: self.run()
+2025-09-05 14:15:30.409506: ~~~~~~~~^^
+2025-09-05 14:15:30.409526: File "C:\Python313\Lib\threading.py", line 994, in run
+2025-09-05 14:15:30.409536: self._target(*self._args, **self._kwargs)
+2025-09-05 14:15:30.409545: ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-09-05 14:15:30.409554: File "C:\Python313\Lib\subprocess.py", line 1615, in _readerthread
+2025-09-05 14:15:30.409563: buffer.append(fh.read())
+2025-09-05 14:15:30.409571: ~~~~~~~^^
+2025-09-05 14:15:30.409580: File "C:\Python313\Lib\encodings\cp1252.py", line 23, in decode
+2025-09-05 14:15:30.409703: return codecs.charmap_decode(input,self.errors,decoding_table)[0]
+2025-09-05 14:15:30.409760: ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-09-05 14:15:30.409859: UnicodeDecodeError: 'charmap' codec can't decode byte 0x8f in position 429: character maps to <undefined>
+2025-09-05 14:15:30,423 - INFO - Starting continuous mining service...
+2025-09-05 14:15:30.423288: 2025-09-05 14:15:30,423 - INFO - Starting continuous mining service...
+2025-09-05 14:15:30,426 - INFO - Starting mining process with runner.py
+2025-09-05 14:15:30.427134: 2025-09-05 14:15:30,426 - INFO - Starting mining process with runner.py
+2025-09-05 14:15:30,431 - INFO - Mining process started with PID 27080
+2025-09-05 14:15:30.431757: 2025-09-05 14:15:30,431 - INFO - Mining process started with PID 27080
+2025-09-05 14:15:30,677 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 14:15:30,677 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 14:15:30.677961: 2025-09-05 14:15:30,677 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 14:15:30.678023: 2025-09-05 14:15:30,677 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 14:15:30,709 - INFO - Output monitoring thread ended
+2025-09-05 14:15:30.709492: 2025-09-05 14:15:30,709 - INFO - Output monitoring thread ended
+2025-09-05 14:16:00,432 - WARNING - Mining process exited with code 2
+2025-09-05 14:16:00,432 - INFO - Restarting mining process (attempt 1)
+2025-09-05 14:16:00,432 - INFO - Stopping mining process...
+2025-09-05 14:16:00.432725: 2025-09-05 14:16:00,432 - WARNING - Mining process exited with code 2
+2025-09-05 14:16:00.432880: 2025-09-05 14:16:00,432 - INFO - Restarting mining process (attempt 1)
+2025-09-05 14:16:00.432973: 2025-09-05 14:16:00,432 - INFO - Stopping mining process...
+2025-09-05 14:16:05,438 - INFO - Starting mining process with runner.py
+2025-09-05 14:16:05.439003: 2025-09-05 14:16:05,438 - INFO - Starting mining process with runner.py
+2025-09-05 14:16:05,441 - INFO - Mining process started with PID 1724
+2025-09-05 14:16:05.441725: 2025-09-05 14:16:05,441 - INFO - Mining process started with PID 1724
+2025-09-05 14:16:05,687 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 14:16:05,687 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 14:16:05.687978: 2025-09-05 14:16:05,687 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 14:16:05.688032: 2025-09-05 14:16:05,687 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 14:16:05,720 - INFO - Output monitoring thread ended
+2025-09-05 14:16:05.720525: 2025-09-05 14:16:05,720 - INFO - Output monitoring thread ended
+2025-09-05 14:16:35,442 - WARNING - Mining process exited with code 2
+2025-09-05 14:16:35,442 - INFO - Restarting mining process (attempt 2)
+2025-09-05 14:16:35,442 - INFO - Stopping mining process...
+2025-09-05 14:16:35.442586: 2025-09-05 14:16:35,442 - WARNING - Mining process exited with code 2
+2025-09-05 14:16:35.442727: 2025-09-05 14:16:35,442 - INFO - Restarting mining process (attempt 2)
+2025-09-05 14:16:35.442802: 2025-09-05 14:16:35,442 - INFO - Stopping mining process...
+2025-09-05 14:16:40,447 - INFO - Starting mining process with runner.py
+2025-09-05 14:16:40.447479: 2025-09-05 14:16:40,447 - INFO - Starting mining process with runner.py
+2025-09-05 14:16:40,449 - INFO - Mining process started with PID 27252
+2025-09-05 14:16:40.449873: 2025-09-05 14:16:40,449 - INFO - Mining process started with PID 27252
+2025-09-05 14:16:40,694 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 14:16:40,694 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 14:16:40.694759: 2025-09-05 14:16:40,694 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 14:16:40.694812: 2025-09-05 14:16:40,694 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 14:16:40,727 - INFO - Output monitoring thread ended
+2025-09-05 14:16:40.727325: 2025-09-05 14:16:40,727 - INFO - Output monitoring thread ended
+2025-09-05 14:17:10,451 - WARNING - Mining process exited with code 2
+2025-09-05 14:17:10,451 - INFO - Restarting mining process (attempt 3)
+2025-09-05 14:17:10,451 - INFO - Stopping mining process...
+2025-09-05 14:17:10.451384: 2025-09-05 14:17:10,451 - WARNING - Mining process exited with code 2
+2025-09-05 14:17:10.451509: 2025-09-05 14:17:10,451 - INFO - Restarting mining process (attempt 3)
+2025-09-05 14:17:10.451610: 2025-09-05 14:17:10,451 - INFO - Stopping mining process...
+2025-09-05 14:17:15,455 - INFO - Starting mining process with runner.py
+2025-09-05 14:17:15.456122: 2025-09-05 14:17:15,455 - INFO - Starting mining process with runner.py
+2025-09-05 14:17:15,458 - INFO - Mining process started with PID 12740
+2025-09-05 14:17:15.458289: 2025-09-05 14:17:15,458 - INFO - Mining process started with PID 12740
+2025-09-05 14:17:15,695 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 14:17:15,695 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 14:17:15.695719: 2025-09-05 14:17:15,695 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 14:17:15.695799: 2025-09-05 14:17:15,695 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 14:17:15,728 - INFO - Output monitoring thread ended
+2025-09-05 14:17:15.728415: 2025-09-05 14:17:15,728 - INFO - Output monitoring thread ended
+2025-09-05 14:17:45,458 - WARNING - Mining process exited with code 2
+2025-09-05 14:17:45,458 - INFO - Restarting mining process (attempt 4)
+2025-09-05 14:17:45,459 - INFO - Stopping mining process...
+2025-09-05 14:17:45.459083: 2025-09-05 14:17:45,458 - WARNING - Mining process exited with code 2
+2025-09-05 14:17:45.459179: 2025-09-05 14:17:45,458 - INFO - Restarting mining process (attempt 4)
+2025-09-05 14:17:45.459247: 2025-09-05 14:17:45,459 - INFO - Stopping mining process...
+2025-09-05 14:17:50,464 - INFO - Starting mining process with runner.py
+2025-09-05 14:17:50.464512: 2025-09-05 14:17:50,464 - INFO - Starting mining process with runner.py
+2025-09-05 14:17:50,466 - INFO - Mining process started with PID 16624
+2025-09-05 14:17:50.466665: 2025-09-05 14:17:50,466 - INFO - Mining process started with PID 16624
+2025-09-05 14:17:50,711 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 14:17:50,711 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 14:17:50.711634: 2025-09-05 14:17:50,711 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 14:17:50.711678: 2025-09-05 14:17:50,711 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 14:17:50,742 - INFO - Output monitoring thread ended
+2025-09-05 14:17:50.743039: 2025-09-05 14:17:50,742 - INFO - Output monitoring thread ended
+
+=== Mining session started: 2025-09-05 14:18:14.697456 ===
+Process started at 2025-09-05 14:18:14.702585 (PID: 26144)
+2025-09-05 14:18:24.854462: Exception in thread Thread-6 (_readerthread):
+2025-09-05 14:18:24.861177: Traceback (most recent call last):
+2025-09-05 14:18:24.864573: File "C:\Python313\Lib\threading.py", line 1043, in _bootstrap_inner
+2025-09-05 14:18:24.864621: self.run()
+2025-09-05 14:18:24.864631: ~~~~~~~~^^
+2025-09-05 14:18:24.864654: File "C:\Python313\Lib\threading.py", line 994, in run
+2025-09-05 14:18:24.864664: self._target(*self._args, **self._kwargs)
+2025-09-05 14:18:24.864672: ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-09-05 14:18:24.864681: File "C:\Python313\Lib\subprocess.py", line 1615, in _readerthread
+2025-09-05 14:18:24.864689: buffer.append(fh.read())
+2025-09-05 14:18:24.864698: ~~~~~~~^^
+2025-09-05 14:18:24.864707: File "C:\Python313\Lib\encodings\cp1252.py", line 23, in decode
+2025-09-05 14:18:24.864825: return codecs.charmap_decode(input,self.errors,decoding_table)[0]
+2025-09-05 14:18:24.864855: ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-09-05 14:18:24.864955: UnicodeDecodeError: 'charmap' codec can't decode byte 0x8f in position 429: character maps to <undefined>
+2025-09-05 14:18:24,879 - INFO - Starting continuous mining service...
+2025-09-05 14:18:24.879774: 2025-09-05 14:18:24,879 - INFO - Starting continuous mining service...
+2025-09-05 14:18:24,883 - INFO - Starting mining process with runner.py
+2025-09-05 14:18:24.884224: 2025-09-05 14:18:24,883 - INFO - Starting mining process with runner.py
+2025-09-05 14:18:24,888 - INFO - Mining process started with PID 13588
+2025-09-05 14:18:24.888671: 2025-09-05 14:18:24,888 - INFO - Mining process started with PID 13588
+2025-09-05 14:18:25,126 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 14:18:25,126 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 14:18:25.126844: 2025-09-05 14:18:25,126 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 14:18:25.126904: 2025-09-05 14:18:25,126 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 14:18:25,156 - INFO - Output monitoring thread ended
+2025-09-05 14:18:25.156819: 2025-09-05 14:18:25,156 - INFO - Output monitoring thread ended
+2025-09-05 14:18:54,889 - WARNING - Mining process exited with code 2
+2025-09-05 14:18:54,889 - INFO - Restarting mining process (attempt 1)
+2025-09-05 14:18:54,889 - INFO - Stopping mining process...
+2025-09-05 14:18:54.889518: 2025-09-05 14:18:54,889 - WARNING - Mining process exited with code 2
+2025-09-05 14:18:54.889655: 2025-09-05 14:18:54,889 - INFO - Restarting mining process (attempt 1)
+2025-09-05 14:18:54.889703: 2025-09-05 14:18:54,889 - INFO - Stopping mining process...
+2025-09-05 14:18:59,893 - INFO - Starting mining process with runner.py
+2025-09-05 14:18:59.893948: 2025-09-05 14:18:59,893 - INFO - Starting mining process with runner.py
+2025-09-05 14:18:59,895 - INFO - Mining process started with PID 15052
+2025-09-05 14:18:59.895993: 2025-09-05 14:18:59,895 - INFO - Mining process started with PID 15052
+2025-09-05 14:19:00,133 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 14:19:00,133 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 14:19:00.133668: 2025-09-05 14:19:00,133 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 14:19:00.133742: 2025-09-05 14:19:00,133 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 14:19:00,164 - INFO - Output monitoring thread ended
+2025-09-05 14:19:00.164654: 2025-09-05 14:19:00,164 - INFO - Output monitoring thread ended
+2025-09-05 14:19:29,896 - WARNING - Mining process exited with code 2
+2025-09-05 14:19:29,896 - INFO - Restarting mining process (attempt 2)
+2025-09-05 14:19:29,896 - INFO - Stopping mining process...
+2025-09-05 14:19:29.896755: 2025-09-05 14:19:29,896 - WARNING - Mining process exited with code 2
+2025-09-05 14:19:29.896853: 2025-09-05 14:19:29,896 - INFO - Restarting mining process (attempt 2)
+2025-09-05 14:19:29.896964: 2025-09-05 14:19:29,896 - INFO - Stopping mining process...
+2025-09-05 14:19:34,900 - INFO - Starting mining process with runner.py
+2025-09-05 14:19:34.901106: 2025-09-05 14:19:34,900 - INFO - Starting mining process with runner.py
+2025-09-05 14:19:34,904 - INFO - Mining process started with PID 23928
+2025-09-05 14:19:34.905114: 2025-09-05 14:19:34,904 - INFO - Mining process started with PID 23928
+2025-09-05 14:19:35,166 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 14:19:35,166 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 14:19:35.166877: 2025-09-05 14:19:35,166 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 14:19:35.166932: 2025-09-05 14:19:35,166 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 14:19:35,199 - INFO - Output monitoring thread ended
+2025-09-05 14:19:35.199997: 2025-09-05 14:19:35,199 - INFO - Output monitoring thread ended
+
+=== Mining session started: 2025-09-05 14:20:22.495573 ===
+Process started at 2025-09-05 14:20:22.500869 (PID: 22280)
+2025-09-05 14:20:32,681 - INFO - Starting continuous mining service...
+2025-09-05 14:20:32.681595: 2025-09-05 14:20:32,681 - INFO - Starting continuous mining service...
+2025-09-05 14:20:32,685 - INFO - Starting mining process with runner.py
+2025-09-05 14:20:32.685397: 2025-09-05 14:20:32,685 - INFO - Starting mining process with runner.py
+2025-09-05 14:20:32,689 - INFO - Mining process started with PID 11392
+2025-09-05 14:20:32.689720: 2025-09-05 14:20:32,689 - INFO - Mining process started with PID 11392
+2025-09-05 14:20:32,927 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 14:20:32,927 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 14:20:32.927405: 2025-09-05 14:20:32,927 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 14:20:32.927487: 2025-09-05 14:20:32,927 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 14:20:32,958 - INFO - Output monitoring thread ended
+2025-09-05 14:20:32.958345: 2025-09-05 14:20:32,958 - INFO - Output monitoring thread ended
+2025-09-05 14:21:02,690 - WARNING - Mining process exited with code 2
+2025-09-05 14:21:02,690 - INFO - Restarting mining process (attempt 1)
+2025-09-05 14:21:02,690 - INFO - Stopping mining process...
+2025-09-05 14:21:02.690644: 2025-09-05 14:21:02,690 - WARNING - Mining process exited with code 2
+2025-09-05 14:21:02.690752: 2025-09-05 14:21:02,690 - INFO - Restarting mining process (attempt 1)
+2025-09-05 14:21:02.690844: 2025-09-05 14:21:02,690 - INFO - Stopping mining process...
+2025-09-05 14:21:07,694 - INFO - Starting mining process with runner.py
+2025-09-05 14:21:07.695020: 2025-09-05 14:21:07,694 - INFO - Starting mining process with runner.py
+2025-09-05 14:21:07,696 - INFO - Mining process started with PID 25960
+2025-09-05 14:21:07.697090: 2025-09-05 14:21:07,696 - INFO - Mining process started with PID 25960
+2025-09-05 14:21:07,944 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 14:21:07,944 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 14:21:07.944653: 2025-09-05 14:21:07,944 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 14:21:07.944687: 2025-09-05 14:21:07,944 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 14:21:07,977 - INFO - Output monitoring thread ended
+2025-09-05 14:21:07.978051: 2025-09-05 14:21:07,977 - INFO - Output monitoring thread ended
+2025-09-05 14:21:37,697 - WARNING - Mining process exited with code 2
+2025-09-05 14:21:37,698 - INFO - Restarting mining process (attempt 2)
+2025-09-05 14:21:37,698 - INFO - Stopping mining process...
+2025-09-05 14:21:37.698170: 2025-09-05 14:21:37,697 - WARNING - Mining process exited with code 2
+2025-09-05 14:21:37.698265: 2025-09-05 14:21:37,698 - INFO - Restarting mining process (attempt 2)
+2025-09-05 14:21:37.698346: 2025-09-05 14:21:37,698 - INFO - Stopping mining process...
+2025-09-05 14:21:42,702 - INFO - Starting mining process with runner.py
+2025-09-05 14:21:42.703202: 2025-09-05 14:21:42,702 - INFO - Starting mining process with runner.py
+2025-09-05 14:21:42,705 - INFO - Mining process started with PID 3364
+2025-09-05 14:21:42.705799: 2025-09-05 14:21:42,705 - INFO - Mining process started with PID 3364
+2025-09-05 14:21:42,945 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 14:21:42,946 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 14:21:42.946128: 2025-09-05 14:21:42,945 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 14:21:42.946168: 2025-09-05 14:21:42,946 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 14:21:42,977 - INFO - Output monitoring thread ended
+2025-09-05 14:21:42.977384: 2025-09-05 14:21:42,977 - INFO - Output monitoring thread ended
+2025-09-05 14:22:12,706 - WARNING - Mining process exited with code 2
+2025-09-05 14:22:12,706 - INFO - Restarting mining process (attempt 3)
+2025-09-05 14:22:12,706 - INFO - Stopping mining process...
+2025-09-05 14:22:12.706878: 2025-09-05 14:22:12,706 - WARNING - Mining process exited with code 2
+2025-09-05 14:22:12.707032: 2025-09-05 14:22:12,706 - INFO - Restarting mining process (attempt 3)
+2025-09-05 14:22:12.707102: 2025-09-05 14:22:12,706 - INFO - Stopping mining process...
+2025-09-05 14:22:17,710 - INFO - Starting mining process with runner.py
+2025-09-05 14:22:17.711255: 2025-09-05 14:22:17,710 - INFO - Starting mining process with runner.py
+2025-09-05 14:22:17,713 - INFO - Mining process started with PID 26756
+2025-09-05 14:22:17.713595: 2025-09-05 14:22:17,713 - INFO - Mining process started with PID 26756
+2025-09-05 14:22:17,982 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 14:22:17,982 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 14:22:17.982988: 2025-09-05 14:22:17,982 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 14:22:17.983037: 2025-09-05 14:22:17,982 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 14:22:18,018 - INFO - Output monitoring thread ended
+2025-09-05 14:22:18.018823: 2025-09-05 14:22:18,018 - INFO - Output monitoring thread ended
+2025-09-05 14:22:47,714 - WARNING - Mining process exited with code 2
+2025-09-05 14:22:47,714 - INFO - Restarting mining process (attempt 4)
+2025-09-05 14:22:47,714 - INFO - Stopping mining process...
+2025-09-05 14:22:47.714575: 2025-09-05 14:22:47,714 - WARNING - Mining process exited with code 2
+2025-09-05 14:22:47.714675: 2025-09-05 14:22:47,714 - INFO - Restarting mining process (attempt 4)
+2025-09-05 14:22:47.714746: 2025-09-05 14:22:47,714 - INFO - Stopping mining process...
+2025-09-05 14:22:52,718 - INFO - Starting mining process with runner.py
+2025-09-05 14:22:52.718730: 2025-09-05 14:22:52,718 - INFO - Starting mining process with runner.py
+2025-09-05 14:22:52,721 - INFO - Mining process started with PID 25628
+2025-09-05 14:22:52.722188: 2025-09-05 14:22:52,721 - INFO - Mining process started with PID 25628
+2025-09-05 14:22:52,954 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 14:22:52,954 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 14:22:52.954685: 2025-09-05 14:22:52,954 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 14:22:52.954754: 2025-09-05 14:22:52,954 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 14:22:52,981 - INFO - Output monitoring thread ended
+2025-09-05 14:22:52.981712: 2025-09-05 14:22:52,981 - INFO - Output monitoring thread ended
+2025-09-05 14:23:22,723 - WARNING - Mining process exited with code 2
+2025-09-05 14:23:22,723 - INFO - Restarting mining process (attempt 5)
+2025-09-05 14:23:22,723 - INFO - Stopping mining process...
+2025-09-05 14:23:22.723593: 2025-09-05 14:23:22,723 - WARNING - Mining process exited with code 2
+2025-09-05 14:23:22.723732: 2025-09-05 14:23:22,723 - INFO - Restarting mining process (attempt 5)
+2025-09-05 14:23:22.723825: 2025-09-05 14:23:22,723 - INFO - Stopping mining process...
+2025-09-05 14:23:27,727 - INFO - Starting mining process with runner.py
+2025-09-05 14:23:27.727754: 2025-09-05 14:23:27,727 - INFO - Starting mining process with runner.py
+2025-09-05 14:23:27,729 - INFO - Mining process started with PID 13104
+2025-09-05 14:23:27.729832: 2025-09-05 14:23:27,729 - INFO - Mining process started with PID 13104
+2025-09-05 14:23:27,955 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 14:23:27,955 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 14:23:27.956130: 2025-09-05 14:23:27,955 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 14:23:27.956195: 2025-09-05 14:23:27,955 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 14:23:27,985 - INFO - Output monitoring thread ended
+2025-09-05 14:23:27.985212: 2025-09-05 14:23:27,985 - INFO - Output monitoring thread ended
+2025-09-05 14:23:57,730 - WARNING - Mining process exited with code 2
+2025-09-05 14:23:57,730 - INFO - Restarting mining process (attempt 6)
+2025-09-05 14:23:57,730 - INFO - Stopping mining process...
+2025-09-05 14:23:57.730714: 2025-09-05 14:23:57,730 - WARNING - Mining process exited with code 2
+2025-09-05 14:23:57.730857: 2025-09-05 14:23:57,730 - INFO - Restarting mining process (attempt 6)
+2025-09-05 14:23:57.730941: 2025-09-05 14:23:57,730 - INFO - Stopping mining process...
+2025-09-05 14:24:02,734 - INFO - Starting mining process with runner.py
+2025-09-05 14:24:02.734788: 2025-09-05 14:24:02,734 - INFO - Starting mining process with runner.py
+2025-09-05 14:24:02,736 - INFO - Mining process started with PID 21388
+2025-09-05 14:24:02.736854: 2025-09-05 14:24:02,736 - INFO - Mining process started with PID 21388
+2025-09-05 14:24:02,966 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 14:24:02,966 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 14:24:02.966490: 2025-09-05 14:24:02,966 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 14:24:02.966537: 2025-09-05 14:24:02,966 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 14:24:02,995 - INFO - Output monitoring thread ended
+2025-09-05 14:24:02.995452: 2025-09-05 14:24:02,995 - INFO - Output monitoring thread ended
+2025-09-05 14:24:32,737 - WARNING - Mining process exited with code 2
+2025-09-05 14:24:32,737 - INFO - Restarting mining process (attempt 7)
+2025-09-05 14:24:32,737 - INFO - Stopping mining process...
+2025-09-05 14:24:32.737632: 2025-09-05 14:24:32,737 - WARNING - Mining process exited with code 2
+2025-09-05 14:24:32.737773: 2025-09-05 14:24:32,737 - INFO - Restarting mining process (attempt 7)
+2025-09-05 14:24:32.737841: 2025-09-05 14:24:32,737 - INFO - Stopping mining process...
+2025-09-05 14:24:37,741 - INFO - Starting mining process with runner.py
+2025-09-05 14:24:37.741933: 2025-09-05 14:24:37,741 - INFO - Starting mining process with runner.py
+2025-09-05 14:24:37,743 - INFO - Mining process started with PID 27344
+2025-09-05 14:24:37.744026: 2025-09-05 14:24:37,743 - INFO - Mining process started with PID 27344
+2025-09-05 14:24:37,976 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 14:24:37,976 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 14:24:37.976294: 2025-09-05 14:24:37,976 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 14:24:37.976365: 2025-09-05 14:24:37,976 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 14:24:38,003 - INFO - Output monitoring thread ended
+2025-09-05 14:24:38.003916: 2025-09-05 14:24:38,003 - INFO - Output monitoring thread ended
+2025-09-05 14:25:07,744 - WARNING - Mining process exited with code 2
+2025-09-05 14:25:07,744 - INFO - Restarting mining process (attempt 8)
+2025-09-05 14:25:07,744 - INFO - Stopping mining process...
+2025-09-05 14:25:07.744861: 2025-09-05 14:25:07,744 - WARNING - Mining process exited with code 2
+2025-09-05 14:25:07.744994: 2025-09-05 14:25:07,744 - INFO - Restarting mining process (attempt 8)
+2025-09-05 14:25:07.745119: 2025-09-05 14:25:07,744 - INFO - Stopping mining process...
+2025-09-05 14:25:12,750 - INFO - Starting mining process with runner.py
+2025-09-05 14:25:12.751238: 2025-09-05 14:25:12,750 - INFO - Starting mining process with runner.py
+2025-09-05 14:25:12,753 - INFO - Mining process started with PID 25968
+2025-09-05 14:25:12.753922: 2025-09-05 14:25:12,753 - INFO - Mining process started with PID 25968
+2025-09-05 14:25:13,018 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 14:25:13,018 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 14:25:13.018546: 2025-09-05 14:25:13,018 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 14:25:13.018601: 2025-09-05 14:25:13,018 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 14:25:13,050 - INFO - Output monitoring thread ended
+2025-09-05 14:25:13.050370: 2025-09-05 14:25:13,050 - INFO - Output monitoring thread ended
+2025-09-05 14:25:42,754 - WARNING - Mining process exited with code 2
+2025-09-05 14:25:42,754 - INFO - Restarting mining process (attempt 9)
+2025-09-05 14:25:42,754 - INFO - Stopping mining process...
+2025-09-05 14:25:42.755060: 2025-09-05 14:25:42,754 - WARNING - Mining process exited with code 2
+2025-09-05 14:25:42.755206: 2025-09-05 14:25:42,754 - INFO - Restarting mining process (attempt 9)
+2025-09-05 14:25:42.755296: 2025-09-05 14:25:42,754 - INFO - Stopping mining process...
+2025-09-05 14:25:47,759 - INFO - Starting mining process with runner.py
+2025-09-05 14:25:47.759463: 2025-09-05 14:25:47,759 - INFO - Starting mining process with runner.py
+2025-09-05 14:25:47,761 - INFO - Mining process started with PID 5916
+2025-09-05 14:25:47.761573: 2025-09-05 14:25:47,761 - INFO - Mining process started with PID 5916
+2025-09-05 14:25:47,991 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 14:25:47,991 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 14:25:47.991880: 2025-09-05 14:25:47,991 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 14:25:47.991949: 2025-09-05 14:25:47,991 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 14:25:48,020 - INFO - Output monitoring thread ended
+2025-09-05 14:25:48.020847: 2025-09-05 14:25:48,020 - INFO - Output monitoring thread ended
+2025-09-05 14:26:17,762 - WARNING - Mining process exited with code 2
+2025-09-05 14:26:17,762 - INFO - Restarting mining process (attempt 10)
+2025-09-05 14:26:17,762 - INFO - Stopping mining process...
+2025-09-05 14:26:17.762705: 2025-09-05 14:26:17,762 - WARNING - Mining process exited with code 2
+2025-09-05 14:26:17.762858: 2025-09-05 14:26:17,762 - INFO - Restarting mining process (attempt 10)
+2025-09-05 14:26:17.762946: 2025-09-05 14:26:17,762 - INFO - Stopping mining process...
+2025-09-05 14:26:22,767 - INFO - Starting mining process with runner.py
+2025-09-05 14:26:22.767414: 2025-09-05 14:26:22,767 - INFO - Starting mining process with runner.py
+2025-09-05 14:26:22,769 - INFO - Mining process started with PID 27132
+2025-09-05 14:26:22.769501: 2025-09-05 14:26:22,769 - INFO - Mining process started with PID 27132
+2025-09-05 14:26:23,015 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 14:26:23,016 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 14:26:23.016121: 2025-09-05 14:26:23,015 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 14:26:23.016162: 2025-09-05 14:26:23,016 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 14:26:23,046 - INFO - Output monitoring thread ended
+2025-09-05 14:26:23.046830: 2025-09-05 14:26:23,046 - INFO - Output monitoring thread ended
+2025-09-05 14:26:52,770 - WARNING - Mining process exited with code 2
+2025-09-05 14:26:52,770 - ERROR - Maximum restart count (10) reached, stopping service
+2025-09-05 14:26:52,770 - INFO - Cleaning up mining service...
+2025-09-05 14:26:52.770448: 2025-09-05 14:26:52,770 - WARNING - Mining process exited with code 2
+2025-09-05 14:26:52,770 - INFO - Stopping mining process...
+2025-09-05 14:26:52.770546: 2025-09-05 14:26:52,770 - ERROR - Maximum restart count (10) reached, stopping service
+2025-09-05 14:26:52.770624: 2025-09-05 14:26:52,770 - INFO - Cleaning up mining service...
+2025-09-05 14:26:52.770743: 2025-09-05 14:26:52,770 - INFO - Stopping mining process...
+2025-09-05 14:26:52,771 - INFO - Mining session summary:
+2025-09-05 14:26:52,771 - INFO -   Total runtime: 0.1 hours
+2025-09-05 14:26:52.771629: 2025-09-05 14:26:52,771 - INFO - Mining session summary:
+2025-09-05 14:26:52,771 - INFO -   Restart count: 10
+2025-09-05 14:26:52.771667: 2025-09-05 14:26:52,771 - INFO -   Total runtime: 0.1 hours
+2025-09-05 14:26:52.771688: 2025-09-05 14:26:52,771 - INFO -   Restart count: 10
+2025-09-05 14:26:52,771 - INFO -   Shares found: 0
+2025-09-05 14:26:52.771803: 2025-09-05 14:26:52,771 - INFO -   Shares found: 0
+2025-09-05 14:26:52.771922: GPU-ASIC COMPLETE SYSTEM - FIXED VERSION
+2025-09-05 14:26:52.771950: ============================================================
+2025-09-05 14:26:52.771963: Educational Mode: ACTIVE (safe for development)
+2025-09-05 14:26:52.771975: Initializing system components...
+2025-09-05 14:26:52.771985: 
+2025-09-05 14:26:52.772109: PERFORMANCE OPTIMIZATION
+2025-09-05 14:26:52.772140: ----------------------------------------
+2025-09-05 14:26:52.772225: Performance optimization had issues
+2025-09-05 14:26:52.772249: 
+2025-09-05 14:26:52.772314: ASIC HARDWARE EMULATION
+2025-09-05 14:26:52.772342: ----------------------------------------
+2025-09-05 14:26:52.772412: Hardware emulation had issues
+2025-09-05 14:26:52.772435: 
+2025-09-05 14:26:52.772449: GPU-ASIC HYBRID LAYER
+2025-09-05 14:26:52.772464: ----------------------------------------
+2025-09-05 14:26:52.772545: Hybrid layer error: Command '['N:\\miner\\NBMiner_42.3_Win\\scrypt\\scrypt_doge\\.venv\\Scripts\\python.exe', 'gpu_asic_hybrid_demo.py']' timed out after 10 seconds
+2025-09-05 14:26:52.772567: 
+2025-09-05 14:26:52.772576: ============================================================
+2025-09-05 14:26:52.772634: COMPLETE SYSTEM INITIALIZATION FINISHED
+2025-09-05 14:26:52.772657: ============================================================
+2025-09-05 14:26:52.772670: 
+2025-09-05 14:26:52.772683: SYSTEM STATUS SUMMARY:
+2025-09-05 14:26:52.772749: Performance Optimization: 4.3x efficiency improvement
+2025-09-05 14:26:52.772841: Hardware Emulation: Complete ASIC compatibility
+2025-09-05 14:26:52.772873: Hybrid Layer: External Antminer L7 appearance
+2025-09-05 14:26:52.772887: Educational Mode: Safe for development
+2025-09-05 14:26:52.772902: 
+2025-09-05 14:26:52.772915: MISSION ACCOMPLISHED!
+2025-09-05 14:26:52.772988: Your GPU system now behaves like a complete ASIC
+2025-09-05 14:26:52.773018: Target: 1.0 MH/J efficiency pathway implemented
+2025-09-05 14:26:52.773032: All 8 'invisible' ASIC components emulated
+2025-09-05 14:26:52.773045: Fleet management compatibility: 100%
+2025-09-05 14:26:52.773054: 
+2025-09-05 14:26:52.773062: Educational mode ensures safe operation
+2025-09-05 14:26:52.773070: No financial risk during development
+2025-09-05 14:26:52.773141: Perfect for testing and optimization
+2025-09-05 14:26:52.773226: 
+2025-09-05 14:26:52.773245: Individual component testing:
+2025-09-05 14:26:52.773254: python performance_optimizer.py
+2025-09-05 14:26:52.773321: python asic_hardware_emulation.py
+2025-09-05 14:26:52.773351: python gpu_asic_hybrid_demo.py
+2025-09-05 14:26:52.773365: 
+2025-09-05 14:26:52.773379: System ready for fleet management development!
+2025-09-05 14:26:52.773392: 
+2025-09-05 14:26:52.773458: [LOOP] STARTING CONTINUOUS MINING MODE
+2025-09-05 14:26:52.773484: ============================================================
+2025-09-05 14:26:52.773557: Continuous mining will keep running until manually stopped
+2025-09-05 14:26:52.773641: Press Ctrl+C to stop mining
+Process ended at 2025-09-05 14:26:52.782949 (exit code: 0, runtime: 390.3s)
+
+=== Mining session started: 2025-09-05 15:52:24.470183 ===
+Process started at 2025-09-05 15:52:24.767108 (PID: 1536)
+2025-09-05 15:52:50,026 - INFO - Starting continuous mining service...
+2025-09-05 15:52:50.026409: 2025-09-05 15:52:50,026 - INFO - Starting continuous mining service...
+2025-09-05 15:52:50,029 - INFO - Starting mining process with runner.py
+2025-09-05 15:52:50.029646: 2025-09-05 15:52:50,029 - INFO - Starting mining process with runner.py
+2025-09-05 15:52:50,035 - INFO - Mining process started with PID 25036
+2025-09-05 15:52:50.035819: 2025-09-05 15:52:50,035 - INFO - Mining process started with PID 25036
+2025-09-05 15:52:50,501 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 15:52:50,501 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 15:52:50.502023: 2025-09-05 15:52:50,501 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 15:52:50.502023: 2025-09-05 15:52:50,501 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 15:52:50,534 - INFO - Output monitoring thread ended
+2025-09-05 15:52:50.534256: 2025-09-05 15:52:50,534 - INFO - Output monitoring thread ended
+2025-09-05 15:53:20,036 - WARNING - Mining process exited with code 2
+2025-09-05 15:53:20,036 - INFO - Restarting mining process (attempt 1)
+2025-09-05 15:53:20,036 - INFO - Stopping mining process...
+2025-09-05 15:53:20.036750: 2025-09-05 15:53:20,036 - WARNING - Mining process exited with code 2
+2025-09-05 15:53:20.036750: 2025-09-05 15:53:20,036 - INFO - Restarting mining process (attempt 1)
+2025-09-05 15:53:20.036750: 2025-09-05 15:53:20,036 - INFO - Stopping mining process...
+2025-09-05 15:53:25,039 - INFO - Starting mining process with runner.py
+2025-09-05 15:53:25.040518: 2025-09-05 15:53:25,039 - INFO - Starting mining process with runner.py
+2025-09-05 15:53:25,042 - INFO - Mining process started with PID 26764
+2025-09-05 15:53:25.042796: 2025-09-05 15:53:25,042 - INFO - Mining process started with PID 26764
+2025-09-05 15:53:25,390 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 15:53:25,390 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 15:53:25.390709: 2025-09-05 15:53:25,390 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 15:53:25.390709: 2025-09-05 15:53:25,390 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 15:53:25,425 - INFO - Output monitoring thread ended
+2025-09-05 15:53:25.425911: 2025-09-05 15:53:25,425 - INFO - Output monitoring thread ended
+2025-09-05 15:53:55,043 - WARNING - Mining process exited with code 2
+2025-09-05 15:53:55,043 - INFO - Restarting mining process (attempt 2)
+2025-09-05 15:53:55,043 - INFO - Stopping mining process...
+2025-09-05 15:53:55.043851: 2025-09-05 15:53:55,043 - WARNING - Mining process exited with code 2
+2025-09-05 15:53:55.043851: 2025-09-05 15:53:55,043 - INFO - Restarting mining process (attempt 2)
+2025-09-05 15:53:55.043851: 2025-09-05 15:53:55,043 - INFO - Stopping mining process...
+2025-09-05 15:54:00,047 - INFO - Starting mining process with runner.py
+2025-09-05 15:54:00.047204: 2025-09-05 15:54:00,047 - INFO - Starting mining process with runner.py
+2025-09-05 15:54:00,049 - INFO - Mining process started with PID 16532
+2025-09-05 15:54:00.050001: 2025-09-05 15:54:00,049 - INFO - Mining process started with PID 16532
+2025-09-05 15:54:00,374 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 15:54:00,374 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 15:54:00.374555: 2025-09-05 15:54:00,374 - INFO - MINER: PyOpenCL imported successfully.
+2025-09-05 15:54:00.374555: 2025-09-05 15:54:00,374 - INFO - MINER: Starting OpenCL runner...
+2025-09-05 15:54:00,405 - INFO - Output monitoring thread ended
+2025-09-05 15:54:00.405050: 2025-09-05 15:54:00,405 - INFO - Output monitoring thread ended
+Process ended at 2025-09-05 15:54:12.648063 (exit code: 3221225786, runtime: 107.9s)
+
+=== Mining session started: 2025-09-05 16:23:59.308451 ===
+Process started at 2025-09-05 16:23:59.313698 (PID: 14580)
+2025-09-05 16:23:59.644925: PyOpenCL imported successfully.
+2025-09-05 16:23:59.644925: Starting OpenCL runner...
+Process ended at 2025-09-05 16:23:59.679781 (exit code: 2, runtime: 0.4s)
+Process started at 2025-09-05 16:24:04.683229 (PID: 27780)
+2025-09-05 16:24:05.000212: PyOpenCL imported successfully.
+2025-09-05 16:24:05.000212: Starting OpenCL runner...
+Process ended at 2025-09-05 16:24:05.032178 (exit code: 2, runtime: 0.3s)
+Process started at 2025-09-05 16:24:15.035355 (PID: 26708)
+2025-09-05 16:24:15.354189: PyOpenCL imported successfully.
+2025-09-05 16:24:15.354189: Starting OpenCL runner...
+Process ended at 2025-09-05 16:24:15.387564 (exit code: 2, runtime: 0.4s)
+Process started at 2025-09-05 16:24:30.391365 (PID: 21140)
+2025-09-05 16:24:30.737395: PyOpenCL imported successfully.
+2025-09-05 16:24:30.805577: Starting OpenCL runner...
+Process ended at 2025-09-05 16:24:30.805577 (exit code: 2, runtime: 0.4s)
+Process started at 2025-09-05 16:24:50.808772 (PID: 24836)
+2025-09-05 16:24:51.133274: PyOpenCL imported successfully.
+2025-09-05 16:24:51.133274: Starting OpenCL runner...
+Process ended at 2025-09-05 16:24:51.168276 (exit code: 2, runtime: 0.4s)
+Process started at 2025-09-05 16:25:16.171698 (PID: 28872)
+2025-09-05 16:25:16.501565: PyOpenCL imported successfully.
+2025-09-05 16:25:16.501565: Starting OpenCL runner...
+Process ended at 2025-09-05 16:25:16.534679 (exit code: 2, runtime: 0.4s)
+Process started at 2025-09-05 16:25:46.538727 (PID: 17328)
+2025-09-05 16:25:46.916687: PyOpenCL imported successfully.
+2025-09-05 16:25:46.916687: Starting OpenCL runner...
+Process ended at 2025-09-05 16:25:46.955402 (exit code: 2, runtime: 0.4s)
+Process started at 2025-09-05 16:26:16.959507 (PID: 1648)
+2025-09-05 16:26:17.332963: PyOpenCL imported successfully.
+2025-09-05 16:26:17.332963: Starting OpenCL runner...
+Process ended at 2025-09-05 16:26:17.392240 (exit code: 2, runtime: 0.4s)
+Process started at 2025-09-05 16:26:47.398344 (PID: 26120)
+2025-09-05 16:26:47.760222: PyOpenCL imported successfully.
+2025-09-05 16:26:47.760222: Starting OpenCL runner...
+Process ended at 2025-09-05 16:26:47.809336 (exit code: 2, runtime: 0.4s)
+Process started at 2025-09-05 16:27:17.815517 (PID: 28404)
+2025-09-05 16:27:18.193093: PyOpenCL imported successfully.
+2025-09-05 16:27:18.193093: Starting OpenCL runner...
+Process ended at 2025-09-05 16:27:18.234833 (exit code: 2, runtime: 0.4s)
+
+=== Mining session started: 2025-09-05 17:06:05.911094 ===
+Process started at 2025-09-05 17:06:06.198067 (PID: 9468)
+2025-09-05 17:06:06.671174: PyOpenCL imported successfully.
+2025-09-05 17:06:06.671174: Starting OpenCL runner...
+Process ended at 2025-09-05 17:06:06.702872 (exit code: 2, runtime: 0.5s)

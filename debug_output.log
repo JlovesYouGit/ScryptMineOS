@@ -1,0 +1,34 @@
+PyOpenCL imported successfully.
+Starting OpenCL runner...
+OpenCL initialized with device: Ellesmere
+Connected to mining pool: doge.zsolo.bid:8057
+Share target updated: difficulty=1.0, target_be=00000000ffff0000000000000000000000000000000000000000000000000000
+Subscribed. Extranonce1: e000cf24, Extranonce2 Size: 4
+Authorized successfully.
+--- Rendered Kernel (first 200 chars) ---
+// scrypt_core.cl.jinja
+//
+// Working OpenCL implementation of Scrypt (N=1024, r=1, p=1) for GPU mining
+// Based on proven sgminer/wolf0 kernels, adapted for our API
+
+// --- Jinja2 Templated Parameter
+------------------------------------
+
+An unexpected error occurred in main(): clBuildProgram failed: BUILD_PROGRAM_FAILURE - clBuildProgram failed: BUILD_PROGRAM_FAILURE - clBuildProgram failed: BUILD_PROGRAM_FAILURE
+
+Build on <pyopencl.Device 'Ellesmere' on 'AMD Accelerated Parallel Processing' at 0x2379249a4a0>:
+
+C:\Users\JJ\AppData\Local\Temp\\OCL23684T1.cl:306:6: error: redefinition of 'blockmix_salsa8'
+void blockmix_salsa8(__private uint *B, __private uint *Y) {
+     ^
+C:\Users\JJ\AppData\Local\Temp\\OCL23684T1.cl:188:6: note: previous definition is here
+void blockmix_salsa8(__private uint* Bin, __private uint* Bout) {
+     ^
+1 error generated.
+
+error: Clang front-end compilation failed!
+Frontend phase failed compilation.
+Error: Compiling CL to IR
+
+(options: -I C:\Users\JJ\AppData\Local\Programs\Python\Python311\Lib\site-packages\pyopencl\cl)
+(source saved as C:\Users\JJ\AppData\Local\Temp\tmpk23i3qwq.cl)

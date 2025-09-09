@@ -1,0 +1,18 @@
+# Basic build settings
+build --strategy=Genrule=standalone
+build --genrule_strategy=standalone
+
+# Python settings
+build --define=use_fast_python=1
+build --python_path=python3
+
+# Test settings
+test --test_output=all
+test --cache_test_results=no
+
+# Performance settings
+build --jobs=4
+build --loading_phase_threads=4
+
+# Platform settings
+build --platforms=@rules_python//python:autodetecting_toolchain

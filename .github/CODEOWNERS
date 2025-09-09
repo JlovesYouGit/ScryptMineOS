@@ -1,0 +1,35 @@
+# ScryptMineOS Enterprise Edition - Code Owners
+# This file defines who must review changes to specific parts of the codebase
+
+# Global code ownership - all files require review from repository owner
+* @JlovesYouGit
+
+# Enterprise security components - critical security files
+/enterprise/ @JlovesYouGit
+/private/ @JlovesYouGit
+
+# Core system files - main application components
+/enterprise_runner.py @JlovesYouGit
+/requirements.txt @JlovesYouGit
+
+# GitHub configuration - workflow and repository settings
+/.github/ @JlovesYouGit
+
+# Windows deployment system
+/windows/ @JlovesYouGit
+
+# Replit cloud deployment configuration
+/.replit @JlovesYouGit
+/replit.nix @JlovesYouGit
+/replit_main.py @JlovesYouGit
+
+# Documentation - ensure quality and accuracy
+/README.md @JlovesYouGit
+/ENTERPRISE_README.md @JlovesYouGit
+/REPLIT_DEPLOYMENT.md @JlovesYouGit
+
+# License and legal files
+/LICENSE @JlovesYouGit
+
+# Configuration templates - security-sensitive
+/private/.env.* @JlovesYouGit

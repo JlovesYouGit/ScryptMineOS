@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mining OS - Scrypt DOGE Mining Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .status-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+            animation: pulse 2s infinite;
+        }
+        
+        .status-connected { background-color: #4CAF50; }
+        .status-disconnected { background-color: #f44336; }
+        .status-mining { background-color: #FF9800; }
+        
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card h3 {
+            margin-bottom: 15px;
+            color: #FFD700;
+            font-size: 1.2rem;
+        }
+        
+        .metric {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .metric:last-child {
+            border-bottom: none;
+        }
+        
+        .metric-value {
+            font-weight: bold;
+            color: #4CAF50;
+        }
+        
+        .controls {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(45deg, #4CAF50, #45a049);
+            color: white;
+        }
+        
+        .btn-danger {
+            background: linear-gradient(45deg, #f44336, #da190b);
+            color: white;
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(45deg, #2196F3, #0b7dda);
+            color: white;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .logs {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            height: 300px;
+            overflow-y: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+        
+        .log-entry {
+            margin-bottom: 5px;
+            padding: 2px 0;
+        }
+        
+        .log-timestamp {
+            color: #888;
+            margin-right: 10px;
+        }
+        
+        .log-level-info { color: #4CAF50; }
+        .log-level-warning { color: #FF9800; }
+        .log-level-error { color: #f44336; }
+        
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .alert {
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+        
+        .alert-success {
+            background-color: rgba(76, 175, 80, 0.2);
+            border: 1px solid #4CAF50;
+            color: #4CAF50;
+        }
+        
+        .alert-error {
+            background-color: rgba(244, 67, 54, 0.2);
+            border: 1px solid #f44336;
+            color: #f44336;
+        }
+        
+        .alert-warning {
+            background-color: rgba(255, 152, 0, 0.2);
+            border: 1px solid #FF9800;
+            color: #FF9800;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>⛏️ Mining OS Dashboard</h1>
+            <p>
+                <span id="connection-status" class="status-indicator status-disconnected"></span>
+                <span id="connection-text">Connecting...</span>
+            </p>
+        </div>
+        
+        <div id="alerts"></div>
+        
+        <div class="controls">
+            <button id="start-btn" class="btn btn-primary" onclick="startMining()">
+                <span id="start-loading" class="loading" style="display: none;"></span>
+                Start Mining
+            </button>
+            <button id="stop-btn" class="btn btn-danger" onclick="stopMining()" disabled>
+                <span id="stop-loading" class="loading" style="display: none;"></span>
+                Stop Mining
+            </button>
+            <button id="refresh-btn" class="btn btn-secondary" onclick="refreshData()">
+                <span id="refresh-loading" class="loading" style="display: none;"></span>
+                Refresh
+            </button>
+        </div>
+        
+        <div class="dashboard">
+            <div class="card">
+                <h3>📊 Mining Statistics</h3>
+                <div class="metric">
+                    <span>Hashrate:</span>
+                    <span class="metric-value" id="hashrate">0.00 MH/s</span>
+                </div>
+                <div class="metric">
+                    <span>Valid Shares:</span>
+                    <span class="metric-value" id="valid-shares">0</span>
+                </div>
+                <div class="metric">
+                    <span>Invalid Shares:</span>
+                    <span class="metric-value" id="invalid-shares">0</span>
+                </div>
+                <div class="metric">
+                    <span>Accept Rate:</span>
+                    <span class="metric-value" id="accept-rate">0.0%</span>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3>🌡️ Hardware Status</h3>
+                <div class="metric">
+                    <span>Temperature:</span>
+                    <span class="metric-value" id="temperature">0°C</span>
+                </div>
+                <div class="metric">
+                    <span>Power Usage:</span>
+                    <span class="metric-value" id="power">0W</span>
+                </div>
+                <div class="metric">
+                    <span>Fan Speed:</span>
+                    <span class="metric-value" id="fan-speed">0 RPM</span>
+                </div>
+                <div class="metric">
+                    <span>Efficiency:</span>
+                    <span class="metric-value" id="efficiency">0.0 MH/W</span>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3>💰 Economics</h3>
+                <div class="metric">
+                    <span>Daily Profit:</span>
+                    <span class="metric-value" id="daily-profit">$0.00</span>
+                </div>
+                <div class="metric">
+                    <span>Pool:</span>
+                    <span class="metric-value" id="current-pool">Not Connected</span>
+                </div>
+                <div class="metric">
+                    <span>Worker:</span>
+                    <span class="metric-value" id="worker-name">rig01</span>
+                </div>
+                <div class="metric">
+                    <span>Uptime:</span>
+                    <span class="metric-value" id="uptime">0s</span>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3>🔧 System Status</h3>
+                <div class="metric">
+                    <span>Mining Status:</span>
+                    <span class="metric-value" id="mining-status">Stopped</span>
+                </div>
+                <div class="metric">
+                    <span>Pool Connection:</span>
+                    <span class="metric-value" id="pool-status">Disconnected</span>
+                </div>
+                <div class="metric">
+                    <span>Authorization:</span>
+                    <span class="metric-value" id="auth-status">Not Authorized</span>
+                </div>
+                <div class="metric">
+                    <span>Last Update:</span>
+                    <span class="metric-value" id="last-update">Never</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h3>📝 System Logs</h3>
+            <div id="logs" class="logs">
+                <div class="log-entry">
+                    <span class="log-timestamp">[00:00:00]</span>
+                    <span class="log-level-info">INFO</span>
+                    Mining OS Dashboard loaded successfully
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Mining OS v1.0 - Scrypt DOGE Mining System</p>
+            <p>Wallet: <span id="wallet-address">Loading...</span></p>
+        </div>
+    </div>
+
+    <script>
+        let ws = null;
+        let isConnected = false;
+        let isMining = false;
+        
+        // Initialize the dashboard
+        document.addEventListener('DOMContentLoaded', function() {
+            loadConfiguration();
+            connectWebSocket();
+            refreshData();
+            
+            // Auto-refresh every 30 seconds
+            setInterval(refreshData, 30000);
+        });
+        
+        // Load configuration from API
+        async function loadConfiguration() {
+            try {
+                const response = await fetch('/api/config');
+                const config = await response.json();
+                
+                document.getElementById('wallet-address').textContent = 
+                    config.payoutAddress || config.ltcAddress || 'Not Set';
+                document.getElementById('worker-name').textContent = 
+                    config.workerName || 'rig01';
+                
+                addLog('info', 'Configuration loaded successfully');
+            } catch (error) {
+                addLog('error', `Failed to load configuration: ${error.message}`);
+            }
+        }
+        
+        // Connect to WebSocket for real-time updates
+        function connectWebSocket() {
+            const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsUrl = `${protocol}//${window.location.host}/ws/metrics`;
+            
+            ws = new WebSocket(wsUrl);
+            
+            ws.onopen = function() {
+                isConnected = true;
+                updateConnectionStatus(true);
+                addLog('info', 'WebSocket connected - real-time updates enabled');
+            };
+            
+            ws.onmessage = function(event) {
+                try {
+                    const data = JSON.parse(event.data);
+                    updateMetrics(data);
+                } catch (error) {
+                    addLog('error', `WebSocket data error: ${error.message}`);
+                }
+            };
+            
+            ws.onclose = function() {
+                isConnected = false;
+                updateConnectionStatus(false);
+                addLog('warning', 'WebSocket disconnected - attempting to reconnect...');
+                
+                // Attempt to reconnect after 5 seconds
+                setTimeout(connectWebSocket, 5000);
+            };
+            
+            ws.onerror = function(error) {
+                addLog('error', 'WebSocket connection error');
+            };
+        }
+        
+        // Update connection status indicator
+        function updateConnectionStatus(connected) {
+            const indicator = document.getElementById('connection-status');
+            const text = document.getElementById('connection-text');
+            
+            if (connected) {
+                indicator.className = 'status-indicator status-connected';
+                text.textContent = 'Connected';
+            } else {
+                indicator.className = 'status-indicator status-disconnected';
+                text.textContent = 'Disconnected';
+            }
+        }
+        
+        // Update metrics display
+        function updateMetrics(data) {
+            document.getElementById('hashrate').textContent = `${data.hashrate || 0} MH/s`;
+            document.getElementById('valid-shares').textContent = data.validShares || 0;
+            document.getElementById('invalid-shares').textContent = data.invalidShares || 0;
+            
+            const acceptRate = data.validShares && data.shares ? 
+                ((data.validShares / data.shares) * 100).toFixed(1) : 0;
+            document.getElementById('accept-rate').textContent = `${acceptRate}%`;
+            
+            document.getElementById('temperature').textContent = `${data.temperature || 0}°C`;
+            document.getElementById('power').textContent = `${data.power || 0}W`;
+            document.getElementById('efficiency').textContent = 
+                data.power > 0 ? `${((data.hashrate || 0) / data.power).toFixed(2)} MH/W` : '0.0 MH/W';
+            
+            document.getElementById('daily-profit').textContent = `$${(data.profit || 0).toFixed(2)}`;
+            
+            // Update mining status
+            if (data.is_authorized) {
+                document.getElementById('mining-status').textContent = 'Mining';
+                document.getElementById('pool-status').textContent = 'Connected';
+                document.getElementById('auth-status').textContent = 'Authorized';
+                
+                if (!isMining) {
+                    isMining = true;
+                    updateMiningButtons();
+                    addLog('info', 'Mining started successfully');
+                }
+            } else {
+                document.getElementById('mining-status').textContent = 'Stopped';
+                document.getElementById('pool-status').textContent = 'Disconnected';
+                document.getElementById('auth-status').textContent = 'Not Authorized';
+                
+                if (isMining) {
+                    isMining = false;
+                    updateMiningButtons();
+                    addLog('warning', 'Mining stopped');
+                }
+            }
+            
+            document.getElementById('last-update').textContent = new Date().toLocaleTimeString();
+        }
+        
+        // Refresh data from API
+        async function refreshData() {
+            const btn = document.getElementById('refresh-btn');
+            const loading = document.getElementById('refresh-loading');
+            
+            btn.disabled = true;
+            loading.style.display = 'inline-block';
+            
+            try {
+                const response = await fetch('/api/status');
+                const data = await response.json();
+                
+                document.getElementById('uptime').textContent = data.uptime || '0s';
+                document.getElementById('current-pool').textContent = data.current_pool || 'Not Connected';
+                
+                addLog('info', 'Data refreshed successfully');
+            } catch (error) {
+                addLog('error', `Failed to refresh data: ${error.message}`);
+            } finally {
+                btn.disabled = false;
+                loading.style.display = 'none';
+            }
+        }
+        
+        // Start mining
+        async function startMining() {
+            const btn = document.getElementById('start-btn');
+            const loading = document.getElementById('start-loading');
+            
+            btn.disabled = true;
+            loading.style.display = 'inline-block';
+            
+            try {
+                const response = await fetch('/api/actions/start', { method: 'POST' });
+                const data = await response.json();
+                
+                if (response.ok) {
+                    showAlert('success', 'Mining started successfully!');
+                    addLog('info', 'Mining operation initiated');
+                    updateMiningButtons();
+                } else {
+                    showAlert('error', data.message || 'Failed to start mining');
+                    addLog('error', `Start mining failed: ${data.message}`);
+                }
+            } catch (error) {
+                showAlert('error', `Error starting mining: ${error.message}`);
+                addLog('error', `Start mining error: ${error.message}`);
+            } finally {
+                btn.disabled = false;
+                loading.style.display = 'none';
+            }
+        }
+        
+        // Stop mining
+        async function stopMining() {
+            const btn = document.getElementById('stop-btn');
+            const loading = document.getElementById('stop-loading');
+            
+            btn.disabled = true;
+            loading.style.display = 'inline-block';
+            
+            try {
+                const response = await fetch('/api/actions/stop', { method: 'POST' });
+                const data = await response.json();
+                
+                if (response.ok) {
+                    showAlert('success', 'Mining stopped successfully!');
+                    addLog('info', 'Mining operation stopped');
+                    updateMiningButtons();
+                } else {
+                    showAlert('error', data.message || 'Failed to stop mining');
+                    addLog('error', `Stop mining failed: ${data.message}`);
+                }
+            } catch (error) {
+                showAlert('error', `Error stopping mining: ${error.message}`);
+                addLog('error', `Stop mining error: ${error.message}`);
+            } finally {
+                btn.disabled = false;
+                loading.style.display = 'none';
+            }
+        }
+        
+        // Update mining button states
+        function updateMiningButtons() {
+            const startBtn = document.getElementById('start-btn');
+            const stopBtn = document.getElementById('stop-btn');
+            
+            if (isMining) {
+                startBtn.disabled = true;
+                stopBtn.disabled = false;
+            } else {
+                startBtn.disabled = false;
+                stopBtn.disabled = true;
+            }
+        }
+        
+        // Show alert message
+        function showAlert(type, message) {
+            const alertsContainer = document.getElementById('alerts');
+            const alert = document.createElement('div');
+            alert.className = `alert alert-${type}`;
+            alert.textContent = message;
+            
+            alertsContainer.appendChild(alert);
+            
+            // Remove alert after 5 seconds
+            setTimeout(() => {
+                if (alert.parentNode) {
+                    alert.parentNode.removeChild(alert);
+                }
+            }, 5000);
+        }
+        
+        // Add log entry
+        function addLog(level, message) {
+            const logsContainer = document.getElementById('logs');
+            const logEntry = document.createElement('div');
+            logEntry.className = 'log-entry';
+            
+            const timestamp = new Date().toLocaleTimeString();
+            logEntry.innerHTML = `
+                <span class="log-timestamp">[${timestamp}]</span>
+                <span class="log-level-${level}">${level.toUpperCase()}</span>
+                ${message}
+            `;
+            
+            logsContainer.appendChild(logEntry);
+            logsContainer.scrollTop = logsContainer.scrollHeight;
+            
+            // Keep only last 100 log entries
+            while (logsContainer.children.length > 100) {
+                logsContainer.removeChild(logsContainer.firstChild);
+            }
+        }
+    </script>
+</body>
+</html>

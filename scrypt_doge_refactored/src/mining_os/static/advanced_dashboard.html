@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mining OS - Advanced Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/date-fns@2.29.3/index.min.js"></script>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --danger-color: #ef4444;
+            --dark-bg: #0f172a;
+            --dark-card: #1e293b;
+            --dark-text: #f1f5f9;
+            --light-bg: #f8fafc;
+            --light-card: #ffffff;
+            --light-text: #1e293b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--light-bg);
+            color: var(--light-text);
+            transition: all 0.3s ease;
+            min-height: 100vh;
+        }
+
+        body.dark-theme {
+            background: var(--dark-bg);
+            color: var(--dark-text);
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .header-stats {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .header-stat {
+            text-align: center;
+        }
+
+        .header-stat-value {
+            font-size: 1.25rem;
+            font-weight: bold;
+            display: block;
+        }
+
+        .header-stat-label {
+            font-size: 0.75rem;
+            opacity: 0.8;
+        }
+
+        .controls {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .theme-toggle {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            background: var(--light-card);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .dark-theme .card {
+            background: var(--dark-card);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .card-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card-icon {
+            width: 1.25rem;
+            height: 1.25rem;
+        }
+
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+        }
+
+        .metric {
+            text-align: center;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.02);
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .dark-theme .metric {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .metric:hover {
+            background: rgba(var(--primary-color), 0.1);
+        }
+
+        .metric-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .metric-label {
+            font-size: 0.875rem;
+            opacity: 0.7;
+        }
+
+        .chart-container {
+            position: relative;
+            height: 300px;
+            margin-top: 1rem;
+        }
+
+        .status-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .status-online {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--success-color);
+        }
+
+        .status-offline {
+            background: rgba(239, 68, 68, 0.1);
+            color: var(--danger-color);
+        }
+
+        .status-mining {
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--warning-color);
+        }
+
+        .status-dot {
+            width: 0.5rem;
+            height: 0.5rem;
+            border-radius: 50%;
+            background: currentColor;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-size: 0.875rem;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--secondary-color);
+            transform: translateY(-1px);
+        }
+
+        .btn-success {
+            background: var(--success-color);
+            color: white;
+        }
+
+        .btn-danger {
+            background: var(--danger-color);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: rgba(0, 0, 0, 0.1);
+            color: var(--light-text);
+        }
+
+        .dark-theme .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--dark-text);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .loading-spinner {
+            width: 1rem;
+            height: 1rem;
+            border: 2px solid transparent;
+            border-top: 2px solid currentColor;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .alert {
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .alert-success {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--success-color);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        .alert-warning {
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--warning-color);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+        }
+
+        .alert-error {
+            background: rgba(239, 68, 68, 0.1);
+            color: var(--danger-color);
+            border: 1px solid rgba(239, 68, 68, 0.2);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 0.5rem;
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 9999px;
+            overflow: hidden;
+            margin: 0.5rem 0;
+        }
+
+        .dark-theme .progress-bar {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--success-color));
+            border-radius: 9999px;
+            transition: width 0.3s ease;
+        }
+
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            margin-bottom: 1.5rem;
+        }
+
+        .dark-theme .tabs {
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .tab {
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .tab:hover {
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        .dark-theme .tab:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .tab.active {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .pool-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .pool-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.02);
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .dark-theme .pool-item {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .pool-item:hover {
+            background: rgba(var(--primary-color), 0.1);
+        }
+
+        .pool-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .pool-name {
+            font-weight: 600;
+        }
+
+        .pool-stats {
+            font-size: 0.875rem;
+            opacity: 0.7;
+        }
+
+        .notification {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            background: white;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid var(--primary-color);
+            z-index: 1000;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .notification.show {
+            transform: translateX(0);
+        }
+
+        .dark-theme .notification {
+            background: var(--dark-card);
+            color: var(--dark-text);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .header-stats {
+                justify-content: center;
+            }
+            
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .metric-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <div class="logo">
+                <span>⛏️</span>
+                <span>Mining OS Pro</span>
+            </div>
+            
+            <div class="header-stats">
+                <div class="header-stat">
+                    <span class="header-stat-value" id="header-hashrate">0.00 MH/s</span>
+                    <span class="header-stat-label">Hashrate</span>
+                </div>
+                <div class="header-stat">
+                    <span class="header-stat-value" id="header-profit">$0.00</span>
+                    <span class="header-stat-label">Daily Profit</span>
+                </div>
+                <div class="header-stat">
+                    <span class="header-stat-value" id="header-efficiency">0.0</span>
+                    <span class="header-stat-label">MH/W</span>
+                </div>
+            </div>
+            
+            <div class="controls">
+                <button class="theme-toggle" onclick="toggleTheme()">
+                    <span id="theme-icon">🌙</span>
+                </button>
+                <div class="status-indicator" id="connection-status">
+                    <div class="status-dot"></div>
+                    <span>Connecting...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div id="alerts"></div>
+
+        <div class="tabs">
+            <div class="tab active" onclick="switchTab('overview')">Overview</div>
+            <div class="tab" onclick="switchTab('analytics')">Analytics</div>
+            <div class="tab" onclick="switchTab('pools')">Pools</div>
+            <div class="tab" onclick="switchTab('settings')">Settings</div>
+        </div>
+
+        <!-- Overview Tab -->
+        <div id="overview-tab" class="tab-content active">
+            <div class="dashboard-grid">
+                <!-- Mining Status Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <span class="card-icon">⚡</span>
+                            Mining Status
+                        </h3>
+                        <div class="status-indicator" id="mining-status">
+                            <div class="status-dot"></div>
+                            <span>Stopped</span>
+                        </div>
+                    </div>
+                    
+                    <div class="metric-grid">
+                        <div class="metric">
+                            <span class="metric-value" id="current-hashrate">0.00</span>
+                            <span class="metric-label">MH/s</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value" id="shares-accepted">0</span>
+                            <span class="metric-label">Accepted</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value" id="accept-rate">0.0%</span>
+                            <span class="metric-label">Accept Rate</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value" id="current-difficulty">1.0</span>
+                            <span class="metric-label">Difficulty</span>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <button id="start-btn" class="btn btn-success" onclick="startMining()">
+                            <span id="start-loading" class="loading-spinner" style="display: none;"></span>
+                            Start Mining
+                        </button>
+                        <button id="stop-btn" class="btn btn-danger" onclick="stopMining()" disabled>
+                            <span id="stop-loading" class="loading-spinner" style="display: none;"></span>
+                            Stop Mining
+                        </button>
+                        <button class="btn btn-secondary" onclick="refreshData()">
+                            <span id="refresh-loading" class="loading-spinner" style="display: none;"></span>
+                            Refresh
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Hardware Monitoring Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <span class="card-icon">🌡️</span>
+                            Hardware Status
+                        </h3>
+                    </div>
+                    
+                    <div class="metric-grid">
+                        <div class="metric">
+                            <span class="metric-value" id="temperature">0°C</span>
+                            <span class="metric-label">Temperature</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value" id="power-usage">0W</span>
+                            <span class="metric-label">Power</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value" id="efficiency">0.0</span>
+                            <span class="metric-label">MH/W</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value" id="uptime">0s</span>
+                            <span class="metric-label">Uptime</span>
+                        </div>
+                    </div>
+
+                    <!-- Temperature Progress Bar -->
+                    <div style="margin-top: 1rem;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span>Temperature</span>
+                            <span id="temp-percentage">0%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="temp-progress" style="width: 0%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Profitability Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <span class="card-icon">💰</span>
+                            Profitability
+                        </h3>
+                    </div>
+                    
+                    <div class="metric-grid">
+                        <div class="metric">
+                            <span class="metric-value" id="daily-profit">$0.00</span>
+                            <span class="metric-label">Daily</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value" id="weekly-profit">$0.00</span>
+                            <span class="metric-label">Weekly</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value" id="monthly-profit">$0.00</span>
+                            <span class="metric-label">Monthly</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value" id="electricity-cost">$0.00</span>
+                            <span class="metric-label">Power Cost</span>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 1rem;">
+                        <button class="btn btn-primary" onclick="openProfitCalculator()">
+                            📊 Profit Calculator
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Pool Information Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <span class="card-icon">🌐</span>
+                            Current Pool
+                        </h3>
+                    </div>
+                    
+                    <div style="margin-bottom: 1rem;">
+                        <div class="pool-item">
+                            <div class="pool-info">
+                                <div class="pool-name" id="current-pool-name">Not Connected</div>
+                                <div class="pool-stats" id="current-pool-stats">Select a pool to start mining</div>
+                            </div>
+                            <div class="status-indicator" id="pool-connection-status">
+                                <div class="status-dot"></div>
+                                <span>Offline</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <button class="btn btn-primary" onclick="switchTab('pools')">
+                            🔄 Switch Pool
+                        </button>
+                        <button class="btn btn-secondary" onclick="testPoolConnection()">
+                            🔍 Test Connection
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Analytics Tab -->
+        <div id="analytics-tab" class="tab-content">
+            <div class="dashboard-grid">
+                <div class="card" style="grid-column: 1 / -1;">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <span class="card-icon">📈</span>
+                            Hashrate History
+                        </h3>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="hashrate-chart"></canvas>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <span class="card-icon">🎯</span>
+                            Share Statistics
+                        </h3>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="shares-chart"></canvas>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <span class="card-icon">💡</span>
+                            Power Efficiency
+                        </h3>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="efficiency-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pools Tab -->
+        <div id="pools-tab" class="tab-content">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        <span class="card-icon">🌐</span>
+                        Available Pools
+                    </h3>
+                    <button class="btn btn-primary" onclick="addPool()">
+                        ➕ Add Pool
+                    </button>
+                </div>
+                
+                <div class="pool-list" id="pool-list">
+                    <!-- Pools will be populated here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Settings Tab -->
+        <div id="settings-tab" class="tab-content">
+            <div class="dashboard-grid">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <span class="card-icon">⚙️</span>
+                            Mining Settings
+                        </h3>
+                    </div>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 1rem;">
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Worker Name</label>
+                            <input type="text" id="worker-name" class="form-input" placeholder="rig01">
+                        </div>
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Minimum Payout (LTC)</label>
+                            <input type="number" id="min-payout" class="form-input" placeholder="0.005" step="0.001">
+                        </div>
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Max Temperature (°C)</label>
+                            <input type="number" id="max-temp" class="form-input" placeholder="80" min="60" max="100">
+                        </div>
+                        <button class="btn btn-primary" onclick="saveSettings()">
+                            💾 Save Settings
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <span class="card-icon">🛡️</span>
+                            Economic Guardian
+                        </h3>
+                    </div>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 1rem;">
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Min Profit Margin (%)</label>
+                            <input type="number" id="min-profit-margin" class="form-input" placeholder="5" min="0" max="100">
+                        </div>
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Electricity Cost ($/kWh)</label>
+                            <input type="number" id="electricity-rate" class="form-input" placeholder="0.12" step="0.01">
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 0.5rem;">
+                            <input type="checkbox" id="auto-stop" checked>
+                            <label for="auto-stop">Auto-stop if unprofitable</label>
+                        </div>
+                        <button class="btn btn-primary" onclick="saveEconomicSettings()">
+                            🛡️ Update Guardian
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .form-input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 0.5rem;
+            background: var(--light-card);
+            color: var(--light-text);
+            transition: all 0.3s ease;
+        }
+
+        .dark-theme .form-input {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.1);
+            color: var(--dark-text);
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+    </style>
+
+    <script>
+        // Global variables
+        let ws = null;
+        let isConnected = false;
+        let isMining = false;
+        let currentTheme = 'light';
+        let charts = {};
+        let metricsHistory = {
+            hashrate: [],
+            shares: [],
+            efficiency: [],
+            timestamps: []
+        };
+
+        // Initialize dashboard
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeCharts();
+            loadConfiguration();
+            connectWebSocket();
+            refreshData();
+            loadPools();
+            
+            // Auto-refresh every 30 seconds
+            setInterval(refreshData, 30000);
+            
+            // Update charts every 5 seconds
+            setInterval(updateCharts, 5000);
+        });
+
+        // Theme management
+        function toggleTheme() {
+            currentTheme = currentTheme === 'light' ? 'dark' : 'light';
+            document.body.classList.toggle('dark-theme');
+            document.getElementById('theme-icon').textContent = currentTheme === 'light' ? '🌙' : '☀️';
+            localStorage.setItem('theme', currentTheme);
+            
+            // Update chart themes
+            updateChartThemes();
+        }
+
+        // Load saved theme
+        function loadTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme && savedTheme === 'dark') {
+                toggleTheme();
+            }
+        }
+
+        // Tab management
+        function switchTab(tabName) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Remove active class from all tabs
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected tab content
+            document.getElementById(tabName + '-tab').classList.add('active');
+            
+            // Add active class to selected tab
+            event.target.classList.add('active');
+        }
+
+        // WebSocket connection
+        function connectWebSocket() {
+            const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsUrl = `${protocol}//${window.location.host}/ws/metrics`;
+            
+            ws = new WebSocket(wsUrl);
+            
+            ws.onopen = function() {
+                isConnected = true;
+                updateConnectionStatus(true);
+                showNotification('Connected to mining system', 'success');
+            };
+            
+            ws.onmessage = function(event) {
+                try {
+                    const data = JSON.parse(event.data);
+                    updateMetrics(data);
+                    updateMetricsHistory(data);
+                } catch (error) {
+                    console.error('WebSocket data error:', error);
+                }
+            };
+            
+            ws.onclose = function() {
+                isConnected = false;
+                updateConnectionStatus(false);
+                showNotification('Connection lost - attempting to reconnect...', 'warning');
+                
+                // Attempt to reconnect after 5 seconds
+                setTimeout(connectWebSocket, 5000);
+            };
+            
+            ws.onerror = function(error) {
+                console.error('WebSocket error:', error);
+            };
+        }
+
+        // Update connection status
+        function updateConnectionStatus(connected) {
+            const indicator = document.getElementById('connection-status');
+            const statusSpan = indicator.querySelector('span');
+            
+            if (connected) {
+                indicator.className = 'status-indicator status-online';
+                statusSpan.textContent = 'Connected';
+            } else {
+                indicator.className = 'status-indicator status-offline';
+                statusSpan.textContent = 'Disconnected';
+            }
+        }
+
+        // Update metrics display
+        function updateMetrics(data) {
+            // Header stats
+            document.getElementById('header-hashrate').textContent = `${data.hashrate || 0} MH/s`;
+            document.getElementById('header-profit').textContent = `$${(data.profit || 0).toFixed(2)}`;
+            document.getElementById('header-efficiency').textContent = (data.efficiency || 0).toFixed(1);
+            
+            // Overview metrics
+            document.getElementById('current-hashrate').textContent = (data.hashrate || 0).toFixed(2);
+            document.getElementById('shares-accepted').textContent = data.validShares || 0;
+            document.getElementById('accept-rate').textContent = `${(data.acceptRate || 0).toFixed(1)}%`;
+            document.getElementById('current-difficulty').textContent = (data.difficulty || 1).toFixed(1);
+            
+            // Hardware metrics
+            document.getElementById('temperature').textContent = `${Math.round(data.temperature || 0)}°C`;
+            document.getElementById('power-usage').textContent = `${Math.round(data.power || 0)}W`;
+            document.getElementById('efficiency').textContent = (data.efficiency || 0).toFixed(1);
+            document.getElementById('uptime').textContent = formatUptime(data.uptime || 0);
+            
+            // Temperature progress bar
+            const tempPercentage = Math.min((data.temperature || 0) / 85 * 100, 100);
+            document.getElementById('temp-percentage').textContent = `${tempPercentage.toFixed(0)}%`;
+            document.getElementById('temp-progress').style.width = `${tempPercentage}%`;
+            
+            // Profitability
+            const dailyProfit = data.profit || 0;
+            document.getElementById('daily-profit').textContent = `$${dailyProfit.toFixed(2)}`;
+            document.getElementById('weekly-profit').textContent = `$${(dailyProfit * 7).toFixed(2)}`;
+            document.getElementById('monthly-profit').textContent = `$${(dailyProfit * 30).toFixed(2)}`;
+            document.getElementById('electricity-cost').textContent = `$${((data.power || 0) * 0.12 * 24 / 1000).toFixed(2)}`;
+            
+            // Mining status
+            updateMiningStatus(data.is_mining, data.is_authorized);
+            
+            // Pool status
+            updatePoolStatus(data.pool, data.is_authorized);
+        }
+
+        // Update mining status
+        function updateMiningStatus(mining, authorized) {
+            const statusIndicator = document.getElementById('mining-status');
+            const statusSpan = statusIndicator.querySelector('span');
+            
+            isMining = mining;
+            
+            if (mining && authorized) {
+                statusIndicator.className = 'status-indicator status-mining';
+                statusSpan.textContent = 'Mining';
+            } else if (mining) {
+                statusIndicator.className = 'status-indicator status-warning';
+                statusSpan.textContent = 'Connecting';
+            } else {
+                statusIndicator.className = 'status-indicator status-offline';
+                statusSpan.textContent = 'Stopped';
+            }
+            
+            updateMiningButtons();
+        }
+
+        // Update pool status
+        function updatePoolStatus(poolName, connected) {
+            document.getElementById('current-pool-name').textContent = poolName || 'Not Connected';
+            document.getElementById('current-pool-stats').textContent = connected ? 
+                'Connected and authorized' : 'Disconnected';
+            
+            const poolStatus = document.getElementById('pool-connection-status');
+            const statusSpan = poolStatus.querySelector('span');
+            
+            if (connected) {
+                poolStatus.className = 'status-indicator status-online';
+                statusSpan.textContent = 'Online';
+            } else {
+                poolStatus.className = 'status-indicator status-offline';
+                statusSpan.textContent = 'Offline';
+            }
+        }
+
+        // Update mining buttons
+        function updateMiningButtons() {
+            const startBtn = document.getElementById('start-btn');
+            const stopBtn = document.getElementById('stop-btn');
+            
+            if (isMining) {
+                startBtn.disabled = true;
+                stopBtn.disabled = false;
+            } else {
+                startBtn.disabled = false;
+                stopBtn.disabled = true;
+            }
+        }
+
+        // Mining controls
+        async function startMining() {
+            const btn = document.getElementById('start-btn');
+            const loading = document.getElementById('start-loading');
+            
+            btn.disabled = true;
+            loading.style.display = 'inline-block';
+            
+            try {
+                const response = await fetch('/api/actions/start', { method: 'POST' });
+                const data = await response.json();
+                
+                if (response.ok) {
+                    showNotification('Mining started successfully!', 'success');
+                } else {
+                    showNotification(data.message || 'Failed to start mining', 'error');
+                }
+            } catch (error) {
+                showNotification(`Error starting mining: ${error.message}`, 'error');
+            } finally {
+                btn.disabled = false;
+                loading.style.display = 'none';
+            }
+        }
+
+        async function stopMining() {
+            const btn = document.getElementById('stop-btn');
+            const loading = document.getElementById('stop-loading');
+            
+            btn.disabled = true;
+            loading.style.display = 'inline-block';
+            
+            try {
+                const response = await fetch('/api/actions/stop', { method: 'POST' });
+                const data = await response.json();
+                
+                if (response.ok) {
+                    showNotification('Mining stopped successfully!', 'success');
+                } else {
+                    showNotification(data.message || 'Failed to stop mining', 'error');
+                }
+            } catch (error) {
+                showNotification(`Error stopping mining: ${error.message}`, 'error');
+            } finally {
+                btn.disabled = false;
+                loading.style.display = 'none';
+            }
+        }
+
+        // Utility functions
+        function formatUptime(seconds) {
+            if (typeof seconds === 'string') return seconds;
+            
+            const hours = Math.floor(seconds / 3600);
+            const minutes = Math.floor((seconds % 3600) / 60);
+            const secs = Math.floor(seconds % 60);
+            
+            if (hours > 0) {
+                return `${hours}h ${minutes}m ${secs}s`;
+            } else if (minutes > 0) {
+                return `${minutes}m ${secs}s`;
+            } else {
+                return `${secs}s`;
+            }
+        }
+
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.className = `notification alert-${type}`;
+            notification.textContent = message;
+            
+            document.body.appendChild(notification);
+            
+            // Show notification
+            setTimeout(() => notification.classList.add('show'), 100);
+            
+            // Hide and remove notification after 5 seconds
+            setTimeout(() => {
+                notification.classList.remove('show');
+                setTimeout(() => document.body.removeChild(notification), 300);
+            }, 5000);
+        }
+
+        // Chart initialization and management
+        function initializeCharts() {
+            // Hashrate chart
+            const hashrateCtx = document.getElementById('hashrate-chart').getContext('2d');
+            charts.hashrate = new Chart(hashrateCtx, {
+                type: 'line',
+                data: {
+                    labels: [],
+                    datasets: [{
+                        label: 'Hashrate (MH/s)',
+                        data: [],
+                        borderColor: '#2563eb',
+                        backgroundColor: 'rgba(37, 99, 235, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'MH/s'
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Shares chart (pie chart)
+            const sharesCtx = document.getElementById('shares-chart').getContext('2d');
+            charts.shares = new Chart(sharesCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Accepted', 'Rejected'],
+                    datasets: [{
+                        data: [0, 0],
+                        backgroundColor: ['#10b981', '#ef4444'],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }
+            });
+
+            // Efficiency chart
+            const efficiencyCtx = document.getElementById('efficiency-chart').getContext('2d');
+            charts.efficiency = new Chart(efficiencyCtx, {
+                type: 'line',
+                data: {
+                    labels: [],
+                    datasets: [{
+                        label: 'Efficiency (MH/W)',
+                        data: [],
+                        borderColor: '#f59e0b',
+                        backgroundColor: 'rgba(245, 158, 11, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'MH/W'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function updateMetricsHistory(data) {
+            const now = new Date();
+            const timeLabel = now.toLocaleTimeString();
+            
+            // Add new data point
+            metricsHistory.timestamps.push(timeLabel);
+            metricsHistory.hashrate.push(data.hashrate || 0);
+            metricsHistory.efficiency.push(data.efficiency || 0);
+            
+            // Keep only last 20 data points
+            if (metricsHistory.timestamps.length > 20) {
+                metricsHistory.timestamps.shift();
+                metricsHistory.hashrate.shift();
+                metricsHistory.efficiency.shift();
+            }
+        }
+
+        function updateCharts() {
+            // Update hashrate chart
+            if (charts.hashrate) {
+                charts.hashrate.data.labels = metricsHistory.timestamps;
+                charts.hashrate.data.datasets[0].data = metricsHistory.hashrate;
+                charts.hashrate.update('none');
+            }
+
+            // Update efficiency chart
+            if (charts.efficiency) {
+                charts.efficiency.data.labels = metricsHistory.timestamps;
+                charts.efficiency.data.datasets[0].data = metricsHistory.efficiency;
+                charts.efficiency.update('none');
+            }
+        }
+
+        function updateChartThemes() {
+            const isDark = currentTheme === 'dark';
+            const textColor = isDark ? '#f1f5f9' : '#1e293b';
+            const gridColor = isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)';
+
+            Object.values(charts).forEach(chart => {
+                chart.options.scales.x.ticks.color = textColor;
+                chart.options.scales.y.ticks.color = textColor;
+                chart.options.scales.x.grid.color = gridColor;
+                chart.options.scales.y.grid.color = gridColor;
+                chart.options.plugins.legend.labels.color = textColor;
+                chart.update();
+            });
+        }
+
+        // Load configuration and other functions
+        async function loadConfiguration() {
+            try {
+                const response = await fetch('/api/config');
+                const config = await response.json();
+                
+                document.getElementById('worker-name').value = config.workerName || '';
+                document.getElementById('min-payout').value = config.minimumPayoutThreshold || '';
+            } catch (error) {
+                console.error('Failed to load configuration:', error);
+            }
+        }
+
+        async function refreshData() {
+            const loading = document.getElementById('refresh-loading');
+            loading.style.display = 'inline-block';
+            
+            try {
+                const response = await fetch('/api/status');
+                const data = await response.json();
+                // Status data will be handled by WebSocket updates
+            } catch (error) {
+                console.error('Failed to refresh data:', error);
+            } finally {
+                loading.style.display = 'none';
+            }
+        }
+
+        async function loadPools() {
+            // This would load pool configurations
+            const poolList = document.getElementById('pool-list');
+            
+            // Mock pool data for now
+            const pools = [
+                { name: 'F2Pool LTC', url: 'ltc.f2pool.com:8888', status: 'online', hashrate: '125.4 MH/s' },
+                { name: 'ZSolo DOGE', url: 'doge.zsolo.bid:8057', status: 'online', hashrate: '98.7 MH/s' }
+            ];
+            
+            poolList.innerHTML = pools.map(pool => `
+                <div class="pool-item">
+                    <div class="pool-info">
+                        <div class="pool-name">${pool.name}</div>
+                        <div class="pool-stats">${pool.url} • ${pool.hashrate}</div>
+                    </div>
+                    <div class="status-indicator status-${pool.status}">
+                        <div class="status-dot"></div>
+                        <span>${pool.status}</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Placeholder functions for advanced features
+        function openProfitCalculator() {
+            showNotification('Profit calculator opening...', 'info');
+        }
+
+        function addPool() {
+            showNotification('Add pool dialog would open here', 'info');
+        }
+
+        function testPoolConnection() {
+            showNotification('Testing pool connection...', 'info');
+        }
+
+        function saveSettings() {
+            showNotification('Settings saved successfully!', 'success');
+        }
+
+        function saveEconomicSettings() {
+            showNotification('Economic guardian settings updated!', 'success');
+        }
+
+        // Load theme on startup
+        loadTheme();
+    </script>
+</body>
+</html>

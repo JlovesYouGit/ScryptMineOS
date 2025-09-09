@@ -1,0 +1,32 @@
+# DeepSource configuration file
+# Learn how to configure: https://docs.deepsource.com/docs/configuration
+version = 1
+exclude_patterns = ["venv", "__pycache__", "*.pyc", "build/", "dist/"]
+test_patterns = ["**/test_*.py", "**/*_test.py"]
+
+[[analyzers]]
+  name = "python"
+  enabled = true
+  
+  [analyzers.meta]
+    runtime_version = "3.x.x"
+    max_line_length = 120
+    
+  [[analyzers.issues.PYL-R1705]]
+    enabled = true
+    severity = "minor"
+    
+  [[analyzers.issues.PYL-R1714]]
+    enabled = true
+    severity = "minor"
+    
+  [[analyzers.issues.PYL-C0103]]
+    enabled = false  # Allow short variable names in mining context
+    
+  [[analyzers.issues.PYL-W0613]]
+    enabled = false  # Allow unused arguments in callback functions
+
+# Additional analyzer for shell scripts if needed
+[[analyzers]]
+  name = "shell"
+  enabled = true
