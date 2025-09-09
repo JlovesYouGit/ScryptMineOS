@@ -99,6 +99,24 @@ LTC_WALLET.DOGE_WALLET.WorkerName
 | DOGE | 40 | Existing wallet configured |
 | Others | 1-40,000 | See F2Pool documentation |
 
+## 📊 Data Persistence with MongoDB Atlas
+
+### Overview
+The mining system now supports persistent data storage using MongoDB Atlas, allowing for historical analysis, monitoring, and reporting of mining statistics.
+
+### Setup Instructions
+1. Create a MongoDB Atlas account and cluster
+2. Configure database settings in `config/mining_config.yaml` or set the `MONGODB_URI` environment variable
+3. Enable database integration in the configuration
+
+See [MONGODB_INTEGRATION.md](MONGODB_INTEGRATION.md) for detailed setup instructions.
+
+### Data Stored
+- Share submissions (accepted/rejected)
+- Performance metrics (hashrate, uptime)
+- System metrics (CPU, memory, network)
+- Alerts and events
+
 ## ⚙️ ASIC Optimization Guide
 
 ### 1. Firmware Update
@@ -156,6 +174,30 @@ asic_chain_count          # Active mining chains
 # Handles connection failures gracefully
 ```
 
+## 🛠️ Bazel Build System Support
+
+This project now includes Bazel build configuration for improved dependency management and reproducible builds.
+
+### Setup
+
+1. Install Bazel: https://docs.bazel.build/versions/main/install.html
+2. Run the setup script: `BAZEL_SETUP.bat`
+
+### Usage
+
+```bash
+# Build all targets
+bazel build //...
+
+# Run the main miner
+bazel run //:runner
+
+# Run tests
+bazel test //...
+```
+
+See [BAZEL_USAGE.md](BAZEL_USAGE.md) for detailed instructions.
+
 ## 📊 Economic Analysis
 
 ### Current Setup (50.6 kH/s GPU)
@@ -184,5 +226,7 @@ pip install -r requirements.txt
 - pyopencl==2025.2.6
 - requests==2.32.5
 - prometheus_client==0.16.0  # Added for ASIC monitoring
+- pymongo==4.8.0             # Added for MongoDB integration
+- dnspython==2.6.1           # Added for MongoDB integration
 - AMD OpenCL 2.1 (verified)
 ```

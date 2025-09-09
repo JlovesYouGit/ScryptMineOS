@@ -1,0 +1,19 @@
+[Unit]
+Description=Mining OS Service
+After=network.target
+
+[Service]
+Type=simple
+User=miner
+WorkingDirectory=/opt/mining-os
+ExecStart=/opt/mining-os/venv/bin/python -m src.mining_os
+Restart=always
+RestartSec=10
+Environment=ENV=prod
+# Set your personal wallet address here for receiving mining rewards
+# Use either your Litecoin address: ltc1qpptg85asckrjy9ygygh2tfgxqwzn6672zmzq99
+# Or your Dogecoin address: DGKsuHU6XdghZtA2aWGqvrZrkWracQJzPd
+Environment=PAYOUT_ADDR=ltc1qpptg85asckrjy9ygygh2tfgxqwzn6672zmzq99
+
+[Install]
+WantedBy=multi-user.target

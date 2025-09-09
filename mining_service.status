@@ -1,0 +1,9 @@
+{
+  "status": "running",
+  "pid": 1536,
+  "start_time": "2025-09-05T15:52:50.025403",
+  "restart_count": 2,
+  "last_restart": "2025-09-05T15:54:00.049442",
+  "details": "Restarted 2 times",
+  "timestamp": "2025-09-05T15:54:00.049442"
+}

@@ -6,22 +6,23 @@ Single executable that runs the full optimization + hardware emulation system
 This script automatically:
 1. Runs performance optimization roadmap (targeting 1.0 MH/J)
 2. Enables ASIC hardware emulation layer
-3. Starts GPU-ASIC hybrid layer  
+3. Starts GPU-ASIC hybrid layer
 4. Activates educational mode for safe testing
 5. Provides real-time monitoring and status updates
 
 Usage: python run_complete_system.py
 """
 
-import sys
 import os
-import time
-import subprocess
-import threading
 import signal
+import subprocess
+import sys
+import threading
+import time
 from typing import Optional
 
-def print_banner():
+
+def print_banner() -> None:
     """Print system banner"""
     print("=" * 70)
     print("🚀 GPU-ASIC COMPLETE SYSTEM LAUNCHER")
@@ -30,38 +31,40 @@ def print_banner():
     print("=" * 70)
     print()
 
-def check_dependencies():
+
+def check_dependencies() -> bool:
     """Check if required files exist"""
     required_files = [
         "runner.py",
-        "performance_optimizer.py", 
+        "performance_optimizer.py",
         "asic_hardware_emulation.py",
         "gpu_asic_hybrid.py"
     ]
-    
+
     missing_files = []
     for file in required_files:
         if not os.path.exists(file):
             missing_files.append(file)
-    
+
     if missing_files:
         print("❌ Missing required files:")
         for file in missing_files:
             print(f"   - {file}")
         print("\nPlease ensure all system components are present.")
         return False
-    
+
     print("✅ All system components found")
     return True
 
-def run_system_tests():
+
+def run_system_tests() -> None:
     """Run quick system tests"""
     print("🧪 Running system validation tests...")
-    
+
     # Test performance optimizer
     try:
         print("   Testing performance optimizer...")
-        result = subprocess.run([sys.executable, "performance_optimizer.py"], 
+        result = subprocess.run([sys.executable, "performance_optimizer.py"],
                                capture_output=True, text=True, timeout=30)
         if result.returncode == 0:
             print("   ✅ Performance optimizer: WORKING")
@@ -69,35 +72,43 @@ def run_system_tests():
             print("   ⚠️  Performance optimizer: Issues detected")
     except Exception as e:
         print(f"   ⚠️  Performance optimizer test failed: {e}")
-    
+
     # Test hardware emulation
     try:
         print("   Testing hardware emulation...")
-        result = subprocess.run([sys.executable, "asic_hardware_emulation.py"], 
-                               capture_output=True, text=True, timeout=15)
+        result = subprocess.run(
+            [sys.executable,
+            "asic_hardware_emulation.py"],
+
+        )
+                               capture_output = True, text = True, timeout = 15)
         if result.returncode == 0 and "8/8 passed" in result.stdout:
             print("   ✅ Hardware emulation: WORKING")
         else:
             print("   ⚠️  Hardware emulation: Issues detected")
     except Exception as e:
         print(f"   ⚠️  Hardware emulation test failed: {e}")
-    
+
     print("✅ System validation complete")
     print()
 
-def monitor_system_status():
+def monitor_system_status() -> None:
     """Monitor and display system status"""
     print("📊 SYSTEM STATUS MONITORING")
     print("-" * 40)
-    
+
     start_time = time.time()
-    
+
     while True:
         try:
             elapsed = time.time() - start_time
-            
+
             # Display running status
-            print(f"\r⏱️  Runtime: {elapsed:.0f}s | Status: ACTIVE | Press Ctrl+C to stop", end="", flush=True)
+            print(
+                f"\r⏱️  Runtime: {elapsed:.0f}s | Status: ACTIVE | Press Ctrl+C to stop",
+                end="",
+                flush=True
+            )
             
             time.sleep(1)
             
@@ -106,14 +117,14 @@ def monitor_system_status():
             break
         except Exception as e:
             print(f"\n⚠️  Monitoring error: {e}")
-            time.sleep(5)
+            time.sleep(5)  # Consider reducing sleep time  # Consider reducing sleep time
 
-def signal_handler(signum, frame):
+def signal_handler(signum, frame) -> None:
     """Handle Ctrl+C gracefully"""
     print("\n\n🔽 Graceful shutdown initiated...")
     sys.exit(0)
 
-def main():
+def main() -> int:
     """Main launcher function"""
     # Set up signal handler for graceful shutdown
     signal.signal(signal.SIGINT, signal_handler)
@@ -176,7 +187,7 @@ def main():
         )
         
         # Start output monitoring in separate thread
-        def monitor_output():
+        def monitor_output() -> None:
             try:
                 for line in iter(process.stdout.readline, ''):
                     if line.strip():
@@ -196,7 +207,7 @@ def main():
         output_thread.start()
         
         # Wait a moment for system to start
-        time.sleep(3)
+        time.sleep(3)  # Consider reducing sleep time  # Consider reducing sleep time
         
         # Check if process completed successfully (exit code 0 is success)
         if process.poll() == 0:
@@ -214,7 +225,7 @@ def main():
         print("\n🔽 Shutting down complete system...")
         if 'process' in locals() and process.poll() is None:
             process.terminate()
-            process.wait(timeout=10)
+            process.wait(timeout=MAX_RETRIES)
     
     except Exception as e:
         print(f"❌ System error: {e}")

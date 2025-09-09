@@ -1,0 +1,8 @@
+atapi>=0.68.0
+unicorns>=0.15.0
+pydantic>=1.8.0
+pydantic-settings>=2.0.0
+websockets>=10.0
+requests>=2.25.0
+structlog>=21.0.0
+guidon>=20.1.0

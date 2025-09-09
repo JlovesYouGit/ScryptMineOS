@@ -1,0 +1,84 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: scrypt-doge-miner
+  labels:
+    app: scrypt-doge-miner
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: scrypt-doge-miner
+  template:
+    metadata:
+      labels:
+        app: scrypt-doge-miner
+    spec:
+      containers:
+      - name: miner
+        image: scrypt-doge-miner:latest
+        ports:
+        - containerPort: 8080
+          name: metrics
+        - containerPort: 8081
+          name: health
+        env:
+        - name: MINING_WALLET_ADDRESS
+          valueFrom:
+            secretKeyRef:
+              name: mining-secrets
+              key: wallet-address
+        - name: MINING_POOL_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: mining-secrets
+              key: pool-username
+        - name: ELECTRICITY_COST_KWH
+          valueFrom:
+            configMapKeyRef:
+              name: mining-config
+              key: electricity-cost
+        volumeMounts:
+        - name: config
+          mountPath: /app/config
+        - name: logs
+          mountPath: /app/logs
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "500m"
+          limits:
+            memory: "1Gi"
+            cpu: "1000m"
+      volumes:
+      - name: config
+        configMap:
+          name: mining-config
+      - name: logs
+        emptyDir: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: scrypt-doge-miner-metrics
+spec:
+  selector:
+    app: scrypt-doge-miner
+  ports:
+  - port: 8080
+    targetPort: 8080
+    name: metrics
+  type: ClusterIP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: scrypt-doge-miner-health
+spec:
+  selector:
+    app: scrypt-doge-miner
+  ports:
+  - port: 8081
+    targetPort: 8081
+    name: health
+  type: ClusterIP

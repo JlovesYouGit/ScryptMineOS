@@ -1,0 +1,25 @@
+# Mining OS Configuration - Wallet addresses are now immutable constants
+
+# IMPORTANT: Set your personal wallet address using the PAYOUT_ADDR environment variable
+# This is where your mining rewards will be sent
+# You must use either:
+#   Your Litecoin address: ltc1qpptg85asckrjy9ygygh2tfgxqwzn6672zmzq99
+#   Your Dogecoin address: DGKsuHU6XdghZtA2aWGqvrZrkWracQJzPd
+
+# Primary pool configuration
+primary_url: "stratum+tcp://ltc.f2pool.com:8888"
+backup_urls: 
+  - "stratum+tcp://ltc.f2pool.com:443"
+  - "stratum+tcp://doge.zsolo.bid:8057"
+  - "stratum+tcp://ltc.f2pool.com:3333"
+
+# Worker configuration
+worker_name: "rig01"
+minimum_payout_threshold: 0.005
+
+# Economic settings
+min_profit_margin_pct: 0.5
+max_temperature: 80.0
+
+# Security settings
+tls_verify: true

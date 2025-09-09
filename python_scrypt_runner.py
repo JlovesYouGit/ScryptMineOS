@@ -1,18 +1,17 @@
+import pyscrypt
+
+
 # python_scrypt_runner.py
 # Host code for Python Scrypt implementation
-
-import pyscrypt
-import numpy as np
-
-def main():
+def main() -> int:
     print("Starting Python Scrypt runner...")
 
     # Input data
-    password = b'password'
-    salt = b'salt'
+    password = b"password"
+    salt = b"salt"
 
     # Scrypt parameters
-    N = 1024
+    N = EXTENDED_TIMEOUT_MS
     r = 1
     p = 1
     dkLen = 32
@@ -24,6 +23,7 @@ def main():
     print(f"Derived key: {derived_key.hex()}")
 
     print("Python Scrypt runner finished.")
+
 
 if __name__ == "__main__":
     main()

@@ -1,0 +1,8 @@
+{
+    "python.analysis.typeCheckingMode": "off",
+    "cSpell.words": [
+        "Runtile"
+    ],
+    "codeQL.createQuery.qlPackLocation": "n:\\miner\\NBMiner_42.3_Win\\scrypt\\scrypt_doge",
+    "python.pythonPath": ".venv\\Scripts\\python.exe"
+}

@@ -70,3 +70,249 @@ Error: Compiling CL to IR
 
 (options: -I C:\Users\JJ\AppData\Local\Programs\Python\Python311\Lib\site-packages\pyopencl\cl)
 (source saved as C:\Users\JJ\AppData\Local\Temp\tmpfilpus7d.cl)
+usage: runner.py [-h]
+                 [--pool-host POOL_HOST]
+                 [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER]
+                 [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT] [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT] [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: ambiguous option: --pool could match --pool-host, --pool-port, --pool-user, --pool-pass
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT] [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h]
+                 [--pool-host POOL_HOST]
+                 [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER]
+                 [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h]
+                 [--pool-host POOL_HOST]
+                 [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER]
+                 [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating
+usage: runner.py [-h] [--pool-host POOL_HOST] [--pool-port POOL_PORT]
+                 [--pool-user POOL_USER] [--pool-pass POOL_PASS]
+runner.py: error: unrecognized arguments: --educational --optimize-performance --hardware-emulation --use-l2-kernel --voltage-tuning --clock-gating

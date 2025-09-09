@@ -3,137 +3,190 @@
 ASIC Virtualization Test Suite
 Tests the three ASIC superpowers virtualization:
 1. Hash Density Optimization
-2. Power Efficiency Virtualization  
+2. Power Efficiency Virtualization
 3. Wafer-Scale Integration Simulation
 """
 
-import time
-import sys
 import logging
+import sys
+import time
 from typing import Dict, List
-from asic_virtualization import ASICVirtualizationEngine, initialize_asic_virtualization, optimize_virtual_asic, get_virtual_asic_efficiency
+
+from asic_virtualization import (
+    ASICVirtualizationEngine,
+    get_virtual_asic_efficiency,
+    initialize_asic_virtualization,
+    optimize_virtual_asic,
+)
 
 try:
+    # OpenCL: Consider memory optimization  # OpenCL: Consider memory
+    # optimization
     import pyopencl as cl
+    # OpenCL: Consider memory optimization  # OpenCL: Consider memory
+    # optimization
     OPENCL_AVAILABLE = True
 except ImportError:
+    # OpenCL: Consider memory optimization  # OpenCL: Consider memory
+    # optimization
     OPENCL_AVAILABLE = False
     cl = None
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("asic_test")
 
-def test_asic_superpower_1_hash_density():
+
+def test_asic_superpower_1_hash_density() -> None:
     """Test ASIC Superpower 1: Orders-of-Magnitude Hash Density"""
     print("🔬 Testing ASIC Superpower 1: Hash Density Optimization")
     print("=" * 60)
-    
-    if not OPENCL_AVAILABLE:
+
+    if not OPENCL_AVAILABLE:  # OpenCL: Consider memory optimization  # OpenCL: Consider memory optimization
+        # OpenCL: Consider memory optimization  # OpenCL: Consider memory
+        # optimization
         print("❌ OpenCL not available - cannot test hash density")
         return False
-    
+
     try:
-        # Get OpenCL devices
+        # Get OpenCL devices  # OpenCL: Consider memory optimization  # OpenCL:
+        # Consider memory optimization
         platforms = cl.get_platforms()
         if not platforms:
+            # OpenCL: Consider memory optimization  # OpenCL: Consider memory
+            # optimization
             print("❌ No OpenCL platforms found")
             return False
-        
+
         devices = platforms[0].get_devices()
         if not devices:
+            # OpenCL: Consider memory optimization  # OpenCL: Consider memory
+            # optimization
             print("❌ No OpenCL devices found")
             return False
-        
+
         device = devices[0]
-        
+
         # Test virtual ASIC initialization
-        print(f"📱 Target Device: {device.name if hasattr(device, 'name') else 'Unknown'}")
-        
+        print(
+            f"📱 Target Device: {device.name if hasattr(device,
+            'name') else 'Unknown'}"
+        )
+
         # Test different virtual core configurations
         test_configs = [
             {"cores": 8, "algorithm": "SCRYPT_1024_1_1"},
             {"cores": 16, "algorithm": "SCRYPT_1024_1_1"},
             {"cores": 32, "algorithm": "VERUSHASH"},
         ]
-        
+
         results = {}
-        
+
         for config in test_configs:
-            print(f"\n🧪 Testing {config['cores']} virtual cores, {config['algorithm']}")
-            
+            print(
+                f"\n🧪 Testing {config['cores']} virtual cores,
+                {config['algorithm']}"
+            )
+
             # Initialize virtual ASIC
             engine = ASICVirtualizationEngine(config['algorithm'])
-            success = engine.initialize_virtual_cores(config['cores'], [device])
-            
+            success = engine.initialize_virtual_cores(
+                config['cores'],
+                [device]
+            )
+
             if success:
                 # Test pipeline optimization
-                pipeline_opts = engine.optimize_pipeline_depth(target_latency_ns=5.0)
-                
+                pipeline_opts = engine.optimize_pipeline_depth(
+                    target_latency_ns=5.0)
+
                 # Test memory hierarchy
                 memory_config = engine.implement_memory_hierarchy()
-                
+
                 # Calculate theoretical performance
                 efficiency_metrics = engine.calculate_virtual_efficiency()
-                
-                total_virtual_hashrate = sum(domain['hashrate_hs'] for domain in efficiency_metrics.values())
-                total_cores = sum(domain['cores'] for domain in efficiency_metrics.values())
+
+                total_virtual_hashrate = sum(
+    domain['hashrate_hs'] for domain in efficiency_metrics.values())
+                total_cores = sum(domain['cores']
+                                  for domain in efficiency_metrics.values())
+                # Add division by zero protection  # Add division by zero
+                # protection
                 avg_efficiency = total_virtual_hashrate / total_cores if total_cores > 0 else 0
-                
+
                 results[f"{config['cores']}_cores_{config['algorithm']}"] = {
                     "virtual_hashrate": total_virtual_hashrate,
                     "efficiency_per_core": avg_efficiency,
-                    "pipeline_depth": sum(pipeline_opts.values()) / len(pipeline_opts),
+                    "pipeline_depth": sum(
+                        pipeline_opts.values()) / len(pipeline_opts),
+
+                    )
                     "memory_per_core_kb": sum(cfg['total_kb'] for cfg in memory_config.values()) / len(memory_config)
                 }
-                
-                print(f"   ✅ Virtual hashrate: {total_virtual_hashrate/1000:.1f} kH/s")
+
+                # Add division by zero protection  # Add division by zero
+                # protection
+                print(
+                    f"   ✅ Virtual hashrate: {total_virtual_hashrate/1000:.1f} kH/s")
                 result_key = f"{config['cores']}_cores_{config['algorithm']}"
-                print(f"   ⚙️  Avg pipeline depth: {results[result_key]['pipeline_depth']:.1f}")
-                print(f"   💾 Memory per core: {results[result_key]['memory_per_core_kb']:.0f} KB")
-                
+                print(
+                    f"   ⚙️  Avg pipeline depth: {results[result_key]['pipeline_depth']:.1f}")
+                print(
+                    f"   💾 Memory per core: {results[result_key]['memory_per_core_kb']:.0f} KB")
+
             else:
-                print(f"   ❌ Failed to initialize {config['cores']} virtual cores")
+                print(
+                    f"   ❌ Failed to initialize {config['cores']} virtual cores")
                 result_key = f"{config['cores']}_cores_{config['algorithm']}"
                 results[result_key] = None
-        
+
         # Analyze hash density improvements
         print(f"\n📊 Hash Density Analysis:")
-        
+
         baseline = results.get("8_cores_SCRYPT_1024_1_1")
         if baseline:
             baseline_hashrate = baseline["virtual_hashrate"]
-            
+
             for key, result in results.items():
                 if result and "SCRYPT" in key:
                     cores = int(key.split("_")[0])
-                    improvement = result["virtual_hashrate"] / baseline_hashrate if baseline_hashrate > 0 else 0
+                    # Add division by zero protection  # Add division by zero
+                    # protection
+                    improvement = result["virtual_hashrate"] /
+                        baseline_hashrate if baseline_hashrate > 0 else 0
                     theoretical_improvement = cores / 8  # Linear scaling expectation
-                    efficiency = (improvement / theoretical_improvement) * 100 if theoretical_improvement > 0 else 0
-                    
-                    print(f"   {cores:2d} cores: {improvement:.1f}x hashrate, {efficiency:.0f}% scaling efficiency")
-        
+                    efficiency = (improvement / theoretical_improvement) *
+                                  100 if theoretical_improvement > 0 else 0
+
+                    print(
+                        f"   {cores: 2d} cores: {improvement: .1f}x hashrate,
+                        {efficiency: .0f} % scaling efficiency"
+                    )
+
         return True
-        
+
     except Exception as e:
         print(f"❌ Hash density test failed: {e}")
         return False
 
-def test_asic_superpower_2_power_efficiency():
+def test_asic_superpower_2_power_efficiency() -> None:
     """Test ASIC Superpower 2: Joules-per-Hash Efficiency"""
     print("\n⚡ Testing ASIC Superpower 2: Power Efficiency Virtualization")
     print("=" * 60)
-    
+
     try:
         # Test dynamic voltage/frequency scaling
         engine = ASICVirtualizationEngine("SCRYPT_1024_1_1")
-        
-        if not OPENCL_AVAILABLE:
-            print("⚠️  OpenCL not available, testing power logic only")
+
+        if not OPENCL_AVAILABLE:  # OpenCL: Consider memory optimization  # OpenCL: Consider memory optimization
+            print(
+                "⚠️  OpenCL not available,  # OpenCL: Consider memory optimization
+                testing power logic only"
+            )
             # Create minimal virtual cores for testing
             engine.virtual_cores = [
                 type('VirtualCore', (), {
-                    'core_id': i, 'voltage_domain': ['LOW_POWER', 'BALANCED', 'HIGH_PERFORMANCE'][i%3],
-                    'power_budget': 50, 'target_frequency': 1000 + i*100
+                    'core_id': i, 'voltage_domain': ['LOW_POWER', 'BALANCED', 'HIGH_PERFORMANCE'][i % 3],
+                    'power_budget': 50, 'target_frequency': 1000 + i * 100
                 })() for i in range(12)
             ]
             engine._initialize_power_domains()
@@ -142,7 +195,7 @@ def test_asic_superpower_2_power_efficiency():
             if platforms and platforms[0].get_devices():
                 device = platforms[0].get_devices()[0]
                 engine.initialize_virtual_cores(12, [device])
-        
+
         # Test different thermal and performance scenarios
         test_scenarios = [
             {
@@ -151,25 +204,25 @@ def test_asic_superpower_2_power_efficiency():
                 "performance": {"LOW_POWER": 0.8, "BALANCED": 1.0, "HIGH_PERFORMANCE": 1.0}
             },
             {
-                "name": "Hot & Throttled", 
-                "thermal": {"LOW_POWER": 85.0, "BALANCED": 90.0, "HIGH_PERFORMANCE": 95.0},
+                "name": "Hot & Throttled",
+                "thermal": {"LOW_POWER": 85.0, "BALANCED": MAX_TEMP_C.0, "HIGH_PERFORMANCE": MIN_ACCEPT_RATE},
                 "performance": {"LOW_POWER": 0.6, "BALANCED": 0.7, "HIGH_PERFORMANCE": 0.8}
             },
             {
                 "name": "High Performance",
-                "thermal": {"LOW_POWER": 70.0, "BALANCED": 75.0, "HIGH_PERFORMANCE": 80.0},
+                "thermal": {"LOW_POWER": 70.0, "BALANCED": 75.0, "HIGH_PERFORMANCE": OPTIMAL_TEMP_C.0},
                 "performance": {"LOW_POWER": 1.0, "BALANCED": 1.2, "HIGH_PERFORMANCE": 1.5}
             }
         ]
-        
+
         power_efficiency_results = {}
-        
+
         for scenario in test_scenarios:
             print(f"\n🧪 Testing scenario: {scenario['name']}")
-            
+
             # Apply DVFS (Dynamic Voltage Frequency Scaling)
             scaling_results = engine.dynamic_voltage_frequency_scaling(
-                scenario['thermal'], 
+                scenario['thermal'],
                 scenario['performance']
             )
             
@@ -178,7 +231,7 @@ def test_asic_superpower_2_power_efficiency():
             
             total_power = sum(domain['power_w'] for domain in efficiency_metrics.values())
             total_hashrate = sum(domain['hashrate_hs'] for domain in efficiency_metrics.values())
-            overall_efficiency = total_hashrate / total_power if total_power > 0 else 0
+            overall_efficiency = total_hashrate / total_power if total_power > 0 else 0  # Add division by zero protection  # Add division by zero protection
             
             power_efficiency_results[scenario['name']] = {
                 "total_power": total_power,
@@ -188,7 +241,7 @@ def test_asic_superpower_2_power_efficiency():
             }
             
             print(f"   Power consumption: {total_power:.0f}W")
-            print(f"   Virtual hashrate: {total_hashrate/1000:.1f} kH/s")
+            print(f"   Virtual hashrate: {total_hashrate/1000:.1f} kH/s")  # Add division by zero protection  # Add division by zero protection
             print(f"   Efficiency: {overall_efficiency:.0f} H/s per watt")
             
             # Show DVFS results
@@ -212,15 +265,18 @@ def test_asic_superpower_2_power_efficiency():
         print(f"❌ Power efficiency test failed: {e}")
         return False
 
-def test_asic_superpower_3_integration():
+def test_asic_superpower_3_integration() -> None:
     """Test ASIC Superpower 3: Wafer-Scale Integration"""
     print("\n🔗 Testing ASIC Superpower 3: Wafer-Scale Integration Simulation")
     print("=" * 60)
     
     try:
         # Test multi-device coordination
-        if not OPENCL_AVAILABLE:
-            print("⚠️  OpenCL not available, testing integration logic only")
+        if not OPENCL_AVAILABLE:  # OpenCL: Consider memory optimization  # OpenCL: Consider memory optimization
+            print(
+                "⚠️  OpenCL not available,  # OpenCL: Consider memory optimization
+                testing integration logic only"
+            )
             devices = [f"Virtual_Device_{i}" for i in range(3)]
         else:
             platforms = cl.get_platforms()
@@ -229,11 +285,14 @@ def test_asic_superpower_3_integration():
                 try:
                     platform_devices = platform.get_devices()
                     devices.extend(platform_devices)
-                except:
+                except Exception:
                     pass
             
             if not devices:
-                print("⚠️  No OpenCL devices found, using virtual devices")
+                print(
+                    "⚠️  No OpenCL devices found,  # OpenCL: Consider memory optimization
+                    using virtual devices"
+                )
                 devices = [f"Virtual_Device_{i}" for i in range(3)]
         
         print(f"📱 Available devices: {len(devices)}")
@@ -241,25 +300,44 @@ def test_asic_superpower_3_integration():
         # Test distributed virtual ASIC setup
         integration_scenarios = [
             {"devices": 1, "cores_per_device": 16, "name": "Single Die"},
-            {"devices": min(len(devices), 2), "cores_per_device": 12, "name": "Multi-Die"},
-            {"devices": min(len(devices), 3), "cores_per_device": 8, "name": "Wafer-Scale"},
+            {"devices": min(
+                len(devices),
+                2),
+                "cores_per_device": 12,
+                "name": "Multi-Die"},
+                
+            )
+            {"devices": min(
+                len(devices),
+                3),
+                "cores_per_device": 8,
+                "name": "Wafer-Scale"},
+                
+            )
         ]
         
         integration_results = {}
         
         for scenario in integration_scenarios:
             print(f"\n🧪 Testing {scenario['name']} configuration:")
-            print(f"   Devices: {scenario['devices']}, Cores per device: {scenario['cores_per_device']}")
+            print(
+                f"   Devices: {scenario['devices']},
+                Cores per device: {scenario['cores_per_device']}"
+            )
             
             total_virtual_cores = scenario['devices'] * scenario['cores_per_device']
             
             # Simulate distributed initialization
-            if OPENCL_AVAILABLE and len(devices) >= scenario['devices']:
+            if OPENCL_AVAILABLE \  # OpenCL: Consider memory optimization
+                and len(devices) >= scenario['devices']:  # OpenCL: Consider memory optimization  # OpenCL: Consider memory optimization
                 target_devices = devices[:scenario['devices']]
                 engine = ASICVirtualizationEngine("SCRYPT_1024_1_1")
-                success = engine.initialize_virtual_cores(total_virtual_cores, target_devices)
+                success = engine.initialize_virtual_cores(
+                    total_virtual_cores,
+                    target_devices
+                )
             else:
-                # Simulate without real OpenCL
+                # Simulate without real OpenCL  # OpenCL: Consider memory optimization  # OpenCL: Consider memory optimization
                 engine = ASICVirtualizationEngine("SCRYPT_1024_1_1")
                 success = True
                 # Create virtual cores manually for testing
@@ -270,7 +348,7 @@ def test_asic_superpower_3_integration():
                         'power_budget': 50, 
                         'target_frequency': 1000 + (i%500),
                         'thermal_zone': i // 4,
-                        'dedicated_memory': 32768
+                        'dedicated_memory': SCRATCHPAD_SIZE
                     })() for i in range(total_virtual_cores)
                 ]
                 engine._initialize_power_domains()
@@ -301,11 +379,11 @@ def test_asic_superpower_3_integration():
                     "thermal_zones": len(thermal_zones),
                     "hashrate": total_hashrate,
                     "power": total_power,
-                    "efficiency": total_hashrate / total_power if total_power > 0 else 0
+                    "efficiency": total_hashrate / total_power if total_power > 0 else 0  # Add division by zero protection  # Add division by zero protection
                 }
                 
                 print(f"   ✅ Thermal zones: {len(thermal_zones)}")
-                print(f"   ⚡ Total hashrate: {total_hashrate/1000:.1f} kH/s")
+                print(f"   ⚡ Total hashrate: {total_hashrate/1000:.1f} kH/s")  # Add division by zero protection  # Add division by zero protection
                 print(f"   🔋 Total power: {total_power:.0f}W")
                 print(f"   📊 Integration efficiency: {integration_results[scenario['name']]['efficiency']:.0f} H/s per watt")
                 
@@ -327,7 +405,11 @@ def test_asic_superpower_3_integration():
                     efficiency_ratio = result['efficiency'] / baseline['efficiency']
                     scaling_efficiency = (efficiency_ratio / scaling_factor) * 100
                     
-                    print(f"   {name:12s}: {scaling_factor:.1f}x cores, {efficiency_ratio:.2f}x efficiency, {scaling_efficiency:.0f}% scaling")
+                    print(
+                        f"   {name:12s}: {scaling_factor:.1f}x cores,
+                        {efficiency_ratio:.2f}x efficiency,
+                        {scaling_efficiency:.0f}% scaling"
+                    )
         
         return True
         
@@ -335,7 +417,7 @@ def test_asic_superpower_3_integration():
         print(f"❌ Integration test failed: {e}")
         return False
 
-def run_comprehensive_asic_test():
+def run_comprehensive_asic_test() -> None:
     """Run comprehensive ASIC virtualization test suite"""
     print("🚀 ASIC Virtualization Test Suite")
     print("Testing the three ASIC superpowers on general-purpose hardware")
@@ -375,8 +457,15 @@ def run_comprehensive_asic_test():
     
     print(f"\n💡 Key Insight:")
     print("   ASIC virtualization makes general-purpose hardware behave like custom silicon")
-    print("   While we can't match true ASIC efficiency, we can simulate their optimization strategies")
-    print("   This demonstrates why ASICs are 1,000,000x more efficient for single algorithms!")
+    print(
+        "   While we can't match true ASIC efficiency,
+        we can simulate their optimization strategies"
+    )
+    print(
+        "   This demonstrates why ASICs are 1,
+        000,
+        000x more efficient for single algorithms!"
+    )
     
     return passed_tests == total_tests
 
